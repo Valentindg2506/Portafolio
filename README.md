@@ -1,41 +1,56 @@
-## Portafolio Web – Valentín Antonio De Gennaro
+# 🌐 Portafolio Web – **Valentín Antonio De Gennaro**
 
-Proyecto personal desarrollado para mostrar mis habilidades y proyectos como Estudiante de Desarrollo de Aplicaciones Multiplataforma (DAM).
+Portafolio profesional desarrollado para presentar mis habilidades, proyectos y trayectoria como **Estudiante de Desarrollo de Aplicaciones Multiplataforma (DAM)**.
 
-Este portafolio está diseñado con un enfoque "Dark Mode" moderno, priorizando la legibilidad, la presentación de código y una navegación fluida para presentar mis trabajos en Java, Python y Desarrollo Web.
+Este sitio está construido con un estilo **Dark Mode moderno**, enfocado en la legibilidad, la estética tecnológica y una navegación fluida, destacando mis proyectos en **DAM**.
 
-🌐 URL del proyecto
+---
 
-https://valentindg2506.github.io/Portafolio/
+## 🔗 URL del proyecto
 
-📌 Características principales
+➡️ **https://valentindg2506.github.io/Portafolio/**
 
-Diseño Dark Mode con estética tecnológica
+---
 
-Visualizador de código integrado para proyectos de Python/Java
+## ✨ Características principales
 
-Animaciones CSS suaves de entrada y hover
+- 🎨 **Diseño Dark Mode**
+- 🔄 **Animaciones CSS suaves**
+- 📱 **Diseño Responsive**
+- 🧩 **Secciones organizadas por proyectos**
 
-Diseño totalmente responsive (Móvil y Escritorio)
+---
 
-Sección de contacto y redes sociales
+## 🛠️ Tecnologías utilizadas
 
-🛠️ Tecnologías utilizadas
+- **HTML**  
+- **CSS**
+- **GitHub Pages**
 
-HTML5 Semántico
+---
 
-CSS3 (Variables, Flexbox, Grid, Glassmorphism)
+## 📸 Vista previa
 
-FontAwesome & Devicon (Iconos)
+*(Aquí puedes añadir una captura de pantalla cuando quieras)*
 
-📷 Vista previa
+---
 
+## 🚀 Objetivo del proyecto
 
+Crear una carta de presentación digital que refleje:
 
-🚀 Objetivo del proyecto
+- Mis habilidades técnicas en desarrollo multiplataforma  
+- Mi capacidad para diseñar interfaces modernas sin frameworks pesados  
+- Mi avance en Java, Python, HTML y CSS  
+- Un enfoque profesional y ordenado en el código  
+- Mi preparación para proyectos reales y entornos laborales
 
-Servir como carta de presentación profesional, demostrando capacidad para construir interfaces web modernas desde cero sin depender de frameworks pesados, así como documentar lógica de programación a través de los proyectos expuestos.
+Este portafolio se actualizará continuamente con nuevos proyectos y mejoras.
 
-📞 Contacto
+---
 
-Valentín Antonio De Gennaro 💼 LinkedIn: www.linkedin.com/in/valentin-antonio-de-gennaro
+## 📞 Contacto
+
+👨‍💻 **Valentín Antonio De Gennaro**  
+🔗 **LinkedIn:** www.linkedin.com/in/valentin-antonio-de-gennaro  
+
