@@ -1,0 +1,305 @@
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duelos de Dragones | Portafolio</title>
+    <!-- Fuentes y Estilos -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Fira+Code:wght@400&display=swap" rel="stylesheet">
+    <style>
+        /* --- ESTILOS BASE --- */
+        :root {
+            --primary: #00d4ff;
+            --bg-dark: #0f172a;
+            --code-bg: #1e1e1e;
+            --text-white: #ffffff;
+            --text-gray: #94a3b8;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--bg-dark); color: var(--text-white); padding-bottom: 4rem; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+
+        /* Navegación */
+        nav { padding: 2rem 5%; display: flex; align-items: center; }
+        .back-btn { display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--text-gray); }
+        .back-btn:hover { color: var(--primary); transform: translateX(-5px); }
+
+        /* Cabecera del Proyecto */
+        .project-header { max-width: 1000px; margin: 2rem auto; padding: 0 20px; }
+        h1 { font-size: 3rem; margin-bottom: 1rem; color: var(--primary); }
+        .description { font-size: 1.1rem; color: var(--text-gray); line-height: 1.8; margin-bottom: 2rem; }
+        
+        .tags { display: flex; gap: 10px; margin-bottom: 2rem; }
+        .tag { background: rgba(0, 212, 255, 0.1); color: var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; }
+
+        /* --- VISUALIZADOR DE CÓDIGO --- */
+        .code-container {
+            max-width: 1000px; margin: 0 auto; background: var(--code-bg);
+            border-radius: 10px; overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            margin-left: 20px; margin-right: 20px;
+        }
+        
+        /* Barra superior */
+        .editor-header {
+            background: #2d2d2d; padding: 10px 20px; display: flex; gap: 8px; border-bottom: 1px solid #333;
+        }
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .red { background: #ff5f56; } .yellow { background: #ffbd2e; } .green { background: #27c93f; }
+        .filename { margin-left: 15px; font-size: 0.85rem; color: #999; font-family: monospace; }
+
+        /* Área de código */
+        pre { padding: 20px; overflow-x: auto; }
+        code { font-family: 'Fira Code', monospace; font-size: 0.9rem; color: #d4d4d4; line-height: 1.6; }
+
+        /* Colores de Sintaxis Python */
+        .kwd { color: #c586c0; font-weight: bold; } /* Keywords (purple) */
+        .str { color: #ce9178; } /* Strings (orange) */
+        .com { color: #6a9955; font-style: italic; } /* Comentarios (green) */
+        .typ { color: #4ec9b0; } /* Tipos/Funciones (cyan) */
+        .num { color: #b5cea8; } /* Números (light green) */
+        .func { color: #dcdcaa; } /* Nombres de función (yellow) */
+
+        @media(min-width: 1040px) { .code-container { margin: 0 auto; } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="back-btn">&larr; Volver al Portafolio</a>
+    </nav>
+
+    <header class="project-header">
+        <h1>Duelos de Dragones</h1>
+        <div class="tags">
+            <span class="tag">PYTHON</span>
+            <span class="tag">ASSERT</span>
+            <span class="tag">FUNCIONES</span>
+        </div>
+        <p class="description">
+            Simulador de combate por turnos entre dos dragones. Este script implementa lógica compleja mediante el uso de <strong>funciones con retorno</strong> para el cálculo de daño, manejo de errores con <code>try-except</code> para la entrada de datos y validaciones críticas usando <code>assert</code> para asegurar la integridad de la salud y el daño durante la ejecución del duelo.
+        </p>
+    </header>
+
+    <div class="code-container">
+        <div class="editor-header">
+            <div class="dot red"></div>
+            <div class="dot yellow"></div>
+            <div class="dot green"></div>
+            <span class="filename">duelo_dragones.py</span>
+        </div>
+        
+        <pre><code>
+<span class="str">'''
+    Duelos de dragones
+    v0.1 valentin de gennaro
+'''</span>
+
+<span class="com">#En este bloque tomo los datos del usuario #######################</span>
+
+nombre_dragon_a = <span class="typ">input</span>(<span class="str">"dime el nombre del dragón A: "</span>)
+edad_dragon_a = <span class="typ">input</span>(<span class="str">"dime la edad del dragón A: "</span>)
+clasificacion_dragon_a = <span class="str">""</span>
+fuerza_dragon_a = <span class="num">0</span>
+resistencia_dragon_a = <span class="num">0</span>
+<span class="typ">print</span>(<span class="str">"El nombre del dragon A es:"</span>, nombre_dragon_a)
+<span class="typ">print</span>(<span class="str">"La edad del dragon A es:"</span>, edad_dragon_a)
+
+nombre_dragon_b = <span class="typ">input</span>(<span class="str">"dime el nombre del dragón B: "</span>)
+edad_dragon_b = <span class="typ">input</span>(<span class="str">"dime la edad del dragón B: "</span>)
+clasificacion_dragon_b = <span class="str">""</span>
+fuerza_dragon_b = <span class="num">0</span>
+resistencia_dragon_b = <span class="num">0</span>
+<span class="typ">print</span>(<span class="str">"El nombre del dragon B es:"</span>, nombre_dragon_b)
+<span class="typ">print</span>(<span class="str">"La edad del dragon B es:"</span>, edad_dragon_b)
+
+<span class="com">#En este bloque me aseguro de que son enteros ##################</span>
+
+<span class="kwd">try</span>:
+    edad_dragon_a = <span class="typ">int</span>(edad_dragon_a)
+    <span class="typ">print</span>(<span class="str">"He convertido la edad A correctamente"</span>)
+<span class="kwd">except</span>:
+    edad_dragon_a = <span class="num">100</span>
+    <span class="typ">print</span>(<span class="str">"No he convertido la edad A correctamente, uso 100 años por defecto"</span>)
+    
+<span class="kwd">try</span>:
+    edad_dragon_b = <span class="typ">int</span>(edad_dragon_b)
+    <span class="typ">print</span>(<span class="str">"He convertido la edad B correctamente"</span>)
+<span class="kwd">except</span>:
+    edad_dragon_b = <span class="num">100</span>
+    <span class="typ">print</span>(<span class="str">"No he convertido la edad B correctamente, uso 100 años por defecto"</span>)
+    
+<span class="com">#En este bloque clasifico los dragones ########################## </span>
+    
+<span class="kwd">if</span> edad_dragon_a < <span class="num">50</span>:
+    clasificacion_dragon_a = <span class="str">"Joven"</span>
+<span class="kwd">elif</span> edad_dragon_a >= <span class="num">50</span> <span class="kwd">and</span> edad_dragon_a <= <span class="num">199</span>:
+    clasificacion_dragon_a = <span class="str">"Adulto"</span>
+<span class="kwd">elif</span> edad_dragon_a >= <span class="num">200</span>:
+    clasificacion_dragon_a = <span class="str">"Anciano"</span>
+<span class="typ">print</span>(<span class="str">"El dragon A es:"</span>, clasificacion_dragon_a)
+    
+<span class="kwd">if</span> edad_dragon_b < <span class="num">50</span>:
+    clasificacion_dragon_b = <span class="str">"Joven"</span>
+<span class="kwd">elif</span> edad_dragon_b >= <span class="num">50</span> <span class="kwd">and</span> edad_dragon_b <= <span class="num">199</span>:
+    clasificacion_dragon_b = <span class="str">"Adulto"</span>
+<span class="kwd">elif</span> edad_dragon_b >= <span class="num">200</span>:
+    clasificacion_dragon_b = <span class="str">"Anciano"</span>
+<span class="typ">print</span>(<span class="str">"El dragon B es:"</span>, clasificacion_dragon_b)
+
+<span class="com">#En este bloque defino las funciones obligatorias ###############</span>
+
+<span class="kwd">def</span> <span class="func">calculaFuerzaBase</span>(edad):
+    <span class="str">'''
+    Calcula una fuerza base segun la edad:
+    - Joven (&lt;50): 10 puntos de fuerza
+    - Adulto (50-199): 15 puntos de fuerza
+    - Anciano (&gt;=200): 12 puntos de fuerza
+    '''</span>
+    <span class="kwd">if</span> edad < <span class="num">50</span>:
+        fuerza = <span class="num">10</span>
+    <span class="kwd">elif</span> edad <= <span class="num">199</span>:
+        fuerza = <span class="num">15</span>
+    <span class="kwd">else</span>:
+        fuerza = <span class="num">12</span>
+    <span class="kwd">return</span> fuerza
+
+
+<span class="kwd">def</span> <span class="func">turnoDeAtaque</span>(fuerza, resistencia_enemigo):
+    <span class="str">'''
+    Calcula el daño de un ataque en base a la fuerza del atacante
+    y la resistencia del enemigo.
+    La formula que uso es:
+    daño = fuerza - (resistencia_enemigo // 3), minimo 0.
+    No hace prints, solo devuelve el daño.
+    '''</span>
+    daño = fuerza - (resistencia_enemigo // <span class="num">3</span>)
+    <span class="kwd">if</span> daño < <span class="num">0</span>:
+        daño = <span class="num">0</span>
+
+    <span class="com"># Aserciones sobre el daño</span>
+    <span class="kwd">assert</span> <span class="typ">isinstance</span>(daño, (<span class="typ">int</span>, <span class="typ">float</span>)), <span class="str">"El daño debe ser numerico"</span>
+    <span class="kwd">assert</span> daño >= <span class="num">0</span>, <span class="str">"El daño no puede ser negativo"</span>
+
+    <span class="kwd">return</span> daño
+
+<span class="com">#En este bloque calculo fuerza y resistencia base ################</span>
+
+fuerza_dragon_a = <span class="func">calculaFuerzaBase</span>(edad_dragon_a)
+resistencia_dragon_a = fuerza_dragon_a // <span class="num">2</span> + <span class="num">5</span>
+
+fuerza_dragon_b = <span class="func">calculaFuerzaBase</span>(edad_dragon_b)
+resistencia_dragon_b = fuerza_dragon_b // <span class="num">2</span> + <span class="num">5</span>
+
+<span class="typ">print</span>(<span class="str">"Fuerza base del dragon A:"</span>, fuerza_dragon_a, <span class="str">"Resistencia base del dragon A:"</span>, resistencia_dragon_a)
+<span class="typ">print</span>(<span class="str">"Fuerza base del dragon B:"</span>, fuerza_dragon_b, <span class="str">"Resistencia base del dragon B:"</span>, resistencia_dragon_b)
+
+<span class="com">################# Ahora los vamos a entrenar ###################################</span>
+
+<span class="kwd">for</span> dia <span class="kwd">in</span> <span class="typ">range</span>(<span class="num">1</span>, <span class="num">4</span>):
+
+<span class="com">###################### como entrenar a tu dragon A##############################</span>
+    
+    <span class="kwd">if</span> clasificacion_dragon_a == <span class="str">"Joven"</span>:
+        fuerza_dragon_a += <span class="num">2</span>
+        resistencia_dragon_a += <span class="num">2</span>
+    <span class="kwd">elif</span> clasificacion_dragon_a == <span class="str">"Adulto"</span>:
+        fuerza_dragon_a += <span class="num">1</span>
+        resistencia_dragon_a += <span class="num">1</span>
+    <span class="kwd">elif</span> clasificacion_dragon_a == <span class="str">"Anciano"</span>:
+        fuerza_dragon_a += <span class="num">1</span>
+        resistencia_dragon_a += <span class="num">1</span>
+    <span class="typ">print</span>(<span class="str">"Final del dia"</span> , dia)
+    <span class="typ">print</span>(<span class="str">"El dragon A ahora tiene "</span>, fuerza_dragon_a,<span class="str">"de fuerza y "</span>, resistencia_dragon_a, <span class="str">" de resistencia"</span>)
+    
+<span class="com">###################### como entrenar a tu dragon B###############################</span>
+    
+    <span class="kwd">if</span> clasificacion_dragon_b == <span class="str">"Joven"</span>:
+        fuerza_dragon_b += <span class="num">2</span>
+        resistencia_dragon_b += <span class="num">2</span>
+    <span class="kwd">elif</span> clasificacion_dragon_b == <span class="str">"Adulto"</span>:
+        fuerza_dragon_b += <span class="num">1</span>
+        resistencia_dragon_b += <span class="num">1</span>
+    <span class="kwd">elif</span> clasificacion_dragon_b == <span class="str">"Anciano"</span>:
+        fuerza_dragon_b += <span class="num">1</span>
+        resistencia_dragon_b += <span class="num">1</span>
+    <span class="typ">print</span>(<span class="str">"Final del dia"</span> , dia)
+    <span class="typ">print</span>(<span class="str">"El dragon B ahora tiene "</span>, fuerza_dragon_b,<span class="str">"de fuerza y "</span>, resistencia_dragon_b, <span class="str">" de resistencia"</span>)
+
+<span class="com">##################### En este bloque preparo el duelo ###############################</span>
+
+salud_dragon_a = <span class="num">40</span>
+salud_dragon_b = <span class="num">40</span>
+
+<span class="typ">print</span>(<span class="str">"\nComienza el duelo entre"</span>, nombre_dragon_a, <span class="str">"y"</span>, nombre_dragon_b)
+<span class="typ">print</span>(<span class="str">"Salud inicial A:"</span>, salud_dragon_a, <span class="str">"- Salud inicial B:"</span>, salud_dragon_b)
+
+turno = <span class="num">1</span>
+
+<span class="com">#################### Duelo por turnos hasta que uno llegue a 0 #####################</span>
+
+<span class="kwd">while</span> salud_dragon_a > <span class="num">0</span> <span class="kwd">and</span> salud_dragon_b > <span class="num">0</span>:
+    <span class="typ">print</span>(<span class="str">"\n--- Turno"</span>, turno, <span class="str">"---"</span>)
+
+<span class="com">##################### Turno de ataque del dragon A a B ##############################</span>
+    <span class="typ">print</span>(<span class="str">"\nAtaca"</span>, nombre_dragon_a)
+    <span class="kwd">for</span> intento <span class="kwd">in</span> <span class="typ">range</span>(<span class="num">1</span>, <span class="num">3</span>):  <span class="com"># 2 mordiscos por turno</span>
+        daño = <span class="func">turnoDeAtaque</span>(fuerza_dragon_a, resistencia_dragon_b)
+        salud_dragon_b -= daño
+        <span class="kwd">if</span> salud_dragon_b < <span class="num">0</span>:
+            salud_dragon_b = <span class="num">0</span>
+<span class="com">############### Asercion para asegurarnos de que la salud no sea negativa ############</span>
+        <span class="kwd">assert</span> salud_dragon_b >= <span class="num">0</span>, <span class="str">"La salud del dragon B no puede ser negativa"</span>
+        <span class="typ">print</span>(<span class="str">"Mordisco"</span>, intento, <span class="str">"-&gt;"</span>, nombre_dragon_a, <span class="str">"hace"</span>, daño, <span class="str">"puntos de daño. Salud de"</span>, nombre_dragon_b, <span class="str">":"</span>, salud_dragon_b)
+        <span class="kwd">if</span> salud_dragon_b == <span class="num">0</span>:
+            <span class="kwd">break</span>
+
+    <span class="kwd">if</span> salud_dragon_b == <span class="num">0</span>:
+        <span class="typ">print</span>(<span class="str">"\n"</span>, nombre_dragon_b, <span class="str">"no puede continuar el combate."</span>)
+        <span class="kwd">break</span>
+
+<span class="com">######################### Turno de ataque del dragon B a A ###########################</span>
+    <span class="typ">print</span>(<span class="str">"\nAtaca"</span>, nombre_dragon_b)
+    <span class="kwd">for</span> intento <span class="kwd">in</span> <span class="typ">range</span>(<span class="num">1</span>, <span class="num">3</span>):  <span class="com"># 2 mordiscos por turno</span>
+        daño = <span class="func">turnoDeAtaque</span>(fuerza_dragon_b, resistencia_dragon_a)
+        salud_dragon_a -= daño
+        <span class="kwd">if</span> salud_dragon_a < <span class="num">0</span>:
+            salud_dragon_a = <span class="num">0</span>
+<span class="com">################# Asercion para asegurarnos de que la salud no sea negativa ###########</span>
+        <span class="kwd">assert</span> salud_dragon_a >= <span class="num">0</span>, <span class="str">"La salud del dragon A no puede ser negativa"</span>
+        <span class="typ">print</span>(<span class="str">"Mordisco"</span>, intento, <span class="str">"-&gt;"</span>, nombre_dragon_b, <span class="str">"hace"</span>, daño, <span class="str">"puntos de daño. Salud de"</span>, nombre_dragon_a, <span class="str">":"</span>, salud_dragon_a)
+        <span class="kwd">if</span> salud_dragon_a == <span class="num">0</span>:
+            <span class="kwd">break</span>
+
+    <span class="kwd">if</span> salud_dragon_a == <span class="num">0</span>:
+        <span class="typ">print</span>(<span class="str">"\n"</span>, nombre_dragon_a, <span class="str">"no puede continuar el combate."</span>)
+        <span class="kwd">break</span>
+
+    turno += <span class="num">1</span>
+
+<span class="com">###################### En este bloque muestro el resumen final ########################</span>
+
+<span class="typ">print</span>(<span class="str">"\n===== RESUMEN DEL DUELO ====="</span>)
+<span class="typ">print</span>(<span class="str">"Dragón A:"</span>, nombre_dragon_a)
+<span class="typ">print</span>(<span class="str">"  Edad:"</span>, edad_dragon_a, <span class="str">"- Clasificación:"</span>, clasificacion_dragon_a)
+<span class="typ">print</span>(<span class="str">"  Fuerza final:"</span>, fuerza_dragon_a, <span class="str">"- Resistencia final:"</span>, resistencia_dragon_a)
+<span class="typ">print</span>(<span class="str">"  Salud final:"</span>, salud_dragon_a)
+
+<span class="typ">print</span>(<span class="str">"Dragón B:"</span>, nombre_dragon_b)
+<span class="typ">print</span>(<span class="str">"  Edad:"</span>, edad_dragon_b, <span class="str">"- Clasificación:"</span>, clasificacion_dragon_b)
+<span class="typ">print</span>(<span class="str">"  Fuerza final:"</span>, fuerza_dragon_b, <span class="str">"- Resistencia final:"</span>, resistencia_dragon_b)
+<span class="typ">print</span>(<span class="str">"  Salud final:"</span>, salud_dragon_b)
+
+<span class="kwd">if</span> salud_dragon_a > salud_dragon_b:
+    <span class="typ">print</span>(<span class="str">"\nEl ganador del duelo es:"</span>, nombre_dragon_a)
+<span class="kwd">elif</span> salud_dragon_b > salud_dragon_a:
+    <span class="typ">print</span>(<span class="str">"\nEl ganador del duelo es:"</span>, nombre_dragon_b)
+<span class="kwd">else</span>:
+    <span class="typ">print</span>(<span class="str">"\nEl duelo termina en empate."</span>)
+        </code></pre>
+    </div>
+
+</body>
+</html>

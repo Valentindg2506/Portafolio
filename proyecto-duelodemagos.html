@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duelo de Magos | Portafolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Fira+Code:wght@400&display=swap" rel="stylesheet">
+    <style>
+        /* --- ESTILOS BASE (Mismos que el index) --- */
+        :root {
+            --primary: #00d4ff;
+            --bg-dark: #0f172a;
+            --code-bg: #1e1e1e;
+            --text-white: #ffffff;
+            --text-gray: #94a3b8;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--bg-dark); color: var(--text-white); padding-bottom: 4rem; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+
+        /* Navegación */
+        nav { padding: 2rem 5%; display: flex; align-items: center; }
+        .back-btn { display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--text-gray); }
+        .back-btn:hover { color: var(--primary); transform: translateX(-5px); }
+
+        /* Cabecera del Proyecto */
+        .project-header { max-width: 1000px; margin: 2rem auto; padding: 0 20px; }
+        h1 { font-size: 3rem; margin-bottom: 1rem; color: var(--primary); }
+        .description { font-size: 1.1rem; color: var(--text-gray); line-height: 1.8; margin-bottom: 2rem; }
+        
+        .tags { display: flex; gap: 10px; margin-bottom: 2rem; }
+        .tag { background: rgba(0, 212, 255, 0.1); color: var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; }
+
+        /* --- VISUALIZADOR DE CÓDIGO --- */
+        .code-container {
+            max-width: 1000px; margin: 0 auto; background: var(--code-bg);
+            border-radius: 10px; overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            margin-left: 20px; margin-right: 20px;
+        }
+        
+        /* Barra superior */
+        .editor-header {
+            background: #2d2d2d; padding: 10px 20px; display: flex; gap: 8px; border-bottom: 1px solid #333;
+        }
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .red { background: #ff5f56; } .yellow { background: #ffbd2e; } .green { background: #27c93f; }
+        .filename { margin-left: 15px; font-size: 0.85rem; color: #999; font-family: monospace; }
+
+        /* Área de código */
+        pre { padding: 20px; overflow-x: auto; }
+        code { font-family: 'Fira Code', monospace; font-size: 0.9rem; color: #d4d4d4; line-height: 1.6; }
+
+        /* Colores de Sintaxis Python */
+        .kwd { color: #c586c0; font-weight: bold; } /* Keywords (purple) */
+        .str { color: #ce9178; } /* Strings (orange) */
+        .com { color: #6a9955; font-style: italic; } /* Comentarios (green) */
+        .typ { color: #4ec9b0; } /* Tipos/Funciones (cyan) */
+        .num { color: #b5cea8; } /* Números (light green) */
+        .func { color: #dcdcaa; } /* Nombres de función (yellow) */
+
+        @media(min-width: 1040px) { .code-container { margin: 0 auto; } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="back-btn">&larr; Volver al Portafolio</a>
+    </nav>
+
+    <header class="project-header">
+        <h1>Duelo de Magos</h1>
+        <div class="tags">
+            <span class="tag">PYTHON</span>
+            <span class="tag">LÓGICA</span>
+            <span class="tag">CONSOLE</span>
+        </div>
+        <p class="description">
+            Un simulador de combate por turnos desarrollado en Python. 
+            El programa clasifica al mago según su edad, asigna un poder base y simula un duelo contra un escudo energético.
+            Se hace uso de estructuras de control, manejo de excepciones (try/except) y funciones con parámetros.
+        </p>
+    </header>
+
+    <div class="code-container">
+        <div class="editor-header">
+            <div class="dot red"></div>
+            <div class="dot yellow"></div>
+            <div class="dot green"></div>
+            <span class="filename">duelo_magos.py</span>
+        </div>
+        
+        <pre><code>
+<span class="str">'''
+    Duelo de magos
+    v0.1 Valentín Antonio de Gennaro
+'''</span>
+<span class="com">################### Pedir edad #####################</span>
+
+edad_mago = <span class="typ">input</span>(<span class="str">"Introduce la edad del mago: "</span>)
+clasificacion_mago = <span class="num">0</span>
+poder_base = <span class="num">0</span>
+<span class="typ">print</span>(<span class="str">"La edad del mago es: "</span>, edad_mago)
+
+<span class="com">##################Convertir a entero#################</span>
+
+<span class="kwd">try</span>:
+    edad_mago = <span class="typ">int</span>(edad_mago)
+    <span class="typ">print</span>(<span class="str">"He convertido la edad correctamente"</span>)
+    
+<span class="kwd">except</span>:
+    edad_mago = <span class="num">100</span>
+    <span class="typ">print</span>(<span class="str">"No he convertido la edad correctamente, uso 100 años por defecto"</span>)
+    
+<span class="com">################### Clasificacion por edad ############</span>
+
+<span class="kwd">if</span> edad_mago < <span class="num">30</span>:
+    clasificacion_mago = <span class="str">"Aprendiz"</span>
+    
+<span class="kwd">elif</span> edad_mago >= <span class="num">30</span> <span class="kwd">and</span> edad_mago <= <span class="num">99</span>:
+    clasificacion_mago = <span class="str">"Hechicero"</span>
+    
+<span class="kwd">elif</span> edad_mago >= <span class="num">100</span>:
+    clasificacion_mago = <span class="str">"Archimago"</span>
+    
+<span class="typ">print</span>(<span class="str">"El mago es: "</span>, clasificacion_mago)
+
+<span class="com">############ poder ###################</span>
+<span class="kwd">def</span> <span class="func">poderBase</span>(clasificacion_mago):
+    <span class="str">'''
+        poderBase
+        entradas: clasificacion_mago
+        salidas: poder_base
+    '''</span>
+    poder_base = <span class="num">0</span>
+
+    <span class="kwd">if</span> clasificacion_mago == <span class="str">"Aprendiz"</span>:
+        poder_base = <span class="num">5</span>
+        
+    <span class="kwd">elif</span> clasificacion_mago == <span class="str">"Hechicero"</span>:
+        poder_base = <span class="num">8</span>
+        
+    <span class="kwd">elif</span> clasificacion_mago == <span class="str">"Archimago"</span>:
+        poder_base = <span class="num">10</span>
+
+    <span class="typ">print</span>(<span class="str">"El poder base de tu"</span>, clasificacion_mago, <span class="str">"es:"</span>, poder_base)
+    <span class="kwd">return</span> poder_base
+
+<span class="com"># Llamo a la función y guardo el resultado en la variable poder_base</span>
+poder_base = <span class="func">poderBase</span>(clasificacion_mago)
+
+<span class="com">################### Duelo con el escudo ###################</span>
+
+<span class="com"># escudo empieza con 15pts</span>
+energia_escudo = <span class="num">15</span>
+<span class="typ">print</span>(<span class="str">"La energía inicial del escudo es:"</span>, energia_escudo)
+
+<span class="com"># recorre dos turnos con for</span>
+<span class="kwd">for</span> turno <span class="kwd">in</span> <span class="typ">range</span>(<span class="num">1</span>, <span class="num">3</span>):
+    <span class="typ">print</span>(<span class="str">"\n---------- Turno"</span>, turno, <span class="str">"----------"</span>)
+
+    <span class="com"># turno 1 fuego daño = poderbase // 2</span>
+    <span class="kwd">if</span> turno == <span class="num">1</span>:
+        <span class="typ">print</span>(<span class="str">"El mago lanza un hechizo de FUEGO"</span>)
+        daño = poder_base // <span class="num">2</span>
+    
+    <span class="com"># turno 2 hechizo rayo = daño = poderbase // 3</span>
+    <span class="kwd">else</span>:
+        <span class="typ">print</span>(<span class="str">"El mago lanza un hechizo de RAYO"</span>)
+        daño = poder_base // <span class="num">3</span>
+
+    <span class="com"># nos aseguramos de que el daño nunca sea negativo</span>
+    <span class="kwd">if</span> daño < <span class="num">0</span>:
+        daño = <span class="num">0</span>
+
+    <span class="com"># tras cada daño, print de daño y mayor que cero</span>
+    <span class="typ">print</span>(<span class="str">"El daño provocado al escudo es:"</span>, daño)
+
+    <span class="com"># resta el daño al escudo</span>
+    energia_escudo = energia_escudo - daño
+
+    <span class="com"># tras ajuste de energia, energia no puede ser menor que cero</span>
+    <span class="kwd">if</span> energia_escudo < <span class="num">0</span>:
+        energia_escudo = <span class="num">0</span>
+
+    <span class="typ">print</span>(<span class="str">"La energía del escudo tras el ataque es:"</span>, energia_escudo)
+
+<span class="com">################### Salida final ###################</span>
+
+<span class="typ">print</span>(<span class="str">"\n=========== RESUMEN DEL DUELO ==========="</span>)
+<span class="typ">print</span>(<span class="str">"Edad del mago:"</span>, edad_mago)
+<span class="typ">print</span>(<span class="str">"Rango del mago:"</span>, clasificacion_mago)
+<span class="typ">print</span>(<span class="str">"Poder base del mago:"</span>, poder_base)
+<span class="typ">print</span>(<span class="str">"Energía final del escudo:"</span>, energia_escudo)
+
+<span class="com"># energia es 0</span>
+<span class="kwd">if</span> energia_escudo == <span class="num">0</span>:
+    <span class="typ">print</span>(<span class="str">"El escudo ha sido destruido. El duelo ha roto la defensa mágica."</span>)
+
+<span class="com"># energia es mayor que 0, escudo resiste duelo</span>
+<span class="kwd">else</span>:
+    <span class="typ">print</span>(<span class="str">"El escudo resiste el duelo. La barrera mágica sigue en pie."</span>)
+        </code></pre>
+    </div>
+
+</body>
+</html>

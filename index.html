@@ -6,6 +6,7 @@
     <title>Portafolio DAM | Visual</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
         :root {
@@ -175,95 +176,71 @@
         <h2 class="section-title">Mis Proyectos</h2>
         
         <div class="grid">
+			<article class="card">
+				<img src="img/CAS.png" alt="Pagina web cas" class="imagen-proyecto">
+				<div class="card-content">
+					<div class="card-tags">
+						<span class="tag">HTML/CSS</span>
+						<span class="tag">JS</span>
+					</div>
+					<h3>Pagina WEB</h3>
+					<p>Pagina WEB con un estilo moderno, imagenes agradables y animaciones</p>
+					
+					<!-- NUEVO: Contenedor para los dos botones -->
+					<div style="display: flex; gap: 40px; margin-top: 1rem; align-items: center;">
+						<!-- Botón 1: Web Real -->
+						<a href="https://www.casrs.es" target="_blank" class="card-link">
+						    Visitar Web &rarr;
+						</a>
+						<a href="https://github.com/Valentindg2506/CAS-WEB" target="_blank" class="card-link">Ver Código &rarr;</a>
+					</div>
+					
+				</div>
+			</article>
+
             <article class="card">
-                <img src="img/CAS.png" alt="Pagina web cas" class="imagen-proyecto">
+                <img src="img/duelodemagos.png" alt="Duelo de Magos" class="imagen-proyecto">
                 <div class="card-content">
                     <div class="card-tags">
-                        <span class="tag">HTML/CSS</span>
-                        <span class="tag">JS</span>
+                        <span class="tag">Python</span>
                     </div>
-                    <h3>Pagina WEB</h3>
-                    <p>Pagina WEB con un estilo moderno, imagenes agradables y animaciones</p>
-                    <a href="https://github.com/Valentindg2506/CAS-WEB" class="card-link">Ver Código en GitHub &rarr;</a>
+                    <h3>Duelo de Magos</h3>
+                    <p>Simulador de combate por turnos en consola. Implementa lógica de control, 
+    funciones, bucles y manejo de excepciones en Python.</p>
+                    <a href="proyecto-duelodemagos.html" class="card-link">Ver Código &rarr;</a>
                 </div>
             </article>
 
             <article class="card">
-                <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop" alt="App Movil" class="imagen-proyecto">
+                <img src="img/duelodedragones.png" alt="Duelo de Dragones" class="imagen-proyecto">
                 <div class="card-content">
                     <div class="card-tags">
-                        <span class="tag">KOTLIN</span>
-                        <span class="tag">ANDROID</span>
+                        <span class="tag">Python</span>
                     </div>
-                    <h3>App de Tareas</h3>
-                    <p>Aplicación móvil nativa. Incluye base de datos local (Room), notificaciones push y diseño Material.</p>
-                    <a href="#" class="card-link">Ver Código &rarr;</a>
-                </div>
-            </article>
-
-            <article class="card">
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop" alt="Web" class="imagen-proyecto">
-                <div class="card-content">
-                    <div class="card-tags">
-                        <span class="tag">HTML/CSS</span>
-                        <span class="tag">JS</span>
-                    </div>
-                    <h3>Web Landing Page</h3>
-                    <p>Sitio web responsive con animaciones modernas, formulario de contacto funcional y optimización SEO.</p>
-                    <a href="#" class="card-link">Ver Código &rarr;</a>
-                </div>
-            </article>
-            <article class="card">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop" alt="Dashboard" class="imagen-proyecto">
-                <div class="card-content">
-                    <div class="card-tags">
-                        <span class="tag">JAVA</span>
-                        <span class="tag">SWING</span>
-                    </div>
-                    <h3>Gestión de Stock</h3>
-                    <p>Sistema de escritorio completo para tiendas. Gestión de inventario, proveedores y facturación en PDF.</p>
-                    <a href="#" class="card-link">Ver Código &rarr;</a>
-                </div>
-            </article>
-
-            <article class="card">
-                <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop" alt="App Movil" class="imagen-proyecto">
-                <div class="card-content">
-                    <div class="card-tags">
-                        <span class="tag">KOTLIN</span>
-                        <span class="tag">ANDROID</span>
-                    </div>
-                    <h3>App de Tareas</h3>
-                    <p>Aplicación móvil nativa. Incluye base de datos local (Room), notificaciones push y diseño Material.</p>
-                    <a href="#" class="card-link">Ver Código &rarr;</a>
-                </div>
-            </article>
-
-            <article class="card">
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop" alt="Web" class="imagen-proyecto">
-                <div class="card-content">
-                    <div class="card-tags">
-                        <span class="tag">HTML/CSS</span>
-                        <span class="tag">JS</span>
-                    </div>
-                    <h3>Web Landing Page</h3>
-                    <p>Sitio web responsive con animaciones modernas, formulario de contacto funcional y optimización SEO.</p>
-                    <a href="#" class="card-link">Ver Código &rarr;</a>
+                    <h3>Duelo de Dragones</h3>
+                    <p>Simulación de batalla entre dos dragones. Calcula estadísticas dinámicas basadas en la edad y gestiona un duelo turno a turno.</p>
+                    <a href="proyecto-duelodedragones.html" class="card-link">Ver Código &rarr;</a>
                 </div>
             </article>
         </div>
     </section>
 
-    <footer>
-        <h3>¿Trabajamos juntos?</h3>
-        <div class="social-links">
-            <a href="info@valentindg.com" class="social-btn" title="Email">✉️</a>
-            <a href="https://es.linkedin.com/in/valentin-antonio-de-gennaro" class="social-btn" title="LinkedIn">in</a>
-            <a href="https://github.com/Valentindg2506" class="social-btn" title="GitHub">git</a>
-        </div>
-        <br>
-        <p style="opacity: 0.5; font-size: 0.8rem;">Valentín Antonio De Gennaro, 2025</p>
-    </footer>
+	<footer>
+		<h3>Mis Redes</h3>
+		<div class="social-links">
+		    <a href="mailto:info@valentindg.com" class="social-btn" title="Email">
+		        <i class="fas fa-envelope"></i>
+		    </a>
+		    <a href="https://es.linkedin.com/in/valentin-antonio-de-gennaro" class="social-btn" title="LinkedIn" target="_blank">
+		        <i class="fab fa-linkedin-in"></i>
+		    </a>
+		    <a href="https://github.com/Valentindg2506" class="social-btn" title="GitHub" target="_blank">
+		        <i class="fab fa-github"></i>
+		    </a>
+		</div>
+		<br>
+		<p style="opacity: 0.5; font-size: 0.8rem;">Valentín Antonio De Gennaro, 2025</p>
+	</footer>
 
 </body>
 </html>
