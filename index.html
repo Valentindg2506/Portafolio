@@ -1,81 +1,231 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <title>Portafolio</title>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="estilo.css">
-    </head>
-    <body>
-        <header>
-            <h1>Valentín Antonio De Gennaro</h1>
-            <h2>Portafolio web</h2>
-        </header>
-        <main>
-            <article>
-                <img src="valentin.jpg">
-                <h3>Titulo del proyecto</h3>
-                <p>Parrafo con una descripción del proyecto</p>
-                <a href="otrapagina.html">Saber más</a>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Alumno de DAM</title>
+    <style>
+        /* --- CSS INCORPORADO --- */
+        :root {
+            --bg-color: #0b0d17;      /* Negro azulado profundo */
+            --card-bg: #15192b;       /* Un poco más claro */
+            --accent: #00f3ff;        /* Cian Neón */
+            --text-main: #e0e6ed;     /* Blanco suave */
+            --text-muted: #94a3b8;    /* Gris */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
+        
+        body { background-color: var(--bg-color); color: var(--text-main); }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        
+        /* Navegación simplificada */
+        nav {
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(0, 243, 255, 0.1);
+        }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--text-main); letter-spacing: 1px; }
+        .logo span { color: var(--accent); }
+        .nav-links a { margin-left: 2rem; font-size: 0.9rem; color: var(--text-muted); }
+        .nav-links a:hover { color: var(--accent); }
+
+        /* Hero Section */
+        header {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        h1 { font-size: 3.5rem; margin-bottom: 1rem; line-height: 1.2; }
+        h1 span { color: var(--accent); }
+        .subtitle { color: var(--text-muted); font-family: 'Courier New', monospace; margin-bottom: 2rem; font-size: 1.2rem; }
+        
+        .btn {
+            padding: 12px 30px;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            border-radius: 4px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+        }
+        .btn:hover { background: var(--accent); color: var(--bg-color); box-shadow: 0 0 15px var(--accent); }
+
+        /* Proyectos */
+        .container { max-width: 1200px; margin: 0 auto; padding: 7rem 20px 6rem; }
+        .section-title { font-size: 2rem; margin-bottom: 3rem; border-left: 4px solid var(--accent); padding-left: 1rem; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 2rem;
+            border: 1px solid transparent;
+            transition: 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        /* Efecto hover tecnológico */
+        .card:hover { border-color: var(--accent); transform: translateY(-5px); }
+        
+        .card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-main); }
+        .card p { color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem; line-height: 1.6; }
+        .tag {
+            font-size: 0.75rem;
+            background: rgba(0, 243, 255, 0.1);
+            color: var(--accent);
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-right: 5px;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        .link-project { color: var(--accent); font-weight: bold; font-size: 0.9rem; }
+
+        /* Footer */
+        /* Footer Contacto */
+		footer {
+			display: flex;
+			flex-direction: column; /* Apila los elementos verticalmente: Título -> Botones -> Copy */
+			align-items: center;    /* Centra todo horizontalmente */
+			justify-content: center;
+			gap: 2rem;              /* Espacio vertical entre cada bloque (Título, botones, copy) */
+			
+			padding: 4rem 20px;
+			background: linear-gradient(to top, var(--bg-color), var(--card-bg));
+			border-top: 1px solid rgba(0, 243, 255, 0.1);
+			color: var(--text-muted);
+		}
+
+		/* Contenedor de los botones (Fila) */
+		.contact-links {
+			display: flex;
+			flex-wrap: wrap;        /* Si es móvil, baja los botones */
+			justify-content: center;
+			gap: 1.5rem;            /* Espacio horizontal entre botones */
+		}
+
+		/* Estilo de los botones */
+		.btn-contact {
+			padding: 10px 25px;
+			border: 1px solid rgba(255, 255, 255, 0.1);
+			border-radius: 50px;
+			color: var(--text-main);
+			transition: 0.3s;
+			font-size: 0.95rem;
+		}
+
+		.btn-contact:hover {
+			border-color: var(--accent);
+			color: var(--accent);
+			box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+			transform: translateY(-3px);
+		}
+
+		.copyright {
+			margin-top: 1rem;       /* Un poco extra de aire al final */
+			font-size: 0.8rem;
+			opacity: 0.6;
+		}
+
+		.copyright { font-size: 0.8rem; opacity: 0.5; margin-bottom: 0; }
+
+        /* Responsive */
+        @media(max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">PORTAFOLIO<span>.DEV</span></div>
+        <div class="nav-links">
+            <a href="#proyectos">Proyectos</a>
+            <a href="mailto:info@valentindg.com">Contacto</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Desarrollador <br><span>Multiplataforma</span></h1>
+        <p class="subtitle">&lt;Valentín Antonio De Gennaro/&gt;</p>
+        <a href="#proyectos" class="btn">Ver código</a>
+    </header>
+
+    <section id="proyectos" class="container">
+        <h2 class="section-title">Proyectos Destacados</h2>
+        
+        <div class="grid">
+            <article class="card">
+                <span class="tag">Java</span> <span class="tag">MySQL</span>
+                <h3>Gestión de Inventario</h3>
+                <p>Aplicación de escritorio para gestión de stock en tiempo real. Implementa patrón MVC y conexión JDBC.</p>
+                <a href="#" class="link-project">Ver en GitHub &rarr;</a>
             </article>
 
-            <article>
-                <img src="valentin.jpg">
-                <h3>Titulo del proyecto</h3>
-                <p>Parrafo con una descripción del proyecto</p>
-                <a href="otrapagina.html">Saber más</a>
+            <article class="card">
+                <span class="tag">Kotlin</span> <span class="tag">Android</span>
+                <h3>App de Tareas</h3>
+                <p>Aplicación móvil nativa. Uso de Room Database, RecyclerView y notificaciones locales.</p>
+                <a href="#" class="link-project">Ver en GitHub &rarr;</a>
             </article>
 
-            <article>
-                <img src="valentin.jpg">
-                <h3>Titulo del proyecto</h3>
-                <p>Parrafo con una descripción del proyecto</p>
-                <a href="otrapagina.html">Saber más</a>
+            <article class="card">
+                <span class="tag">HTML/CSS</span> <span class="tag">JS</span>
+                <h3>Dashboard Web</h3>
+                <p>Interfaz de administración responsive utilizando Grid Layout y gráficos interactivos con librerías JS.</p>
+                <a href="#" class="link-project">Ver en GitHub &rarr;</a>
+            </article>
+                        <article class="card">
+                <span class="tag">Java</span> <span class="tag">MySQL</span>
+                <h3>Gestión de Inventario</h3>
+                <p>Aplicación de escritorio para gestión de stock en tiempo real. Implementa patrón MVC y conexión JDBC.</p>
+                <a href="#" class="link-project">Ver en GitHub &rarr;</a>
             </article>
 
-            <article>
-                <img src="valentin.jpg">
-                <h3>Titulo del proyecto</h3>
-                <p>Parrafo con una descripción del proyecto</p>
-                <a href="otrapagina.html">Saber más</a>
+            <article class="card">
+                <span class="tag">Kotlin</span> <span class="tag">Android</span>
+                <h3>App de Tareas</h3>
+                <p>Aplicación móvil nativa. Uso de Room Database, RecyclerView y notificaciones locales.</p>
+                <a href="#" class="link-project">Ver en GitHub &rarr;</a>
             </article>
 
-            <article>
-                <img src="valentin.jpg">
-                <h3>Titulo del proyecto</h3>
-                <p>Parrafo con una descripción del proyecto</p>
-                <a href="otrapagina.html">Saber más</a>
+            <article class="card">
+                <span class="tag">HTML/CSS</span> <span class="tag">JS</span>
+                <h3>Dashboard Web</h3>
+                <p>Interfaz de administración responsive utilizando Grid Layout y gráficos interactivos con librerías JS.</p>
+                <a href="#" class="link-project">Ver en GitHub &rarr;</a>
             </article>
+        </div>
+    </section>
 
-            <article>
-                <img src="valentin.jpg">
-                <h3>Titulo del proyecto</h3>
-                <p>Parrafo con una descripción del proyecto</p>
-                <a href="otrapagina.html">Saber más</a>
-            </article>
+	<footer id="contacto">
+		<div style="text-align: center;">	
+			<h3 style="font-size: 2rem; color: var(--text-main); margin-bottom: 0.5rem;">Contáctame</h3>
+			<p>¿Tienes una propuesta? Hablemos.</p>
+		</div>
+		
+			<div class="contact-links">
+				<a href="mailto:info@valentindg.com" class="btn-contact">info@valentindg.com</a>
+				<p class="btn-contact">+34 641 02 59 95</p>
+				<a href="https://es.linkedin.com/in/valentin-antonio-de-gennaro" target="_blank" class="btn-contact">LinkedIn</a>
+			</div>
 
-            <article>
-                <img src="valentin.jpg">
-                <h3>Titulo del proyecto</h3>
-                <p>Parrafo con una descripción del proyecto</p>
-                <a href="otrapagina.html">Saber más</a>
-            </article>
+			<p class="copyright">Valentin de gennaro. &copy; 2025</p>
+	</footer>
 
-            <article>
-                <img src="valentin.jpg">
-                <h3>Titulo del proyecto</h3>
-                <p>Parrafo con una descripción del proyecto</p>
-                <a href="otrapagina.html">Saber más</a>
-            </article>
-
-            <article>
-                <img src="valentin.jpg">
-                <h3>Titulo del proyecto</h3>
-                <p>Parrafo con una descripción del proyecto</p>
-                <a href="otrapagina.html">Saber más</a>
-            </article>
-        </main>
-    </body>
-    <footer>
-        info@valentindg.com - +34 641 02 59 95
-    </footer>
+</body>
 </html>
