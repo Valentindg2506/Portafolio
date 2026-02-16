@@ -1,250 +1,218 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Personal</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <style>
-        :root {
-            --primary: #00d4ff;       /* Cian brillante#00d4ff */
-            --bg-dark: #0f172a;       /* Fondo oscuro */
-            --card-bg: #1e293b;       /* Fondo tarjetas */
-            --text-white: #ffffff;
-            --text-gray: #94a3b8;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        
-        body { background-color: var(--bg-dark); color: var(--text-white); }
-        a { text-decoration: none; color: inherit; }
-
-        /* --- HERO CON IMAGEN DE FONDO --- */
-        header {
-            /* Imagen de fondo real (oficina/código) con filtro oscuro encima */
-            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), 
-                        url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed; /* Efecto Parallax */
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            z-index: 2;
-        }
-
-        /* Foto de Perfil */
-        .profile-pic {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--primary);
-            margin-bottom: 1.5rem;
-            box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
-            transition: transform 0.3s;
-        }
-        .profile-pic:hover { transform: scale(1.05); }
-
-        h1 { font-size: 3.5rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.2; }
-        h1 span { color: var(--primary); }
-        
-        .tagline { font-size: 1.2rem; color: var(--text-gray); margin-bottom: 2rem; }
-
-        /* Iconos de Skills Animados */
-        .tech-icons { font-size: 3rem; margin-bottom: 2.5rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
-        .tech-icons i { transition: 0.3s; cursor: default; }
-        .tech-icons i:hover { transform: translateY(-10px); filter: drop-shadow(0 0 10px currentColor); }
-
-        .btn {
-            padding: 12px 35px;
-            background: var(--primary);
-            color: #000;
-            font-weight: 700;
-            border-radius: 50px;
-            display: inline-block;
-            transition: 0.3s;
-        }
-        .btn:hover { box-shadow: 0 0 20px var(--primary); background: #fff; }
-
-        /* --- PROYECTOS VISUALES --- */
-        .container { max-width: 1200px; margin: 0 auto; padding: 5rem 20px; }
-        .section-title { font-size: 2.5rem; margin-bottom: 3rem; text-align: center; position: relative; }
-        
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border-radius: 15px;
-            overflow: hidden; /* Para que la imagen respete el borde */
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            transition: 0.3s;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
-
-		.imagen-proyecto {
-		  width: 100%;
-		  height: 200px; /* O la altura fija que desees para todas las imágenes */
-		  object-fit: cover; /* Esta es la propiedad clave */
-		  object-position: top; /* Opcional: para centrar la imagen */
-		}
-
-        .card-content { padding: 1.5rem; }
-        .card-tags { margin-bottom: 1rem; }
-        .tag {
-            font-size: 0.75rem;
-            background: rgba(0, 212, 255, 0.1);
-            color: var(--primary);
-            padding: 4px 10px;
-            border-radius: 5px;
-            margin-right: 5px;
-            font-weight: 600;
-        }
-        .card h3 { margin-bottom: 0.5rem; font-size: 1.4rem; }
-        .card p { color: var(--text-gray); font-size: 0.9rem; margin-bottom: 1.5rem; line-height: 1.6; }
-        
-        .card-link { 
-            color: var(--text-white); 
-            font-weight: 600; 
-            border-bottom: 2px solid var(--primary);
-            padding-bottom: 2px;
-        }
-        .card-link:hover { color: var(--primary); }
-
-        /* --- FOOTER COMPACTO --- */
-        footer {
-            text-align: center;
-            padding: 4rem 20px;
-            background: #0b1120;
-            border-top: 1px solid rgba(255,255,255,0.05);
-        }
-        .social-links { display: flex; justify-content: center; gap: 1.5rem; margin-top: 1.5rem; }
-        .social-btn {
-            width: 45px; height: 45px;
-            background: rgba(255,255,255,0.05);
-            display: flex; align-items: center; justify-content: center;
-            border-radius: 50%;
-            font-size: 1.2rem;
-            transition: 0.3s;
-        }
-        .social-btn:hover { background: var(--primary); color: #000; transform: scale(1.1); }
-
-        @media(max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .tech-icons { font-size: 2rem; gap: 1rem; }
-        }
-    </style>
+    <meta charset="UTF-8" />
+    <title>Portafolio – Valentín Antonio De Gennaro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description"
+          content="Portafolio de Valentín Antonio De Gennaro, estudiante de Desarrollo de Aplicaciones Multiplataforma (DAM). Proyectos en Python, HTML, CSS, PHP y desarrollo multiplataforma." />
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+<div class="wrapper">
 
-    <header>
-        <div class="hero-content">
-            <img src="img/YO.png" alt="Foto Perfil" class="profile-pic">
-            
-            <h1>Hola, soy <span>Valentín De Gennaro</span></h1>
-            <p class="tagline">Desarrollador de Aplicaciones Multiplataforma</p>
+    <!-- HERO -->
+    <header class="hero">
+        <img src="img/YO.png" alt="Foto de perfil de Valentín De Gennaro"
+             class="hero__avatar" />
 
-            <div class="tech-icons">
-                <i class="devicon-python-plain colored" title="Python"></i>
-                <i class="devicon-mysql-plain colored" title="MySQL"></i>
-                <i class="devicon-html5-plain colored" title="HTML"></i>
-                <i class="devicon-css3-plain colored" title="CSS"></i>
-                <i class="devicon-php-plain colored" title="PHP"></i>
-                <i class="devicon-markdown-plain" title="MD"></i>
-            </div>
+        <h1 class="hero__name">Valentín Antonio De Gennaro</h1>
+        <p class="hero__role">Estudiante de Desarrollo de Aplicaciones Multiplataforma (DAM)</p>
 
-            <a href="#proyectos" class="btn">Ver Mis Trabajos</a>
+        <div class="hero__cta">
+            <a href="#proyectos" class="btn-primary">Ver Mis Proyectos</a>
         </div>
     </header>
 
-    <section id="proyectos" class="container">
-        <h2 class="section-title">Mis Proyectos</h2>
-        
-        <div class="grid">
-			<article class="card">
-				<img src="img/CAS.png" alt="Pagina web cas" class="imagen-proyecto">
-				<div class="card-content">
-					<div class="card-tags">
-						<span class="tag">HTML/CSS</span>
-						<span class="tag">JS</span>
-					</div>
-					<h3>Pagina WEB</h3>
-					<p>Pagina WEB con un estilo moderno, imagenes agradables y animaciones</p>
-					
-					<!-- NUEVO: Contenedor para los dos botones -->
-					<div style="display: flex; gap: 40px; margin-top: 1rem; align-items: center;">
-						<!-- Botón 1: Web Real -->
-						<a href="https://www.casrs.es" target="_blank" class="card-link">
-						    Visitar Web &rarr;
-						</a>
-						<a href="https://github.com/Valentindg2506/CAS-WEB" target="_blank" class="card-link">Ver Código &rarr;</a>
-					</div>
-					
-				</div>
-			</article>
+    <main class="container">
 
-            <article class="card">
-                <img src="img/duelodemagos.png" alt="Duelo de Magos" class="imagen-proyecto">
-                <div class="card-content">
-                    <div class="card-tags">
-                        <span class="tag">Python</span>
+        <!-- SECCIÓN: PROYECTOS -->
+        <section id="proyectos" class="section">
+            <div class="section__header">
+                <h2 class="section__title">Mis Proyectos</h2>
+                <p class="section__subtitle">
+                    Selección de trabajos realizados durante mis estudios de DAM, centrados en
+                    lógica de programación, desarrollo web y simulaciones por consola.
+                </p>
+            </div>
+
+            <div class="projects-grid">
+
+                <!-- Proyecto CAS -->
+                <article class="card">
+                    <img src="img/CAS.png" alt="Captura de la página web de CAS"
+                         class="card__image" />
+                    <div class="card__body">
+                        <h3 class="card__title">Página Web CAS</h3>
+                        <p class="card__meta">HTML · CSS · Animaciones</p>
+                        <p class="card__desc">
+                            Desarrollo de una página web corporativa con diseño moderno,
+                            estructura clara, imágenes cuidadas y pequeñas animaciones CSS.
+                        </p>
+                        <div class="card__links">
+                            <a href="https://www.casrs.es/" target="_blank" rel="noopener noreferrer">
+                                Visitar Web →
+                            </a>
+                            <a href="https://github.com/Valentindg2506/CAS-WEB" target="_blank" rel="noopener noreferrer">
+                                Ver Código →
+                            </a>
+                        </div>
                     </div>
-                    <h3>Duelo de Magos</h3>
-                    <p>Simulador de combate por turnos en consola. Implementa lógica de control, 
-    funciones, bucles y manejo de excepciones en Python.</p>
-                    <a href="proyecto-duelodemagos.html" class="card-link">Ver Código &rarr;</a>
-                </div>
-            </article>
+                </article>
 
-            <article class="card">
-                <img src="img/duelodedragones.png" alt="Duelo de Dragones" class="imagen-proyecto">
-                <div class="card-content">
-                    <div class="card-tags">
-                        <span class="tag">Python</span>
+                <!-- Proyecto Duelo de Magos -->
+                <article class="card">
+                    <img src="img/duelodemagos.png" alt="Ilustración temática del Duelo de Magos"
+                         class="card__image" />
+                    <div class="card__body">
+                        <h3 class="card__title">Duelo de Magos</h3>
+                        <p class="card__meta">Python · Lógica · Consola</p>
+                        <p class="card__desc">
+                            Simulación de combate por turnos en consola. Clasifica al mago
+                            según su edad, asigna poder base y calcula el daño contra un escudo
+                            energético usando estructuras de control y manejo de excepciones.
+                        </p>
+                        <div class="card__links">
+                            <a href="proyectos/duelodemagos.html">
+                                Ver Detalles →
+                            </a>
+                        </div>
                     </div>
-                    <h3>Duelo de Dragones</h3>
-                    <p>Simulación de batalla entre dos dragones. Calcula estadísticas dinámicas basadas en la edad y gestiona un duelo turno a turno.</p>
-                    <a href="proyecto-duelodedragones.html" class="card-link">Ver Código &rarr;</a>
+                </article>
+
+                <!-- Proyecto Duelo de Dragones -->
+                <article class="card">
+                    <img src="img/duelodedragones.png" alt="Ilustración temática del Duelo de Dragones"
+                         class="card__image" />
+                    <div class="card__body">
+                        <h3 class="card__title">Duelo de Dragones</h3>
+                        <p class="card__meta">Python · Funciones · Validaciones</p>
+                        <p class="card__desc">
+                            Simulador de batalla entre dos dragones con cálculo dinámico
+                            de fuerza y resistencia, entrenamiento previo y sistema de turnos
+                            con aserciones para validar los datos y el flujo del combate.
+                        </p>
+                        <div class="card__links">
+                            <a href="proyectos/duelodedragones.html">
+                                Ver Detalles →
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Proyecto AdminViews -->
+                <article class="card">
+                    <img src="img/adminviews.png" alt="Vista previa de la web adminviews"
+                         class="card__image" />
+                    <div class="card__body">
+                        <h3 class="card__title">AdminViews</h3>
+                        <p class="card__meta">PHP · HTML · CSS · MySQL · PhpMyAdmin</p>
+                        <p class="card__desc">
+                            Aplicación web para llevar un control de las peliculas y/o series que 
+							el usuario quiera ver, este viendo o ya vio.
+                        </p>
+                        <div class="card__links">
+                            <a href="https://github.com/Valentindg2506/Proyecto-Entornos" target="_blank" rel="noopener noreferrer">
+                                Ver Código →
+                            </a>
+                            <a href="https://www.adminviews.valentindg.com/" target="_blank" rel="noopener noreferrer">
+                                Visitar Web →
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- SECCIÓN: SOBRE MÍ Y TECNOLOGÍAS -->
+        <section id="sobre-mi" class="section">
+            <div class="section__header">
+                <h2 class="section__title">Sobre mí</h2>
+                <p class="section__subtitle">
+                    Un poco más sobre mi perfil como desarrollador de aplicaciones multiplataforma.
+                </p>
+            </div>
+
+            <div class="about-grid">
+                <div>
+                    <p class="about__text">
+                        Soy estudiante de Desarrollo de Aplicaciones Multiplataforma (DAM) con
+                        especial interés en la programación en Python, el desarrollo web y la
+                        creación de soluciones prácticas y bien estructuradas.
+                    </p>
+                    <p class="about__text">
+                        Me gusta escribir código limpio, entender a fondo la lógica de los
+                        programas y trabajar con buenas prácticas desde el inicio: control de
+                        errores, validación de datos y una estructura clara de funciones.
+                    </p>
+                    <p class="about__text">
+                        Busco seguir creciendo en entornos profesionales donde pueda aportar
+                        proyectos reales, seguir aprendiendo y evolucionar hacia el desarrollo
+                        multiplataforma completo (desktop, web y móvil).
+                    </p>
                 </div>
-            </article>
-        </div>
-    </section>
 
-	<footer>
-		<h3>Mis Redes</h3>
-		<div class="social-links">
-		    <a href="mailto:info@valentindg.com" class="social-btn" title="Email">
-		        <i class="fas fa-envelope"></i>
-		    </a>
-		    <a href="https://es.linkedin.com/in/valentin-antonio-de-gennaro" class="social-btn" title="LinkedIn" target="_blank">
-		        <i class="fab fa-linkedin-in"></i>
-		    </a>
-		    <a href="https://github.com/Valentindg2506" class="social-btn" title="GitHub" target="_blank">
-		        <i class="fab fa-github"></i>
-		    </a>
-		</div>
-		<div style="margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); width: 100%; padding-top: 20px;">
-		    <p style="opacity: 0.6; font-size: 0.85rem;">
-		        &copy; 2025 Valentín Antonio De Gennaro. <br>
-		        Todos los derechos reservados.
-		    </p>
-    	</div>
-	</footer>
+                <div>
+                    <h3>Stack principal</h3>
+                    <div class="chip-list">
+                        <span class="chip">Python</span>
+                        <span class="chip">Java (iniciación)</span>
+                        <span class="chip">HTML5</span>
+                        <span class="chip">CSS3</span>
+                        <span class="chip">Git &amp; GitHub</span>
+                        <span class="chip">Programación estructurada</span>
+                        <span class="chip">Manejo de excepciones</span>
+                    </div>
 
+                    <h3 style="margin-top: 18px;">Actualmente aprendiendo</h3>
+                    <div class="chip-list">
+                        <span class="chip">Desarrollo de interfaces</span>
+                        <span class="chip">Patrones básicos de diseño</span>
+                        <span class="chip">Aplicaciones multiplataforma</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: CONTACTO -->
+        <section id="contacto" class="section">
+            <div class="section__header">
+                <h2 class="section__title">Contacto</h2>
+                <p class="section__subtitle">
+                    Si te interesa mi perfil para prácticas o colaboraciones, puedes contactarme aquí:
+                </p>
+            </div>
+
+            <ul class="contact-list">
+                <li>
+                    Email:
+                    <a href="mailto:info@valentindg.com">info@valentindg.com</a>
+                    <!-- cambia al correo que realmente uses -->
+                </li>
+                <li>
+                    LinkedIn:
+                    <a href="https://www.linkedin.com/in/valentin-antonio-de-gennaro"
+                       target="_blank" rel="noopener noreferrer">
+                        https://www.linkedin.com/in/valentin-antonio-de-gennaro
+                    </a>
+                </li>
+                <li>
+                    GitHub:
+                    <a href="https://github.com/Valentindg2506"
+                       target="_blank" rel="noopener noreferrer">
+                        https://github.com/Valentindg2506
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        © 2026 Valentín Antonio De Gennaro. Todos los derechos reservados.
+    </footer>
+</div>
 </body>
 </html>
+``
