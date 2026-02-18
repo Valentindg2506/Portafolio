@@ -1,0 +1,24 @@
+User-agent: *
+Allow: /
+
+# Bloquear archivos sensibles
+Disallow: /php/
+Disallow: /includes/
+Disallow: /config/
+Disallow: /data/
+Disallow: /*.sql$
+Disallow: /*.log$
+
+# Permitir recursos estáticos
+Allow: /css/
+Allow: /js/
+Allow: /assets/
+Allow: /img/
+
+# Bloquear archivos de respaldo
+Disallow: /*.bak$
+Disallow: /*.backup$
+Disallow: /*~$
+
+# Sitemap
+Sitemap: http://localhost:8000/sitemap.xml

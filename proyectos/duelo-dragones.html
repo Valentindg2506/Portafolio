@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Duelo de Dragones - Simulador de combate en Python">
+    <title>Duelo de Dragones - Valentín De Gennaro</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        // Cargar tema inmediatamente para evitar flash de color
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+    <style>
+        .project-detail { min-height: 100vh; padding: 80px 20px 40px; }
+        .project-hero { max-width: 1000px; margin: 0 auto 50px; text-align: center; }
+        .project-hero h1 { font-size: 3em; margin-bottom: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .project-content { max-width: 900px; margin: 0 auto; }
+        .project-section { margin-bottom: 40px; padding: 30px; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
+        .project-section h2 { font-size: 1.8em; margin-bottom: 20px; color: #3b82f6; }
+        .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-bottom: 20px; }
+        .tech-badge { padding: 10px 15px; background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(99, 102, 241, 0.2)); border: 1px solid rgba(59, 130, 246, 0.5); border-radius: 8px; text-align: center; font-weight: 500; }
+        .features-list { list-style: none; padding: 0; }
+        .features-list li { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .features-list li:last-child { border-bottom: none; }
+        .features-list li:before { content: "✓ "; color: #10b981; font-weight: bold; margin-right: 10px; }
+        .back-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; margin-bottom: 30px; transition: all 0.3s ease; }
+        .back-btn:hover { background: rgba(59, 130, 246, 0.3); transform: translateX(-5px); }
+        .project-links { display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap; }
+        .project-links a { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 6px; text-decoration: none; transition: all 0.3s ease; }
+        .project-links a:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3); }
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="../index.html#home">&lt;VDG /&gt;</a>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="project-detail">
+        <a href="../index.html#projects" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Volver a Proyectos
+        </a>
+
+        <div class="project-hero">
+            <h1>Duelo de Dragones</h1>
+            <p style="font-size: 1.2em; color: #a0aec0;">Simulador de combate por turnos en Python</p>
+        </div>
+
+        <div class="project-content">
+            <div class="project-section">
+                <h2><i class="fas fa-info-circle"></i> Descripción</h2>
+                <p>Simulador de combate por turnos entre dos dragones con estadísticas dinámicas. Cada dragón tiene edad, clasificación (joven, adulto, anciano), fuerza, resistencia y salud inicial. Antes del combate, ambos pasan por una fase de entrenamiento que modifica sus atributos. Después se enfrentan en turnos hasta que uno llega a 0 de salud.</p>
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-tools"></i> Tecnologías</h2>
+                <div class="tech-grid">
+                    <div class="tech-badge"><i class="fab fa-python"></i><br>Python</div>
+                    <div class="tech-badge"><i class="fas fa-cogs"></i><br>Lógica</div>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-graduation-cap"></i> Conceptos Aprendidos</h2>
+                <ul class="features-list">
+                    <li>Entrada y validación de datos numéricos</li>
+                    <li>Manejo de errores con bloques try/except</li>
+                    <li>Funciones con parámetros y valores de retorno</li>
+                    <li>Clasificación en rangos de edad</li>
+                    <li>Bucles for y while para simulación</li>
+                    <li>Uso de assert para validación de valores</li>
+                    <li>Lógica compleja de cálculo de daño</li>
+                </ul>
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-lightbulb"></i> Lo que Aprendí</h2>
+                <p>
+                    Este proyecto me ayudó a trabajar con lógica más compleja, dividir programas en bloques bien funcionales, 
+                    validar entradas de usuario y crear simulaciones interactivas. Fue fundamental para entender cómo los valores 
+                    dinámicos y las funciones pueden trabajar juntas para crear sistemas simulados completos.
+                </p>
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-link"></i> Enlaces</h2>
+                <div class="project-links">
+                    <a href="../../Portafolio/proyectos/duelodedragones.html" target="_blank">
+                        <i class="fas fa-play"></i> Ver Proyecto
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button id="scrollTop" class="scroll-top" aria-label="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

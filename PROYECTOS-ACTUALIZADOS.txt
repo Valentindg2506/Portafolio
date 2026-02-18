@@ -1,0 +1,165 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                                                                            ║
+║     ✅ PORTAFOLIO ACTUALIZADO CON TUS PROYECTOS REALES                    ║
+║                                                                            ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+📂 PROYECTOS AÑADIDOS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. 🏠 CAS Real State
+   ├─ Descripción: Página web para agencia inmobiliaria en Valencia
+   ├─ Tecnologías: HTML5, CSS3, JavaScript
+   ├─ Estado: ✅ En producción
+   ├─ Demo: https://www.casrs.es
+   └─ GitHub: https://github.com/Valentindg2506/CAS-WEB
+
+2. 🏢 Tinoprop - CRM Inmobiliario
+   ├─ Descripción: CRM completo para agencias inmobiliarias
+   ├─ Tecnologías: PHP, MySQL, JavaScript
+   ├─ Estado: 🚧 En construcción (WIP)
+   ├─ Demo: No disponible aún
+   └─ GitHub: https://github.com/Valentindg2506/Tinoprop
+
+3. 🎬 AdminViews - Tracker de Series
+   ├─ Descripción: App para control de series y películas vistas
+   ├─ Tecnologías: PHP, MySQL, JavaScript
+   ├─ Estado: ✅ En producción
+   ├─ Demo: https://adminviews.valentindg.com/
+   └─ GitHub: https://github.com/Valentindg2506/Proyecto-Entornos
+
+4. 🌐 Landing Page Personal
+   ├─ Descripción: Página de presentación profesional
+   ├─ Tecnologías: HTML5, CSS3, Glassmorphism
+   ├─ Estado: ✅ En producción
+   ├─ Demo: https://valentindg.com
+   └─ GitHub: https://github.com/Valentindg2506/WEB
+
+5. 📄 Curriculum Vitae Web
+   ├─ Descripción: CV interactivo en formato web
+   ├─ Tecnologías: HTML5, CSS3
+   ├─ Estado: ✅ Completado
+   ├─ Demo: No disponible
+   └─ GitHub: https://github.com/Valentindg2506/Curriculum
+
+
+📊 CAMBIOS REALIZADOS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ Reemplazados 6 proyectos placeholder por 5 proyectos reales
+✅ Añadidos enlaces a demos en producción (CAS-WEB, AdminViews, WEB)
+✅ Todos los enlaces de GitHub apuntan a tu perfil real
+✅ Actualizado filtro de proyectos (ahora muestra "Todos (5)")
+✅ Actualizado contador de proyectos: 15 → 5
+✅ Actualizado contador de tecnologías: 10 → 8
+✅ Marca "🚧 WIP" en Tinoprop (en construcción)
+✅ 3 proyectos con enlaces activos a producción
+✅ Descripciones reales basadas en tus README
+
+
+🚀 CÓMO VER TU PORTAFOLIO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Iniciar el servidor PHP:
+   
+   cd /var/www/html/GitHub/Portafolio-Test
+   php -S localhost:8000
+
+2. Abrir en tu navegador:
+   
+   http://localhost:8000
+
+3. Navega a la sección "Proyectos" para ver tus proyectos reales
+
+
+🎯 FUNCIONALIDADES DE LOS PROYECTOS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✨ Hover sobre cada proyecto muestra overlay con botones
+🔗 Botón "Ver Demo" abre el proyecto en producción (si está disponible)
+💻 Botón "GitHub" abre el repositorio en tu perfil
+🏷️ Tags muestran las tecnologías usadas en cada proyecto
+✅ Features destacan las características principales
+📱 Todo responsive y con animaciones suaves
+
+
+💡 PRÓXIMOS PASOS RECOMENDADOS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📸 Añadir capturas de pantalla reales:
+   1. Toma screenshots de cada proyecto (600x400px)
+   2. Guárdalas en: assets/images/
+   3. Nombres sugeridos:
+      - cas-web.jpg
+      - tinoprop.jpg
+      - adminviews.jpg
+      - landing.jpg
+      - curriculum.jpg
+   4. Reemplaza las URLs de placeholder:
+      De: https://via.placeholder.com/600x400/...
+      A:  assets/images/cas-web.jpg
+
+🎨 Personalizar más el portafolio:
+   - Actualiza tu nombre en la sección Hero
+   - Añade tu foto de perfil
+   - Configura tu email en php/contact.php
+   - Actualiza enlaces de redes sociales
+
+📄 Añade tu CV:
+   - Coloca tu CV en: assets/cv.pdf
+   - El botón "Descargar CV" ya está configurado
+
+
+📝 INFORMACIÓN DE LOS PROYECTOS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+CAS Real State (CAS-WEB)
+• Agencia inmobiliaria profesional en Valencia
+• Diseño moderno con animaciones suaves
+• Sistema de agenda de citas integrado
+• Secciones de servicios y reseñas de clientes
+
+Tinoprop 🚧
+• CRM completo para gestión inmobiliaria
+• Parte del proyecto intermodular de DAM
+• Gestión de clientes, propiedades y personal
+• Buscador de mercado externo
+• Actualmente en desarrollo
+
+AdminViews (Proyecto-Entornos)
+• Tracker personal de series y películas
+• Sistema completo de registro y login
+• Listas personalizadas: viendo, vistas, pendientes
+• Dashboard con estadísticas
+
+Landing Page Personal (WEB)
+• Hub central de presencia digital profesional
+• Diseño glassmorphism moderno
+• Conecta portafolio y CV
+• Perfectamente responsive
+
+Curriculum Web
+• CV interactivo en formato web
+• Diseño limpio y profesional
+• Accesible desde cualquier dispositivo
+
+
+🎉 TODO LISTO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Tu portafolio ahora muestra tus proyectos reales con:
+✅ Descripciones precisas
+✅ Enlaces funcionales a demos y código
+✅ Tecnologías correctas
+✅ Características destacadas
+✅ Indicadores de estado (producción/WIP)
+
+¡Inicia el servidor y revisa tu portafolio actualizado!
+
+──────────────────────────────────────────────────────────────────────────
+
+Valentín Antonio De Gennaro
+Estudiante de Desarrollo de Aplicaciones Multiplataforma
+Valencia, España - Febrero 2026
+
+──────────────────────────────────────────────────────────────────────────

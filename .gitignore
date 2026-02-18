@@ -1,0 +1,106 @@
+# Archivos del Sistema Operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Archivos de Editor
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+logs/
+error_log
+
+# Archivos de respaldo
+*.bak
+*.backup
+*~
+
+# Archivos temporales
+tmp/
+temp/
+*.tmp
+
+# Dependencias (si usas npm/composer en el futuro)
+node_modules/
+vendor/
+package-lock.json
+composer.lock
+
+# Archivos de configuración local
+config.local.php
+.env
+.env.local
+
+# Archivos de datos sensibles
+data/contactos.txt
+uploads/
+
+# Archivos de base de datos
+*.sql
+*.sqlite
+*.db
+
+# Archivos de caché
+cache/
+.cache/
+
+# Archivos compilados
+*.min.js
+*.min.css
+dist/
+build/
+
+# Archivos de prueba
+test/
+tests/
+*.test.js
+*.spec.js
+
+# Documentación temporal
+docs/tmp/
+
+# Archivos de sistema PHP
+.user.ini
+php_errors.log
+
+# Archivos de Git
+*.orig
+*.rej
+
+# Certificados y claves
+*.pem
+*.key
+*.crt
+*.cer
+
+# Archivos de WordPress (por si lo integras)
+wp-config.php
+wp-content/uploads/
+wp-content/cache/
+
+# Archivos de frameworks (futuros)
+.next/
+.nuxt/
+.output/
+.vite/
+.turbo/
+
+# Coverage
+coverage/
+*.lcov
+
+# Scripts de despliegue locales
+deploy.sh
+deploy-local.sh
+
+# Archivos personales
+notas.txt
+TODO.txt
+IDEAS.md

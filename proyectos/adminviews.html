@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AdminViews - Tracker de series y películas">
+    <title>AdminViews - Valentín De Gennaro</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        // Cargar tema inmediatamente para evitar flash de color
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+    <style>
+        .project-detail {
+            min-height: 100vh;
+            padding: 80px 20px 40px;
+        }
+        .project-hero {
+            max-width: 1000px;
+            margin: 0 auto 50px;
+            text-align: center;
+        }
+        .project-hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .project-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .project-section {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .project-section h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #3b82f6;
+        }
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .tech-badge {
+            padding: 10px 15px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(99, 102, 241, 0.2));
+            border: 1px solid rgba(59, 130, 246, 0.5);
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+        }
+        .features-list {
+            list-style: none;
+            padding: 0;
+        }
+        .features-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .features-list li:last-child {
+            border-bottom: none;
+        }
+        .features-list li:before {
+            content: "✓ ";
+            color: #10b981;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: rgba(59, 130, 246, 0.2);
+            border: 1px solid rgba(59, 130, 246, 0.5);
+            color: #3b82f6;
+            border-radius: 6px;
+            text-decoration: none;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+        .back-btn:hover {
+            background: rgba(59, 130, 246, 0.3);
+            transform: translateX(-5px);
+        }
+        .project-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .project-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .project-links a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="../index.html#home">&lt;VDG /&gt;</a>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="project-detail">
+        <a href="../index.html#projects" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Volver a Proyectos
+        </a>
+
+        <div class="project-hero">
+            <h1>AdminViews</h1>
+            <p style="font-size: 1.2em; color: #a0aec0;">Tu tracker personal de series y películas</p>
+        </div>
+
+        <div class="project-content">
+            <!-- Descripción General -->
+            <div class="project-section">
+                <h2><i class="fas fa-info-circle"></i> Descripción General</h2>
+                <p>
+                    AdminViews es una aplicación web que permite a los usuarios llevar un control personal de series y 
+                    películas que están viendo, han visto o planea ver. La aplicación proporciona una forma organizada y 
+                    visual de gestionar el entretenimiento, con la capacidad de crear listas personalizadas y un dashboard 
+                    con estadísticas de consumo.
+                </p>
+                <p>
+                    Esta aplicación está completamente funcional y en producción en el servidor de Valentín De Gennaro.
+                </p>
+            </div>
+
+            <!-- Tecnologías Utilizadas -->
+            <div class="project-section">
+                <h2><i class="fas fa-tools"></i> Tecnologías Utilizadas</h2>
+                <div class="tech-grid">
+                    <div class="tech-badge">
+                        <i class="fab fa-php"></i><br>PHP
+                    </div>
+                    <div class="tech-badge">
+                        <i class="fas fa-database"></i><br>MySQL
+                    </div>
+                    <div class="tech-badge">
+                        <i class="fab fa-js"></i><br>JavaScript
+                    </div>
+                    <div class="tech-badge">
+                        <i class="fab fa-bootstrap"></i><br>Bootstrap
+                    </div>
+                    <div class="tech-badge">
+                        <i class="fas fa-exchange-alt"></i><br>AJAX
+                    </div>
+                </div>
+            </div>
+
+            <!-- Características Clave -->
+            <div class="project-section">
+                <h2><i class="fas fa-star"></i> Características Clave</h2>
+                <ul class="features-list">
+                    <li><strong>Sistema de Autenticación Seguro:</strong> Registro e inicio de sesión con contraseñas cifradas</li>
+                    <li><strong>Crear, Editar y Eliminar:</strong> Gestión completa de entradas de series y películas</li>
+                    <li><strong>Listas Organizadas:</strong> Categorizar contenido en "Viendo", "Vistas" y "Pendientes"</li>
+                    <li><strong>Dashboard Completo:</strong> Estadísticas de consumo y progreso visual</li>
+                    <li><strong>Búsqueda Avanzada:</strong> Filtrado por género, estado y calificación</li>
+                    <li><strong>Calificaciones Personales:</strong> Puntuar series y películas según opinión</li>
+                    <li><strong>Gestión de Episodios:</strong> Seguimiento de episodios vistos por temporada</li>
+                    <li><strong>Cargas Responsivas:</strong> Interfaz fluida con transiciones AJAX</li>
+                </ul>
+            </div>
+
+            <!-- Mi Rol -->
+            <div class="project-section">
+                <h2><i class="fas fa-user-tie"></i> Mi Rol</h2>
+                <p>
+                    <strong>Desarrollador Full Stack</strong>
+                </p>
+                <p>
+                    Realicé el análisis de requisitos, diseño de base de datos, desarrollo backend con PHP, 
+                    implementación de API AJAX, desarrollo frontend responsivo y deployment en servidor web.
+                </p>
+            </div>
+
+            <!-- Colaboradores -->
+            <div class="project-section">
+                <h2><i class="fas fa-users"></i> Colaborador</h2>
+                <p>
+                    Este proyecto fue desarrollado en equipo con:
+                </p>
+                <div style="padding: 20px; background: rgba(99, 102, 241, 0.1); border-left: 4px solid #6366f1; border-radius: 8px; margin-top: 15px;">
+                    <h4 style="margin: 0 0 10px 0; color: #3b82f6;">
+                        <i class="fas fa-user-circle"></i> Daniel Oliveira Vidal
+                    </h4>
+                    <p style="margin: 10px 0; color: #a0aec0;">
+                        Compañero de clase en DAM
+                    </p>
+                    <a href="https://github.com/ElOrange12" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; font-size: 14px; transition: all 0.3s ease;">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- Desafíos y Soluciones -->
+            <div class="project-section">
+                <h2><i class="fas fa-lightbulb"></i> Desafíos Técnicos Superados</h2>
+                <ul class="features-list">
+                    <li><strong>Gestión de Sesiones:</strong> Implementar un sistema robusto de autenticación sin frameworks</li>
+                    <li><strong>AJAX Asincrónico:</strong> Cargas de datos sin refresco de página manteniendo sincronización</li>
+                    <li><strong>Optimización de Consultas:</strong> Bases de datos que se escalan con muchos usuarios y datos</li>
+                    <li><strong>Interfaz Responsiva:</strong> Diseño que funciona perfectamente en todos los dispositivos</li>
+                </ul>
+            </div>
+
+            <!-- Enlaces -->
+            <div class="project-section">
+                <h2><i class="fas fa-link"></i> Enlaces</h2>
+                <div class="project-links">
+                    <a href="https://adminviews.valentindg.com/" target="_blank">
+                        <i class="fas fa-globe"></i> Ver Sitio en Vivo
+                    </a>
+                    <a href="https://github.com/Valentindg2506/Proyecto-Entornos" target="_blank">
+                        <i class="fab fa-github"></i> Ver Código en GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- Estado del Proyecto -->
+            <div class="project-section">
+                <h2><i class="fas fa-info"></i> Estado</h2>
+                <p>
+                    <strong>Estado:</strong> <span style="color: #10b981; font-weight: bold;">✓ En Producción</span>
+                </p>
+                <p>
+                    La aplicación está completamente funcional y disponible públicamente. Se realizan actualizaciones 
+                    periódicas con nuevas características según el feedback de usuarios.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <button id="scrollTop" class="scroll-top" aria-label="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
