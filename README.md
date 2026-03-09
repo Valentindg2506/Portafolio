@@ -224,10 +224,3 @@ Este proyecto está bajo la Licencia MIT. Ver archivo `LICENSE` para más detall
 - **JavaScript**: ~480 líneas
 - **Total**: ~2630 líneas de código
 
----
-
-⭐ **¿Te gusta este portafolio?** 
-
-Siéntete libre de usarlo como inspiración para el tuyo. Solo recuerda personalizarlo con tu información.
-
-**Hecho con ❤️ por un estudiante DAM en Valencia, España**
