@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tinoprop - CRM Inmobiliario completo">
+    <meta name="description" content="Tinoprop - CRM Inmobiliario Multi-Tenant completo para agencias inmobiliarias">
     <title>Tinoprop CRM - Valentín De Gennaro</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -117,15 +117,33 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
         }
-        .status-badge {
+        .roles-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        .roles-table th,
+        .roles-table td {
+            padding: 10px 14px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .roles-table th {
+            color: #3b82f6;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(59,130,246,0.3);
+        }
+        .roles-table tr:last-child td {
+            border-bottom: none;
+        }
+        .role-level {
             display: inline-block;
-            padding: 8px 16px;
-            background: rgba(251, 146, 60, 0.2);
-            border: 1px solid rgba(251, 146, 60, 0.5);
-            color: #fb923c;
-            border-radius: 20px;
+            padding: 2px 8px;
+            background: rgba(99,102,241,0.2);
+            border-radius: 12px;
+            font-size: 13px;
             font-weight: bold;
-            margin: 10px 0;
+            color: #818cf8;
         }
     </style>
 </head>
@@ -148,8 +166,7 @@
 
         <div class="project-hero">
             <h1>Tinoprop - CRM Inmobiliario</h1>
-            <p style="font-size: 1.2em; color: #a0aec0;">Sistema de Gestión integral para agencias inmobiliarias</p>
-            <span class="status-badge">🚧 En Construcción</span>
+            <p style="font-size: 1.2em; color: #a0aec0;">Sistema de Gestión CRM Multi-Tenant para agencias inmobiliarias</p>
         </div>
 
         <div class="project-content">
@@ -157,14 +174,15 @@
             <div class="project-section">
                 <h2><i class="fas fa-info-circle"></i> Descripción General</h2>
                 <p>
-                    Tinoprop es un CRM (Customer Relationship Management) completo diseñado específicamente para agencias 
-                    inmobiliarias. El sistema permite gestionar de manera integral todos los aspectos del negocio: clientes, 
-                    propiedades, personal y conexión con bases de datos externas para ampliar el catálogo de propiedades disponibles.
+                    <strong>TinoProp</strong> es una aplicación web de tipo <strong>CRM (Customer Relationship Management)</strong>
+                    diseñada para la gestión integral de agencias inmobiliarias. Desarrollado como proyecto intermodular
+                    del Grado Superior en <strong>Desarrollo de Aplicaciones Multiplataforma (DAM)</strong>.
                 </p>
                 <p>
-                    Este es un proyecto intermodular de mi formación en DAM, lo que significa que integra conocimientos y 
-                    tecnologías de múltiples módulos del programa. Es un proyecto ambicioso que demuestra capacidades de 
-                    desarrollo Full Stack.
+                    El sistema es <strong>multi-tenant</strong>: múltiples inmobiliarias comparten la misma instalación,
+                    cada una viendo exclusivamente sus datos. Incluye un completo sistema de <strong>roles y permisos
+                    jerárquico con 7 niveles</strong>, paneles diferenciados para vendedores y compradores, gestión
+                    documental, sistema de tickets, internacionalización (ES/EN) y mucho más.
                 </p>
             </div>
 
@@ -173,38 +191,121 @@
                 <h2><i class="fas fa-tools"></i> Tecnologías Utilizadas</h2>
                 <div class="tech-grid">
                     <div class="tech-badge">
-                        <i class="fab fa-php"></i><br>PHP
+                        <i class="fab fa-php"></i><br>PHP 8.x
                     </div>
                     <div class="tech-badge">
-                        <i class="fas fa-database"></i><br>MySQL
+                        <i class="fas fa-database"></i><br>MySQL / MariaDB
                     </div>
                     <div class="tech-badge">
-                        <i class="fab fa-js"></i><br>JavaScript
+                        <i class="fab fa-js"></i><br>JavaScript ES6+
                     </div>
                     <div class="tech-badge">
-                        <i class="fab fa-bootstrap"></i><br>Bootstrap
+                        <i class="fas fa-chart-bar"></i><br>Chart.js
                     </div>
                     <div class="tech-badge">
-                        <i class="fas fa-stream"></i><br>RESTful API
+                        <i class="fas fa-server"></i><br>Apache
                     </div>
                     <div class="tech-badge">
-                        <i class="fas fa-chart-bar"></i><br>Reportes
+                        <i class="fas fa-file-pdf"></i><br>Generación PDF
                     </div>
                 </div>
             </div>
 
-            <!-- Características Clave -->
+            <!-- Módulos Principales -->
             <div class="project-section">
-                <h2><i class="fas fa-star"></i> Características Clave</h2>
+                <h2><i class="fas fa-th-large"></i> 19 Módulos Principales</h2>
                 <ul class="features-list">
-                    <li><strong>Panel de Control Administrativo:</strong> Dashboard completo con estadísticas y métricas de negocio</li>
-                    <li><strong>Gestión de Clientes:</strong> Base de datos completa con historial y contacto</li>
-                    <li><strong>Inventario de Propiedades:</strong> Catálogo de propiedades con búsqueda y filtrado avanzado</li>
-                    <li><strong>Gestión de Personal:</strong> Control de agentes y distribución de asignaciones</li>
-                    <li><strong>Buscador Externo:</strong> Integración con APIs de mercado inmobiliario externo</li>
-                    <li><strong>Sistema de Roles y Permisos:</strong> Control granular de acceso según usuario</li>
-                    <li><strong>Reportes y Estadísticas:</strong> Análisis de ventas, conversiones y rendimiento</li>
-                    <li><strong>API RESTful:</strong> Integración con sistemas externos</li>
+                    <li><strong>📊 Dashboard:</strong> Panel de control con métricas, gráficos y KPIs personalizables</li>
+                    <li><strong>👥 Clientes Vendedor/Comprador:</strong> Gestión de clientes separada por rol con fichas detalladas</li>
+                    <li><strong>🎯 Prospectos (Pipeline Kanban):</strong> Seguimiento de leads con drag &amp; drop por etapas</li>
+                    <li><strong>🏠 Propiedades Vendedor/Comprador:</strong> Inventario de inmuebles (venta/alquiler) con galería de imágenes</li>
+                    <li><strong>📋 Proceso (Kanban):</strong> Flujo: captación → publicada → visitas → negociación → documentación → cerrada</li>
+                    <li><strong>🚶 Visitas:</strong> Programación y seguimiento de visitas con estados y recordatorios</li>
+                    <li><strong>💰 Ofertas:</strong> Gestión de ofertas con estados (pendiente, aceptada, rechazada, contraoferta)</li>
+                    <li><strong>🔗 Matching:</strong> Cruce inteligente entre demandas de compradores y propiedades disponibles</li>
+                    <li><strong>🔎 Búsqueda Avanzada:</strong> Buscador con filtros multicriteria</li>
+                    <li><strong>📖 Documentación:</strong> Gestión documental por entidad (subida, generación PDF, descarga)</li>
+                    <li><strong>📥 Importar CSV:</strong> Carga masiva de datos desde archivos CSV</li>
+                    <li><strong>📜 Historial de Actividad:</strong> Log completo de auditoría de todas las acciones</li>
+                    <li><strong>🔔 Notificaciones:</strong> Alertas automáticas sobre visitas pendientes y recordatorios</li>
+                    <li><strong>📩 Peticiones / Tickets:</strong> Sistema de soporte interno entre niveles jerárquicos</li>
+                    <li><strong>⚙️ Configuración:</strong> Perfil, contraseña, preferencias, tema, densidad e idioma (ES/EN)</li>
+                </ul>
+            </div>
+
+            <!-- Sistema de Roles -->
+            <div class="project-section">
+                <h2><i class="fas fa-users-cog"></i> Sistema de Roles y Permisos (7 niveles)</h2>
+                <table class="roles-table">
+                    <thead>
+                        <tr>
+                            <th>Nivel</th>
+                            <th>Rol</th>
+                            <th>Alcance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="role-level">99</span></td>
+                            <td><strong>Super Admin</strong></td>
+                            <td>Control absoluto de toda la plataforma (inmobiliarias, usuarios, tickets)</td>
+                        </tr>
+                        <tr>
+                            <td><span class="role-level">5</span></td>
+                            <td><strong>Jefe</strong></td>
+                            <td>Director de inmobiliaria. Control total de su tenant</td>
+                        </tr>
+                        <tr>
+                            <td><span class="role-level">4</span></td>
+                            <td><strong>Supervisor</strong></td>
+                            <td>Supervisa agentes. Acceso a herramientas de sistema</td>
+                        </tr>
+                        <tr>
+                            <td><span class="role-level">3</span></td>
+                            <td><strong>Marketing</strong></td>
+                            <td>Herramientas de difusión. Ve ambos lados (vendedor y comprador)</td>
+                        </tr>
+                        <tr>
+                            <td><span class="role-level">2</span></td>
+                            <td><strong>Agente</strong></td>
+                            <td>Agente completo. Ve ambos lados (vendedor y comprador)</td>
+                        </tr>
+                        <tr>
+                            <td><span class="role-level">1</span></td>
+                            <td><strong>Agente Vendedor / Comprador</strong></td>
+                            <td>Solo secciones del lado correspondiente</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Características Transversales -->
+            <div class="project-section">
+                <h2><i class="fas fa-layer-group"></i> Características Transversales</h2>
+                <ul class="features-list">
+                    <li><strong>Buscador Global:</strong> En el sidebar busca clientes, propiedades y prospectos a la vez</li>
+                    <li><strong>Favoritos:</strong> Secciones marcadas para acceso rápido</li>
+                    <li><strong>Internacionalización (i18n):</strong> Español / Inglés completo</li>
+                    <li><strong>Temas:</strong> Sistema, Claro y Oscuro</li>
+                    <li><strong>Densidad de Tablas:</strong> Media, Cómoda y Compacta</li>
+                    <li><strong>Etiquetas Personalizadas:</strong> Con colores por usuario</li>
+                    <li><strong>Filtros Guardados:</strong> Por sección y usuario</li>
+                    <li><strong>Exportación CSV:</strong> Descarga de datos en formato CSV</li>
+                    <li><strong>Base de Datos:</strong> 18 tablas, InnoDB, utf8mb4, arquitectura multi-tenant con aislamiento por inmobiliaria</li>
+                </ul>
+            </div>
+
+            <!-- Seguridad -->
+            <div class="project-section">
+                <h2><i class="fas fa-shield-alt"></i> Seguridad</h2>
+                <ul class="features-list">
+                    <li><strong>Contraseñas:</strong> Hasheadas con bcrypt, cambio obligatorio en primer login</li>
+                    <li><strong>CSRF:</strong> Tokens anti-CSRF por formulario</li>
+                    <li><strong>XSS:</strong> Escape en toda la salida HTML</li>
+                    <li><strong>SQL Injection:</strong> PDO con prepared statements</li>
+                    <li><strong>Rate Limiting:</strong> Contra fuerza bruta en login</li>
+                    <li><strong>Cabeceras HTTP:</strong> X-Frame-Options, CSP y más</li>
+                    <li><strong>T&amp;C versionados:</strong> Aceptación obligatoria en cada versión</li>
                 </ul>
             </div>
 
@@ -215,9 +316,10 @@
                     <strong>Desarrollador Full Stack Lead</strong>
                 </p>
                 <p>
-                    Soy responsable del análisis de requisitos, diseño de arquitectura, desarrollo backend con PHP, 
-                    diseño de base de datos MySQL, desarrollo frontend con JavaScript, y coordinación del proyecto 
-                    como un esfuerzo intermodular.
+                    Responsable del análisis de requisitos, diseño de arquitectura multi-tenant, desarrollo backend
+                    en PHP vanilla, diseño de la base de datos relacional con 18 tablas, desarrollo frontend con
+                    JavaScript puro y CSS3, implementación de todos los módulos del sistema y coordinación del
+                    proyecto como trabajo intermodular de DAM.
                 </p>
             </div>
 
@@ -225,11 +327,11 @@
             <div class="project-section">
                 <h2><i class="fas fa-graduation-cap"></i> Módulos Escolares Integrados</h2>
                 <ul class="features-list">
-                    <li><strong>Programación:</strong> Lógica backend con PHP orientado a objetos</li>
-                    <li><strong>Bases de Datos:</strong> Diseño y implementación de esquema relacional MySQL</li>
-                    <li><strong>Interfaces Gráficas:</strong> Frontend responsivo y UX intuitiva</li>
-                    <li><strong>Entornos de Desarrollo:</strong> Git, control de versiones y deployment</li>
-                    <li><strong>Sistemas Informáticos:</strong> Arquitectura cliente-servidor</li>
+                    <li><strong>Programación:</strong> Lógica backend con PHP, arquitectura modular, patrones de diseño</li>
+                    <li><strong>Bases de Datos:</strong> Diseño e implementación de esquema relacional MySQL multi-tenant</li>
+                    <li><strong>Interfaces Gráficas:</strong> Frontend responsivo con UX intuitiva y tema oscuro/claro</li>
+                    <li><strong>Entornos de Desarrollo:</strong> Git, control de versiones (32 versiones publicadas) y deployment</li>
+                    <li><strong>Lenguajes de Marcas:</strong> HTML5 semántico, internacionalización, exportación PDF</li>
                 </ul>
             </div>
 
@@ -237,17 +339,13 @@
             <div class="project-section">
                 <h2><i class="fas fa-info"></i> Estado del Proyecto</h2>
                 <p>
-                    <strong>Estado:</strong> <span style="color: #fb923c; font-weight: bold;">🚧 En Construcción</span>
+                    <strong>Estado:</strong> <span style="color: #10b981; font-weight: bold;">✓ En Producción (V1.0)</span>
                 </p>
                 <p>
-                    Este proyecto se encuentra actualmente en desarrollo. Se está trabajando en las siguientes áreas:
+                    El proyecto ha evolucionado a través de <strong>32+ versiones</strong>, desde la web inicial
+                    en V0.0.01 hasta el lanzamiento en producción en <strong>V1.0.0</strong>, con mejoras continuas
+                    en versiones posteriores. Incluye documentación completa del código.
                 </p>
-                <ul class="features-list">
-                    <li>Refinamiento de la interfaz de usuario</li>
-                    <li>Optimización de consultas a base de datos</li>
-                    <li>Implementación de más características de reportería</li>
-                    <li>Testing completo del sistema</li>
-                </ul>
             </div>
 
             <!-- Enlaces -->
