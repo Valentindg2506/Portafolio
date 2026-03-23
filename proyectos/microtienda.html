@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Microtienda - App de e-commerce con carrito dinámico en JavaScript">
+    <title>Microtienda - Valentín De Gennaro</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+    <style>
+        .project-detail { min-height: 100vh; padding: 80px 20px 40px; }
+        .project-hero { max-width: 1000px; margin: 0 auto 50px; text-align: center; }
+        .project-hero h1 {
+            font-size: 3em; margin-bottom: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .project-content { max-width: 900px; margin: 0 auto; }
+        .project-section {
+            margin-bottom: 40px; padding: 30px;
+            background: rgba(255,255,255,0.05); border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .project-section h2 { font-size: 1.8em; margin-bottom: 20px; color: #3b82f6; }
+        .tech-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px; margin-bottom: 20px;
+        }
+        .tech-badge {
+            padding: 10px 15px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(99, 102, 241, 0.2));
+            border: 1px solid rgba(59, 130, 246, 0.5); border-radius: 8px;
+            text-align: center; font-weight: 500;
+        }
+        .features-list { list-style: none; padding: 0; }
+        .features-list li { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .features-list li:last-child { border-bottom: none; }
+        .features-list li:before { content: "✓ "; color: #10b981; font-weight: bold; margin-right: 10px; }
+        .back-btn {
+            display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px;
+            background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5);
+            color: #3b82f6; border-radius: 6px; text-decoration: none; margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+        .back-btn:hover { background: rgba(59, 130, 246, 0.3); transform: translateX(-5px); }
+        .project-links { display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap; }
+        .project-links a {
+            display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white; border-radius: 6px; text-decoration: none; transition: all 0.3s ease;
+        }
+        .project-links a:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3); }
+        .app-preview {
+            width: 100%; border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2); margin-bottom: 10px;
+        }
+        .json-block {
+            background: rgba(0,0,0,0.3); border-radius: 8px; padding: 20px;
+            font-family: 'Courier New', monospace; font-size: 0.9em;
+            border: 1px solid rgba(59, 130, 246, 0.3); overflow-x: auto;
+            color: #a0aec0;
+        }
+        .json-block .key { color: #3b82f6; }
+        .json-block .value { color: #10b981; }
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="../index.html#home">&lt;VDG /&gt;</a>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="project-detail">
+        <a href="../index.html#projects" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Volver a Proyectos
+        </a>
+
+        <div class="project-hero">
+            <h1>Microtienda</h1>
+            <p style="font-size: 1.2em; color: #a0aec0;">Aplicación de e-commerce con carrito dinámico en JavaScript</p>
+        </div>
+
+        <div class="project-content">
+
+            <div class="project-section">
+                <h2><i class="fas fa-info-circle"></i> Descripción General</h2>
+                <p>Microtienda es una aplicación de comercio electrónico desarrollada con HTML5, CSS3 y JavaScript puro. Permite al usuario seleccionar productos de un catálogo, rellenar sus datos como cliente y generar un pedido estructurado en formato JSON con número de pedido único y fecha automática.</p>
+                <p>El proyecto fue desarrollado durante la unidad de Sistemas de Gestión Empresarial del curso de Lenguajes de Marcas, simulando la capa frontend de una tienda real conectada a una base de datos MySQL vía PHP.</p>
+            </div>
+
+
+            <div class="project-section">
+                <h2><i class="fas fa-tools"></i> Tecnologías Utilizadas</h2>
+                <div class="tech-grid">
+                    <div class="tech-badge"><i class="fab fa-html5"></i><br>HTML5</div>
+                    <div class="tech-badge"><i class="fab fa-css3-alt"></i><br>CSS3</div>
+                    <div class="tech-badge"><i class="fab fa-js"></i><br>JavaScript</div>
+                    <div class="tech-badge"><i class="fas fa-database"></i><br>JSON</div>
+                    <div class="tech-badge"><i class="fab fa-php"></i><br>PHP (backend)</div>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-star"></i> Características</h2>
+                <ul class="features-list">
+                    <li><strong>Catálogo responsive:</strong> Grid de productos con CSS Grid adaptable a cualquier pantalla</li>
+                    <li><strong>Carrito dinámico:</strong> Cada click en un producto lo añade al array de pedido en tiempo real</li>
+                    <li><strong>Datos de cliente:</strong> Formulario que captura nombre, apellidos y email</li>
+                    <li><strong>Número de pedido único:</strong> Generado automáticamente con <code>Date.now()</code></li>
+                    <li><strong>Fecha automática:</strong> Se registra la fecha del pedido al momento de enviarlo</li>
+                    <li><strong>Diseño táctil:</strong> Botones con área mínima de 44px y <code>touch-action: manipulation</code></li>
+                    <li><strong>Sin frameworks:</strong> JavaScript puro con manipulación directa del DOM</li>
+                </ul>
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-code"></i> Estructura del Pedido (JSON)</h2>
+                <p>Al confirmar el pedido, la aplicación genera el siguiente objeto JSON:</p>
+                <div class="json-block">
+{<br>
+&nbsp;&nbsp;<span class="key">"cliente"</span>: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">"nombre"</span>: <span class="value">"Valentín"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">"apellidos"</span>: <span class="value">"De Gennaro"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">"email"</span>: <span class="value">"valentin@email.com"</span><br>
+&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;<span class="key">"productos"</span>: [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{ <span class="key">"nombre"</span>: <span class="value">"zapatillas"</span>, <span class="key">"precio"</span>: <span class="value">"30€"</span> },<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{ <span class="key">"nombre"</span>: <span class="value">"camiseta"</span>, <span class="key">"precio"</span>: <span class="value">"40€"</span> }<br>
+&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;<span class="key">"pedido"</span>: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">"numero"</span>: <span class="value">1742984312847</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">"fecha"</span>: <span class="value">"2026-3-23"</span><br>
+&nbsp;&nbsp;}<br>
+}
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-graduation-cap"></i> Contexto</h2>
+                <p>Desarrollado durante la unidad 7 — <strong>Sistemas de Gestión Empresarial</strong> de la asignatura <strong>Lenguajes de Marcas y Sistemas de Gestión de Información</strong> del ciclo formativo DAM en el CEACFP de Valencia.</p>
+                <p>Forma parte de un proyecto más amplio que incluye backend en PHP con conexión a MySQL para persistir los pedidos en base de datos.</p>
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-link"></i> Enlaces</h2>
+                <div class="project-links">
+                    <a href="https://github.com/Valentindg2506/Lenguajes-de-marcas-DAM-25-26/blob/main/Apuntes/007-Sistemas%20de%20gestion%20empresarial/004-Integraci%C3%B3n%20de%20modulos/007-Datos%20de%20pedido.html" target="_blank">
+                        <i class="fab fa-github"></i> Ver Código en GitHub
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-info"></i> Estado</h2>
+                <p><strong>Estado:</strong> <span style="color: #10b981; font-weight: bold;">✓ Completado</span></p>
+                <p>Proyecto académico finalizado. La capa frontend es completamente funcional. El backend PHP requiere servidor con MySQL para operar.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <button id="scrollTop" class="scroll-top" aria-label="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <!-- Fondo -->
+  <rect width="800" height="450" fill="#f4f4f4"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="800" height="60" fill="#1C3F94"/>
+  <text x="30" y="40" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="white">Microtiendas</text>
+
+  <!-- Sección Productos -->
+  <rect x="20" y="80" width="760" height="195" fill="white" rx="10"/>
+  <rect x="20" y="80" width="760" height="2" fill="#1C3F94" rx="1"/>
+  <text x="40" y="112" font-family="Arial, sans-serif" font-size="17" font-weight="bold" fill="#333">Productos</text>
+  <line x1="40" y1="118" x2="760" y2="118" stroke="#eee" stroke-width="2"/>
+
+  <!-- Producto 1: Zapatillas -->
+  <rect x="40" y="132" width="220" height="125" fill="#fff" stroke="#eee" stroke-width="1" rx="8"/>
+  <rect x="40" y="152" width="220" height="50" fill="#f8f8f8" rx="4"/>
+  <!-- Icono zapatilla -->
+  <ellipse cx="150" cy="177" rx="45" ry="20" fill="#ddd"/>
+  <ellipse cx="150" cy="168" rx="30" ry="15" fill="#bbb"/>
+  <text x="150" y="212" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#333">Zapatillas</text>
+  <rect x="52" y="222" width="196" height="26" fill="#00008B" rx="5"/>
+  <text x="150" y="239" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="white">30€</text>
+
+  <!-- Producto 2: Pantalones -->
+  <rect x="290" y="132" width="220" height="125" fill="#fff" stroke="#eee" stroke-width="1" rx="8"/>
+  <rect x="290" y="152" width="220" height="50" fill="#f8f8f8" rx="4"/>
+  <!-- Icono pantalón -->
+  <rect x="370" y="158" width="18" height="35" fill="#7986CB" rx="3"/>
+  <rect x="392" y="158" width="18" height="35" fill="#7986CB" rx="3"/>
+  <rect x="364" y="155" width="52" height="14" fill="#5C6BC0" rx="3"/>
+  <text x="400" y="212" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#333">Pantalones</text>
+  <rect x="302" y="222" width="196" height="26" fill="#00008B" rx="5"/>
+  <text x="400" y="239" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="white">20€</text>
+
+  <!-- Producto 3: Camiseta -->
+  <rect x="540" y="132" width="220" height="125" fill="#fff" stroke="#eee" stroke-width="1" rx="8"/>
+  <rect x="540" y="152" width="220" height="50" fill="#f8f8f8" rx="4"/>
+  <!-- Icono camiseta -->
+  <polygon points="630,158 650,158 660,167 660,195 640,195 640,170 620,170 620,195 600,195 600,167 610,158" fill="#EF9A9A"/>
+  <text x="650" y="212" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#333">Camiseta</text>
+  <rect x="552" y="222" width="196" height="26" fill="#00008B" rx="5"/>
+  <text x="650" y="239" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="white">40€</text>
+
+  <!-- Sección Datos de cliente -->
+  <rect x="20" y="290" width="760" height="145" fill="white" rx="10"/>
+  <rect x="20" y="290" width="760" height="2" fill="#1C3F94" rx="1"/>
+  <text x="40" y="322" font-family="Arial, sans-serif" font-size="17" font-weight="bold" fill="#333">Datos de cliente</text>
+  <line x1="40" y1="328" x2="760" y2="328" stroke="#eee" stroke-width="2"/>
+
+  <!-- Inputs -->
+  <rect x="40" y="338" width="220" height="36" fill="#f9f9f9" stroke="#ccc" stroke-width="1" rx="5"/>
+  <text x="55" y="361" font-family="Arial" font-size="13" fill="#aaa">Nombre</text>
+
+  <rect x="290" y="338" width="220" height="36" fill="#f9f9f9" stroke="#ccc" stroke-width="1" rx="5"/>
+  <text x="305" y="361" font-family="Arial" font-size="13" fill="#aaa">Apellidos</text>
+
+  <rect x="540" y="338" width="220" height="36" fill="#f9f9f9" stroke="#ccc" stroke-width="1" rx="5"/>
+  <text x="555" y="361" font-family="Arial" font-size="13" fill="#aaa">Email</text>
+
+  <!-- Botón enviar -->
+  <rect x="40" y="390" width="720" height="36" fill="#28a745" rx="8"/>
+  <text x="400" y="413" text-anchor="middle" font-family="Arial" font-size="15" font-weight="bold" fill="white">ENVIAR PEDIDO</text>
+
+  <!-- Footer -->
+  <rect x="0" y="438" width="800" height="12" fill="#1C3F94"/>
+</svg>
+
