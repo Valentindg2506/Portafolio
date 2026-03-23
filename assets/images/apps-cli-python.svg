@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#020617"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <!-- Dos terminales lado a lado -->
+  <!-- Terminal izquierdo: Banco -->
+  <rect x="20" y="20" width="370" height="430" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <rect x="20" y="20" width="370" height="36" rx="10" fill="#0f172a"/>
+  <rect x="20" y="44" width="370" height="12" fill="#0f172a"/>
+  <circle cx="42" cy="38" r="6" fill="#ef4444"/>
+  <circle cx="62" cy="38" r="6" fill="#f59e0b"/>
+  <circle cx="82" cy="38" r="6" fill="#10b981"/>
+  <text x="205" y="43" font-family="monospace" font-size="12" fill="#64748b" text-anchor="middle">011 — Banco.py</text>
+  <text x="40" y="76" font-family="monospace" font-size="12" fill="#60a5fa">class</text>
+  <text x="92" y="76" font-family="monospace" font-size="12" fill="#10b981">CuentaBancaria</text>
+  <text x="234" y="76" font-family="monospace" font-size="12" fill="#f1f5f9">():</text>
+  <text x="40" y="96" font-family="monospace" font-size="12" fill="#94a3b8">  def __init__(self):</text>
+  <text x="40" y="114" font-family="monospace" font-size="12" fill="#94a3b8">    self.</text>
+  <text x="98" y="114" font-family="monospace" font-size="12" fill="#f59e0b">__saldo</text>
+  <text x="175" y="114" font-family="monospace" font-size="12" fill="#94a3b8"> = 0</text>
+  <text x="40" y="132" font-family="monospace" font-size="12" fill="#94a3b8">    self.</text>
+  <text x="98" y="132" font-family="monospace" font-size="12" fill="#f59e0b">__cliente</text>
+  <text x="183" y="132" font-family="monospace" font-size="12" fill="#94a3b8"> = ""</text>
+  <text x="40" y="160" font-family="monospace" font-size="12" fill="#60a5fa">  def</text>
+  <text x="78" y="160" font-family="monospace" font-size="12" fill="#10b981"> setSaldo</text>
+  <text x="172" y="160" font-family="monospace" font-size="12" fill="#f1f5f9">(self, n):</text>
+  <text x="40" y="178" font-family="monospace" font-size="12" fill="#60a5fa">    if</text>
+  <text x="72" y="178" font-family="monospace" font-size="12" fill="#f1f5f9"> n > self.__saldo + </text>
+  <text x="242" y="178" font-family="monospace" font-size="12" fill="#fbbf24">1000</text>
+  <text x="40" y="196" font-family="monospace" font-size="12" fill="#f1f5f9">      print(</text>
+  <text x="118" y="196" font-family="monospace" font-size="12" fill="#86efac">"⚠ Ingreso grande"</text>
+  <text x="264" y="196" font-family="monospace" font-size="12" fill="#f1f5f9">)</text>
+  <text x="40" y="214" font-family="monospace" font-size="12" fill="#60a5fa">    else</text>
+  <text x="92" y="214" font-family="monospace" font-size="12" fill="#f1f5f9">:</text>
+  <text x="40" y="232" font-family="monospace" font-size="12" fill="#f1f5f9">      self.__saldo = n</text>
+  <!-- Ejecución -->
+  <line x1="30" y1="248" x2="380" y2="248" stroke="#334155" stroke-width="1" stroke-dasharray="4 2"/>
+  <text x="40" y="268" font-family="monospace" font-size="12" fill="#10b981">$ python "011- Banco.py"</text>
+  <text x="40" y="290" font-family="monospace" font-size="11" fill="#94a3b8">Intentando ingresar: 5.000.000 €</text>
+  <text x="40" y="308" font-family="monospace" font-size="11" fill="#f59e0b">⚠ Aviso: ingreso muy elevado detectado</text>
+  <text x="40" y="328" font-family="monospace" font-size="11" fill="#94a3b8">Saldo actual: 0 €</text>
+  <text x="40" y="348" font-family="monospace" font-size="11" fill="#94a3b8">Ingresando: 500 €</text>
+  <text x="40" y="366" font-family="monospace" font-size="11" fill="#10b981">✓ Saldo actualizado: 500 €</text>
+  <!-- Badge -->
+  <rect x="30" y="400" width="350" height="30" rx="6" fill="rgba(99,102,241,0.1)" stroke="rgba(99,102,241,0.3)" stroke-width="1"/>
+  <text x="205" y="419" font-family="sans-serif" font-size="11" fill="#64748b" text-anchor="middle">OOP · Encapsulación · Atributos Privados</text>
+  <!-- Terminal derecho: Agenda deportiva -->
+  <rect x="410" y="20" width="370" height="430" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <rect x="410" y="20" width="370" height="36" rx="10" fill="#0f172a"/>
+  <rect x="410" y="44" width="370" height="12" fill="#0f172a"/>
+  <circle cx="432" cy="38" r="6" fill="#ef4444"/>
+  <circle cx="452" cy="38" r="6" fill="#f59e0b"/>
+  <circle cx="472" cy="38" r="6" fill="#10b981"/>
+  <text x="595" y="43" font-family="monospace" font-size="12" fill="#64748b" text-anchor="middle">013 — Agenda deportiva.py</text>
+  <!-- Menu interactivo -->
+  <text x="430" y="76" font-family="monospace" font-size="12" fill="#10b981">$ python "013- Agenda deportiva.py"</text>
+  <text x="430" y="100" font-family="monospace" font-size="12" fill="#f1f5f9">Selecciona una opción</text>
+  <text x="430" y="118" font-family="monospace" font-size="12" fill="#60a5fa">1.- </text>
+  <text x="462" y="118" font-family="monospace" font-size="12" fill="#f1f5f9">Añadir un evento</text>
+  <text x="430" y="136" font-family="monospace" font-size="12" fill="#60a5fa">2.- </text>
+  <text x="462" y="136" font-family="monospace" font-size="12" fill="#f1f5f9">Mostrar los eventos</text>
+  <text x="430" y="154" font-family="monospace" font-size="12" fill="#60a5fa">3.- </text>
+  <text x="462" y="154" font-family="monospace" font-size="12" fill="#f1f5f9">Salir</text>
+  <text x="430" y="174" font-family="monospace" font-size="12" fill="#f59e0b">Tu opción: </text>
+  <text x="520" y="174" font-family="monospace" font-size="12" fill="#10b981">1</text>
+  <text x="430" y="196" font-family="monospace" font-size="12" fill="#94a3b8">Deporte: </text>
+  <text x="506" y="196" font-family="monospace" font-size="12" fill="#10b981">Fútbol</text>
+  <text x="430" y="214" font-family="monospace" font-size="12" fill="#94a3b8">Nombre: </text>
+  <text x="506" y="214" font-family="monospace" font-size="12" fill="#10b981">Champions Final</text>
+  <text x="430" y="232" font-family="monospace" font-size="12" fill="#94a3b8">Fecha: </text>
+  <text x="493" y="232" font-family="monospace" font-size="12" fill="#10b981">01/06/2025</text>
+  <text x="430" y="252" font-family="monospace" font-size="11" fill="#475569">💾 Guardando en agenda.json...</text>
+  <!-- JSON output -->
+  <line x1="420" y1="265" x2="770" y2="265" stroke="#334155" stroke-width="1" stroke-dasharray="4 2"/>
+  <text x="430" y="285" font-family="monospace" font-size="11" fill="#64748b">// agenda.json</text>
+  <text x="430" y="303" font-family="monospace" font-size="11" fill="#f1f5f9">[&#123;</text>
+  <text x="430" y="320" font-family="monospace" font-size="11" fill="#94a3b8">  </text>
+  <text x="445" y="320" font-family="monospace" font-size="11" fill="#fbbf24">"deporte"</text>
+  <text x="517" y="320" font-family="monospace" font-size="11" fill="#f1f5f9">: </text>
+  <text x="530" y="320" font-family="monospace" font-size="11" fill="#86efac">"Fútbol"</text>
+  <text x="430" y="337" font-family="monospace" font-size="11" fill="#94a3b8">  </text>
+  <text x="445" y="337" font-family="monospace" font-size="11" fill="#fbbf24">"nombre"</text>
+  <text x="514" y="337" font-family="monospace" font-size="11" fill="#f1f5f9">: </text>
+  <text x="527" y="337" font-family="monospace" font-size="11" fill="#86efac">"Champions Final"</text>
+  <text x="430" y="354" font-family="monospace" font-size="11" fill="#94a3b8">  </text>
+  <text x="445" y="354" font-family="monospace" font-size="11" fill="#fbbf24">"fecha"</text>
+  <text x="503" y="354" font-family="monospace" font-size="11" fill="#f1f5f9">: </text>
+  <text x="516" y="354" font-family="monospace" font-size="11" fill="#86efac">"01/06/2025"</text>
+  <text x="430" y="371" font-family="monospace" font-size="11" fill="#f1f5f9">&#125;]</text>
+  <!-- Badge -->
+  <rect x="420" y="400" width="350" height="30" rx="6" fill="rgba(16,185,129,0.1)" stroke="rgba(16,185,129,0.3)" stroke-width="1"/>
+  <text x="595" y="419" font-family="sans-serif" font-size="11" fill="#64748b" text-anchor="middle">Persistencia JSON · Menú CLI · json.dump()</text>
+  <!-- Footer -->
+  <rect x="0" y="462" width="800" height="38" fill="#0a0f1e"/>
+  <text x="400" y="485" font-family="sans-serif" font-size="12" fill="#475569" text-anchor="middle">13 Apps CLI Python · OOP · JSON · Pickle · Lógica de Negocio · Valentín De Gennaro</text>
+</svg>
+

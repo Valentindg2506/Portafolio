@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <!-- Toolbar superior -->
+  <rect x="0" y="0" width="800" height="48" fill="#0f172a" stroke="#334155" stroke-width="0" />
+  <!-- Color picker -->
+  <rect x="15" y="10" width="28" height="28" rx="5" fill="#ef4444"/>
+  <rect x="50" y="10" width="28" height="28" rx="5" fill="#3b82f6"/>
+  <rect x="85" y="10" width="28" height="28" rx="5" fill="#10b981"/>
+  <rect x="120" y="10" width="28" height="28" rx="5" fill="#f59e0b"/>
+  <rect x="155" y="10" width="28" height="28" rx="5" fill="#8b5cf6"/>
+  <rect x="190" y="10" width="28" height="28" rx="5" fill="#f1f5f9"/>
+  <rect x="225" y="10" width="28" height="28" rx="5" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+  <!-- Separador -->
+  <line x1="270" y1="8" x2="270" y2="40" stroke="#334155" stroke-width="1"/>
+  <!-- Tamaño de brocha -->
+  <text x="285" y="22" font-family="sans-serif" font-size="11" fill="#94a3b8">Grosor:</text>
+  <rect x="340" y="19" width="120" height="8" rx="4" fill="#334155"/>
+  <rect x="340" y="19" width="70" height="8" rx="4" fill="#3b82f6"/>
+  <circle cx="410" cy="23" r="7" fill="white" stroke="#3b82f6" stroke-width="2"/>
+  <!-- Tipo de punta -->
+  <text x="475" y="22" font-family="sans-serif" font-size="11" fill="#94a3b8">Punta:</text>
+  <rect x="520" y="10" width="55" height="26" rx="5" fill="#1d4ed8"/>
+  <text x="548" y="27" font-family="sans-serif" font-size="11" fill="white" text-anchor="middle">Round</text>
+  <rect x="582" y="10" width="55" height="26" rx="5" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="609" y="27" font-family="sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Square</text>
+  <!-- Botón guardar -->
+  <rect x="690" y="10" width="90" height="26" rx="5" fill="#10b981"/>
+  <text x="735" y="27" font-family="sans-serif" font-size="12" fill="white" text-anchor="middle">⬇ Guardar</text>
+  <!-- Canvas área de dibujo -->
+  <rect x="20" y="58" width="760" height="390" rx="8" fill="white"/>
+  <!-- Dibujo abstracto en el canvas -->
+  <!-- Espiral de puntos azules -->
+  <path d="M 200 250 Q 250 180 320 210 Q 390 240 370 310 Q 350 380 280 370 Q 210 360 220 290" stroke="#3b82f6" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <!-- Línea roja gruesa -->
+  <path d="M 100 150 Q 180 130 240 180 Q 300 230 280 300" stroke="#ef4444" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <!-- Garabato verde -->
+  <path d="M 400 200 Q 450 160 500 200 Q 550 240 520 290 Q 490 340 440 320 Q 390 300 410 260" stroke="#10b981" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <!-- Trazo amarillo fino -->
+  <path d="M 550 150 L 620 200 L 590 280 L 660 330 L 700 250" stroke="#f59e0b" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Círculos de pintura abstracta -->
+  <circle cx="150" cy="320" r="25" fill="rgba(139,92,246,0.5)"/>
+  <circle cx="180" cy="350" r="18" fill="rgba(59,130,246,0.4)"/>
+  <circle cx="130" cy="350" r="15" fill="rgba(239,68,68,0.4)"/>
+  <!-- Punto del cursor -->
+  <circle cx="460" cy="290" r="10" fill="none" stroke="#1e293b" stroke-width="2" stroke-dasharray="3 2"/>
+  <circle cx="460" cy="290" r="3" fill="#1e293b"/>
+  <!-- Info coordenadas -->
+  <rect x="20" y="58" width="130" height="22" rx="4" fill="rgba(0,0,0,0.5)"/>
+  <text x="30" y="73" font-family="monospace" font-size="11" fill="#94a3b8">x:460  y:290</text>
+  <!-- Footer -->
+  <rect x="0" y="458" width="800" height="42" fill="#0f172a"/>
+  <text x="400" y="483" font-family="sans-serif" font-size="12" fill="#64748b" text-anchor="middle">HTML5 Canvas API · JavaScript Vanilla · Sin dependencias · Descarga PNG</text>
+</svg>
+

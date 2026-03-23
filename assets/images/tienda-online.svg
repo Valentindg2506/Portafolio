@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f97316"/>
+      <stop offset="100%" style="stop-color:#ef4444"/>
+    </linearGradient>
+  </defs>
+  <!-- Fondo -->
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <!-- Navbar -->
+  <rect x="0" y="0" width="800" height="50" fill="#1e293b" rx="0"/>
+  <text x="30" y="32" font-family="monospace" font-size="18" fill="#f97316" font-weight="bold">🛒 TiendaOnline</text>
+  <rect x="600" y="15" width="80" height="22" rx="4" fill="url(#accent)" opacity="0.9"/>
+  <text x="640" y="30" font-family="sans-serif" font-size="11" fill="white" text-anchor="middle">Catálogo</text>
+  <rect x="690" y="15" width="80" height="22" rx="4" fill="none" stroke="#f97316" stroke-width="1"/>
+  <text x="730" y="30" font-family="sans-serif" font-size="11" fill="#f97316" text-anchor="middle">Mi Carrito</text>
+  <!-- Grid de productos -->
+  <!-- Producto 1 -->
+  <rect x="30" y="70" width="220" height="180" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <rect x="30" y="70" width="220" height="110" rx="10" fill="#334155"/>
+  <rect x="30" y="150" width="220" height="30" fill="#334155"/>
+  <text x="140" y="118" font-family="sans-serif" font-size="28" text-anchor="middle" fill="#64748b">📱</text>
+  <text x="50" y="200" font-family="sans-serif" font-size="13" fill="#f1f5f9" font-weight="bold">Samsung Galaxy</text>
+  <text x="50" y="218" font-family="sans-serif" font-size="12" fill="#94a3b8">Smartphone premium</text>
+  <text x="50" y="238" font-family="sans-serif" font-size="15" fill="#f97316" font-weight="bold">€599.99</text>
+  <rect x="150" y="225" width="85" height="24" rx="5" fill="url(#accent)"/>
+  <text x="192" y="241" font-family="sans-serif" font-size="11" fill="white" text-anchor="middle">Añadir ▶</text>
+  <!-- Producto 2 -->
+  <rect x="290" y="70" width="220" height="180" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <rect x="290" y="70" width="220" height="110" rx="10" fill="#334155"/>
+  <rect x="290" y="150" width="220" height="30" fill="#334155"/>
+  <text x="400" y="118" font-family="sans-serif" font-size="28" text-anchor="middle" fill="#64748b">💻</text>
+  <text x="310" y="200" font-family="sans-serif" font-size="13" fill="#f1f5f9" font-weight="bold">Laptop Pro</text>
+  <text x="310" y="218" font-family="sans-serif" font-size="12" fill="#94a3b8">Portátil de alta gama</text>
+  <text x="310" y="238" font-family="sans-serif" font-size="15" fill="#f97316" font-weight="bold">€1199.99</text>
+  <rect x="410" y="225" width="85" height="24" rx="5" fill="url(#accent)"/>
+  <text x="452" y="241" font-family="sans-serif" font-size="11" fill="white" text-anchor="middle">Añadir ▶</text>
+  <!-- Producto 3 -->
+  <rect x="550" y="70" width="220" height="180" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <rect x="550" y="70" width="220" height="110" rx="10" fill="#334155"/>
+  <rect x="550" y="150" width="220" height="30" fill="#334155"/>
+  <text x="660" y="118" font-family="sans-serif" font-size="28" text-anchor="middle" fill="#64748b">🎧</text>
+  <text x="570" y="200" font-family="sans-serif" font-size="13" fill="#f1f5f9" font-weight="bold">Auriculares BT</text>
+  <text x="570" y="218" font-family="sans-serif" font-size="12" fill="#94a3b8">Sonido inmersivo</text>
+  <text x="570" y="238" font-family="sans-serif" font-size="15" fill="#f97316" font-weight="bold">€89.99</text>
+  <rect x="670" y="225" width="85" height="24" rx="5" fill="url(#accent)"/>
+  <text x="712" y="241" font-family="sans-serif" font-size="11" fill="white" text-anchor="middle">Añadir ▶</text>
+  <!-- Carrito panel -->
+  <rect x="30" y="275" width="740" height="110" rx="10" fill="#1e293b" stroke="#f97316" stroke-width="1.5"/>
+  <text x="50" y="300" font-family="sans-serif" font-size="14" fill="#f97316" font-weight="bold">🛒 Tu carrito</text>
+  <text x="50" y="322" font-family="sans-serif" font-size="12" fill="#94a3b8">Samsung Galaxy × 1</text>
+  <text x="680" y="322" font-family="sans-serif" font-size="12" fill="#f1f5f9" text-anchor="end">€599.99</text>
+  <line x1="50" y1="330" x2="750" y2="330" stroke="#334155" stroke-width="1"/>
+  <text x="50" y="352" font-family="sans-serif" font-size="12" fill="#94a3b8">Auriculares BT × 2</text>
+  <text x="680" y="352" font-family="sans-serif" font-size="12" fill="#f1f5f9" text-anchor="end">€179.98</text>
+  <text x="550" y="374" font-family="sans-serif" font-size="14" fill="#f97316" font-weight="bold">TOTAL:</text>
+  <text x="680" y="374" font-family="sans-serif" font-size="14" fill="#f97316" font-weight="bold" text-anchor="end">€779.97</text>
+  <!-- Footer -->
+  <rect x="0" y="420" width="800" height="80" fill="#0f172a"/>
+  <text x="400" y="455" font-family="sans-serif" font-size="13" fill="#64748b" text-anchor="middle">PHP + MySQL · MySQLi · CSS3</text>
+  <text x="400" y="478" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="middle">Tienda Online · Valentín De Gennaro</text>
+</svg>
+

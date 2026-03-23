@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Agente IA - Generador autónomo de código con memoria de errores">
+    <title>Agente IA Autónomo - Valentín De Gennaro</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') document.documentElement.classList.add('dark');
+    </script>
+    <style>
+        .project-detail { min-height: 100vh; padding: 80px 20px 40px; }
+        .project-hero { max-width: 1000px; margin: 0 auto 50px; text-align: center; }
+        .project-hero h1 { font-size: 3em; margin-bottom: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .project-content { max-width: 900px; margin: 0 auto; }
+        .project-section { margin-bottom: 40px; padding: 30px; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
+        .project-section h2 { font-size: 1.8em; margin-bottom: 20px; color: #3b82f6; }
+        .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; }
+        .tech-badge { padding: 10px 15px; background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(99,102,241,0.2)); border: 1px solid rgba(59,130,246,0.5); border-radius: 8px; text-align: center; font-weight: 500; }
+        .features-list { list-style: none; padding: 0; }
+        .features-list li { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .features-list li:last-child { border-bottom: none; }
+        .features-list li:before { content: "✓ "; color: #10b981; font-weight: bold; margin-right: 10px; }
+        .back-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: rgba(59,130,246,0.2); border: 1px solid rgba(59,130,246,0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; margin-bottom: 30px; transition: all 0.3s ease; }
+        .back-btn:hover { background: rgba(59,130,246,0.3); transform: translateX(-5px); }
+        .project-links { display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap; }
+        .project-links a { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 6px; text-decoration: none; transition: all 0.3s ease; }
+        .project-links a:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(102,126,234,0.3); }
+        .flow-box { background: rgba(0,0,0,0.3); border-radius: 8px; padding: 20px; font-family: 'Fira Code', monospace; font-size: 0.9em; border: 1px solid rgba(255,255,255,0.1); margin-top: 15px; line-height: 1.8; }
+        .version-list { list-style: none; padding: 0; }
+        .version-list li { padding: 10px 15px; margin-bottom: 8px; background: rgba(255,255,255,0.03); border-left: 3px solid #3b82f6; border-radius: 0 6px 6px 0; }
+        .version-list li strong { color: #3b82f6; }
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-brand"><a href="../index.html#home">&lt;VDG /&gt;</a></div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="project-detail">
+        <a href="../index.html#projects" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Volver a Proyectos
+        </a>
+
+        <div class="project-hero">
+            <h1>Agente IA Autónomo</h1>
+            <p style="font-size: 1.2em; color: #a0aec0;">Generador de código con LLM local, validación multicapa y memoria de errores</p>
+        </div>
+
+        <div class="project-content">
+
+            <div class="project-section">
+                <h2><i class="fas fa-info-circle"></i> Descripción General</h2>
+                <p>
+                    Sistema agente que genera código Python de forma autónoma usando un modelo de lenguaje local
+                    (Ollama con <code>qwen2.5-coder:7b</code>), valida el resultado en múltiples capas y,
+                    si falla, <strong>aprende del error</strong> para evitar repetirlo en el siguiente intento.
+                </p>
+                <p>
+                    La característica más avanzada es el <strong>bucle de feedback con memoria</strong>: el agente
+                    analiza el mensaje de error, lo convierte en una instrucción comprensible para el LLM y lo inyecta
+                    en el prompt del siguiente intento. Esto simula un ciclo de aprendizaje iterativo similar al
+                    Reinforcement Learning from Human Feedback, pero automatizado.
+                </p>
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-tools"></i> Tecnologías Utilizadas</h2>
+                <div class="tech-grid">
+                    <div class="tech-badge"><i class="fab fa-python"></i><br>Python 3</div>
+                    <div class="tech-badge"><i class="fas fa-brain"></i><br>Ollama LLM</div>
+                    <div class="tech-badge"><i class="fas fa-code"></i><br>AST Module</div>
+                    <div class="tech-badge"><i class="fas fa-terminal"></i><br>subprocess</div>
+                    <div class="tech-badge"><i class="fas fa-exchange-alt"></i><br>REST API</div>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-layer-group"></i> Sistema de Validación Multicapa</h2>
+                <ul class="features-list">
+                    <li><strong>Capa 1 — Sintaxis:</strong> Parseo con <code>ast.parse()</code> — detecta errores de sintaxis Python antes de ejecutar</li>
+                    <li><strong>Capa 2 — Seguridad:</strong> Blacklist de funciones peligrosas (eval, exec, os.system, subprocess…) y whitelist de imports permitidos</li>
+                    <li><strong>Capa 3 — Ejecución:</strong> Ejecuta el código en un subprocess aislado con timeout de 5 segundos</li>
+                    <li><strong>Capa 4 — Semántica:</strong> Valida la salida del programa (palabras clave esperadas, código de retorno)</li>
+                </ul>
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-memory"></i> Sistema de Memoria de Errores</h2>
+                <p>El agente acumula errores y los inyecta en el prompt de cada nuevo intento:</p>
+                <div class="flow-box">
+Intento 1 → genera código → falla (EOFError)
+           → registra: "No uses input() sin controlar EOFError"
+
+Intento 2 → prompt incluye error anterior → genera nuevo código
+           → falla (timeout)
+           → registra: "El programa no debe quedarse esperando"
+
+Intento 3 → prompt incluye ambos errores → genera código correcto ✅
+                </div>
+                <p style="margin-top: 15px;">El análisis de errores traduce mensajes técnicos en instrucciones legibles para el LLM de forma automática.</p>
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-code-branch"></i> Progresión del Proyecto</h2>
+                <ul class="version-list">
+                    <li><strong>002 — Agente mínimo:</strong> Genera código simple y lo guarda en archivo</li>
+                    <li><strong>003 — Validador:</strong> Añade validación de sintaxis, seguridad y ejecución</li>
+                    <li><strong>004 — Reto mayor:</strong> Genera CRUD completo con SQLite, whitelist de imports</li>
+                    <li><strong>005 — Memoria de errores:</strong> Bucle de feedback con aprendizaje iterativo (versión final)</li>
+                    <li><strong>009 — Agente de análisis:</strong> Recorre el sistema de archivos y resume código con IA</li>
+                </ul>
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-user-tie"></i> Mi Rol</h2>
+                <p><strong>Diseñador del Sistema y Desarrollador Python</strong></p>
+                <p>
+                    Diseñé la arquitectura del agente, el sistema de validación multicapa, el mecanismo de memoria
+                    y el análisis semántico de errores. El mayor reto fue convertir mensajes de error técnicos en
+                    instrucciones útiles para un LLM, cerrando el bucle de feedback de forma completamente autónoma.
+                </p>
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-link"></i> Código Fuente</h2>
+                <div class="project-links">
+                    <a href="https://github.com/Valentindg2506/Programacion-DAM-25-26/tree/master/Apuntes/012-Inteligencia%20artificial/011-Agente%20IA" target="_blank">
+                        <i class="fab fa-github"></i> Ver Código en GitHub
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-info"></i> Estado</h2>
+                <p><strong>Estado:</strong> <span style="color: #f59e0b; font-weight: bold;">⚡ Proyecto de Aprendizaje</span></p>
+                <p>Proyecto académico que explora sistemas agente autónomos con LLMs locales, validación
+                de código generado por IA y bucles de feedback iterativos.</p>
+            </div>
+        </div>
+    </div>
+
+    <button id="scrollTop" class="scroll-top" aria-label="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    <script src="../js/main.js"></script>
+</body>
+</html>
+

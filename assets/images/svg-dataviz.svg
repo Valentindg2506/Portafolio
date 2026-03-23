@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <linearGradient id="bar1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#4338ca"/>
+    </linearGradient>
+    <linearGradient id="bar2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="bar3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981"/>
+      <stop offset="100%" style="stop-color:#059669"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <!-- Título -->
+  <text x="400" y="38" font-family="sans-serif" font-size="20" fill="#f1f5f9" font-weight="bold" text-anchor="middle">Ventas Mensuales</text>
+  <text x="400" y="58" font-family="sans-serif" font-size="13" fill="#64748b" text-anchor="middle">Ejercicio 2024 — Datos desde JSON</text>
+  <!-- Área del gráfico -->
+  <rect x="60" y="70" width="680" height="330" rx="8" fill="rgba(255,255,255,0.02)" stroke="#1e293b" stroke-width="1"/>
+  <!-- Líneas horizontales de referencia -->
+  <line x1="80" y1="370" x2="720" y2="370" stroke="#1e293b" stroke-width="1"/>
+  <line x1="80" y1="315" x2="720" y2="315" stroke="#1e293b" stroke-width="0.5" stroke-dasharray="4 4"/>
+  <line x1="80" y1="260" x2="720" y2="260" stroke="#1e293b" stroke-width="0.5" stroke-dasharray="4 4"/>
+  <line x1="80" y1="205" x2="720" y2="205" stroke="#1e293b" stroke-width="0.5" stroke-dasharray="4 4"/>
+  <line x1="80" y1="150" x2="720" y2="150" stroke="#1e293b" stroke-width="0.5" stroke-dasharray="4 4"/>
+  <line x1="80" y1="95" x2="720" y2="95" stroke="#1e293b" stroke-width="0.5" stroke-dasharray="4 4"/>
+  <!-- Etiquetas eje Y -->
+  <text x="68" y="374" font-family="monospace" font-size="11" fill="#475569" text-anchor="end">0</text>
+  <text x="68" y="319" font-family="monospace" font-size="11" fill="#475569" text-anchor="end">50</text>
+  <text x="68" y="264" font-family="monospace" font-size="11" fill="#475569" text-anchor="end">100</text>
+  <text x="68" y="209" font-family="monospace" font-size="11" fill="#475569" text-anchor="end">150</text>
+  <text x="68" y="154" font-family="monospace" font-size="11" fill="#475569" text-anchor="end">200</text>
+  <text x="68" y="99" font-family="monospace" font-size="11" fill="#475569" text-anchor="end">250</text>
+  <!-- Barras (12 meses) -->
+  <!-- Ene 120 → altura 130 -->
+  <rect x="87"  y="240" width="40" height="130" rx="4" fill="url(#bar2)"/>
+  <!-- Feb 190 → 206 -->
+  <rect x="140" y="164" width="40" height="206" rx="4" fill="url(#bar1)"/>
+  <!-- Mar 150 → 163 -->
+  <rect x="193" y="207" width="40" height="163" rx="4" fill="url(#bar2)"/>
+  <!-- Abr 220 → 239 -->
+  <rect x="246" y="131" width="40" height="239" rx="4" fill="url(#bar3)"/>
+  <!-- May 180 → 195 -->
+  <rect x="299" y="175" width="40" height="195" rx="4" fill="url(#bar1)"/>
+  <!-- Jun 240 → 260 -->
+  <rect x="352" y="110" width="40" height="260" rx="4" fill="url(#bar3)"/>
+  <!-- Jul 200 → 217 -->
+  <rect x="405" y="153" width="40" height="217" rx="4" fill="url(#bar2)"/>
+  <!-- Ago 170 → 184 -->
+  <rect x="458" y="186" width="40" height="184" rx="4" fill="url(#bar1)"/>
+  <!-- Sep 230 → 250 -->
+  <rect x="511" y="120" width="40" height="250" rx="4" fill="url(#bar3)"/>
+  <!-- Oct 260 → 282 → destacada con tooltip -->
+  <rect x="564" y="88" width="40" height="282" rx="4" fill="#f59e0b"/>
+  <!-- Nov 210 → 228 -->
+  <rect x="617" y="142" width="40" height="228" rx="4" fill="url(#bar1)"/>
+  <!-- Dic 250 → 271 -->
+  <rect x="670" y="99" width="40" height="271" rx="4" fill="url(#bar3)"/>
+  <!-- Tooltip sobre Oct -->
+  <rect x="544" y="58" width="82" height="38" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="585" y="74" font-family="sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Octubre</text>
+  <text x="585" y="90" font-family="sans-serif" font-size="13" fill="#f59e0b" text-anchor="middle" font-weight="bold">260 €</text>
+  <line x1="585" y1="96" x2="585" y2="88" stroke="#f59e0b" stroke-width="1.5"/>
+  <!-- Etiquetas eje X -->
+  <text x="107"  y="390" font-family="sans-serif" font-size="11" fill="#64748b" text-anchor="middle">Ene</text>
+  <text x="160"  y="390" font-family="sans-serif" font-size="11" fill="#64748b" text-anchor="middle">Feb</text>
+  <text x="213"  y="390" font-family="sans-serif" font-size="11" fill="#64748b" text-anchor="middle">Mar</text>
+  <text x="266"  y="390" font-family="sans-serif" font-size="11" fill="#64748b" text-anchor="middle">Abr</text>
+  <text x="319"  y="390" font-family="sans-serif" font-size="11" fill="#64748b" text-anchor="middle">May</text>
+  <text x="372"  y="390" font-family="sans-serif" font-size="11" fill="#64748b" text-anchor="middle">Jun</text>
+  <text x="425"  y="390" font-family="sans-serif" font-size="11" fill="#64748b" text-anchor="middle">Jul</text>
+  <text x="478"  y="390" font-family="sans-serif" font-size="11" fill="#64748b" text-anchor="middle">Ago</text>
+  <text x="531"  y="390" font-family="sans-serif" font-size="11" fill="#64748b" text-anchor="middle">Sep</text>
+  <text x="584"  y="390" font-family="sans-serif" font-size="11" fill="#f59e0b" text-anchor="middle" font-weight="bold">Oct</text>
+  <text x="637"  y="390" font-family="sans-serif" font-size="11" fill="#64748b" text-anchor="middle">Nov</text>
+  <text x="690"  y="390" font-family="sans-serif" font-size="11" fill="#64748b" text-anchor="middle">Dic</text>
+  <!-- Footer -->
+  <rect x="0" y="418" width="800" height="82" fill="#0a0f1e"/>
+  <text x="400" y="448" font-family="sans-serif" font-size="13" fill="#64748b" text-anchor="middle">SVG Puro · requestAnimationFrame · easeOutCubic · Tooltips · JSON</text>
+  <text x="400" y="471" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="middle">Sin librerías externas · SVG &amp; Data Viz · Valentín De Gennaro</text>
+</svg>
+

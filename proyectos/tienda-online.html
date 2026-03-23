@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tienda Online - E-commerce completo con PHP y MySQL">
+    <title>Tienda Online - Valentín De Gennaro</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') document.documentElement.classList.add('dark');
+    </script>
+    <style>
+        .project-detail { min-height: 100vh; padding: 80px 20px 40px; }
+        .project-hero { max-width: 1000px; margin: 0 auto 50px; text-align: center; }
+        .project-hero h1 { font-size: 3em; margin-bottom: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .project-content { max-width: 900px; margin: 0 auto; }
+        .project-section { margin-bottom: 40px; padding: 30px; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
+        .project-section h2 { font-size: 1.8em; margin-bottom: 20px; color: #3b82f6; }
+        .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-bottom: 20px; }
+        .tech-badge { padding: 10px 15px; background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(99,102,241,0.2)); border: 1px solid rgba(59,130,246,0.5); border-radius: 8px; text-align: center; font-weight: 500; }
+        .features-list { list-style: none; padding: 0; }
+        .features-list li { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .features-list li:last-child { border-bottom: none; }
+        .features-list li:before { content: "✓ "; color: #10b981; font-weight: bold; margin-right: 10px; }
+        .back-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: rgba(59,130,246,0.2); border: 1px solid rgba(59,130,246,0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; margin-bottom: 30px; transition: all 0.3s ease; }
+        .back-btn:hover { background: rgba(59,130,246,0.3); transform: translateX(-5px); }
+        .project-links { display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap; }
+        .project-links a { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 6px; text-decoration: none; transition: all 0.3s ease; }
+        .project-links a:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(102,126,234,0.3); }
+        .version-list { list-style: none; padding: 0; }
+        .version-list li { padding: 10px 15px; margin-bottom: 8px; background: rgba(255,255,255,0.03); border-left: 3px solid #3b82f6; border-radius: 0 6px 6px 0; }
+        .version-list li strong { color: #3b82f6; }
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="../index.html#home">&lt;VDG /&gt;</a>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="project-detail">
+        <a href="../index.html#projects" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Volver a Proyectos
+        </a>
+
+        <div class="project-hero">
+            <h1>Tienda Online</h1>
+            <p style="font-size: 1.2em; color: #a0aec0;">E-commerce completo con PHP y MySQL — desarrollado en 7 versiones</p>
+        </div>
+
+        <div class="project-content">
+
+            <div class="project-section">
+                <h2><i class="fas fa-info-circle"></i> Descripción General</h2>
+                <p>
+                    Aplicación de comercio electrónico construida de cero con PHP y MySQL. El proyecto se desarrolló
+                    de forma progresiva en 7 versiones, añadiendo funcionalidad en cada iteración: desde páginas HTML
+                    estáticas hasta un flujo de compra completo con base de datos relacional.
+                </p>
+                <p>
+                    Implementa el ciclo completo de una tienda: catálogo dinámico desde BD, detalle de producto,
+                    carrito de compra con selección de cantidad y proceso de checkout con registro de cliente, pedido
+                    y líneas de pedido respetando claves foráneas.
+                </p>
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-tools"></i> Tecnologías Utilizadas</h2>
+                <div class="tech-grid">
+                    <div class="tech-badge"><i class="fab fa-php"></i><br>PHP 8</div>
+                    <div class="tech-badge"><i class="fas fa-database"></i><br>MySQL</div>
+                    <div class="tech-badge"><i class="fab fa-html5"></i><br>HTML5</div>
+                    <div class="tech-badge"><i class="fab fa-css3-alt"></i><br>CSS3</div>
+                    <div class="tech-badge"><i class="fas fa-server"></i><br>MySQLi</div>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-star"></i> Características Clave</h2>
+                <ul class="features-list">
+                    <li><strong>Catálogo dinámico:</strong> Productos cargados desde MySQL con imagen, nombre, descripción y precio</li>
+                    <li><strong>Detalle de producto:</strong> Página individual con selector de cantidad (1–10 unidades)</li>
+                    <li><strong>Carrito de compra:</strong> Resumen del pedido antes de confirmar, datos pasados por POST</li>
+                    <li><strong>Checkout completo:</strong> Formulario de datos del cliente e inserción en BD en cascada</li>
+                    <li><strong>Base de datos relacional:</strong> 4 tablas con claves foráneas (producto, cliente, pedido, lineaspedido)</li>
+                    <li><strong>Componentes reutilizables:</strong> Cabecera y pie de página como includes PHP</li>
+                    <li><strong>Patrón PRG:</strong> Post-Redirect-Get para evitar reenvíos del formulario</li>
+                </ul>
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-code-branch"></i> Evolución del Proyecto</h2>
+                <ul class="version-list">
+                    <li><strong>V0.1 — Inicio:</strong> Estructura HTML básica y navegación entre páginas</li>
+                    <li><strong>V0.2 — Contenido:</strong> Estilos CSS e includes reutilizables (cabecera/pie)</li>
+                    <li><strong>V0.3 — BBDD:</strong> Diseño del esquema relacional y datos de ejemplo</li>
+                    <li><strong>V0.4 — Paso de artículo:</strong> Carga dinámica de productos desde base de datos</li>
+                    <li><strong>V0.5 — Carrito:</strong> Funcionalidad de carrito con selección de cantidad</li>
+                    <li><strong>V0.6 — Finalización:</strong> Checkout con inserción de cliente, pedido y líneas</li>
+                    <li><strong>V0.7 — Ajustes estéticos:</strong> Versión final pulida con diseño naranja/gradiente</li>
+                </ul>
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-database"></i> Esquema de Base de Datos</h2>
+                <p>Base de datos: <code>tiendaonlinedamdaw</code> — 4 tablas relacionadas:</p>
+                <ul class="features-list">
+                    <li><strong>producto:</strong> id, nombre_producto, descripcion, precio, stock, imagen</li>
+                    <li><strong>cliente:</strong> id, nombre_cliente, apellidos, email, direccion, telefono</li>
+                    <li><strong>pedido:</strong> id, fecha, cliente_id (FK → cliente)</li>
+                    <li><strong>lineaspedido:</strong> id, pedido_id (FK → pedido), cantidad, producto_id (FK → producto)</li>
+                </ul>
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-user-tie"></i> Mi Rol</h2>
+                <p>
+                    <strong>Desarrollador Full-Stack (PHP + MySQL)</strong>
+                </p>
+                <p>
+                    Diseñé el esquema de base de datos relacional, implementé toda la lógica de servidor con PHP y MySQLi
+                    procedural, y construí el flujo completo de compra desde el catálogo hasta la confirmación del pedido.
+                    El proyecto se desarrolló de forma iterativa añadiendo una capa de funcionalidad por versión.
+                </p>
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-link"></i> Código Fuente</h2>
+                <div class="project-links">
+                    <a href="https://github.com/Valentindg2506/Programacion-DAM-25-26/tree/master/Apuntes/010-Programci%C3%B3n%20en%20el%20lado%20del%20servidor/010-Tienda%20online" target="_blank">
+                        <i class="fab fa-github"></i> Ver Código en GitHub
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-info"></i> Estado</h2>
+                <p><strong>Estado:</strong> <span style="color: #f59e0b; font-weight: bold;">⚡ Proyecto de Aprendizaje</span></p>
+                <p>Proyecto académico desarrollado durante el ciclo formativo de DAM. Demuestra el dominio del ciclo completo
+                de desarrollo web con PHP, desde el diseño de la BD hasta el frontend.</p>
+            </div>
+        </div>
+    </div>
+
+    <button id="scrollTop" class="scroll-top" aria-label="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    <script src="../js/main.js"></script>
+</body>
+</html>
+

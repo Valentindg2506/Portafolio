@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <!-- Header -->
+  <rect x="0" y="0" width="800" height="50" fill="#0f172a"/>
+  <text x="30" y="32" font-family="monospace" font-size="16" fill="#3b82f6" font-weight="bold">⚙ Supercontrolador · Panel de Admin</text>
+  <!-- Sidebar -->
+  <rect x="0" y="50" width="190" height="450" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
+  <text x="20" y="80" font-family="sans-serif" font-size="11" fill="#64748b" font-weight="bold">TABLAS</text>
+  <rect x="10" y="88" width="170" height="30" rx="5" fill="#1d4ed8"/>
+  <text x="25" y="108" font-family="sans-serif" font-size="13" fill="white">📦 producto</text>
+  <text x="25" y="138" font-family="sans-serif" font-size="13" fill="#94a3b8">👤 cliente</text>
+  <line x1="10" y1="148" x2="180" y2="148" stroke="#1e293b" stroke-width="1"/>
+  <text x="25" y="168" font-family="sans-serif" font-size="13" fill="#94a3b8">🧾 pedido</text>
+  <line x1="10" y1="178" x2="180" y2="178" stroke="#1e293b" stroke-width="1"/>
+  <text x="25" y="198" font-family="sans-serif" font-size="13" fill="#94a3b8">📋 lineaspedido</text>
+  <line x1="10" y1="208" x2="180" y2="208" stroke="#1e293b" stroke-width="1"/>
+  <!-- Zona principal -->
+  <!-- Barra de acciones -->
+  <rect x="200" y="55" width="590" height="40" fill="#1e293b"/>
+  <text x="220" y="80" font-family="sans-serif" font-size="13" fill="#94a3b8">Tabla: <tspan fill="#f1f5f9">producto</tspan></text>
+  <rect x="700" y="62" width="70" height="26" rx="5" fill="#1d4ed8"/>
+  <text x="735" y="79" font-family="sans-serif" font-size="12" fill="white" text-anchor="middle">+ Nuevo</text>
+  <!-- Tabla de datos -->
+  <rect x="200" y="100" width="590" height="30" fill="#1e293b"/>
+  <text x="215" y="120" font-family="monospace" font-size="11" fill="#3b82f6" font-weight="bold">id</text>
+  <text x="270" y="120" font-family="monospace" font-size="11" fill="#3b82f6" font-weight="bold">nombre_producto</text>
+  <text x="470" y="120" font-family="monospace" font-size="11" fill="#3b82f6" font-weight="bold">precio</text>
+  <text x="550" y="120" font-family="monospace" font-size="11" fill="#3b82f6" font-weight="bold">stock</text>
+  <line x1="200" y1="130" x2="790" y2="130" stroke="#334155" stroke-width="1"/>
+  <!-- Fila 1 -->
+  <rect x="200" y="130" width="590" height="30" fill="rgba(255,255,255,0.02)"/>
+  <text x="215" y="150" font-family="monospace" font-size="11" fill="#94a3b8">1</text>
+  <text x="270" y="150" font-family="monospace" font-size="11" fill="#f1f5f9">Samsung Galaxy S24</text>
+  <text x="470" y="150" font-family="monospace" font-size="11" fill="#10b981">599.99</text>
+  <text x="550" y="150" font-family="monospace" font-size="11" fill="#f1f5f9">24</text>
+  <line x1="200" y1="160" x2="790" y2="160" stroke="#1e293b" stroke-width="1"/>
+  <!-- Fila 2 -->
+  <text x="215" y="180" font-family="monospace" font-size="11" fill="#94a3b8">2</text>
+  <text x="270" y="180" font-family="monospace" font-size="11" fill="#f1f5f9">Laptop Pro 15"</text>
+  <text x="470" y="180" font-family="monospace" font-size="11" fill="#10b981">1199.99</text>
+  <text x="550" y="180" font-family="monospace" font-size="11" fill="#f1f5f9">8</text>
+  <line x1="200" y1="190" x2="790" y2="190" stroke="#1e293b" stroke-width="1"/>
+  <!-- Fila 3 -->
+  <text x="215" y="210" font-family="monospace" font-size="11" fill="#94a3b8">3</text>
+  <text x="270" y="210" font-family="monospace" font-size="11" fill="#f1f5f9">Auriculares BT Pro</text>
+  <text x="470" y="210" font-family="monospace" font-size="11" fill="#10b981">89.99</text>
+  <text x="550" y="210" font-family="monospace" font-size="11" fill="#f1f5f9">50</text>
+  <!-- SQL dinámico destacado -->
+  <rect x="200" y="250" width="590" height="130" rx="8" fill="#0f172a" stroke="#1d4ed8" stroke-width="1.5"/>
+  <text x="220" y="275" font-family="monospace" font-size="11" fill="#64748b">// Consulta generada dinámicamente</text>
+  <text x="220" y="298" font-family="monospace" font-size="12" fill="#60a5fa">$resultado</text>
+  <text x="315" y="298" font-family="monospace" font-size="12" fill="#f1f5f9">= $conexion-&gt;query(</text>
+  <text x="220" y="318" font-family="monospace" font-size="12" fill="#fbbf24">  "SELECT * FROM "</text>
+  <text x="220" y="338" font-family="monospace" font-size="12" fill="#f1f5f9">   . </text>
+  <text x="250" y="338" font-family="monospace" font-size="12" fill="#60a5fa">$_GET</text>
+  <text x="295" y="338" font-family="monospace" font-size="12" fill="#f1f5f9">['tabla']</text>
+  <text x="220" y="358" font-family="monospace" font-size="12" fill="#10b981">  // ← funciona con CUALQUIER tabla</text>
+  <!-- Footer -->
+  <rect x="0" y="430" width="800" height="70" fill="#0f172a"/>
+  <text x="400" y="458" font-family="sans-serif" font-size="13" fill="#64748b" text-anchor="middle">PHP + MySQL · MVC · Arquitectura Table-Agnostic</text>
+  <text x="400" y="480" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="middle">Supercontrolador · Valentín De Gennaro</text>
+</svg>
+
