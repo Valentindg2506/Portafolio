@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bgExplain" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bgExplain)"/>
+
+  <rect x="35" y="35" width="730" height="380" rx="18" fill="#0b1220" stroke="#334155"/>
+  <text x="65" y="82" font-family="monospace" font-size="28" font-weight="700" fill="#60a5fa">ExplainMyCodebase</text>
+  <text x="65" y="108" font-family="monospace" font-size="13" fill="#94a3b8">Analiza repositorios y explica arquitectura automáticamente</text>
+
+  <rect x="65" y="135" width="300" height="245" rx="10" fill="#111827" stroke="#1e293b"/>
+  <text x="85" y="166" font-family="monospace" font-size="13" fill="#cbd5e1">repo/</text>
+  <text x="105" y="192" font-family="monospace" font-size="12" fill="#93c5fd">src/</text>
+  <text x="125" y="214" font-family="monospace" font-size="12" fill="#a5b4fc">services/</text>
+  <text x="125" y="236" font-family="monospace" font-size="12" fill="#a5b4fc">controllers/</text>
+  <text x="125" y="258" font-family="monospace" font-size="12" fill="#a5b4fc">models/</text>
+  <text x="105" y="286" font-family="monospace" font-size="12" fill="#93c5fd">docs/</text>
+  <text x="105" y="308" font-family="monospace" font-size="12" fill="#93c5fd">tests/</text>
+
+  <rect x="400" y="135" width="335" height="245" rx="10" fill="#111827" stroke="#1e293b"/>
+  <text x="420" y="166" font-family="monospace" font-size="13" fill="#34d399">Resumen generado:</text>
+  <text x="420" y="196" font-family="monospace" font-size="12" fill="#e2e8f0">- API REST separada por capas</text>
+  <text x="420" y="220" font-family="monospace" font-size="12" fill="#e2e8f0">- Módulo auth centralizado</text>
+  <text x="420" y="244" font-family="monospace" font-size="12" fill="#e2e8f0">- Persistencia con repositorios</text>
+  <text x="420" y="268" font-family="monospace" font-size="12" fill="#e2e8f0">- Flujos de negocio en services</text>
+  <text x="420" y="292" font-family="monospace" font-size="12" fill="#e2e8f0">- Test coverage parcial</text>
+  <text x="420" y="330" font-family="monospace" font-size="12" fill="#64748b">output.md listo para documentación</text>
+</svg>

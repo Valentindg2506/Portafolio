@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CRM - Plataforma comercial modular con funnels, campañas y automatizaciones">
+    <title>CRM - Valentín De Gennaro</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+    <style>
+        .project-detail { min-height: 100vh; padding: 80px 20px 40px; }
+        .project-hero { max-width: 1000px; margin: 0 auto 50px; text-align: center; }
+        .project-hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .project-content { max-width: 900px; margin: 0 auto; }
+        .project-section {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .project-section h2 { font-size: 1.8em; margin-bottom: 20px; color: #3b82f6; }
+        .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; }
+        .tech-badge {
+            padding: 10px 15px;
+            background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(99,102,241,0.2));
+            border: 1px solid rgba(59,130,246,0.5);
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+        }
+        .features-list { list-style: none; padding: 0; }
+        .features-list li { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .features-list li:last-child { border-bottom: none; }
+        .features-list li:before { content: "✓ "; color: #10b981; font-weight: bold; margin-right: 10px; }
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: rgba(59,130,246,0.2);
+            border: 1px solid rgba(59,130,246,0.5);
+            color: #3b82f6;
+            border-radius: 6px;
+            text-decoration: none;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+        .back-btn:hover { background: rgba(59,130,246,0.3); transform: translateX(-5px); }
+        .project-links { display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap; }
+        .project-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .project-links a:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(102,126,234,0.3); }
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-brand"><a href="../index.html#home">&lt;VDG /&gt;</a></div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="project-detail">
+        <a href="../index.html#projects" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Volver a Proyectos
+        </a>
+
+        <div class="project-hero">
+            <h1>CRM</h1>
+            <p style="font-size: 1.2em; color: #a0aec0;">Plataforma comercial modular para captación, seguimiento y automatización</p>
+        </div>
+
+        <div class="project-content">
+            <div class="project-section">
+                <h2><i class="fas fa-info-circle"></i> Descripción General</h2>
+                <p>
+                    CRM es una plataforma orientada a la gestión comercial completa: captura de leads,
+                    seguimiento de prospectos, embudos de ventas, campañas y automatizaciones de procesos.
+                </p>
+                <p>
+                    El sistema está organizado en múltiples instaladores funcionales que permiten desplegar
+                    módulos según necesidad del negocio.
+                </p>
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-tools"></i> Tecnologías Utilizadas</h2>
+                <div class="tech-grid">
+                    <div class="tech-badge"><i class="fab fa-php"></i><br>PHP</div>
+                    <div class="tech-badge"><i class="fas fa-database"></i><br>MySQL</div>
+                    <div class="tech-badge"><i class="fab fa-js"></i><br>JavaScript</div>
+                    <div class="tech-badge"><i class="fas fa-cogs"></i><br>Arquitectura Modular</div>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-star"></i> Características Clave</h2>
+                <ul class="features-list">
+                    <li><strong>Funnels:</strong> Gestión de embudos con seguimiento de etapas comerciales</li>
+                    <li><strong>Formularios y landing:</strong> Captación de leads desde múltiples entradas</li>
+                    <li><strong>Campañas:</strong> Módulos de automatización para marketing y comunicación</li>
+                    <li><strong>Pipelines:</strong> Flujo de trabajo de prospectos y oportunidades</li>
+                    <li><strong>Instalación por módulos:</strong> Activación progresiva de funcionalidades</li>
+                </ul>
+            </div>
+
+                        <div class="project-section">
+                <h2><i class="fas fa-compass"></i> Enfoque y Valor del Proyecto</h2>
+                <p>
+                    Este CRM se diseño como plataforma modular instalable en hosting compartido, con despliegue por
+                    scripts <code>install_*.php</code>, foco comercial y extensibilidad para nuevos modulos.
+                </p>
+                <ul class="features-list">
+                    <li><strong>Despliegue progresivo:</strong> Instalador maestro + instaladores por dominio funcional (marketing, comunicacion, automatizacion)</li>
+                    <li><strong>Operacion real:</strong> Integraciones documentadas para cron de campanas, UTM tracking y webhooks (WhatsApp/Social)</li>
+                    <li><strong>Escalado de negocio:</strong> Pipeline, funnels, formularios y automatizaciones orientadas a captacion y cierre</li>
+                </ul>
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-user-tie"></i> Mi Rol</h2>
+                <p><strong>Desarrollador Full Stack</strong></p>
+                <p>
+                    Me encargué del diseño y la implementación de módulos clave, estructura de instalación,
+                    flujo de datos comercial y parte de la lógica backend para automatizaciones.
+                </p>
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-link"></i> Código Fuente</h2>
+                <div class="project-links">
+                    <a href="https://github.com/Valentindg2506/CRM" target="_blank">
+                        <i class="fab fa-github"></i> Ver Código en GitHub
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-info"></i> Estado</h2>
+                <p><strong>Estado:</strong> <span style="color: #f59e0b; font-weight: bold;">⚡ Proyecto en Evolución</span></p>
+                <p>Base sólida y funcional, con mejoras continuas en módulos de negocio y automatizaciones.</p>
+            </div>
+        </div>
+    </div>
+
+    <button id="scrollTop" class="scroll-top" aria-label="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
