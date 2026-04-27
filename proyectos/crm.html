@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="CRM - Plataforma comercial modular con funnels, campañas y automatizaciones">
-    <title>CRM - Valentín De Gennaro</title>
+    <meta name="description" content="TinoProp CRM - Sistema CRM inmobiliario propietario para el mercado español con 36 módulos, automatizaciones y gestión completa del ciclo de venta">
+    <title>TinoProp CRM - Valentín De Gennaro</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script>
@@ -33,7 +33,13 @@
             border: 1px solid rgba(255,255,255,0.1);
         }
         .project-section h2 { font-size: 1.8em; margin-bottom: 20px; color: #3b82f6; }
-        .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; }
+        .project-section h3 { font-size: 1.2em; margin: 20px 0 10px; color: #818cf8; }
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
         .tech-badge {
             padding: 10px 15px;
             background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(99,102,241,0.2));
@@ -73,6 +79,114 @@
             transition: all 0.3s ease;
         }
         .project-links a:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(102,126,234,0.3); }
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .module-card {
+            padding: 15px 18px;
+            background: rgba(99,102,241,0.08);
+            border: 1px solid rgba(99,102,241,0.25);
+            border-radius: 10px;
+        }
+        .module-card strong { display: block; margin-bottom: 4px; color: #a5b4fc; }
+        .module-card p { margin: 0; font-size: 0.9em; opacity: 0.85; }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .stat-card {
+            padding: 18px 12px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.15), rgba(118,75,162,0.15));
+            border: 1px solid rgba(102,126,234,0.3);
+            border-radius: 10px;
+            text-align: center;
+        }
+        .stat-card .stat-num {
+            display: block;
+            font-size: 2em;
+            font-weight: 800;
+            color: #818cf8;
+            line-height: 1;
+        }
+        .stat-card .stat-label {
+            display: block;
+            font-size: 0.8em;
+            opacity: 0.75;
+            margin-top: 6px;
+        }
+        .integration-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .integration-card {
+            padding: 15px;
+            background: rgba(16,185,129,0.08);
+            border: 1px solid rgba(16,185,129,0.25);
+            border-radius: 10px;
+        }
+        .integration-card strong { display: block; margin-bottom: 4px; color: #34d399; }
+        .integration-card p { margin: 0; font-size: 0.88em; opacity: 0.85; }
+        .roles-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        .roles-table th, .roles-table td {
+            padding: 10px 14px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .roles-table th {
+            color: #3b82f6;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(59,130,246,0.3);
+        }
+        .roles-table tr:last-child td { border-bottom: none; }
+        .role-level {
+            display: inline-block;
+            padding: 2px 8px;
+            background: rgba(99,102,241,0.2);
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: bold;
+            color: #818cf8;
+        }
+        .workflow-steps {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        .workflow-steps li {
+            counter-increment: step-counter;
+            padding: 12px 0 12px 50px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            position: relative;
+        }
+        .workflow-steps li:before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.85em;
+            color: white;
+        }
+        .workflow-steps li:last-child { border-bottom: none; }
     </style>
 </head>
 <body>
@@ -91,66 +205,510 @@
         </a>
 
         <div class="project-hero">
-            <h1>CRM</h1>
-            <p style="font-size: 1.2em; color: #a0aec0;">Plataforma comercial modular para captación, seguimiento y automatización</p>
+            <h1>TinoProp CRM</h1>
+            <p style="font-size: 1.2em; color: #a0aec0;">CRM inmobiliario propietario para el mercado español — gestión completa del ciclo de captación, venta y postventa</p>
         </div>
 
         <div class="project-content">
-            <div class="project-section">
-                <h2><i class="fas fa-info-circle"></i> Descripción General</h2>
-                <p>
-                    CRM es una plataforma orientada a la gestión comercial completa: captura de leads,
-                    seguimiento de prospectos, embudos de ventas, campañas y automatizaciones de procesos.
-                </p>
-                <p>
-                    El sistema está organizado en múltiples instaladores funcionales que permiten desplegar
-                    módulos según necesidad del negocio.
-                </p>
-            </div>
 
+            <!-- Cifras Clave -->
             <div class="project-section">
-                <h2><i class="fas fa-tools"></i> Tecnologías Utilizadas</h2>
-                <div class="tech-grid">
-                    <div class="tech-badge"><i class="fab fa-php"></i><br>PHP</div>
-                    <div class="tech-badge"><i class="fas fa-database"></i><br>MySQL</div>
-                    <div class="tech-badge"><i class="fab fa-js"></i><br>JavaScript</div>
-                    <div class="tech-badge"><i class="fas fa-cogs"></i><br>Arquitectura Modular</div>
+                <h2><i class="fas fa-chart-line"></i> Escala del Proyecto</h2>
+                <div class="stats-grid">
+                    <div class="stat-card"><span class="stat-num">36</span><span class="stat-label">Módulos funcionales</span></div>
+                    <div class="stat-card"><span class="stat-num">81</span><span class="stat-label">Tablas en la BD</span></div>
+                    <div class="stat-card"><span class="stat-num">7</span><span class="stat-label">Integraciones externas</span></div>
+                    <div class="stat-card"><span class="stat-num">52</span><span class="stat-label">Provincias españolas</span></div>
+                    <div class="stat-card"><span class="stat-num">7</span><span class="stat-label">Portales inmobiliarios</span></div>
+                    <div class="stat-card"><span class="stat-num">v1.2</span><span class="stat-label">Versión actual</span></div>
                 </div>
             </div>
 
+            <!-- Descripción General -->
             <div class="project-section">
-                <h2><i class="fas fa-star"></i> Características Clave</h2>
+                <h2><i class="fas fa-info-circle"></i> Descripción General</h2>
+                <p>
+                    <strong>TinoProp CRM</strong> es un sistema de gestión comercial propietario diseñado específicamente
+                    para el <strong>mercado inmobiliario español</strong>. Cubre el ciclo completo de negocio: desde la
+                    captación de un propietario hasta el cierre de la operación, pasando por la gestión de visitas,
+                    la facturación con IVA español, la firma digital de contratos y la automatización de marketing.
+                </p>
+                <p>
+                    El proyecto nació con una filosofía clara: <strong>cero dependencias externas</strong>. No usa
+                    Composer, no usa npm, no usa ningún framework. Es PHP puro, vanilla JavaScript y Bootstrap CDN,
+                    lo que lo hace desplegable en cualquier hosting compartido —como Hostinger— sin acceso SSH ni
+                    configuración de servidor.
+                </p>
+                <p>
+                    Con <strong>36 módulos interconectados</strong>, una base de datos de <strong>81 tablas</strong>
+                    y documentación técnica completa, este CRM no es un CRUD básico: es una plataforma de negocio
+                    real con automatizaciones, integraciones con APIs externas, compliance RGPD y soporte para
+                    todo el flujo comercial de una agencia inmobiliaria española.
+                </p>
+            </div>
+
+            <!-- Tecnologías -->
+            <div class="project-section">
+                <h2><i class="fas fa-tools"></i> Tecnologías Utilizadas</h2>
+                <div class="tech-grid">
+                    <div class="tech-badge"><i class="fab fa-php"></i><br>PHP 8.3</div>
+                    <div class="tech-badge"><i class="fas fa-database"></i><br>MySQL / MariaDB</div>
+                    <div class="tech-badge"><i class="fab fa-js"></i><br>JavaScript ES6+</div>
+                    <div class="tech-badge"><i class="fab fa-bootstrap"></i><br>Bootstrap 5.3</div>
+                    <div class="tech-badge"><i class="fas fa-shield-alt"></i><br>PDO Prepared Stmts</div>
+                    <div class="tech-badge"><i class="fas fa-calendar-alt"></i><br>Google Calendar API</div>
+                    <div class="tech-badge"><i class="fab fa-whatsapp"></i><br>Meta Cloud API</div>
+                    <div class="tech-badge"><i class="fas fa-credit-card"></i><br>Stripe Payments</div>
+                    <div class="tech-badge"><i class="fas fa-sms"></i><br>Twilio SMS</div>
+                    <div class="tech-badge"><i class="fas fa-file-pdf"></i><br>Generación PDF</div>
+                    <div class="tech-badge"><i class="fas fa-envelope"></i><br>SMTP / mail()</div>
+                    <div class="tech-badge"><i class="fas fa-server"></i><br>Apache / Hostinger</div>
+                </div>
+                <p style="margin-top: 10px; opacity: 0.8;">
+                    Todo el acceso a datos usa <strong>PDO con prepared statements</strong>. Sin ORMs, sin migraciones,
+                    sin capas de abstracción innecesarias. Las APIs externas se consumen con <strong>cURL puro</strong>,
+                    sin SDKs de terceros, para mantener cero dependencias instalables.
+                </p>
+            </div>
+
+            <!-- Módulos -->
+            <div class="project-section">
+                <h2><i class="fas fa-th-large"></i> Los 36 Módulos del Sistema</h2>
+                <p style="margin-bottom: 20px; opacity: 0.85;">
+                    Cada módulo sigue una estructura consistente: <code>index.php</code> (listado con filtros y paginación),
+                    <code>form.php</code> (crear/editar), <code>ver.php</code> (detalle completo) y <code>delete.php</code>.
+                </p>
+
+                <h3>Gestión de Leads y Clientes</h3>
+                <div class="modules-grid">
+                    <div class="module-card">
+                        <strong>📋 Prospectos</strong>
+                        <p>Pipeline de propietarios con 7 etapas (Nuevo Lead → Captado). Historial de contactos por tipo (llamada, email, visita, WhatsApp, nota), línea temporal de precio, temperatura del lead, detección de duplicados y edición inline vía AJAX.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>👥 Clientes</strong>
+                        <p>Compradores, vendedores, inquilinos, inversores y propietarios. Múltiples tipos por cliente, preferencias de búsqueda, línea de actividad completa, etiquetas y acciones en bloque.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🏠 Propiedades</strong>
+                        <p>Inventario con más de 40 campos: superficies, habitaciones, certificado energético, referencia catastral, fotos con drag-reorder y control de publicación por portal inmobiliario.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🚶 Visitas</strong>
+                        <p>Programación con fecha, hora, agente, cliente y propiedad. 3 estados (pendiente / completada / cancelada). Valoración post-visita y seguimiento.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>✅ Tareas</strong>
+                        <p>Gestión de tareas con prioridad, estado, fecha límite y asignación por agente. Visibles en calendario y en el panel de inicio.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🔁 Secuencia de Captación</strong>
+                        <p>Nurturing automatizado de prospectos: secuencias con pasos de email y SMS, condiciones de avance y tracking de apertura.</p>
+                    </div>
+                </div>
+
+                <h3>Ventas y Finanzas</h3>
+                <div class="modules-grid">
+                    <div class="module-card">
+                        <strong>📊 Pipelines (Kanban)</strong>
+                        <p>Tableros Kanban personalizables más allá del pipeline de prospectos estándar. Columnas, colores y acciones configurables por el administrador.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📄 Presupuestos</strong>
+                        <p>Generación de presupuestos con líneas de detalle, estados (borrador / enviado / aceptado / rechazado) y exportación a PDF.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📝 Contratos</strong>
+                        <p>Contratos digitales con firma en canvas, versionado de documentos y seguimiento de estado. Plantillas reutilizables con variables dinámicas.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>💳 Pagos</strong>
+                        <p>Procesamiento de pagos con Stripe, confirmación vía webhook y historial de transacciones por cliente y concepto.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>💰 Finanzas</strong>
+                        <p>Tracking de comisiones (venta / alquiler / honorarios), gastos e ingresos. IVA español a 4 tipos (21% / 10% / 4% / exento). Reporting por agente.</p>
+                    </div>
+                </div>
+
+                <h3>Calendario y Organización</h3>
+                <div class="modules-grid">
+                    <div class="module-card">
+                        <strong>📅 Calendario</strong>
+                        <p>Vista mensual unificada con visitas, tareas y próximos contactos. Vista por agente para administradores. Mini-calendario embebido en cada ficha de prospecto.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📆 Google Calendar</strong>
+                        <p>Sincronización OAuth2 real. Exporta los próximos 60 días de visitas, tareas y contactos. Mapeo bidireccional para evitar duplicados en sincronizaciones posteriores.</p>
+                    </div>
+                </div>
+
+                <h3>Marketing y Captación</h3>
+                <div class="modules-grid">
+                    <div class="module-card">
+                        <strong>📈 Marketing (Dashboard)</strong>
+                        <p>Panel KPI: leads captados, tasas de conversión, fuentes UTM, ranking de agentes y evolución temporal.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📧 Campañas</strong>
+                        <p>Drip campaigns con pasos secuenciales, condiciones de avance, periodos de espera y ramificación condicional. Ejecución vía cron.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📬 Email</strong>
+                        <p>Bandeja de entrada, composición y plantillas con variables dinámicas ({{nombre}}, {{email}}, etc.). Soporte SMTP y mail().</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📱 Social Media</strong>
+                        <p>Planificación y publicación en Facebook, Instagram, LinkedIn y Twitter. Gestión de tokens por cuenta conectada.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📋 Formularios</strong>
+                        <p>Constructor de formularios web embebibles. Los envíos generan prospectos automáticamente y pueden disparar automatizaciones.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🌊 Funnels</strong>
+                        <p>Editor visual de embudos de venta/captación con pasos y tracking de sesiones de visitantes.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🌐 Landing Pages</strong>
+                        <p>Constructor de landing pages para campañas, vinculadas a formularios y funnels.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🧪 A/B Testing</strong>
+                        <p>Marco de comparación de variantes para campañas y landings. Registro de conversiones por variante.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>⭐ Reputación</strong>
+                        <p>Solicitudes automáticas de reseñas de Google con tracking de respuesta. Gestión de reputación online.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📣 Anuncios</strong>
+                        <p>Integración con cuentas de Facebook Ads y Google Ads para tracking de rendimiento de campañas.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🤝 Afiliados</strong>
+                        <p>Programa de afiliados con tracking de referidos y cálculo de comisiones por conversión.</p>
+                    </div>
+                </div>
+
+                <h3>Comunicación</h3>
+                <div class="modules-grid">
+                    <div class="module-card">
+                        <strong>💬 WhatsApp Business</strong>
+                        <p>Integración con Meta Cloud API para recepción de mensajes entrantes con verificación HMAC. Chat dentro del CRM vinculado a cada prospecto o cliente.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📲 SMS (Twilio)</strong>
+                        <p>Envío de SMS vía Twilio con log de mensajes y estados de entrega.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>💌 Conversaciones</strong>
+                        <p>Mensajería interna entre usuarios del CRM con hilos de conversación y soporte a adjuntos.</p>
+                    </div>
+                </div>
+
+                <h3>Contenido y Documentos</h3>
+                <div class="modules-grid">
+                    <div class="module-card">
+                        <strong>📰 Blog</strong>
+                        <p>Editor de artículos con HTML, categorías, etiquetas, estado de publicación y campos SEO (slug, meta descripción).</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📂 Documentos</strong>
+                        <p>Gestión documental con organización por carpetas y vinculación a clientes, propiedades o prospectos.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🎓 Cursos</strong>
+                        <p>Creación de cursos online con lecciones y matrícula de alumnos. Módulo de formación interna o para clientes.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📊 Encuestas</strong>
+                        <p>Constructor de encuestas con recopilación de respuestas por formulario y análisis de resultados.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🖼️ Medios</strong>
+                        <p>Biblioteca centralizada de imágenes y archivos multimedia reutilizables entre módulos.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🗣️ Comunidad</strong>
+                        <p>Foro interno: hilos de publicaciones y respuestas entre usuarios del equipo.</p>
+                    </div>
+                </div>
+
+                <h3>Automatización e IA</h3>
+                <div class="modules-grid">
+                    <div class="module-card">
+                        <strong>⚡ Automatizaciones</strong>
+                        <p>Motor de reglas trigger/acción con constructor visual. Triggers: nuevo prospecto, nueva visita, cambio de etapa, contrato firmado, factura pagada, nuevo envío de formulario, entre otros. Acciones: enviar email, crear tarea, modificar campo, notificar, disparar webhook. Log de ejecuciones con estado y detalle de error.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🔄 Workflows</strong>
+                        <p>Constructor de flujos avanzados más allá de las automatizaciones simples. Lógica de ramificación y condiciones encadenadas.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🤖 IA / LLM</strong>
+                        <p>Integración con modelos de lenguaje para asistencia en redacción, respuestas automáticas y análisis. Historial de conversaciones y log de acciones.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📅 Booking</strong>
+                        <p>Sistema público de reserva de citas. Los visitantes reservan directamente desde una URL pública sin necesidad de cuenta.</p>
+                    </div>
+                </div>
+
+                <h3>Administración y Reportes</h3>
+                <div class="modules-grid">
+                    <div class="module-card">
+                        <strong>📊 Informes</strong>
+                        <p>Estadísticas de propiedades, clientes, visitas y finanzas. Ranking de agentes por conversión y comisiones. Exportación a CSV.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>👤 Usuarios</strong>
+                        <p>Gestión de usuarios y roles con permisos granulares por módulo. Cada agente ve solo sus propios registros; el administrador ve todo.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>⚙️ Ajustes</strong>
+                        <p>Configuración de tema (claro/oscuro), color primario, modo compacto, widgets del dashboard, notificaciones por email, conexión OAuth de Google Calendar y personalización de marca (whitelabel).</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🏢 Portales Inmobiliarios</strong>
+                        <p>Control de publicación en los 7 principales portales españoles: Idealista, Fotocasa, Habitaclia, Pisos.com, Infocasa, Milanuncios y Fotocasa Pro. Estado y fecha de última publicación por portal y propiedad.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Base de Datos -->
+            <div class="project-section">
+                <h2><i class="fas fa-database"></i> Base de Datos — 81 Tablas</h2>
+                <p style="margin-bottom: 20px; opacity: 0.85;">
+                    El esquema cubre todo el modelo de negocio sin tablas intermedias innecesarias. Cada área funcional
+                    tiene sus propias tablas con relaciones claras y claves foráneas.
+                </p>
                 <ul class="features-list">
-                    <li><strong>Funnels:</strong> Gestión de embudos con seguimiento de etapas comerciales</li>
-                    <li><strong>Formularios y landing:</strong> Captación de leads desde múltiples entradas</li>
-                    <li><strong>Campañas:</strong> Módulos de automatización para marketing y comunicación</li>
-                    <li><strong>Pipelines:</strong> Flujo de trabajo de prospectos y oportunidades</li>
-                    <li><strong>Instalación por módulos:</strong> Activación progresiva de funcionalidades</li>
+                    <li><strong>Core CRM:</strong> <code>prospectos</code> (60+ campos), <code>historial_prospectos</code>, <code>clientes</code>, <code>propiedades</code> (40+ campos), <code>propiedad_fotos</code>, <code>visitas</code>, <code>tareas</code></li>
+                    <li><strong>Pipeline y ventas:</strong> <code>pipelines</code>, <code>pipeline_etapas</code>, <code>pipeline_items</code>, <code>presupuestos</code>, <code>facturas</code>, <code>contratos</code>, <code>contrato_plantillas</code></li>
+                    <li><strong>Finanzas:</strong> <code>finanzas</code>, <code>configuracion_pagos</code> — comisiones, gastos e ingresos con IVA</li>
+                    <li><strong>Calendario:</strong> <code>calendario_eventos</code>, <code>google_calendar_tokens</code>, <code>google_calendar_event_map</code> — mapeo bidireccional para deduplicación</li>
+                    <li><strong>Marketing:</strong> <code>campanas</code>, <code>campana_pasos</code>, <code>campana_contactos</code>, <code>formularios</code>, <code>formulario_envios</code>, <code>funnels</code>, <code>funnel_pasos</code>, <code>funnel_sesiones</code>, <code>landing_pages</code>, <code>marketing_utm</code></li>
+                    <li><strong>Email y comunicación:</strong> <code>email_cuentas</code>, <code>email_mensajes</code>, <code>email_plantillas</code>, <code>whatsapp_mensajes</code>, <code>sms_mensajes</code></li>
+                    <li><strong>Automatización:</strong> <code>automatizaciones</code>, <code>automatizacion_acciones</code>, <code>automatizacion_log</code>, <code>workflows</code>, <code>workflow_ejecuciones</code></li>
+                    <li><strong>Contenido:</strong> <code>blog_posts</code>, <code>documentos</code>, <code>cursos</code>, <code>curso_lecciones</code>, <code>curso_matriculas</code>, <code>medios</code></li>
+                    <li><strong>Social y anuncios:</strong> <code>social_cuentas</code>, <code>social_posts</code>, <code>ads_cuentas</code>, <code>ads_campanas</code></li>
+                    <li><strong>Afiliados:</strong> <code>afiliados</code>, <code>afiliado_referidos</code>, <code>trigger_links</code>, <code>trigger_clicks</code></li>
+                    <li><strong>Encuestas y reputación:</strong> <code>encuestas</code>, <code>encuesta_respuestas</code>, <code>resenas_solicitudes</code>, <code>reputacion_config</code></li>
+                    <li><strong>IA:</strong> <code>ia_config</code>, <code>ia_conversaciones</code>, <code>ia_mensajes</code>, <code>ia_acciones_log</code></li>
+                    <li><strong>Campos personalizados:</strong> <code>custom_fields</code> + <code>custom_field_values</code> — sistema de campos dinámicos sin alterar el esquema</li>
+                    <li><strong>Auditoría:</strong> <code>actividad_log</code>, <code>notificaciones</code>, <code>configuracion</code> — trazabilidad completa de todas las acciones</li>
                 </ul>
             </div>
 
-                        <div class="project-section">
+            <!-- Integraciones -->
+            <div class="project-section">
+                <h2><i class="fas fa-plug"></i> Integraciones Externas</h2>
+                <p style="margin-bottom: 15px; opacity: 0.85;">
+                    Todas las integraciones se implementan con <strong>cURL puro</strong>, sin SDKs de terceros,
+                    manteniendo la filosofía de cero dependencias.
+                </p>
+                <div class="integration-grid">
+                    <div class="integration-card">
+                        <strong><i class="fab fa-google"></i> Google Calendar API v3</strong>
+                        <p>OAuth2 completo (sin SDK). Sincronización de visitas, tareas y próximos contactos. Ventana de 60 días. Mapeo bilateral para deduplicar en resync.</p>
+                    </div>
+                    <div class="integration-card">
+                        <strong><i class="fab fa-whatsapp"></i> Meta Cloud API (WhatsApp)</strong>
+                        <p>Recepción de mensajes entrantes con verificación HMAC de firma. Respuesta desde el CRM vinculada al historial del prospecto o cliente.</p>
+                    </div>
+                    <div class="integration-card">
+                        <strong><i class="fab fa-stripe"></i> Stripe</strong>
+                        <p>Generación de links de pago y confirmación por webhook. Historial de transacciones por concepto y cliente.</p>
+                    </div>
+                    <div class="integration-card">
+                        <strong><i class="fas fa-sms"></i> Twilio</strong>
+                        <p>Envío de SMS y WhatsApp programático desde campañas o manualmente desde la ficha del contacto.</p>
+                    </div>
+                    <div class="integration-card">
+                        <strong><i class="fab fa-facebook"></i> Facebook / Instagram</strong>
+                        <p>Gestión de tokens, publicación de posts programados, integración con Facebook Ads para tracking de campañas.</p>
+                    </div>
+                    <div class="integration-card">
+                        <strong><i class="fab fa-linkedin"></i> LinkedIn / Twitter</strong>
+                        <p>Publicación de contenido programado y gestión de cuentas sociales conectadas.</p>
+                    </div>
+                    <div class="integration-card">
+                        <strong><i class="fab fa-google"></i> Google Places</strong>
+                        <p>Solicitudes automáticas de reseñas en Google. Tracking de estado de respuesta y configuración de reputación online.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flujo Lead-to-Close -->
+            <div class="project-section">
+                <h2><i class="fas fa-route"></i> Flujo Completo de Negocio</h2>
+                <p style="margin-bottom: 15px; opacity: 0.85;">
+                    El sistema acompaña toda la operación, desde el primer contacto hasta el cobro de la comisión:
+                </p>
+                <ol class="workflow-steps">
+                    <li><strong>Captación:</strong> El prospecto entra vía formulario embebido, booking público, o se crea manualmente. Se detectan duplicados automáticamente por teléfono y email.</li>
+                    <li><strong>Pipeline:</strong> El lead avanza por 7 etapas (Nuevo Lead → 1er Contacto → Seguimiento → Visita Programada → Negociando → Captado → Descartado). Las automatizaciones disparan acciones en cada cambio de etapa.</li>
+                    <li><strong>Contacto:</strong> Historial estructurado por tipo (llamada, email, visita, WhatsApp, nota). Cada contacto queda registrado con fecha, agente y detalle.</li>
+                    <li><strong>Propiedad:</strong> Se vincula la propiedad al prospecto con seguimiento de cambios de precio, condiciones y estado de publicación en portales.</li>
+                    <li><strong>Visita:</strong> Programación con sincronización automática a Google Calendar. Post-visita se registra valoración y siguientes pasos.</li>
+                    <li><strong>Negociación:</strong> Generación de presupuesto en PDF, contrato digital con firma en canvas, seguimiento de estado.</li>
+                    <li><strong>Cierre:</strong> Factura con IVA español, cobro vía Stripe o manual, registro de comisión en el módulo de finanzas.</li>
+                    <li><strong>Postventa:</strong> Solicitud automática de reseña en Google, encuesta de satisfacción, seguimiento en el módulo de reputación.</li>
+                </ol>
+            </div>
+
+            <!-- Especialización Inmobiliaria Española -->
+            <div class="project-section">
+                <h2><i class="fas fa-map-marker-alt"></i> Especialización para España</h2>
+                <ul class="features-list">
+                    <li><strong>52 provincias españolas</strong> en todos los selectores de dirección</li>
+                    <li><strong>Tipos de inmueble:</strong> Piso, Chalet, Adosado, Ático, Local, Nave, Garaje, Solar, Finca rústica, entre otros</li>
+                    <li><strong>Operaciones:</strong> Venta, alquiler, alquiler con opción a compra, traspaso</li>
+                    <li><strong>Campos específicos:</strong> Referencia catastral, certificado de eficiencia energética (A-G), escalera/piso/puerta por separado</li>
+                    <li><strong>IVA a 4 tipos:</strong> 21% / 10% / 4% / exento — cálculo automático en facturas y presupuestos</li>
+                    <li><strong>7 portales inmobiliarios:</strong> Idealista, Fotocasa, Habitaclia, Pisos.com, Infocasa, Milanuncios y Fotocasa Pro</li>
+                    <li><strong>Validadores españoles:</strong> DNI, NIE, CIF, número de teléfono móvil y código postal (módulo dedicado)</li>
+                    <li><strong>RGPD / LGPD:</strong> Gestión de consentimiento, generación de textos legales (términos, privacidad, cookies), datos del DPO configurable</li>
+                    <li><strong>Zona horaria:</strong> Europe/Madrid en toda la aplicación</li>
+                    <li><strong>Formato de fecha y moneda:</strong> dd/mm/yyyy y € en toda la interfaz</li>
+                </ul>
+            </div>
+
+            <!-- Seguridad -->
+            <div class="project-section">
+                <h2><i class="fas fa-shield-alt"></i> Seguridad Implementada</h2>
+                <ul class="features-list">
+                    <li><strong>Contraseñas:</strong> <code>password_hash()</code> con bcrypt. Nunca almacenadas en claro.</li>
+                    <li><strong>SQL Injection:</strong> 100% PDO con prepared statements. Sin concatenación de queries.</li>
+                    <li><strong>XSS:</strong> <code>htmlspecialchars()</code> en toda la salida HTML. Función <code>post()</code> con saneamiento automático.</li>
+                    <li><strong>CSRF:</strong> Tokens verificados en todos los formularios POST y peticiones AJAX.</li>
+                    <li><strong>Sesiones:</strong> <code>session_regenerate_id()</code> en login. Verificación de IP para prevenir hijacking.</li>
+                    <li><strong>Fuerza bruta:</strong> Bloqueo de 15 minutos tras 5 intentos fallidos de login.</li>
+                    <li><strong>Webhooks:</strong> Verificación HMAC de firma en todos los webhooks de Meta / WhatsApp.</li>
+                    <li><strong>Uploads:</strong> Validación de tipo MIME, lista blanca de extensiones, tamaño máximo 10 MB. Ejecución PHP deshabilitada en la carpeta de uploads via <code>.htaccess</code>.</li>
+                    <li><strong>Secretos:</strong> Todas las credenciales en <code>.env</code>. Nunca en código fuente.</li>
+                    <li><strong>Cifrado:</strong> AES para datos sensibles almacenados (<code>encryption.php</code>).</li>
+                    <li><strong>Installer:</strong> Bloqueado en producción si no existe <code>INSTALLER_KEY</code> en <code>.env</code>.</li>
+                </ul>
+            </div>
+
+            <!-- Automatizaciones -->
+            <div class="project-section">
+                <h2><i class="fas fa-robot"></i> Motor de Automatizaciones</h2>
+                <p style="margin-bottom: 15px; opacity: 0.85;">
+                    El módulo de automatizaciones permite configurar reglas trigger/acción desde la interfaz, sin código.
+                    Se ejecutan vía cron o en tiempo real según el trigger.
+                </p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div>
+                        <h3 style="margin-top: 0;">Triggers disponibles</h3>
+                        <ul class="features-list">
+                            <li>Nuevo prospecto creado</li>
+                            <li>Cambio de etapa en pipeline</li>
+                            <li>Nueva visita programada</li>
+                            <li>Nuevo envío de formulario</li>
+                            <li>Contrato firmado</li>
+                            <li>Factura pagada</li>
+                            <li>Presupuesto aceptado</li>
+                            <li>Nuevo cliente registrado</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 style="margin-top: 0;">Acciones disponibles</h3>
+                        <ul class="features-list">
+                            <li>Enviar email (con plantilla)</li>
+                            <li>Enviar SMS vía Twilio</li>
+                            <li>Crear tarea asignada</li>
+                            <li>Modificar campo de registro</li>
+                            <li>Notificar al agente</li>
+                            <li>Disparar webhook externo</li>
+                        </ul>
+                    </div>
+                </div>
+                <p style="margin-top: 15px; opacity: 0.85;">
+                    Cada ejecución queda registrada en <code>automatizacion_log</code> con estado (éxito / error) y
+                    detalle completo para auditoría y depuración.
+                </p>
+            </div>
+
+            <!-- Tareas de Fondo (Cron) -->
+            <div class="project-section">
+                <h2><i class="fas fa-clock"></i> Procesos Programados (Cron)</h2>
+                <ul class="features-list">
+                    <li><strong>automatizaciones.php:</strong> Ejecuta automatizaciones programadas que no se disparan en tiempo real</li>
+                    <li><strong>campanas.php:</strong> Procesa los pasos pendientes de cada campaña de drip marketing</li>
+                    <li><strong>secuencia_captacion.php:</strong> Avanza las secuencias de nurturing de prospectos</li>
+                    <li><strong>backup.php:</strong> Copia de seguridad automática de la base de datos</li>
+                    <li><strong>resumen_semanal.php:</strong> Email de resumen semanal de KPIs a los administradores</li>
+                    <li><strong>purgar_logs.php:</strong> Limpieza de logs antiguos para mantener el rendimiento</li>
+                </ul>
+            </div>
+
+            <!-- UX -->
+            <div class="project-section">
+                <h2><i class="fas fa-palette"></i> Experiencia de Usuario</h2>
+                <ul class="features-list">
+                    <li><strong>Modo oscuro completo:</strong> Toggle persistido en base de datos y local storage. Variables CSS para toda la interfaz.</li>
+                    <li><strong>Diseño responsive:</strong> Bootstrap 5.3, mobile-first, sin excepciones.</li>
+                    <li><strong>Campos personalizados:</strong> Los administradores pueden añadir campos extra a prospectos y clientes sin tocar el código.</li>
+                    <li><strong>Whitelabel:</strong> Logo, nombre de empresa y color primario configurables desde ajustes. Se inyectan como variables CSS en tiempo real.</li>
+                    <li><strong>Acciones en bloque:</strong> Selección múltiple para operaciones masivas en listados.</li>
+                    <li><strong>Paginación configurable:</strong> Items por página configurable por usuario (10 / 25 / 50 / 100).</li>
+                    <li><strong>Exportación:</strong> CSV en la mayoría de módulos, PDF en presupuestos y contratos.</li>
+                    <li><strong>Flash messages:</strong> Confirmaciones y errores persistidos en sesión y mostrados tras redirect.</li>
+                    <li><strong>AJAX inline:</strong> Edición de campos clave sin recargar la página (prospectos, estado de tareas, etc.).</li>
+                </ul>
+            </div>
+
+            <!-- Enfoque y Valor -->
+            <div class="project-section">
                 <h2><i class="fas fa-compass"></i> Enfoque y Valor del Proyecto</h2>
                 <p>
-                    Este CRM se diseño como plataforma modular instalable en hosting compartido, con despliegue por
-                    scripts <code>install_*.php</code>, foco comercial y extensibilidad para nuevos modulos.
+                    Este CRM demuestra que se puede construir un sistema empresarial completo sin recurrir a frameworks
+                    pesados. La decisión de usar PHP puro con PDO y JavaScript vanilla no es por desconocimiento de
+                    Laravel o React: es una decisión deliberada para que el sistema funcione en el hosting más básico
+                    del mercado sin configuración adicional.
                 </p>
                 <ul class="features-list">
-                    <li><strong>Despliegue progresivo:</strong> Instalador maestro + instaladores por dominio funcional (marketing, comunicacion, automatizacion)</li>
-                    <li><strong>Operacion real:</strong> Integraciones documentadas para cron de campanas, UTM tracking y webhooks (WhatsApp/Social)</li>
-                    <li><strong>Escalado de negocio:</strong> Pipeline, funnels, formularios y automatizaciones orientadas a captacion y cierre</li>
+                    <li><strong>Cobertura funcional real:</strong> 36 módulos que cubren el 100% del ciclo de negocio inmobiliario, desde la captación hasta el cobro</li>
+                    <li><strong>Sin dependencias instalables:</strong> No hay <code>vendor/</code>, no hay <code>node_modules/</code>. Se sube el código y funciona.</li>
+                    <li><strong>Especialización de mercado:</strong> Diseñado para el mercado español con todas sus particularidades legales, fiscales y de portales</li>
+                    <li><strong>Seguridad por defecto:</strong> CSRF, prepared statements, bcrypt, HMAC, AES y validación estricta de uploads implementados desde la base</li>
+                    <li><strong>Documentación completa:</strong> Manual de usuario, manual técnico, especificaciones, guía de instalación, changelog y protocolo de QA</li>
+                    <li><strong>Arquitectura escalable:</strong> Soporte para +10.000 registros por tabla sin degradación. Cron jobs para procesos pesados en background.</li>
                 </ul>
             </div>
 
+            <!-- Mi Rol -->
             <div class="project-section">
                 <h2><i class="fas fa-user-tie"></i> Mi Rol</h2>
-                <p><strong>Desarrollador Full Stack</strong></p>
+                <p><strong>Desarrollador Full Stack — Arquitecto y Autor Único</strong></p>
                 <p>
-                    Me encargué del diseño y la implementación de módulos clave, estructura de instalación,
-                    flujo de datos comercial y parte de la lógica backend para automatizaciones.
+                    Diseñé y desarrollé el sistema completo de forma independiente: análisis de requisitos del mercado
+                    inmobiliario español, diseño del esquema de 81 tablas, arquitectura modular de 36 módulos,
+                    implementación del backend en PHP puro, desarrollo del frontend con Bootstrap 5.3 y JavaScript
+                    vanilla, integración de todas las APIs externas (Google, Meta, Stripe, Twilio), motor de
+                    automatizaciones, sistema de roles y permisos, cumplimiento RGPD y documentación técnica completa.
+                </p>
+                <p>
+                    El proyecto tiene licencia propietaria (todos los derechos reservados) y está en uso activo.
                 </p>
             </div>
 
+            <!-- Estado -->
+            <div class="project-section">
+                <h2><i class="fas fa-info"></i> Estado del Proyecto</h2>
+                <p><strong>Estado:</strong> <span style="color: #10b981; font-weight: bold;">✓ En Producción (v1.2.0)</span></p>
+                <p>
+                    El sistema evolucionó desde su lanzamiento inicial (v1.0.0, marzo 2026) hasta la versión actual
+                    <strong>v1.2.0</strong>, que incorporó modo oscuro completo, whitelabel por inyección de CSS,
+                    rediseño del módulo de automatizaciones con 4 nuevos triggers y corrección de vulnerabilidades
+                    identificadas en QA (incluyendo corrupción de JSON crítica en 13+ archivos y una vulnerabilidad XSS).
+                </p>
+            </div>
+
+            <!-- Código -->
             <div class="project-section">
                 <h2><i class="fas fa-link"></i> Código Fuente</h2>
                 <div class="project-links">
@@ -160,11 +718,6 @@
                 </div>
             </div>
 
-            <div class="project-section">
-                <h2><i class="fas fa-info"></i> Estado</h2>
-                <p><strong>Estado:</strong> <span style="color: #f59e0b; font-weight: bold;">⚡ Proyecto en Evolución</span></p>
-                <p>Base sólida y funcional, con mejoras continuas en módulos de negocio y automatizaciones.</p>
-            </div>
         </div>
     </div>
 
