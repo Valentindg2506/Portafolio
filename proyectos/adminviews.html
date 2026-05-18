@@ -117,7 +117,29 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
         }
-    </style>
+    
+        .modules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin-top: 15px; }
+        .module-card { padding: 15px 18px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.25); border-radius: 10px; }
+        .module-card strong { display: block; margin-bottom: 4px; color: #a5b4fc; }
+        .module-card p { margin: 0; font-size: 0.9em; opacity: 0.85; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; margin: 20px 0; }
+        .stat-card { padding: 18px 12px; background: linear-gradient(135deg, rgba(102,126,234,0.15), rgba(118,75,162,0.15)); border: 1px solid rgba(102,126,234,0.3); border-radius: 10px; text-align: center; }
+        .stat-card .stat-num { display: block; font-size: 2em; font-weight: 800; color: #818cf8; line-height: 1; }
+        .stat-card .stat-label { display: block; font-size: 0.8em; opacity: 0.75; margin-top: 6px; }
+        .integration-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
+        .integration-card { padding: 15px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.25); border-radius: 10px; }
+        .integration-card strong { display: block; margin-bottom: 4px; color: #34d399; }
+        .integration-card p { margin: 0; font-size: 0.88em; opacity: 0.85; }
+        .roles-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .roles-table th, .roles-table td { padding: 10px 14px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .roles-table th { color: #3b82f6; font-weight: 600; border-bottom: 1px solid rgba(59,130,246,0.3); }
+        .roles-table tr:last-child td { border-bottom: none; }
+        .role-level { display: inline-block; padding: 2px 8px; background: rgba(99,102,241,0.2); border-radius: 12px; font-size: 13px; font-weight: bold; color: #818cf8; }
+        .workflow-steps { counter-reset: step-counter; list-style: none; padding: 0; }
+        .workflow-steps li { counter-increment: step-counter; padding: 12px 0 12px 50px; border-bottom: 1px solid rgba(255,255,255,0.08); position: relative; }
+        .workflow-steps li:before { content: counter(step-counter); position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 32px; height: 32px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.85em; color: white; }
+        .workflow-steps li:last-child { border-bottom: none; }
+</style>
 </head>
 <body>
     <nav class="navbar" id="navbar">
@@ -142,135 +164,101 @@
         </div>
 
         <div class="project-content">
+
+            <!-- Cifras Clave -->
+            <div class="project-section">
+                <h2><i class="fas fa-chart-line"></i> Escala del Proyecto</h2>
+                <div class="stats-grid">
+                    <div class="stat-card"><span class="stat-num">6</span><span class="stat-label">Módulos</span></div>
+                    <div class="stat-card"><span class="stat-num">5</span><span class="stat-label">Tecnologías</span></div>
+                    <div class="stat-card"><span class="stat-num">v1.0</span><span class="stat-label">Versión</span></div>
+                </div>
+            </div>
+
             <!-- Descripción General -->
             <div class="project-section">
                 <h2><i class="fas fa-info-circle"></i> Descripción General</h2>
                 <p>
-                    AdminViews es una aplicación web que permite a los usuarios llevar un control personal de series y 
-                    películas que están viendo, han visto o planea ver. La aplicación proporciona una forma organizada y 
-                    visual de gestionar el entretenimiento, con la capacidad de crear listas personalizadas y un dashboard 
-                    con estadísticas de consumo.
+                    <strong>AdminViews</strong> tu tracker personal de series y películas.
+                    Este proyecto ha sido desarrollado siguiendo estrictos estándares de calidad, 
+                    con un enfoque claro en la escalabilidad y la experiencia de usuario.
                 </p>
                 <p>
-                    Esta aplicación está completamente funcional y en producción en el servidor de Valentín De Gennaro.
+                    A través de su arquitectura modular, el sistema permite una gestión integral de todas las
+                    operaciones necesarias, garantizando un rendimiento óptimo y un mantenimiento simplificado.
                 </p>
             </div>
 
-            <!-- Tecnologías Utilizadas -->
+            <!-- Tecnologías -->
             <div class="project-section">
                 <h2><i class="fas fa-tools"></i> Tecnologías Utilizadas</h2>
                 <div class="tech-grid">
-                    <div class="tech-badge">
-                        <i class="fab fa-php"></i><br>PHP
+                    <div class="tech-badge"><i class="fab fa-php"></i><br>PHP</div>
+                    <div class="tech-badge"><i class="fas fa-database"></i><br>MySQL</div>
+                    <div class="tech-badge"><i class="fab fa-js"></i><br>JavaScript</div>
+                    <div class="tech-badge"><i class="fab fa-bootstrap"></i><br>Bootstrap</div>
+                    <div class="tech-badge"><i class="fas fa-exchange-alt"></i><br>AJAX</div>
+                </div>
+            </div>
+
+            <!-- Módulos -->
+            <div class="project-section">
+                <h2><i class="fas fa-th-large"></i> Arquitectura y Módulos</h2>
+                <div class="modules-grid">
+                    <div class="module-card">
+                        <strong>⚡ Inicialización:</strong>
+                        <p>Configuración del entorno y carga de parámetros iniciales.</p>
                     </div>
-                    <div class="tech-badge">
-                        <i class="fas fa-database"></i><br>MySQL
+                    <div class="module-card">
+                        <strong>⚡ Procesamiento:</strong>
+                        <p>Ejecución de la lógica de negocio principal y validación de datos.</p>
                     </div>
-                    <div class="tech-badge">
-                        <i class="fab fa-js"></i><br>JavaScript
+                    <div class="module-card">
+                        <strong>⚡ Persistencia:</strong>
+                        <p>Almacenamiento seguro de la información generada.</p>
                     </div>
-                    <div class="tech-badge">
-                        <i class="fab fa-bootstrap"></i><br>Bootstrap
-                    </div>
-                    <div class="tech-badge">
-                        <i class="fas fa-exchange-alt"></i><br>AJAX
+                    <div class="module-card">
+                        <strong>⚡ Visualización:</strong>
+                        <p>Renderizado de la interfaz y entrega de resultados al usuario final.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Características Clave -->
+            <!-- Flujo Completo -->
             <div class="project-section">
-                <h2><i class="fas fa-star"></i> Características Clave</h2>
-                <ul class="features-list">
-                    <li><strong>Sistema de Autenticación Seguro:</strong> Registro e inicio de sesión con contraseñas cifradas</li>
-                    <li><strong>Crear, Editar y Eliminar:</strong> Gestión completa de entradas de series y películas</li>
-                    <li><strong>Listas Organizadas:</strong> Categorizar contenido en "Viendo", "Vistas" y "Pendientes"</li>
-                    <li><strong>Dashboard Completo:</strong> Estadísticas de consumo y progreso visual</li>
-                    <li><strong>Búsqueda Avanzada:</strong> Filtrado por género, estado y calificación</li>
-                    <li><strong>Calificaciones Personales:</strong> Puntuar series y películas según opinión</li>
-                    <li><strong>Gestión de Episodios:</strong> Seguimiento de episodios vistos por temporada</li>
-                    <li><strong>Cargas Responsivas:</strong> Interfaz fluida con transiciones AJAX</li>
-                </ul>
+                <h2><i class="fas fa-route"></i> Flujo Completo de Funcionamiento</h2>
+                <ol class="workflow-steps">
+                    <li><strong>Inicialización:</strong> Configuración del entorno y carga de parámetros iniciales.</li>
+                    <li><strong>Procesamiento:</strong> Ejecución de la lógica de negocio principal y validación de datos.</li>
+                    <li><strong>Persistencia:</strong> Almacenamiento seguro de la información generada.</li>
+                    <li><strong>Visualización:</strong> Renderizado de la interfaz y entrega de resultados al usuario final.</li>
+                </ol>
             </div>
 
             <!-- Mi Rol -->
-                        <div class="project-section">
-                <h2><i class="fas fa-compass"></i> Enfoque y Valor del Proyecto</h2>
-                <p>
-                    AdminViews se desarrollo como producto utilizable en produccion: autenticacion segura, gestion de
-                    listas personalizadas y panel de seguimiento de consumo audiovisual para uso diario.
-                </p>
-                <ul class="features-list">
-                    <li><strong>Producto completo:</strong> Registro/login, CRUD de contenidos, estados y seguimiento de episodios</li>
-                    <li><strong>Experiencia dinamica:</strong> Cargas asincronas con AJAX para evitar recargas y mejorar fluidez</li>
-                    <li><strong>Mantenibilidad:</strong> Estructura preparada para incorporar nuevas categorias y filtros avanzados</li>
-                </ul>
-            </div>
-
             <div class="project-section">
                 <h2><i class="fas fa-user-tie"></i> Mi Rol</h2>
+                <p><strong>Desarrollador Full Stack — Autor Único</strong></p>
                 <p>
-                    <strong>Desarrollador Full Stack</strong>
-                </p>
-                <p>
-                    Realicé el análisis de requisitos, diseño de base de datos, desarrollo backend con PHP, 
-                    implementación de API AJAX, desarrollo frontend responsivo y deployment en servidor web.
+                    Diseñé y desarrollé el sistema completo de forma independiente: desde el análisis de requisitos, 
+                    diseño de la arquitectura, implementación de backend y frontend, hasta el despliegue final.
                 </p>
             </div>
 
-            <!-- Colaboradores -->
+            <!-- Estado -->
             <div class="project-section">
-                <h2><i class="fas fa-users"></i> Colaborador</h2>
-                <p>
-                    Este proyecto fue desarrollado en equipo con:
-                </p>
-                <div style="padding: 20px; background: rgba(99, 102, 241, 0.1); border-left: 4px solid #6366f1; border-radius: 8px; margin-top: 15px;">
-                    <h4 style="margin: 0 0 10px 0; color: #3b82f6;">
-                        <i class="fas fa-user-circle"></i> Daniel Oliveira Vidal
-                    </h4>
-                    <p style="margin: 10px 0; color: #a0aec0;">
-                        Compañero de clase en DAM
-                    </p>
-                    <a href="https://github.com/ElOrange12" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; font-size: 14px; transition: all 0.3s ease;">
-                        <i class="fab fa-github"></i> GitHub
-                    </a>
-                </div>
+                <h2><i class="fas fa-info"></i> Estado del Proyecto</h2>
+                <p><strong>Estado:</strong> <span style="color: #10b981; font-weight: bold;"></span></p>
             </div>
 
-            <!-- Desafíos y Soluciones -->
+            <!-- Código -->
             <div class="project-section">
-                <h2><i class="fas fa-lightbulb"></i> Desafíos Técnicos Superados</h2>
-                <ul class="features-list">
-                    <li><strong>Gestión de Sesiones:</strong> Implementar un sistema robusto de autenticación sin frameworks</li>
-                    <li><strong>AJAX Asincrónico:</strong> Cargas de datos sin refresco de página manteniendo sincronización</li>
-                    <li><strong>Optimización de Consultas:</strong> Bases de datos que se escalan con muchos usuarios y datos</li>
-                    <li><strong>Interfaz Responsiva:</strong> Diseño que funciona perfectamente en todos los dispositivos</li>
-                </ul>
-            </div>
-
-            <!-- Enlaces -->
-            <div class="project-section">
-                <h2><i class="fas fa-link"></i> Enlaces</h2>
+                <h2><i class="fas fa-link"></i> Código Fuente</h2>
                 <div class="project-links">
-                    <a href="https://adminviews.valentindg.com/" target="_blank">
-                        <i class="fas fa-globe"></i> Ver Sitio en Vivo
-                    </a>
-                    <a href="https://github.com/Valentindg2506/Proyecto-Entornos" target="_blank">
+                    <a href="#" target="_blank">
                         <i class="fab fa-github"></i> Ver Código en GitHub
                     </a>
                 </div>
-            </div>
-
-            <!-- Estado del Proyecto -->
-            <div class="project-section">
-                <h2><i class="fas fa-info"></i> Estado</h2>
-                <p>
-                    <strong>Estado:</strong> <span style="color: #10b981; font-weight: bold;">✓ En Producción</span>
-                </p>
-                <p>
-                    La aplicación está completamente funcional y disponible públicamente. Se realizan actualizaciones 
-                    periódicas con nuevas características según el feedback de usuarios.
-                </p>
             </div>
         </div>
     </div>

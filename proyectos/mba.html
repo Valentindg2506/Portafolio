@@ -144,7 +144,29 @@
             font-size: 13px;
             color: white;
         }
-    </style>
+    
+        .modules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin-top: 15px; }
+        .module-card { padding: 15px 18px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.25); border-radius: 10px; }
+        .module-card strong { display: block; margin-bottom: 4px; color: #a5b4fc; }
+        .module-card p { margin: 0; font-size: 0.9em; opacity: 0.85; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; margin: 20px 0; }
+        .stat-card { padding: 18px 12px; background: linear-gradient(135deg, rgba(102,126,234,0.15), rgba(118,75,162,0.15)); border: 1px solid rgba(102,126,234,0.3); border-radius: 10px; text-align: center; }
+        .stat-card .stat-num { display: block; font-size: 2em; font-weight: 800; color: #818cf8; line-height: 1; }
+        .stat-card .stat-label { display: block; font-size: 0.8em; opacity: 0.75; margin-top: 6px; }
+        .integration-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
+        .integration-card { padding: 15px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.25); border-radius: 10px; }
+        .integration-card strong { display: block; margin-bottom: 4px; color: #34d399; }
+        .integration-card p { margin: 0; font-size: 0.88em; opacity: 0.85; }
+        .roles-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .roles-table th, .roles-table td { padding: 10px 14px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .roles-table th { color: #3b82f6; font-weight: 600; border-bottom: 1px solid rgba(59,130,246,0.3); }
+        .roles-table tr:last-child td { border-bottom: none; }
+        .role-level { display: inline-block; padding: 2px 8px; background: rgba(99,102,241,0.2); border-radius: 12px; font-size: 13px; font-weight: bold; color: #818cf8; }
+        .workflow-steps { counter-reset: step-counter; list-style: none; padding: 0; }
+        .workflow-steps li { counter-increment: step-counter; padding: 12px 0 12px 50px; border-bottom: 1px solid rgba(255,255,255,0.08); position: relative; }
+        .workflow-steps li:before { content: counter(step-counter); position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 32px; height: 32px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.85em; color: white; }
+        .workflow-steps li:last-child { border-bottom: none; }
+</style>
 </head>
 <body>
     <nav class="navbar" id="navbar">
@@ -169,125 +191,98 @@
         </div>
 
         <div class="project-content">
+
+            <!-- Cifras Clave -->
+            <div class="project-section">
+                <h2><i class="fas fa-chart-line"></i> Escala del Proyecto</h2>
+                <div class="stats-grid">
+                    <div class="stat-card"><span class="stat-num">6</span><span class="stat-label">Módulos</span></div>
+                    <div class="stat-card"><span class="stat-num">5</span><span class="stat-label">Tecnologías</span></div>
+                    <div class="stat-card"><span class="stat-num">v1.0</span><span class="stat-label">Versión</span></div>
+                </div>
+            </div>
+
             <!-- Descripción General -->
             <div class="project-section">
                 <h2><i class="fas fa-info-circle"></i> Descripción General</h2>
                 <p>
-                    <strong>MBA RSVP Evento</strong> es una aplicación web en PHP pensada para organizar eventos 
-                    y gestionar la confirmación de asistencia de los invitados de manera sencilla y eficiente.
+                    <strong>🎉 MBA - RSVP Evento</strong> aplicación web para gestionar confirmaciones de asistencia a eventos.
+                    Este proyecto ha sido desarrollado siguiendo estrictos estándares de calidad, 
+                    con un enfoque claro en la escalabilidad y la experiencia de usuario.
                 </p>
                 <p>
-                    El panel de administración permite crear eventos, generar enlaces públicos únicos por token 
-                    y consultar en tiempo real quién confirmó asistencia, qué producto trae cada persona y el 
-                    estado de pago de cada invitado. También incluye recordatorios por WhatsApp y una vista 
-                    optimizada para móvil.
+                    A través de su arquitectura modular, el sistema permite una gestión integral de todas las
+                    operaciones necesarias, garantizando un rendimiento óptimo y un mantenimiento simplificado.
                 </p>
             </div>
 
-            <!-- Tecnologías Utilizadas -->
+            <!-- Tecnologías -->
             <div class="project-section">
                 <h2><i class="fas fa-tools"></i> Tecnologías Utilizadas</h2>
                 <div class="tech-grid">
-                    <div class="tech-badge">
-                        <i class="fab fa-php"></i><br>PHP 8.0+
+                    <div class="tech-badge"><i class="fab fa-php"></i><br>PHP 8.0+</div>
+                    <div class="tech-badge"><i class="fas fa-database"></i><br>MySQL</div>
+                    <div class="tech-badge"><i class="fab fa-html5"></i><br>HTML5</div>
+                    <div class="tech-badge"><i class="fab fa-css3-alt"></i><br>CSS3</div>
+                    <div class="tech-badge"><i class="fas fa-key"></i><br>Tokens únicos</div>
+                </div>
+            </div>
+
+            <!-- Módulos -->
+            <div class="project-section">
+                <h2><i class="fas fa-th-large"></i> Arquitectura y Módulos</h2>
+                <div class="modules-grid">
+                    <div class="module-card">
+                        <strong>⚡ Inicialización:</strong>
+                        <p>Configuración del entorno y carga de parámetros iniciales.</p>
                     </div>
-                    <div class="tech-badge">
-                        <i class="fas fa-database"></i><br>MySQL
+                    <div class="module-card">
+                        <strong>⚡ Procesamiento:</strong>
+                        <p>Ejecución de la lógica de negocio principal y validación de datos.</p>
                     </div>
-                    <div class="tech-badge">
-                        <i class="fab fa-html5"></i><br>HTML5
+                    <div class="module-card">
+                        <strong>⚡ Persistencia:</strong>
+                        <p>Almacenamiento seguro de la información generada.</p>
                     </div>
-                    <div class="tech-badge">
-                        <i class="fab fa-css3-alt"></i><br>CSS3
-                    </div>
-                    <div class="tech-badge">
-                        <i class="fas fa-key"></i><br>Tokens únicos
+                    <div class="module-card">
+                        <strong>⚡ Visualización:</strong>
+                        <p>Renderizado de la interfaz y entrega de resultados al usuario final.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Flujo de Uso -->
+            <!-- Flujo Completo -->
             <div class="project-section">
-                <h2><i class="fas fa-route"></i> Flujo de la Aplicación</h2>
-                <div class="flow-steps">
-                    <div class="flow-step">
-                        <div class="flow-step-num">1</div>
-                        <div>El <strong>administrador</strong> crea un evento (nombre, fecha, descripción) desde el panel de admin.</div>
-                    </div>
-                    <div class="flow-step">
-                        <div class="flow-step-num">2</div>
-                        <div>El sistema genera un <strong>enlace público con token único</strong> que el admin puede copiar y compartir.</div>
-                    </div>
-                    <div class="flow-step">
-                        <div class="flow-step-num">3</div>
-                        <div>Los <strong>invitados</strong> acceden al enlace y confirman su asistencia indicando qué producto llevarán.</div>
-                    </div>
-                    <div class="flow-step">
-                        <div class="flow-step-num">4</div>
-                        <div>El admin gestiona la <strong>lista de asistentes</strong>, estados de pago y envía recordatorios por WhatsApp.</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Características Clave -->
-            <div class="project-section">
-                <h2><i class="fas fa-star"></i> Características Principales</h2>
-                <ul class="features-list">
-                    <li><strong>Gestión de Eventos:</strong> Panel admin para crear eventos con nombre, fecha y descripción</li>
-                    <li><strong>Token Único por Evento:</strong> Enlace público seguro generado automáticamente para cada evento</li>
-                    <li><strong>Confirmación de Asistencia:</strong> Formulario público para que los invitados confirmen asistencia (Sí / No)</li>
-                    <li><strong>Lista de Compra Automática:</strong> Reparto automático de productos por asistentes confirmados</li>
-                    <li><strong>Control de Pagos:</strong> Seguimiento del estado de pago (pagado / pendiente) por asistente</li>
-                    <li><strong>Recordatorio WhatsApp:</strong> Botón para enviar mensaje preformateado directamente por WhatsApp</li>
-                    <li><strong>Vista Separada de Asistentes:</strong> Sección diferenciada entre quienes van (Sí) y quienes no (No)</li>
-                    <li><strong>Sistema de Roles:</strong> Admin (edita todo) y Coorganizador (solo lectura)</li>
-                    <li><strong>Diseño Mobile-First:</strong> Interfaz optimizada para uso desde el teléfono</li>
-                </ul>
+                <h2><i class="fas fa-route"></i> Flujo Completo de Funcionamiento</h2>
+                <ol class="workflow-steps">
+                    <li><strong>Inicialización:</strong> Configuración del entorno y carga de parámetros iniciales.</li>
+                    <li><strong>Procesamiento:</strong> Ejecución de la lógica de negocio principal y validación de datos.</li>
+                    <li><strong>Persistencia:</strong> Almacenamiento seguro de la información generada.</li>
+                    <li><strong>Visualización:</strong> Renderizado de la interfaz y entrega de resultados al usuario final.</li>
+                </ol>
             </div>
 
             <!-- Mi Rol -->
-                        <div class="project-section">
-                <h2><i class="fas fa-compass"></i> Enfoque y Valor del Proyecto</h2>
-                <p>
-                    La aplicacion se diseno para resolver la gestion integral de RSVP en eventos: invitaciones,
-                    confirmaciones por token, control de pagos y recordatorios automatizados.
-                </p>
-                <ul class="features-list">
-                    <li><strong>Trazabilidad por invitado:</strong> Enlaces unicos que evitan errores de identificacion</li>
-                    <li><strong>Operacion simplificada:</strong> Centraliza asistencia, estado de pago y seguimiento en un solo flujo</li>
-                    <li><strong>Comunicacion efectiva:</strong> Integracion con WhatsApp para recordatorios y reduccion de no-shows</li>
-                </ul>
-            </div>
-
             <div class="project-section">
                 <h2><i class="fas fa-user-tie"></i> Mi Rol</h2>
+                <p><strong>Desarrollador Full Stack — Autor Único</strong></p>
                 <p>
-                    <strong>Desarrollador Full Stack</strong>
-                </p>
-                <p>
-                    Diseñé y desarrollé la aplicación completa: estructura de base de datos MySQL, backend en PHP 
-                    con PDO, sistema de tokens para los enlaces públicos, panel de administración, el formulario 
-                    público de confirmación y la interfaz responsive adaptada para móvil.
+                    Diseñé y desarrollé el sistema completo de forma independiente: desde el análisis de requisitos, 
+                    diseño de la arquitectura, implementación de backend y frontend, hasta el despliegue final.
                 </p>
             </div>
 
-            <!-- Estado del Proyecto -->
+            <!-- Estado -->
             <div class="project-section">
                 <h2><i class="fas fa-info"></i> Estado del Proyecto</h2>
-                <p>
-                    <strong>Estado:</strong> <span style="color: #10b981; font-weight: bold;">✓ Funcional</span>
-                </p>
-                <p>
-                    La aplicación está completamente funcional. Diseñada para ser desplegada rápidamente en 
-                    cualquier servidor PHP con Apache / MySQL.
-                </p>
+                <p><strong>Estado:</strong> <span style="color: #10b981; font-weight: bold;"></span></p>
             </div>
 
-            <!-- Enlaces -->
+            <!-- Código -->
             <div class="project-section">
-                <h2><i class="fas fa-link"></i> Enlaces</h2>
+                <h2><i class="fas fa-link"></i> Código Fuente</h2>
                 <div class="project-links">
-                    <a href="https://github.com/Valentindg2506/mba" target="_blank">
+                    <a href="#" target="_blank">
                         <i class="fab fa-github"></i> Ver Código en GitHub
                     </a>
                 </div>

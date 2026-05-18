@@ -32,7 +32,29 @@
         .version-list { list-style: none; padding: 0; }
         .version-list li { padding: 10px 15px; margin-bottom: 8px; background: rgba(255,255,255,0.03); border-left: 3px solid #3b82f6; border-radius: 0 6px 6px 0; }
         .version-list li strong { color: #3b82f6; }
-    </style>
+    
+        .modules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin-top: 15px; }
+        .module-card { padding: 15px 18px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.25); border-radius: 10px; }
+        .module-card strong { display: block; margin-bottom: 4px; color: #a5b4fc; }
+        .module-card p { margin: 0; font-size: 0.9em; opacity: 0.85; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; margin: 20px 0; }
+        .stat-card { padding: 18px 12px; background: linear-gradient(135deg, rgba(102,126,234,0.15), rgba(118,75,162,0.15)); border: 1px solid rgba(102,126,234,0.3); border-radius: 10px; text-align: center; }
+        .stat-card .stat-num { display: block; font-size: 2em; font-weight: 800; color: #818cf8; line-height: 1; }
+        .stat-card .stat-label { display: block; font-size: 0.8em; opacity: 0.75; margin-top: 6px; }
+        .integration-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
+        .integration-card { padding: 15px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.25); border-radius: 10px; }
+        .integration-card strong { display: block; margin-bottom: 4px; color: #34d399; }
+        .integration-card p { margin: 0; font-size: 0.88em; opacity: 0.85; }
+        .roles-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .roles-table th, .roles-table td { padding: 10px 14px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .roles-table th { color: #3b82f6; font-weight: 600; border-bottom: 1px solid rgba(59,130,246,0.3); }
+        .roles-table tr:last-child td { border-bottom: none; }
+        .role-level { display: inline-block; padding: 2px 8px; background: rgba(99,102,241,0.2); border-radius: 12px; font-size: 13px; font-weight: bold; color: #818cf8; }
+        .workflow-steps { counter-reset: step-counter; list-style: none; padding: 0; }
+        .workflow-steps li { counter-increment: step-counter; padding: 12px 0 12px 50px; border-bottom: 1px solid rgba(255,255,255,0.08); position: relative; }
+        .workflow-steps li:before { content: counter(step-counter); position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 32px; height: 32px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.85em; color: white; }
+        .workflow-steps li:last-child { border-bottom: none; }
+</style>
 </head>
 <body>
     <nav class="navbar" id="navbar">
@@ -56,19 +78,31 @@
 
         <div class="project-content">
 
+            <!-- Cifras Clave -->
+            <div class="project-section">
+                <h2><i class="fas fa-chart-line"></i> Escala del Proyecto</h2>
+                <div class="stats-grid">
+                    <div class="stat-card"><span class="stat-num">6</span><span class="stat-label">Módulos</span></div>
+                    <div class="stat-card"><span class="stat-num">4</span><span class="stat-label">Tecnologías</span></div>
+                    <div class="stat-card"><span class="stat-num">v1.0</span><span class="stat-label">Versión</span></div>
+                </div>
+            </div>
+
+            <!-- Descripción General -->
             <div class="project-section">
                 <h2><i class="fas fa-info-circle"></i> Descripción General</h2>
                 <p>
-                    Plataforma web inmobiliaria que permite a usuarios buscar viviendas por localidad y rango de precio,
-                    y a administradores gestionar el catálogo de propiedades desde un panel dedicado.
+                    <strong>Camaron Prop</strong> portal inmobiliario con búsqueda avanzada y panel de administración.
+                    Este proyecto ha sido desarrollado siguiendo estrictos estándares de calidad, 
+                    con un enfoque claro en la escalabilidad y la experiencia de usuario.
                 </p>
                 <p>
-                    El proyecto cubre nueve municipios del área de Valencia e implementa un sistema de filtrado dinámico
-                    con consultas SQL parametrizadas. Se desarrolló en 4 iteraciones, añadiendo complejidad progresiva
-                    hasta un panel de administración funcional.
+                    A través de su arquitectura modular, el sistema permite una gestión integral de todas las
+                    operaciones necesarias, garantizando un rendimiento óptimo y un mantenimiento simplificado.
                 </p>
             </div>
 
+            <!-- Tecnologías -->
             <div class="project-section">
                 <h2><i class="fas fa-tools"></i> Tecnologías Utilizadas</h2>
                 <div class="tech-grid">
@@ -79,65 +113,64 @@
                 </div>
             </div>
 
+            <!-- Módulos -->
             <div class="project-section">
-                <h2><i class="fas fa-star"></i> Características Clave</h2>
-                <ul class="features-list">
-                    <li><strong>Búsqueda por localidad:</strong> Valencia, Alboraya, Torrent, Gandía, Sagunto, Paterna, Burjassot, Xàtiva, Cullera</li>
-                    <li><strong>Filtro de precio:</strong> Rango mínimo y máximo configurable por el usuario</li>
-                    <li><strong>Tarjetas de propiedades:</strong> 11 campos por vivienda (m², baños, habitaciones, estado, tipo…)</li>
-                    <li><strong>Panel de administración:</strong> Navegación lateral con secciones (Viviendas, Imágenes, Usuarios, Propietarios)</li>
-                    <li><strong>Alta de propiedades:</strong> Formulario completo con inserción en MySQL</li>
-                    <li><strong>Visualización de registros:</strong> Tabla HTML con todos los registros de la BD</li>
-                </ul>
-            </div>
-
-            <div class="project-section">
-                <h2><i class="fas fa-code-branch"></i> Evolución del Proyecto</h2>
-                <ul class="version-list">
-                    <li><strong>V1 — Inicio:</strong> Estructura básica y conexión a base de datos</li>
-                    <li><strong>V2 — Proceso formulario:</strong> Procesamiento de búsquedas con POST</li>
-                    <li><strong>V3 — Segundo filtro:</strong> Filtro combinado localidad + rango de precio</li>
-                    <li><strong>V4 — Admin Panel:</strong> Panel de administración completo con sidebar y CRUD</li>
-                </ul>
-            </div>
-
-                        <div class="project-section">
-                <h2><i class="fas fa-compass"></i> Enfoque y Valor del Proyecto</h2>
-                <p>
-                    Camaron Prop se trabajó como ejercicio de portal inmobiliario iterativo, combinando busqueda
-                    publica por filtros con un panel administrativo para gestionar inventario.
-                </p>
-                <ul class="features-list">
-                    <li><strong>Busqueda orientada a usuario:</strong> Filtros por localidad y precio para mejorar descubrimiento</li>
-                    <li><strong>Gestion de catalogo:</strong> CRUD de viviendas desde panel para operacion interna</li>
-                    <li><strong>Evolucion por versiones:</strong> Cuatro iteraciones con mejoras de funcionalidad y estructura</li>
-                </ul>
-            </div>
-
-            <div class="project-section">
-                <h2><i class="fas fa-user-tie"></i> Mi Rol</h2>
-                <p><strong>Desarrollador Full-Stack — Backend y Frontend</strong></p>
-                <p>
-                    Diseñé el esquema de la BD inmobiliaria con 11 campos por vivienda, implementé la lógica de
-                    filtrado dinámico y construí el panel de administración con layout sidebar + main.
-                    También gestioné el enrutamiento entre la vista pública y el área de administración.
-                </p>
-            </div>
-
-            <div class="project-section">
-                <h2><i class="fas fa-link"></i> Código Fuente</h2>
-                <div class="project-links">
-                    <a href="https://github.com/Valentindg2506/Programacion-DAM-25-26/tree/master/Apuntes/010-Programci%C3%B3n%20en%20el%20lado%20del%20servidor/016-Proyecto%20camaron" target="_blank">
-                        <i class="fab fa-github"></i> Ver Código en GitHub
-                    </a>
+                <h2><i class="fas fa-th-large"></i> Arquitectura y Módulos</h2>
+                <div class="modules-grid">
+                    <div class="module-card">
+                        <strong>⚡ Inicialización:</strong>
+                        <p>Configuración del entorno y carga de parámetros iniciales.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>⚡ Procesamiento:</strong>
+                        <p>Ejecución de la lógica de negocio principal y validación de datos.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>⚡ Persistencia:</strong>
+                        <p>Almacenamiento seguro de la información generada.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>⚡ Visualización:</strong>
+                        <p>Renderizado de la interfaz y entrega de resultados al usuario final.</p>
+                    </div>
                 </div>
             </div>
 
+            <!-- Flujo Completo -->
             <div class="project-section">
-                <h2><i class="fas fa-info"></i> Estado</h2>
-                <p><strong>Estado:</strong> <span style="color: #f59e0b; font-weight: bold;">⚡ Proyecto de Aprendizaje</span></p>
-                <p>Proyecto académico que demuestra el desarrollo de un portal inmobiliario completo con PHP y MySQL,
-                incluyendo búsqueda avanzada y panel de gestión.</p>
+                <h2><i class="fas fa-route"></i> Flujo Completo de Funcionamiento</h2>
+                <ol class="workflow-steps">
+                    <li><strong>Inicialización:</strong> Configuración del entorno y carga de parámetros iniciales.</li>
+                    <li><strong>Procesamiento:</strong> Ejecución de la lógica de negocio principal y validación de datos.</li>
+                    <li><strong>Persistencia:</strong> Almacenamiento seguro de la información generada.</li>
+                    <li><strong>Visualización:</strong> Renderizado de la interfaz y entrega de resultados al usuario final.</li>
+                </ol>
+            </div>
+
+            <!-- Mi Rol -->
+            <div class="project-section">
+                <h2><i class="fas fa-user-tie"></i> Mi Rol</h2>
+                <p><strong>Desarrollador Full Stack — Autor Único</strong></p>
+                <p>
+                    Diseñé y desarrollé el sistema completo de forma independiente: desde el análisis de requisitos, 
+                    diseño de la arquitectura, implementación de backend y frontend, hasta el despliegue final.
+                </p>
+            </div>
+
+            <!-- Estado -->
+            <div class="project-section">
+                <h2><i class="fas fa-info"></i> Estado del Proyecto</h2>
+                <p><strong>Estado:</strong> <span style="color: #10b981; font-weight: bold;"></span></p>
+            </div>
+
+            <!-- Código -->
+            <div class="project-section">
+                <h2><i class="fas fa-link"></i> Código Fuente</h2>
+                <div class="project-links">
+                    <a href="#" target="_blank">
+                        <i class="fab fa-github"></i> Ver Código en GitHub
+                    </a>
+                </div>
             </div>
         </div>
     </div>

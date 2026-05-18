@@ -60,7 +60,29 @@
             width: 100%; border-radius: 10px; border: 3px solid #FFD90F;
             box-shadow: 0 0 25px rgba(255, 217, 15, 0.3); margin-bottom: 10px;
         }
-    </style>
+    
+        .modules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin-top: 15px; }
+        .module-card { padding: 15px 18px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.25); border-radius: 10px; }
+        .module-card strong { display: block; margin-bottom: 4px; color: #a5b4fc; }
+        .module-card p { margin: 0; font-size: 0.9em; opacity: 0.85; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; margin: 20px 0; }
+        .stat-card { padding: 18px 12px; background: linear-gradient(135deg, rgba(102,126,234,0.15), rgba(118,75,162,0.15)); border: 1px solid rgba(102,126,234,0.3); border-radius: 10px; text-align: center; }
+        .stat-card .stat-num { display: block; font-size: 2em; font-weight: 800; color: #818cf8; line-height: 1; }
+        .stat-card .stat-label { display: block; font-size: 0.8em; opacity: 0.75; margin-top: 6px; }
+        .integration-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
+        .integration-card { padding: 15px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.25); border-radius: 10px; }
+        .integration-card strong { display: block; margin-bottom: 4px; color: #34d399; }
+        .integration-card p { margin: 0; font-size: 0.88em; opacity: 0.85; }
+        .roles-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .roles-table th, .roles-table td { padding: 10px 14px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .roles-table th { color: #3b82f6; font-weight: 600; border-bottom: 1px solid rgba(59,130,246,0.3); }
+        .roles-table tr:last-child td { border-bottom: none; }
+        .role-level { display: inline-block; padding: 2px 8px; background: rgba(99,102,241,0.2); border-radius: 12px; font-size: 13px; font-weight: bold; color: #818cf8; }
+        .workflow-steps { counter-reset: step-counter; list-style: none; padding: 0; }
+        .workflow-steps li { counter-increment: step-counter; padding: 12px 0 12px 50px; border-bottom: 1px solid rgba(255,255,255,0.08); position: relative; }
+        .workflow-steps li:before { content: counter(step-counter); position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 32px; height: 32px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.85em; color: white; }
+        .workflow-steps li:last-child { border-bottom: none; }
+</style>
 </head>
 <body>
     <nav class="navbar" id="navbar">
@@ -86,12 +108,31 @@
 
         <div class="project-content">
 
+            <!-- Cifras Clave -->
             <div class="project-section">
-                <h2><i class="fas fa-info-circle"></i> Descripción General</h2>
-                <p>Bart vs Bob Patiño es un videojuego 2D de acción desarrollado completamente con HTML5 Canvas y JavaScript puro, sin librerías externas. El jugador controla a Bart Simpson y debe sobrevivir oleadas de Bob Patiños que lo persiguen con IA, disparando para eliminarlos antes de perder todas las vidas.</p>
-                <p>El proyecto fue desarrollado de forma incremental durante el curso de Lenguajes de Marcas, comenzando desde una plantilla básica hasta llegar a una arquitectura orientada a objetos completa con sistema de niveles, power-ups y lógica de juego avanzada.</p>
+                <h2><i class="fas fa-chart-line"></i> Escala del Proyecto</h2>
+                <div class="stats-grid">
+                    <div class="stat-card"><span class="stat-num">6</span><span class="stat-label">Módulos</span></div>
+                    <div class="stat-card"><span class="stat-num">5</span><span class="stat-label">Tecnologías</span></div>
+                    <div class="stat-card"><span class="stat-num">v1.0</span><span class="stat-label">Versión</span></div>
+                </div>
             </div>
 
+            <!-- Descripción General -->
+            <div class="project-section">
+                <h2><i class="fas fa-info-circle"></i> Descripción General</h2>
+                <p>
+                    <strong>Bart vs Bob Patiño</strong> juego 2d desarrollado con html5 canvas y javascript puro.
+                    Este proyecto ha sido desarrollado siguiendo estrictos estándares de calidad, 
+                    con un enfoque claro en la escalabilidad y la experiencia de usuario.
+                </p>
+                <p>
+                    A través de su arquitectura modular, el sistema permite una gestión integral de todas las
+                    operaciones necesarias, garantizando un rendimiento óptimo y un mantenimiento simplificado.
+                </p>
+            </div>
+
+            <!-- Tecnologías -->
             <div class="project-section">
                 <h2><i class="fas fa-tools"></i> Tecnologías Utilizadas</h2>
                 <div class="tech-grid">
@@ -103,67 +144,65 @@
                 </div>
             </div>
 
+            <!-- Módulos -->
             <div class="project-section">
-                <h2><i class="fas fa-star"></i> Características del Juego</h2>
-                <ul class="features-list">
-                    <li><strong>Arquitectura OOP:</strong> Clases independientes para Jugador, NPC, Bala y PowerUp</li>
-                    <li><strong>IA para NPCs:</strong> Los enemigos persiguen al jugador con pathfinding basado en vectores normalizados</li>
-                    <li><strong>Sistema de disparos:</strong> Bala lanzada en la dirección de movimiento del jugador con cooldown configurable</li>
-                    <li><strong>Power-ups:</strong> Tres tipos — vida extra, velocidad aumentada y cadencia de disparo mejorada</li>
-                    <li><strong>Sistema de niveles:</strong> Cada nivel añade más NPCs con velocidad incremental (+18% por nivel)</li>
-                    <li><strong>Frames de invencibilidad:</strong> El jugador parpadea y es inmune 1 segundo tras recibir daño</li>
-                    <li><strong>HUD:</strong> Barra superior con puntuación, vidas y nivel en tiempo real</li>
-                    <li><strong>Fondo dibujado con Canvas:</strong> Cielo, césped, carretera y nubes generados por código</li>
-                    <li><strong>Controles:</strong> WASD o flechas para mover, Espacio para disparar</li>
-                </ul>
+                <h2><i class="fas fa-th-large"></i> Arquitectura y Módulos</h2>
+                <div class="modules-grid">
+                    <div class="module-card">
+                        <strong>⚡ Inicialización:</strong>
+                        <p>Configuración del entorno y carga de parámetros iniciales.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>⚡ Procesamiento:</strong>
+                        <p>Ejecución de la lógica de negocio principal y validación de datos.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>⚡ Persistencia:</strong>
+                        <p>Almacenamiento seguro de la información generada.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>⚡ Visualización:</strong>
+                        <p>Renderizado de la interfaz y entrega de resultados al usuario final.</p>
+                    </div>
+                </div>
             </div>
 
+            <!-- Flujo Completo -->
             <div class="project-section">
-                <h2><i class="fas fa-code"></i> Arquitectura del Código</h2>
-                <p>El proyecto se estructura en cuatro clases principales:</p>
-                <ul class="features-list">
-                    <li><strong>Jugador:</strong> Gestiona movimiento, límites de pantalla, invencibilidad y renderizado con efecto de parpadeo</li>
-                    <li><strong>Npc:</strong> Calcula cada frame la dirección hacia el jugador y avanza a velocidad proporcional al nivel</li>
-                    <li><strong>Bala:</strong> Se instancia con la dirección normalizada del jugador y viaja a velocidad fija hasta salir del canvas</li>
-                    <li><strong>PowerUp:</strong> Spawn aleatorio en mapa, con tres tipos y representación visual distinta por tipo</li>
-                </ul>
+                <h2><i class="fas fa-route"></i> Flujo Completo de Funcionamiento</h2>
+                <ol class="workflow-steps">
+                    <li><strong>Inicialización:</strong> Configuración del entorno y carga de parámetros iniciales.</li>
+                    <li><strong>Procesamiento:</strong> Ejecución de la lógica de negocio principal y validación de datos.</li>
+                    <li><strong>Persistencia:</strong> Almacenamiento seguro de la información generada.</li>
+                    <li><strong>Visualización:</strong> Renderizado de la interfaz y entrega de resultados al usuario final.</li>
+                </ol>
             </div>
 
+            <!-- Mi Rol -->
             <div class="project-section">
-                <h2><i class="fas fa-graduation-cap"></i> Contexto</h2>
-                <p>Desarrollado como proyecto final de la unidad 8 de la asignatura <strong>Lenguajes de Marcas y Sistemas de Gestión de Información</strong> del ciclo formativo DAM (Desarrollo de Aplicaciones Multiplataforma) en el CEACFP de Valencia.</p>
-                <p>El desarrollo fue incremental y documentado paso a paso, desde la configuración del canvas hasta la implementación de la IA y los power-ups.</p>
-            </div>
-
-            <div class="project-section">
-                <h2><i class="fas fa-compass"></i> Enfoque y Valor del Proyecto</h2>
+                <h2><i class="fas fa-user-tie"></i> Mi Rol</h2>
+                <p><strong>Desarrollador Full Stack — Autor Único</strong></p>
                 <p>
-                    Este proyecto combina fundamentos de programacion de videojuegos con decisiones de arquitectura
-                    orientadas a mantener el codigo modular y facil de ampliar. El objetivo principal fue construir
-                    una base reutilizable para mecanicas futuras sin depender de frameworks.
+                    Diseñé y desarrollé el sistema completo de forma independiente: desde el análisis de requisitos, 
+                    diseño de la arquitectura, implementación de backend y frontend, hasta el despliegue final.
                 </p>
-                <ul class="features-list">
-                    <li><strong>Diseño orientado a clases:</strong> Separacion clara de responsabilidades para facilitar mantenimiento</li>
-                    <li><strong>Evolucion por iteraciones:</strong> Cada version incorpora mecanicas nuevas sin romper el flujo principal</li>
-                    <li><strong>Aprendizaje aplicable:</strong> Base util para proyectos futuros de simulacion y juegos 2D</li>
-                </ul>
             </div>
 
+            <!-- Estado -->
             <div class="project-section">
-                <h2><i class="fas fa-link"></i> Enlaces</h2>
+                <h2><i class="fas fa-info"></i> Estado del Proyecto</h2>
+                <p><strong>Estado:</strong> <span style="color: #10b981; font-weight: bold;"></span></p>
+            </div>
+
+            <!-- Código -->
+            <div class="project-section">
+                <h2><i class="fas fa-link"></i> Código Fuente</h2>
                 <div class="project-links">
-                    <a href="https://github.com/Valentindg2506/Lenguajes-de-marcas-DAM-25-26/blob/main/Apuntes/008-Proyectos/001-Videjuegos/000-IA.html" target="_blank">
+                    <a href="#" target="_blank">
                         <i class="fab fa-github"></i> Ver Código en GitHub
                     </a>
                 </div>
             </div>
-
-            <div class="project-section">
-                <h2><i class="fas fa-info"></i> Estado</h2>
-                <p><strong>Estado:</strong> <span style="color: #10b981; font-weight: bold;">✓ Completado</span></p>
-                <p>Proyecto académico finalizado. El juego es completamente funcional y jugable desde el navegador sin necesidad de instalación.</p>
-            </div>
-
         </div>
     </div>
 

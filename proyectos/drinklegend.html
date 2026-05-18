@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tienda Online - E-commerce completo con PHP y MySQL">
-    <title>Tienda Online - Valentín De Gennaro</title>
+    <meta name="description" content="DrinkLegend - Juego de mesa interactivo en formato PWA">
+    <title>DrinkLegend - Valentín De Gennaro</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script>
         const savedTheme = localStorage.getItem('theme') || 'light';
-        if (savedTheme === 'dark') document.documentElement.classList.add('dark');
+        if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+        }
     </script>
     <style>
         .project-detail { min-height: 100vh; padding: 80px 20px 40px; }
@@ -19,19 +21,16 @@
         .project-section { margin-bottom: 40px; padding: 30px; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
         .project-section h2 { font-size: 1.8em; margin-bottom: 20px; color: #3b82f6; }
         .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-bottom: 20px; }
-        .tech-badge { padding: 10px 15px; background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(99,102,241,0.2)); border: 1px solid rgba(59,130,246,0.5); border-radius: 8px; text-align: center; font-weight: 500; }
+        .tech-badge { padding: 10px 15px; background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(99, 102, 241, 0.2)); border: 1px solid rgba(59, 130, 246, 0.5); border-radius: 8px; text-align: center; font-weight: 500; }
         .features-list { list-style: none; padding: 0; }
         .features-list li { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
         .features-list li:last-child { border-bottom: none; }
         .features-list li:before { content: "✓ "; color: #10b981; font-weight: bold; margin-right: 10px; }
-        .back-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: rgba(59,130,246,0.2); border: 1px solid rgba(59,130,246,0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; margin-bottom: 30px; transition: all 0.3s ease; }
-        .back-btn:hover { background: rgba(59,130,246,0.3); transform: translateX(-5px); }
-        .project-links { display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap; }
+        .back-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; margin-bottom: 30px; transition: all 0.3s ease; }
+        .back-btn:hover { background: rgba(59, 130, 246, 0.3); transform: translateX(-5px); }
+        .project-links { display: flex; gap: 15px; margin-top: 20px; }
         .project-links a { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 6px; text-decoration: none; transition: all 0.3s ease; }
-        .project-links a:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(102,126,234,0.3); }
-        .version-list { list-style: none; padding: 0; }
-        .version-list li { padding: 10px 15px; margin-bottom: 8px; background: rgba(255,255,255,0.03); border-left: 3px solid #3b82f6; border-radius: 0 6px 6px 0; }
-        .version-list li strong { color: #3b82f6; }
+        .project-links a:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3); }
     
         .modules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin-top: 15px; }
         .module-card { padding: 15px 18px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.25); border-radius: 10px; }
@@ -74,8 +73,8 @@
         </a>
 
         <div class="project-hero">
-            <h1>Tienda Online</h1>
-            <p style="font-size: 1.2em; color: #a0aec0;">E-commerce completo con PHP y MySQL — desarrollado en 7 versiones</p>
+            <h1>DrinkLegend</h1>
+            <p style="font-size: 1.2em; color: #a0aec0;">Juego de mesa interactivo en formato PWA</p>
         </div>
 
         <div class="project-content">
@@ -84,8 +83,8 @@
             <div class="project-section">
                 <h2><i class="fas fa-chart-line"></i> Escala del Proyecto</h2>
                 <div class="stats-grid">
-                    <div class="stat-card"><span class="stat-num">6</span><span class="stat-label">Módulos</span></div>
-                    <div class="stat-card"><span class="stat-num">5</span><span class="stat-label">Tecnologías</span></div>
+                    <div class="stat-card"><span class="stat-num">10</span><span class="stat-label">Módulos</span></div>
+                    <div class="stat-card"><span class="stat-num">4</span><span class="stat-label">Tecnologías</span></div>
                     <div class="stat-card"><span class="stat-num">v1.0</span><span class="stat-label">Versión</span></div>
                 </div>
             </div>
@@ -94,7 +93,7 @@
             <div class="project-section">
                 <h2><i class="fas fa-info-circle"></i> Descripción General</h2>
                 <p>
-                    <strong>Tienda Online</strong> e-commerce completo con php y mysql — desarrollado en 7 versiones.
+                    <strong>DrinkLegend</strong> juego de mesa interactivo en formato pwa.
                     Este proyecto ha sido desarrollado siguiendo estrictos estándares de calidad, 
                     con un enfoque claro en la escalabilidad y la experiencia de usuario.
                 </p>
@@ -108,11 +107,10 @@
             <div class="project-section">
                 <h2><i class="fas fa-tools"></i> Tecnologías Utilizadas</h2>
                 <div class="tech-grid">
-                    <div class="tech-badge"><i class="fab fa-php"></i><br>PHP 8</div>
-                    <div class="tech-badge"><i class="fas fa-database"></i><br>MySQL</div>
                     <div class="tech-badge"><i class="fab fa-html5"></i><br>HTML5</div>
-                    <div class="tech-badge"><i class="fab fa-css3-alt"></i><br>CSS3</div>
-                    <div class="tech-badge"><i class="fas fa-server"></i><br>MySQLi</div>
+                    <div class="tech-badge"><i class="fab fa-js"></i><br>JavaScript</div>
+                    <div class="tech-badge"><i class="fab fa-php"></i><br>PHP</div>
+                    <div class="tech-badge"><i class="fas fa-mobile-alt"></i><br>PWA Offline</div>
                 </div>
             </div>
 
@@ -121,20 +119,36 @@
                 <h2><i class="fas fa-th-large"></i> Arquitectura y Módulos</h2>
                 <div class="modules-grid">
                     <div class="module-card">
-                        <strong>⚡ Inicialización:</strong>
-                        <p>Configuración del entorno y carga de parámetros iniciales.</p>
+                        <strong>⚡ Soporte Offline PWA</strong>
+                        <p>Implementación completa y optimizada de la funcionalidad de soporte offline pwa.</p>
                     </div>
                     <div class="module-card">
-                        <strong>⚡ Procesamiento:</strong>
-                        <p>Ejecución de la lógica de negocio principal y validación de datos.</p>
+                        <strong>⚡ Modo Ruleta interactiva</strong>
+                        <p>Implementación completa y optimizada de la funcionalidad de modo ruleta interactiva.</p>
                     </div>
                     <div class="module-card">
-                        <strong>⚡ Persistencia:</strong>
-                        <p>Almacenamiento seguro de la información generada.</p>
+                        <strong>⚡ Desafíos de Verdad o Reto</strong>
+                        <p>Implementación completa y optimizada de la funcionalidad de desafíos de verdad o reto.</p>
                     </div>
                     <div class="module-card">
-                        <strong>⚡ Visualización:</strong>
-                        <p>Renderizado de la interfaz y entrega de resultados al usuario final.</p>
+                        <strong>⚡ Animaciones y microinteracciones</strong>
+                        <p>Implementación completa y optimizada de la funcionalidad de animaciones y microinteracciones.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>⚡ Gestión de jugadores dinámicos</strong>
+                        <p>Implementación completa y optimizada de la funcionalidad de gestión de jugadores dinámicos.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>⚡ Arquitectura offline-first</strong>
+                        <p>Implementación completa y optimizada de la funcionalidad de arquitectura offline-first.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>⚡ Manejo de estado complejo en cliente</strong>
+                        <p>Implementación completa y optimizada de la funcionalidad de manejo de estado complejo en cliente.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>⚡ Gamificación efectiva</strong>
+                        <p>Implementación completa y optimizada de la funcionalidad de gamificación efectiva.</p>
                     </div>
                 </div>
             </div>
@@ -170,7 +184,7 @@
             <div class="project-section">
                 <h2><i class="fas fa-link"></i> Código Fuente</h2>
                 <div class="project-links">
-                    <a href="#" target="_blank">
+                    <a href="https://github.com/Valentindg2506/Juego%20de%20beber" target="_blank">
                         <i class="fab fa-github"></i> Ver Código en GitHub
                     </a>
                 </div>
@@ -184,4 +198,3 @@
     <script src="../js/main.js"></script>
 </body>
 </html>
-

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,11 +20,13 @@
             min-height: 100vh;
             padding: 80px 20px 40px;
         }
+
         .project-hero {
             max-width: 1000px;
             margin: 0 auto 50px;
             text-align: center;
         }
+
         .project-hero h1 {
             font-size: 3em;
             margin-bottom: 20px;
@@ -32,28 +35,33 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+
         .project-content {
             max-width: 900px;
             margin: 0 auto;
         }
+
         .project-section {
             margin-bottom: 40px;
             padding: 30px;
-            background: rgba(255,255,255,0.05);
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
+
         .project-section h2 {
             font-size: 1.8em;
             margin-bottom: 20px;
             color: #3b82f6;
         }
+
         .tech-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 15px;
             margin-bottom: 20px;
         }
+
         .tech-badge {
             padding: 10px 15px;
             background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(99, 102, 241, 0.2));
@@ -62,23 +70,28 @@
             text-align: center;
             font-weight: 500;
         }
+
         .features-list {
             list-style: none;
             padding: 0;
         }
+
         .features-list li {
             padding: 12px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
+
         .features-list li:last-child {
             border-bottom: none;
         }
+
         .features-list li:before {
             content: "✓ ";
             color: #10b981;
             font-weight: bold;
             margin-right: 10px;
         }
+
         .back-btn {
             display: inline-flex;
             align-items: center;
@@ -92,16 +105,19 @@
             margin-bottom: 30px;
             transition: all 0.3s ease;
         }
+
         .back-btn:hover {
             background: rgba(59, 130, 246, 0.3);
             transform: translateX(-5px);
         }
+
         .project-links {
             display: flex;
             gap: 15px;
             margin-top: 20px;
             flex-wrap: wrap;
         }
+
         .project-links a {
             display: inline-flex;
             align-items: center;
@@ -113,31 +129,187 @@
             text-decoration: none;
             transition: all 0.3s ease;
         }
+
         .project-links a:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
         }
+
         .modules-table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 15px;
         }
+
         .modules-table th,
         .modules-table td {
             padding: 10px 14px;
             text-align: left;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
+
         .modules-table th {
             color: #3b82f6;
             font-weight: 600;
-            border-bottom: 1px solid rgba(59,130,246,0.3);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.3);
         }
+
         .modules-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .module-card {
+            padding: 15px 18px;
+            background: rgba(99, 102, 241, 0.08);
+            border: 1px solid rgba(99, 102, 241, 0.25);
+            border-radius: 10px;
+        }
+
+        .module-card strong {
+            display: block;
+            margin-bottom: 4px;
+            color: #a5b4fc;
+        }
+
+        .module-card p {
+            margin: 0;
+            font-size: 0.9em;
+            opacity: 0.85;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stat-card {
+            padding: 18px 12px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(118, 75, 162, 0.15));
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-card .stat-num {
+            display: block;
+            font-size: 2em;
+            font-weight: 800;
+            color: #818cf8;
+            line-height: 1;
+        }
+
+        .stat-card .stat-label {
+            display: block;
+            font-size: 0.8em;
+            opacity: 0.75;
+            margin-top: 6px;
+        }
+
+        .integration-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .integration-card {
+            padding: 15px;
+            background: rgba(16, 185, 129, 0.08);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            border-radius: 10px;
+        }
+
+        .integration-card strong {
+            display: block;
+            margin-bottom: 4px;
+            color: #34d399;
+        }
+
+        .integration-card p {
+            margin: 0;
+            font-size: 0.88em;
+            opacity: 0.85;
+        }
+
+        .roles-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .roles-table th,
+        .roles-table td {
+            padding: 10px 14px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .roles-table th {
+            color: #3b82f6;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .roles-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .role-level {
+            display: inline-block;
+            padding: 2px 8px;
+            background: rgba(99, 102, 241, 0.2);
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: bold;
+            color: #818cf8;
+        }
+
+        .workflow-steps {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+
+        .workflow-steps li {
+            counter-increment: step-counter;
+            padding: 12px 0 12px 50px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+        }
+
+        .workflow-steps li:before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.85em;
+            color: white;
+        }
+
+        .workflow-steps li:last-child {
             border-bottom: none;
         }
     </style>
 </head>
+
 <body>
     <nav class="navbar" id="navbar">
         <div class="container">
@@ -157,164 +329,109 @@
 
         <div class="project-hero">
             <h1>🏠 RoomManager</h1>
-            <p style="font-size: 1.2em; color: #a0aec0;">Plataforma profesional para la gestión de alquileres por habitaciones (coliving / rent to rent)</p>
+            <p style="font-size: 1.2em; color: #a0aec0;">Plataforma profesional para la gestión de alquileres por
+                habitaciones (coliving / rent to rent)</p>
         </div>
 
         <div class="project-content">
-            <!-- Descripción General -->
-            <div class="project-section">
-                <h2><i class="fas fa-info-circle"></i> Descripción General</h2>
-                <p>
-                    <strong>RoomManager</strong> es una plataforma web integral para gestionar alquileres de habitaciones
-                    y pisos compartidos, orientada a propietarios, administradores y operadores de coliving.
-                </p>
-                <p>
-                    El sistema está diseñado con foco en escalabilidad mediante arquitectura modular y APIs RESTful,
-                    seguridad robusta con autenticación y protección CSRF, automatización de cuotas y cálculos
-                    financieros, y una interfaz moderna responsive con modo oscuro integrado.
-                </p>
-            </div>
 
-            <!-- Tecnologías Utilizadas -->
+            <!-- Cifras Clave -->
             <div class="project-section">
-                <h2><i class="fas fa-tools"></i> Tecnologías Utilizadas</h2>
-                <div class="tech-grid">
-                    <div class="tech-badge">
-                        <i class="fab fa-php"></i><br>PHP
+                <h2><i class="fas fa-chart-line"></i> Escala del Proyecto</h2>
+                <div class="stats-grid">
+                    <div class="stat-card"><span class="stat-num">6</span><span class="stat-label">Módulos</span></div>
+                    <div class="stat-card"><span class="stat-num">6</span><span class="stat-label">Tecnologías</span>
                     </div>
-                    <div class="tech-badge">
-                        <i class="fas fa-database"></i><br>MySQL / MariaDB
-                    </div>
-                    <div class="tech-badge">
-                        <i class="fab fa-js"></i><br>JavaScript
-                    </div>
-                    <div class="tech-badge">
-                        <i class="fab fa-bootstrap"></i><br>Bootstrap 5
-                    </div>
-                    <div class="tech-badge">
-                        <i class="fas fa-stream"></i><br>RESTful API
-                    </div>
-                    <div class="tech-badge">
-                        <i class="fas fa-chart-bar"></i><br>Chart.js
+                    <div class="stat-card"><span class="stat-num">v1.0</span><span class="stat-label">Versión</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Módulos del Sistema -->
+            <!-- Descripción General -->
             <div class="project-section">
-                <h2><i class="fas fa-cubes"></i> Módulos del Sistema</h2>
-                <table class="modules-table">
-                    <thead>
-                        <tr>
-                            <th>Dominio</th>
-                            <th>Funcionalidades</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>🏘️ Propiedades</strong></td>
-                            <td>CRUD de pisos y habitaciones, publicación en oferta pública, gestión de fotos y características</td>
-                        </tr>
-                        <tr>
-                            <td><strong>👥 Inquilinos</strong></td>
-                            <td>CRUD completo, historial de alquileres, documentación asociada, asignación de habitaciones</td>
-                        </tr>
-                        <tr>
-                            <td><strong>📋 Contratos</strong></td>
-                            <td>Generación, actualización y finalización de contratos, exportación a PDF</td>
-                        </tr>
-                        <tr>
-                            <td><strong>💰 Finanzas</strong></td>
-                            <td>Pagos por periodo, estados (pagado/pendiente/atrasado/parcial), servicios recurrentes, gastos por categoría</td>
-                        </tr>
-                        <tr>
-                            <td><strong>🔔 Productividad</strong></td>
-                            <td>Tareas con prioridad y fecha límite, recordatorios de vencimientos, notificaciones internas</td>
-                        </tr>
-                        <tr>
-                            <td><strong>🌐 Oferta Pública</strong></td>
-                            <td>Listado público con filtros, formulario de consultas con anti-spam y rate limiting</td>
-                        </tr>
-                        <tr>
-                            <td><strong>🔐 Sistema</strong></td>
-                            <td>Logs de auditoría, configuración, health checks, APIs RESTful</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <h2><i class="fas fa-info-circle"></i> Descripción General</h2>
+                <p>
+                    <strong>🏠 RoomManager</strong> plataforma profesional para la gestión de alquileres por
+                    habitaciones (coliving / rent to rent).
+                    Este proyecto ha sido desarrollado siguiendo estrictos estándares de calidad,
+                    con un enfoque claro en la escalabilidad y la experiencia de usuario.
+                </p>
+                <p>
+                    A través de su arquitectura modular, el sistema permite una gestión integral de todas las
+                    operaciones necesarias, garantizando un rendimiento óptimo y un mantenimiento simplificado.
+                </p>
             </div>
 
-            <!-- Características Clave -->
+            <!-- Tecnologías -->
             <div class="project-section">
-                <h2><i class="fas fa-star"></i> Características Principales</h2>
-                <ul class="features-list">
-                    <li><strong>Dashboard con KPIs:</strong> Ingresos totales, gastos por categoría, beneficio neto, ocupación global y evolución financiera con gráficos</li>
-                    <li><strong>Gestión de Contratos:</strong> Generación automática de contratos vinculados a alquileres, exportables a PDF</li>
-                    <li><strong>Cuotas Automáticas:</strong> Cálculo automático de servicios recurrentes en función de inquilinos activos</li>
-                    <li><strong>Oferta Pública:</strong> Portal público para mostrar habitaciones disponibles y recibir consultas de interesados</li>
-                    <li><strong>Modo Oscuro:</strong> Diseño responsive mobile-first con tema oscuro integrado</li>
-                    <li><strong>APIs RESTful:</strong> Exposición de endpoints para pisos, habitaciones, inquilinos, pagos, tareas y más</li>
-                    <li><strong>Auditoría Completa:</strong> Logs de acciones críticas, errores de sistema y actividad sospechosa</li>
-                    <li><strong>Multi-versión BD:</strong> Migraciones versionadas (V2–V9) para evolución controlada del esquema</li>
-                </ul>
+                <h2><i class="fas fa-tools"></i> Tecnologías Utilizadas</h2>
+                <div class="tech-grid">
+                    <div class="tech-badge"><i class="fab fa-php"></i><br>PHP</div>
+                    <div class="tech-badge"><i class="fas fa-database"></i><br>MySQL / MariaDB</div>
+                    <div class="tech-badge"><i class="fab fa-js"></i><br>JavaScript</div>
+                    <div class="tech-badge"><i class="fab fa-bootstrap"></i><br>Bootstrap 5</div>
+                    <div class="tech-badge"><i class="fas fa-stream"></i><br>RESTful API</div>
+                    <div class="tech-badge"><i class="fas fa-chart-bar"></i><br>Chart.js</div>
+                </div>
             </div>
 
-            <!-- Seguridad -->
+            <!-- Módulos -->
             <div class="project-section">
-                <h2><i class="fas fa-shield-alt"></i> Seguridad y Cumplimiento</h2>
-                <ul class="features-list">
-                    <li><strong>Autenticación:</strong> Sesiones seguras con cookies HttpOnly, SameSite y Secure</li>
-                    <li><strong>Contraseñas:</strong> Hash con bcrypt (coste 12)</li>
-                    <li><strong>CSRF / XSS:</strong> Tokens anti-CSRF, validación y sanitización de entrada y salida</li>
-                    <li><strong>Rate Limiting:</strong> Limitación de peticiones para login, consultas públicas y endpoints sensibles</li>
-                    <li><strong>Legal:</strong> Diseño alineado con RGPD, LOPD-GDD y LSSI-CE</li>
-                </ul>
+                <h2><i class="fas fa-th-large"></i> Arquitectura y Módulos</h2>
+                <div class="modules-grid">
+                    <div class="module-card">
+                        <strong>⚡ Inicialización:</strong>
+                        <p>Configuración del entorno y carga de parámetros iniciales.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>⚡ Procesamiento:</strong>
+                        <p>Ejecución de la lógica de negocio principal y validación de datos.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>⚡ Persistencia:</strong>
+                        <p>Almacenamiento seguro de la información generada.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>⚡ Visualización:</strong>
+                        <p>Renderizado de la interfaz y entrega de resultados al usuario final.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flujo Completo -->
+            <div class="project-section">
+                <h2><i class="fas fa-route"></i> Flujo Completo de Funcionamiento</h2>
+                <ol class="workflow-steps">
+                    <li><strong>Inicialización:</strong> Configuración del entorno y carga de parámetros iniciales.</li>
+                    <li><strong>Procesamiento:</strong> Ejecución de la lógica de negocio principal y validación de
+                        datos.</li>
+                    <li><strong>Persistencia:</strong> Almacenamiento seguro de la información generada.</li>
+                    <li><strong>Visualización:</strong> Renderizado de la interfaz y entrega de resultados al usuario
+                        final.</li>
+                </ol>
             </div>
 
             <!-- Mi Rol -->
-                        <div class="project-section">
-                <h2><i class="fas fa-compass"></i> Enfoque y Valor del Proyecto</h2>
-                <p>
-                    El sistema se enfoca en la operacion diaria de alquiler por habitaciones: contratos, cobros,
-                    tareas, incidencias y control financiero con una interfaz orientada a gestion real.
-                </p>
-                <ul class="features-list">
-                    <li><strong>Vision 360 del alquiler:</strong> Unifica gestion de inmuebles, inquilinos, pagos y mantenimiento</li>
-                    <li><strong>Documentacion operativa:</strong> Soporte de contratos y procesos administrativos recurrentes</li>
-                    <li><strong>Decisiones con datos:</strong> Dashboard con KPIs para seguimiento de ocupacion y rentabilidad</li>
-                </ul>
-            </div>
-
             <div class="project-section">
                 <h2><i class="fas fa-user-tie"></i> Mi Rol</h2>
+                <p><strong>Desarrollador Full Stack — Autor Único</strong></p>
                 <p>
-                    <strong>Desarrollador Full Stack</strong>
-                </p>
-                <p>
-                    Diseñé la arquitectura completa del sistema, desarrollé el backend en PHP con APIs RESTful,
-                    la base de datos MySQL versionada con migraciones, el frontend responsive con Bootstrap 5 y
-                    JavaScript vanilla, incluyendo el dashboard de KPIs con gráficos, el portal público
-                    y todos los módulos de gestión.
+                    Diseñé y desarrollé el sistema completo de forma independiente: desde el análisis de requisitos,
+                    diseño de la arquitectura, implementación de backend y frontend, hasta el despliegue final.
                 </p>
             </div>
 
-            <!-- Estado del Proyecto -->
+            <!-- Estado -->
             <div class="project-section">
                 <h2><i class="fas fa-info"></i> Estado del Proyecto</h2>
-                <p>
-                    <strong>Estado:</strong> <span style="color: #10b981; font-weight: bold;">✓ En Producción (V0.0.9)</span>
-                </p>
-                <p>
-                    El sistema cuenta con 9 versiones publicadas, desde la pre-producción inicial hasta
-                    la versión actual que incluye el módulo completo de finanzas, contratos, API RESTful,
-                    oferta pública y dashboard de KPIs.
-                </p>
+                <p><strong>Estado:</strong> <span style="color: #10b981; font-weight: bold;"></span></p>
             </div>
 
-            <!-- Enlaces -->
+            <!-- Código -->
             <div class="project-section">
-                <h2><i class="fas fa-link"></i> Enlaces</h2>
+                <h2><i class="fas fa-link"></i> Código Fuente</h2>
                 <div class="project-links">
-                    <a href="https://github.com/Valentindg2506/RoomManager" target="_blank">
+                    <a href="#" target="_blank">
                         <i class="fab fa-github"></i> Ver Código en GitHub
                     </a>
                 </div>
@@ -328,4 +445,5 @@
 
     <script src="../js/main.js"></script>
 </body>
+
 </html>

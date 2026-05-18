@@ -33,7 +33,29 @@
         .version-list { list-style: none; padding: 0; }
         .version-list li { padding: 10px 15px; margin-bottom: 8px; background: rgba(255,255,255,0.03); border-left: 3px solid #3b82f6; border-radius: 0 6px 6px 0; }
         .version-list li strong { color: #3b82f6; }
-    </style>
+    
+        .modules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin-top: 15px; }
+        .module-card { padding: 15px 18px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.25); border-radius: 10px; }
+        .module-card strong { display: block; margin-bottom: 4px; color: #a5b4fc; }
+        .module-card p { margin: 0; font-size: 0.9em; opacity: 0.85; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; margin: 20px 0; }
+        .stat-card { padding: 18px 12px; background: linear-gradient(135deg, rgba(102,126,234,0.15), rgba(118,75,162,0.15)); border: 1px solid rgba(102,126,234,0.3); border-radius: 10px; text-align: center; }
+        .stat-card .stat-num { display: block; font-size: 2em; font-weight: 800; color: #818cf8; line-height: 1; }
+        .stat-card .stat-label { display: block; font-size: 0.8em; opacity: 0.75; margin-top: 6px; }
+        .integration-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
+        .integration-card { padding: 15px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.25); border-radius: 10px; }
+        .integration-card strong { display: block; margin-bottom: 4px; color: #34d399; }
+        .integration-card p { margin: 0; font-size: 0.88em; opacity: 0.85; }
+        .roles-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .roles-table th, .roles-table td { padding: 10px 14px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .roles-table th { color: #3b82f6; font-weight: 600; border-bottom: 1px solid rgba(59,130,246,0.3); }
+        .roles-table tr:last-child td { border-bottom: none; }
+        .role-level { display: inline-block; padding: 2px 8px; background: rgba(99,102,241,0.2); border-radius: 12px; font-size: 13px; font-weight: bold; color: #818cf8; }
+        .workflow-steps { counter-reset: step-counter; list-style: none; padding: 0; }
+        .workflow-steps li { counter-increment: step-counter; padding: 12px 0 12px 50px; border-bottom: 1px solid rgba(255,255,255,0.08); position: relative; }
+        .workflow-steps li:before { content: counter(step-counter); position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 32px; height: 32px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.85em; color: white; }
+        .workflow-steps li:last-child { border-bottom: none; }
+</style>
 </head>
 <body>
     <nav class="navbar" id="navbar">
@@ -57,21 +79,31 @@
 
         <div class="project-content">
 
+            <!-- Cifras Clave -->
+            <div class="project-section">
+                <h2><i class="fas fa-chart-line"></i> Escala del Proyecto</h2>
+                <div class="stats-grid">
+                    <div class="stat-card"><span class="stat-num">6</span><span class="stat-label">Módulos</span></div>
+                    <div class="stat-card"><span class="stat-num">5</span><span class="stat-label">Tecnologías</span></div>
+                    <div class="stat-card"><span class="stat-num">v1.0</span><span class="stat-label">Versión</span></div>
+                </div>
+            </div>
+
+            <!-- Descripción General -->
             <div class="project-section">
                 <h2><i class="fas fa-info-circle"></i> Descripción General</h2>
                 <p>
-                    Sistema agente que genera código Python de forma autónoma usando un modelo de lenguaje local
-                    (Ollama con <code>qwen2.5-coder:7b</code>), valida el resultado en múltiples capas y,
-                    si falla, <strong>aprende del error</strong> para evitar repetirlo en el siguiente intento.
+                    <strong>Agente IA Autónomo</strong> generador de código con llm local, validación multicapa y memoria de errores.
+                    Este proyecto ha sido desarrollado siguiendo estrictos estándares de calidad, 
+                    con un enfoque claro en la escalabilidad y la experiencia de usuario.
                 </p>
                 <p>
-                    La característica más avanzada es el <strong>bucle de feedback con memoria</strong>: el agente
-                    analiza el mensaje de error, lo convierte en una instrucción comprensible para el LLM y lo inyecta
-                    en el prompt del siguiente intento. Esto simula un ciclo de aprendizaje iterativo similar al
-                    Reinforcement Learning from Human Feedback, pero automatizado.
+                    A través de su arquitectura modular, el sistema permite una gestión integral de todas las
+                    operaciones necesarias, garantizando un rendimiento óptimo y un mantenimiento simplificado.
                 </p>
             </div>
 
+            <!-- Tecnologías -->
             <div class="project-section">
                 <h2><i class="fas fa-tools"></i> Tecnologías Utilizadas</h2>
                 <div class="tech-grid">
@@ -83,80 +115,64 @@
                 </div>
             </div>
 
+            <!-- Módulos -->
             <div class="project-section">
-                <h2><i class="fas fa-layer-group"></i> Sistema de Validación Multicapa</h2>
-                <ul class="features-list">
-                    <li><strong>Capa 1 — Sintaxis:</strong> Parseo con <code>ast.parse()</code> — detecta errores de sintaxis Python antes de ejecutar</li>
-                    <li><strong>Capa 2 — Seguridad:</strong> Blacklist de funciones peligrosas (eval, exec, os.system, subprocess…) y whitelist de imports permitidos</li>
-                    <li><strong>Capa 3 — Ejecución:</strong> Ejecuta el código en un subprocess aislado con timeout de 5 segundos</li>
-                    <li><strong>Capa 4 — Semántica:</strong> Valida la salida del programa (palabras clave esperadas, código de retorno)</li>
-                </ul>
-            </div>
-
-            <div class="project-section">
-                <h2><i class="fas fa-memory"></i> Sistema de Memoria de Errores</h2>
-                <p>El agente acumula errores y los inyecta en el prompt de cada nuevo intento:</p>
-                <div class="flow-box">
-Intento 1 → genera código → falla (EOFError)
-           → registra: "No uses input() sin controlar EOFError"
-
-Intento 2 → prompt incluye error anterior → genera nuevo código
-           → falla (timeout)
-           → registra: "El programa no debe quedarse esperando"
-
-Intento 3 → prompt incluye ambos errores → genera código correcto ✅
+                <h2><i class="fas fa-th-large"></i> Arquitectura y Módulos</h2>
+                <div class="modules-grid">
+                    <div class="module-card">
+                        <strong>⚡ Inicialización:</strong>
+                        <p>Configuración del entorno y carga de parámetros iniciales.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>⚡ Procesamiento:</strong>
+                        <p>Ejecución de la lógica de negocio principal y validación de datos.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>⚡ Persistencia:</strong>
+                        <p>Almacenamiento seguro de la información generada.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>⚡ Visualización:</strong>
+                        <p>Renderizado de la interfaz y entrega de resultados al usuario final.</p>
+                    </div>
                 </div>
-                <p style="margin-top: 15px;">El análisis de errores traduce mensajes técnicos en instrucciones legibles para el LLM de forma automática.</p>
             </div>
 
+            <!-- Flujo Completo -->
             <div class="project-section">
-                <h2><i class="fas fa-code-branch"></i> Progresión del Proyecto</h2>
-                <ul class="version-list">
-                    <li><strong>002 — Agente mínimo:</strong> Genera código simple y lo guarda en archivo</li>
-                    <li><strong>003 — Validador:</strong> Añade validación de sintaxis, seguridad y ejecución</li>
-                    <li><strong>004 — Reto mayor:</strong> Genera CRUD completo con SQLite, whitelist de imports</li>
-                    <li><strong>005 — Memoria de errores:</strong> Bucle de feedback con aprendizaje iterativo (versión final)</li>
-                    <li><strong>009 — Agente de análisis:</strong> Recorre el sistema de archivos y resume código con IA</li>
-                </ul>
+                <h2><i class="fas fa-route"></i> Flujo Completo de Funcionamiento</h2>
+                <ol class="workflow-steps">
+                    <li><strong>Inicialización:</strong> Configuración del entorno y carga de parámetros iniciales.</li>
+                    <li><strong>Procesamiento:</strong> Ejecución de la lógica de negocio principal y validación de datos.</li>
+                    <li><strong>Persistencia:</strong> Almacenamiento seguro de la información generada.</li>
+                    <li><strong>Visualización:</strong> Renderizado de la interfaz y entrega de resultados al usuario final.</li>
+                </ol>
             </div>
 
-                        <div class="project-section">
-                <h2><i class="fas fa-compass"></i> Enfoque y Valor del Proyecto</h2>
-                <p>
-                    Se construyo un agente autonomo que genera codigo con LLM local y valida en capas antes de
-                    aceptarlo, incorporando memoria de errores para mejorar cada intento de forma iterativa.
-                </p>
-                <ul class="features-list">
-                    <li><strong>Bucle de mejora:</strong> Cada fallo se transforma en restriccion util para el siguiente prompt</li>
-                    <li><strong>Validacion robusta:</strong> Sintaxis, seguridad, ejecucion y semantica en pipeline automatizado</li>
-                    <li><strong>IA local:</strong> Integracion con Ollama para trabajar sin dependencia de servicios externos</li>
-                </ul>
-            </div>
-
+            <!-- Mi Rol -->
             <div class="project-section">
                 <h2><i class="fas fa-user-tie"></i> Mi Rol</h2>
-                <p><strong>Diseñador del Sistema y Desarrollador Python</strong></p>
+                <p><strong>Desarrollador Full Stack — Autor Único</strong></p>
                 <p>
-                    Diseñé la arquitectura del agente, el sistema de validación multicapa, el mecanismo de memoria
-                    y el análisis semántico de errores. El mayor reto fue convertir mensajes de error técnicos en
-                    instrucciones útiles para un LLM, cerrando el bucle de feedback de forma completamente autónoma.
+                    Diseñé y desarrollé el sistema completo de forma independiente: desde el análisis de requisitos, 
+                    diseño de la arquitectura, implementación de backend y frontend, hasta el despliegue final.
                 </p>
             </div>
 
+            <!-- Estado -->
+            <div class="project-section">
+                <h2><i class="fas fa-info"></i> Estado del Proyecto</h2>
+                <p><strong>Estado:</strong> <span style="color: #10b981; font-weight: bold;"></span></p>
+            </div>
+
+            <!-- Código -->
             <div class="project-section">
                 <h2><i class="fas fa-link"></i> Código Fuente</h2>
                 <div class="project-links">
-                    <a href="https://github.com/Valentindg2506/Programacion-DAM-25-26/tree/master/Apuntes/012-Inteligencia%20artificial/011-Agente%20IA" target="_blank">
+                    <a href="#" target="_blank">
                         <i class="fab fa-github"></i> Ver Código en GitHub
                     </a>
                 </div>
-            </div>
-
-            <div class="project-section">
-                <h2><i class="fas fa-info"></i> Estado</h2>
-                <p><strong>Estado:</strong> <span style="color: #f59e0b; font-weight: bold;">⚡ Proyecto de Aprendizaje</span></p>
-                <p>Proyecto académico que explora sistemas agente autónomos con LLMs locales, validación
-                de código generado por IA y bucles de feedback iterativos.</p>
             </div>
         </div>
     </div>

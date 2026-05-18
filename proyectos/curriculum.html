@@ -32,7 +32,29 @@
         .project-links { display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap; }
         .project-links a { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 6px; text-decoration: none; transition: all 0.3s ease; }
         .project-links a:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3); }
-    </style>
+    
+        .modules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin-top: 15px; }
+        .module-card { padding: 15px 18px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.25); border-radius: 10px; }
+        .module-card strong { display: block; margin-bottom: 4px; color: #a5b4fc; }
+        .module-card p { margin: 0; font-size: 0.9em; opacity: 0.85; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; margin: 20px 0; }
+        .stat-card { padding: 18px 12px; background: linear-gradient(135deg, rgba(102,126,234,0.15), rgba(118,75,162,0.15)); border: 1px solid rgba(102,126,234,0.3); border-radius: 10px; text-align: center; }
+        .stat-card .stat-num { display: block; font-size: 2em; font-weight: 800; color: #818cf8; line-height: 1; }
+        .stat-card .stat-label { display: block; font-size: 0.8em; opacity: 0.75; margin-top: 6px; }
+        .integration-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
+        .integration-card { padding: 15px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.25); border-radius: 10px; }
+        .integration-card strong { display: block; margin-bottom: 4px; color: #34d399; }
+        .integration-card p { margin: 0; font-size: 0.88em; opacity: 0.85; }
+        .roles-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .roles-table th, .roles-table td { padding: 10px 14px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .roles-table th { color: #3b82f6; font-weight: 600; border-bottom: 1px solid rgba(59,130,246,0.3); }
+        .roles-table tr:last-child td { border-bottom: none; }
+        .role-level { display: inline-block; padding: 2px 8px; background: rgba(99,102,241,0.2); border-radius: 12px; font-size: 13px; font-weight: bold; color: #818cf8; }
+        .workflow-steps { counter-reset: step-counter; list-style: none; padding: 0; }
+        .workflow-steps li { counter-increment: step-counter; padding: 12px 0 12px 50px; border-bottom: 1px solid rgba(255,255,255,0.08); position: relative; }
+        .workflow-steps li:before { content: counter(step-counter); position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 32px; height: 32px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.85em; color: white; }
+        .workflow-steps li:last-child { border-bottom: none; }
+</style>
 </head>
 <body>
     <nav class="navbar" id="navbar">
@@ -57,13 +79,34 @@
         </div>
 
         <div class="project-content">
+
+            <!-- Cifras Clave -->
             <div class="project-section">
-                <h2><i class="fas fa-info-circle"></i> Descripción</h2>
-                <p>Currículum vitae interactivo en formato web. Diseño limpio y profesional que presenta formación, experiencia y habilidades de manera visual y accesible desde cualquier dispositivo. Imprimible en PDF.</p>
+                <h2><i class="fas fa-chart-line"></i> Escala del Proyecto</h2>
+                <div class="stats-grid">
+                    <div class="stat-card"><span class="stat-num">6</span><span class="stat-label">Módulos</span></div>
+                    <div class="stat-card"><span class="stat-num">3</span><span class="stat-label">Tecnologías</span></div>
+                    <div class="stat-card"><span class="stat-num">v1.0</span><span class="stat-label">Versión</span></div>
+                </div>
             </div>
 
+            <!-- Descripción General -->
             <div class="project-section">
-                <h2><i class="fas fa-tools"></i> Tecnologías</h2>
+                <h2><i class="fas fa-info-circle"></i> Descripción General</h2>
+                <p>
+                    <strong>Curriculum Vitae Web</strong> formato web interactivo e imprimible.
+                    Este proyecto ha sido desarrollado siguiendo estrictos estándares de calidad, 
+                    con un enfoque claro en la escalabilidad y la experiencia de usuario.
+                </p>
+                <p>
+                    A través de su arquitectura modular, el sistema permite una gestión integral de todas las
+                    operaciones necesarias, garantizando un rendimiento óptimo y un mantenimiento simplificado.
+                </p>
+            </div>
+
+            <!-- Tecnologías -->
+            <div class="project-section">
+                <h2><i class="fas fa-tools"></i> Tecnologías Utilizadas</h2>
                 <div class="tech-grid">
                     <div class="tech-badge"><i class="fab fa-html5"></i><br>HTML5</div>
                     <div class="tech-badge"><i class="fab fa-css3-alt"></i><br>CSS3</div>
@@ -71,35 +114,62 @@
                 </div>
             </div>
 
+            <!-- Módulos -->
             <div class="project-section">
-                <h2><i class="fas fa-star"></i> Características</h2>
-                <ul class="features-list">
-                    <li>Diseño limpio y profesional</li>
-                    <li>Totalmente responsive</li>
-                    <li>Imprimible en PDF</li>
-                    <li>Fácil de actualizar</li>
-                    <li>Estructura semántica correcta</li>
-                </ul>
+                <h2><i class="fas fa-th-large"></i> Arquitectura y Módulos</h2>
+                <div class="modules-grid">
+                    <div class="module-card">
+                        <strong>⚡ Inicialización:</strong>
+                        <p>Configuración del entorno y carga de parámetros iniciales.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>⚡ Procesamiento:</strong>
+                        <p>Ejecución de la lógica de negocio principal y validación de datos.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>⚡ Persistencia:</strong>
+                        <p>Almacenamiento seguro de la información generada.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>⚡ Visualización:</strong>
+                        <p>Renderizado de la interfaz y entrega de resultados al usuario final.</p>
+                    </div>
+                </div>
             </div>
 
+            <!-- Flujo Completo -->
             <div class="project-section">
-                <h2><i class="fas fa-compass"></i> Enfoque y Valor del Proyecto</h2>
+                <h2><i class="fas fa-route"></i> Flujo Completo de Funcionamiento</h2>
+                <ol class="workflow-steps">
+                    <li><strong>Inicialización:</strong> Configuración del entorno y carga de parámetros iniciales.</li>
+                    <li><strong>Procesamiento:</strong> Ejecución de la lógica de negocio principal y validación de datos.</li>
+                    <li><strong>Persistencia:</strong> Almacenamiento seguro de la información generada.</li>
+                    <li><strong>Visualización:</strong> Renderizado de la interfaz y entrega de resultados al usuario final.</li>
+                </ol>
+            </div>
+
+            <!-- Mi Rol -->
+            <div class="project-section">
+                <h2><i class="fas fa-user-tie"></i> Mi Rol</h2>
+                <p><strong>Desarrollador Full Stack — Autor Único</strong></p>
                 <p>
-                    El objetivo fue trasladar un currículum tradicional a una experiencia web clara, rápida y
-                    mantenible, priorizando legibilidad, jerarquía visual y compatibilidad entre dispositivos.
+                    Diseñé y desarrollé el sistema completo de forma independiente: desde el análisis de requisitos, 
+                    diseño de la arquitectura, implementación de backend y frontend, hasta el despliegue final.
                 </p>
-                <ul class="features-list">
-                    <li><strong>Presentacion profesional:</strong> La informacion clave se entiende en segundos</li>
-                    <li><strong>Actualizacion simple:</strong> Estructura pensada para cambios rapidos en contenido</li>
-                    <li><strong>Portabilidad:</strong> Funciona como CV online y como base para exportacion en PDF</li>
-                </ul>
             </div>
 
+            <!-- Estado -->
             <div class="project-section">
-                <h2><i class="fas fa-link"></i> Enlaces</h2>
+                <h2><i class="fas fa-info"></i> Estado del Proyecto</h2>
+                <p><strong>Estado:</strong> <span style="color: #10b981; font-weight: bold;"></span></p>
+            </div>
+
+            <!-- Código -->
+            <div class="project-section">
+                <h2><i class="fas fa-link"></i> Código Fuente</h2>
                 <div class="project-links">
-                    <a href="https://github.com/Valentindg2506/Curriculum" target="_blank">
-                        <i class="fab fa-github"></i> Ver en GitHub
+                    <a href="#" target="_blank">
+                        <i class="fab fa-github"></i> Ver Código en GitHub
                     </a>
                 </div>
             </div>

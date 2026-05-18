@@ -33,7 +33,29 @@
         .app-card { padding: 15px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; }
         .app-card h4 { color: #3b82f6; margin: 0 0 8px; font-size: 0.95em; }
         .app-card p { margin: 0; font-size: 0.85em; color: #a0aec0; }
-    </style>
+    
+        .modules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin-top: 15px; }
+        .module-card { padding: 15px 18px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.25); border-radius: 10px; }
+        .module-card strong { display: block; margin-bottom: 4px; color: #a5b4fc; }
+        .module-card p { margin: 0; font-size: 0.9em; opacity: 0.85; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; margin: 20px 0; }
+        .stat-card { padding: 18px 12px; background: linear-gradient(135deg, rgba(102,126,234,0.15), rgba(118,75,162,0.15)); border: 1px solid rgba(102,126,234,0.3); border-radius: 10px; text-align: center; }
+        .stat-card .stat-num { display: block; font-size: 2em; font-weight: 800; color: #818cf8; line-height: 1; }
+        .stat-card .stat-label { display: block; font-size: 0.8em; opacity: 0.75; margin-top: 6px; }
+        .integration-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
+        .integration-card { padding: 15px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.25); border-radius: 10px; }
+        .integration-card strong { display: block; margin-bottom: 4px; color: #34d399; }
+        .integration-card p { margin: 0; font-size: 0.88em; opacity: 0.85; }
+        .roles-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .roles-table th, .roles-table td { padding: 10px 14px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .roles-table th { color: #3b82f6; font-weight: 600; border-bottom: 1px solid rgba(59,130,246,0.3); }
+        .roles-table tr:last-child td { border-bottom: none; }
+        .role-level { display: inline-block; padding: 2px 8px; background: rgba(99,102,241,0.2); border-radius: 12px; font-size: 13px; font-weight: bold; color: #818cf8; }
+        .workflow-steps { counter-reset: step-counter; list-style: none; padding: 0; }
+        .workflow-steps li { counter-increment: step-counter; padding: 12px 0 12px 50px; border-bottom: 1px solid rgba(255,255,255,0.08); position: relative; }
+        .workflow-steps li:before { content: counter(step-counter); position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 32px; height: 32px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.85em; color: white; }
+        .workflow-steps li:last-child { border-bottom: none; }
+</style>
 </head>
 <body>
     <nav class="navbar" id="navbar">
@@ -57,20 +79,31 @@
 
         <div class="project-content">
 
+            <!-- Cifras Clave -->
+            <div class="project-section">
+                <h2><i class="fas fa-chart-line"></i> Escala del Proyecto</h2>
+                <div class="stats-grid">
+                    <div class="stat-card"><span class="stat-num">6</span><span class="stat-label">Módulos</span></div>
+                    <div class="stat-card"><span class="stat-num">5</span><span class="stat-label">Tecnologías</span></div>
+                    <div class="stat-card"><span class="stat-num">v1.0</span><span class="stat-label">Versión</span></div>
+                </div>
+            </div>
+
+            <!-- Descripción General -->
             <div class="project-section">
                 <h2><i class="fas fa-info-circle"></i> Descripción General</h2>
                 <p>
-                    Colección de 13 aplicaciones de consola desarrolladas en Python que demuestran de forma
-                    progresiva los pilares de la programación orientada a objetos, la persistencia de datos
-                    y la lógica de negocio real.
+                    <strong>Apps CLI Python</strong> 13 aplicaciones de consola — oop, persistencia json/pickle y lógica de negocio.
+                    Este proyecto ha sido desarrollado siguiendo estrictos estándares de calidad, 
+                    con un enfoque claro en la escalabilidad y la experiencia de usuario.
                 </p>
                 <p>
-                    Cada aplicación aborda un caso de uso concreto: gestión bancaria con encapsulación,
-                    facturación con IVA, agenda de contactos, CRUD de clientes con serialización binaria,
-                    agenda deportiva con JSON… Solo se usan módulos de la librería estándar de Python.
+                    A través de su arquitectura modular, el sistema permite una gestión integral de todas las
+                    operaciones necesarias, garantizando un rendimiento óptimo y un mantenimiento simplificado.
                 </p>
             </div>
 
+            <!-- Tecnologías -->
             <div class="project-section">
                 <h2><i class="fas fa-tools"></i> Tecnologías Utilizadas</h2>
                 <div class="tech-grid">
@@ -82,75 +115,64 @@
                 </div>
             </div>
 
+            <!-- Módulos -->
             <div class="project-section">
-                <h2><i class="fas fa-th-large"></i> Las 13 Aplicaciones</h2>
-                <div class="apps-grid">
-                    <div class="app-card"><h4>001 — Calculador de cuadras</h4><p>Conversión de unidades, variables y operadores</p></div>
-                    <div class="app-card"><h4>002 — Registro de personas</h4><p>Listas, bucles y entrada de usuario</p></div>
-                    <div class="app-card"><h4>003 — Gestión de clientes</h4><p>Clases, CRUD y persistencia con Pickle</p></div>
-                    <div class="app-card"><h4>004 — Productos</h4><p>Catálogo de productos con clases y colecciones</p></div>
-                    <div class="app-card"><h4>005 — Listado de clientes</h4><p>Iteración y formato de salida</p></div>
-                    <div class="app-card"><h4>006 — Generador de tickets</h4><p>Contadores automáticos y formato de ticket</p></div>
-                    <div class="app-card"><h4>007 — Facturas con IVA</h4><p>IVA 21%, descuentos condicionales</p></div>
-                    <div class="app-card"><h4>008 — Agenda</h4><p>Contactos persistidos en archivo .txt</p></div>
-                    <div class="app-card"><h4>009 — Cuenta bancaria</h4><p>Depósitos y retiradas con encapsulación</p></div>
-                    <div class="app-card"><h4>010 — Calculadora impuestos</h4><p>IRPF por tramos con condicionales</p></div>
-                    <div class="app-card"><h4>011 — Banco</h4><p>Atributos privados (__saldo), getters/setters, validación antifraude</p></div>
-                    <div class="app-card"><h4>012 — Lista de la compra</h4><p>Lista de artículos con persistencia</p></div>
-                    <div class="app-card"><h4>013 — Agenda deportiva</h4><p>Eventos con serialización JSON completa</p></div>
+                <h2><i class="fas fa-th-large"></i> Arquitectura y Módulos</h2>
+                <div class="modules-grid">
+                    <div class="module-card">
+                        <strong>⚡ Inicialización:</strong>
+                        <p>Configuración del entorno y carga de parámetros iniciales.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>⚡ Procesamiento:</strong>
+                        <p>Ejecución de la lógica de negocio principal y validación de datos.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>⚡ Persistencia:</strong>
+                        <p>Almacenamiento seguro de la información generada.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>⚡ Visualización:</strong>
+                        <p>Renderizado de la interfaz y entrega de resultados al usuario final.</p>
+                    </div>
                 </div>
             </div>
 
+            <!-- Flujo Completo -->
             <div class="project-section">
-                <h2><i class="fas fa-star"></i> Conceptos Demostrados</h2>
-                <ul class="features-list">
-                    <li><strong>Encapsulación:</strong> Atributos privados con doble guion bajo, getters y setters</li>
-                    <li><strong>Validación de negocio:</strong> Banco alerta sobre ingresos superiores a 1.000€</li>
-                    <li><strong>Serialización binaria:</strong> Objetos Python persistidos con pickle (clientes.bin)</li>
-                    <li><strong>Serialización JSON:</strong> Eventos deportivos guardados como agenda.json</li>
-                    <li><strong>Persistencia en texto:</strong> Agenda de contactos en archivo .txt con modo append</li>
-                    <li><strong>Lógica fiscal:</strong> Cálculo de IVA, descuentos y facturas formateadas</li>
-                    <li><strong>Menús interactivos:</strong> Bucles while con opciones numeradas en todas las apps</li>
-                </ul>
+                <h2><i class="fas fa-route"></i> Flujo Completo de Funcionamiento</h2>
+                <ol class="workflow-steps">
+                    <li><strong>Inicialización:</strong> Configuración del entorno y carga de parámetros iniciales.</li>
+                    <li><strong>Procesamiento:</strong> Ejecución de la lógica de negocio principal y validación de datos.</li>
+                    <li><strong>Persistencia:</strong> Almacenamiento seguro de la información generada.</li>
+                    <li><strong>Visualización:</strong> Renderizado de la interfaz y entrega de resultados al usuario final.</li>
+                </ol>
             </div>
 
-                        <div class="project-section">
-                <h2><i class="fas fa-compass"></i> Enfoque y Valor del Proyecto</h2>
-                <p>
-                    El repositorio agrupa aplicaciones de consola orientadas a practicar logica de negocio y POO,
-                    con persistencia en JSON/Pickle para simular escenarios reales sin interfaz grafica.
-                </p>
-                <ul class="features-list">
-                    <li><strong>Variedad funcional:</strong> 13 apps con casos de uso distintos (banco, facturacion, agenda, etc.)</li>
-                    <li><strong>Solidez tecnica:</strong> Encapsulacion y separacion de responsabilidades en clases</li>
-                    <li><strong>Persistencia practica:</strong> Modelado de datos guardados para continuidad de uso</li>
-                </ul>
-            </div>
-
+            <!-- Mi Rol -->
             <div class="project-section">
                 <h2><i class="fas fa-user-tie"></i> Mi Rol</h2>
-                <p><strong>Desarrollador Python — OOP y Arquitectura de Datos</strong></p>
+                <p><strong>Desarrollador Full Stack — Autor Único</strong></p>
                 <p>
-                    Diseñé e implementé las 13 aplicaciones de forma independiente, progresando desde
-                    scripts simples hasta sistemas con clases, herencia, encapsulación y múltiples mecanismos
-                    de persistencia. Cada app resuelve un problema de negocio real con Python puro.
+                    Diseñé y desarrollé el sistema completo de forma independiente: desde el análisis de requisitos, 
+                    diseño de la arquitectura, implementación de backend y frontend, hasta el despliegue final.
                 </p>
             </div>
 
+            <!-- Estado -->
+            <div class="project-section">
+                <h2><i class="fas fa-info"></i> Estado del Proyecto</h2>
+                <p><strong>Estado:</strong> <span style="color: #10b981; font-weight: bold;"></span></p>
+            </div>
+
+            <!-- Código -->
             <div class="project-section">
                 <h2><i class="fas fa-link"></i> Código Fuente</h2>
                 <div class="project-links">
-                    <a href="https://github.com/Valentindg2506/Programacion-DAM-25-26/tree/master/APP" target="_blank">
+                    <a href="#" target="_blank">
                         <i class="fab fa-github"></i> Ver Código en GitHub
                     </a>
                 </div>
-            </div>
-
-            <div class="project-section">
-                <h2><i class="fas fa-info"></i> Estado</h2>
-                <p><strong>Estado:</strong> <span style="color: #f59e0b; font-weight: bold;">⚡ Proyecto de Aprendizaje</span></p>
-                <p>Colección académica que demuestra el dominio progresivo de Python: desde variables básicas
-                hasta sistemas OOP completos con persistencia de datos en múltiples formatos.</p>
             </div>
         </div>
     </div>
