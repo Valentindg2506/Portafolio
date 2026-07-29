@@ -1,46 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Pint League - App móvil de liga social de cerveza con React Native y Expo">
+    <meta name="description" content="Pint League — reescritura de DrinkLegends en PHP sin framework, con router, JWT y Web Push propios">
     <title>Pint League - Valentín De Gennaro</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/proyecto.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script>
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        if (savedTheme === 'dark') {
-            document.documentElement.classList.add('dark');
-        }
-    </script>
-    <style>
-        .project-detail { min-height: 100vh; padding: 80px 20px 40px; }
-        .project-hero { max-width: 1000px; margin: 0 auto 50px; text-align: center; }
-        .project-hero h1 { font-size: 3em; margin-bottom: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .project-content { max-width: 900px; margin: 0 auto; }
-        .project-section { margin-bottom: 40px; padding: 30px; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
-        .project-section h2 { font-size: 1.8em; margin-bottom: 20px; color: #3b82f6; }
-        .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-bottom: 20px; }
-        .tech-badge { padding: 10px 15px; background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(99, 102, 241, 0.2)); border: 1px solid rgba(59, 130, 246, 0.5); border-radius: 8px; text-align: center; font-weight: 500; }
-        .features-list { list-style: none; padding: 0; }
-        .features-list li { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .features-list li:last-child { border-bottom: none; }
-        .features-list li:before { content: "✓ "; color: #10b981; font-weight: bold; margin-right: 10px; }
-        .back-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; margin-bottom: 30px; transition: all 0.3s ease; }
-        .back-btn:hover { background: rgba(59, 130, 246, 0.3); transform: translateX(-5px); }
-        .project-links { display: flex; gap: 15px; margin-top: 20px; }
-        .project-links a { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 6px; text-decoration: none; transition: all 0.3s ease; }
-        .project-links a:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3); }
-        .modules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin-top: 15px; }
-        .module-card { padding: 15px 18px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.25); border-radius: 10px; }
-        .module-card strong { display: block; margin-bottom: 4px; color: #a5b4fc; }
-        .module-card p { margin: 0; font-size: 0.9em; opacity: 0.85; }
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; margin: 20px 0; }
-        .stat-card { padding: 18px 12px; background: linear-gradient(135deg, rgba(102,126,234,0.15), rgba(118,75,162,0.15)); border: 1px solid rgba(102,126,234,0.3); border-radius: 10px; text-align: center; }
-        .stat-card .stat-num { display: block; font-size: 2em; font-weight: 800; color: #818cf8; line-height: 1; }
-        .stat-card .stat-label { display: block; font-size: 0.8em; opacity: 0.75; margin-top: 6px; }
-    </style>
 </head>
+
 <body>
     <nav class="navbar" id="navbar">
         <div class="container">
@@ -59,19 +29,25 @@
         </a>
 
         <div class="project-hero">
-            <h1>Pint League</h1>
-            <p style="font-size: 1.2em; color: #a0aec0;">App móvil de liga social cervecera con React Native y Expo</p>
+            <h1>🏆 Pint League</h1>
+            <p class="project-tagline">Reescritura completa de DrinkLegends sobre PHP sin framework: router, JWT y push implementados a mano</p>
+            <div class="project-badges">
+                <span class="status-badge"><i class="fas fa-rotate"></i> Reescritura de DrinkLegends</span>
+                <span class="status-badge"><i class="fas fa-ban"></i> Sin framework</span>
+                <span class="status-badge"><i class="fas fa-bell"></i> Web Push propio</span>
+            </div>
         </div>
 
         <div class="project-content">
-
-            <!-- Cifras Clave -->
+            <!-- Escala del Proyecto -->
             <div class="project-section">
                 <h2><i class="fas fa-chart-line"></i> Escala del Proyecto</h2>
                 <div class="stats-grid">
-                    <div class="stat-card"><span class="stat-num">React Native</span><span class="stat-label">Framework</span></div>
-                    <div class="stat-card"><span class="stat-num">Expo</span><span class="stat-label">Plataforma</span></div>
-                    <div class="stat-card"><span class="stat-num">Mobile</span><span class="stat-label">Target</span></div>
+                    <div class="stat-card"><span class="stat-num">9</span><span class="stat-label">Controladores</span></div>
+                    <div class="stat-card"><span class="stat-num">40</span><span class="stat-label">Rutas</span></div>
+                    <div class="stat-card"><span class="stat-num">8</span><span class="stat-label">Vistas SPA</span></div>
+                    <div class="stat-card"><span class="stat-num">44</span><span class="stat-label">Archivos</span></div>
+                    <div class="stat-card"><span class="stat-num">4.5k</span><span class="stat-label">Líneas</span></div>
                 </div>
             </div>
 
@@ -79,83 +55,247 @@
             <div class="project-section">
                 <h2><i class="fas fa-info-circle"></i> Descripción General</h2>
                 <p>
-                    <strong>Pint League</strong> es una aplicación móvil desarrollada con React Native y Expo
-                    para organizar ligas sociales de cerveza entre amigos. Permite crear torneos, registrar
-                    puntuaciones, gestionar clasificaciones y compartir resultados en tiempo real.
+                    Pint League es la <strong>segunda generación de DrinkLegends</strong>. El producto
+                    es el mismo — grupos, rondas con foto, muro con likes y comentarios, rankings, MVP,
+                    logros, chat, amigos y juegos — pero la implementación se rehízo por completo: fuera
+                    Laravel, todo en <strong>PHP sin framework</strong>.
                 </p>
                 <p>
-                    El proyecto utiliza Expo Router para navegación basada en archivos (file-based routing),
-                    arquitectura frontend-backend separada, y es compatible con Android, iOS y web
-                    desde una única base de código.
+                    Eso significó escribir a mano las piezas que un framework regala: el
+                    <strong>router</strong> con soporte de parámetros en la ruta, la autenticación
+                    <strong>JWT</strong> con firma y verificación, el servicio de <strong>notificaciones
+                    push</strong> y el procesado de fotos. Nueve controladores cubren las 40 rutas de la
+                    API.
+                </p>
+                <p>
+                    El frontend también es vanilla: una SPA con router propio y ocho vistas, sin React
+                    ni build. Y existe <code>migrate_from_drinklegends.php</code>, un script que
+                    traslada los datos de la versión anterior, porque una reescritura que pierde los
+                    datos de los usuarios no es una reescritura, es un producto nuevo.
                 </p>
             </div>
 
-            <!-- Tecnologías -->
+            <!-- Tecnologías Utilizadas -->
             <div class="project-section">
                 <h2><i class="fas fa-tools"></i> Tecnologías Utilizadas</h2>
                 <div class="tech-grid">
-                    <div class="tech-badge"><i class="fab fa-react"></i><br>React Native</div>
-                    <div class="tech-badge"><i class="fas fa-mobile-alt"></i><br>Expo</div>
-                    <div class="tech-badge"><i class="fab fa-js"></i><br>TypeScript</div>
-                    <div class="tech-badge"><i class="fab fa-node-js"></i><br>Node.js Backend</div>
-                    <div class="tech-badge"><i class="fas fa-route"></i><br>Expo Router</div>
+                    <div class="tech-badge"><i class="fab fa-php"></i><br>PHP vanilla</div>
+                    <div class="tech-badge"><i class="fas fa-database"></i><br>MySQL</div>
+                    <div class="tech-badge"><i class="fas fa-key"></i><br>JWT propio</div>
+                    <div class="tech-badge"><i class="fas fa-route"></i><br>Router propio</div>
+                    <div class="tech-badge"><i class="fas fa-bell"></i><br>Web Push</div>
+                    <div class="tech-badge"><i class="fab fa-js"></i><br>SPA vanilla</div>
+                    <div class="tech-badge"><i class="fas fa-mobile-screen"></i><br>PWA</div>
+                    <div class="tech-badge"><i class="fas fa-image"></i><br>PhotoService</div>
                 </div>
             </div>
 
-            <!-- Módulos -->
+            <!-- Los 9 Controladores de la API -->
             <div class="project-section">
-                <h2><i class="fas fa-th-large"></i> Funcionalidades</h2>
+                <h2><i class="fas fa-th-large"></i> Los 9 Controladores de la API</h2>
                 <div class="modules-grid">
                     <div class="module-card">
-                        <strong>⚡ Gestión de Ligas</strong>
-                        <p>Creación y administración de ligas sociales con reglas y participantes configurables.</p>
+                        <strong>AuthController</strong>
+                        <p>Registro, login, refresh de token, perfil, actualización de datos y cambio de
+                        contraseña.</p>
                     </div>
                     <div class="module-card">
-                        <strong>⚡ Sistema de Puntuación</strong>
-                        <p>Registro de puntos, clasificación en tiempo real y estadísticas por jugador.</p>
+                        <strong>GroupController</strong>
+                        <p>Creación y acceso a bares (grupos), edición, bebidas personalizadas y salida
+                        del grupo.</p>
                     </div>
                     <div class="module-card">
-                        <strong>⚡ Multiplataforma</strong>
-                        <p>Funciona en Android, iOS y Web desde una única base de código con Expo.</p>
+                        <strong>RoundController</strong>
+                        <p>Registro de rondas, muro del grupo, likes, comentarios y rondas propias del
+                        usuario.</p>
                     </div>
                     <div class="module-card">
-                        <strong>⚡ Navegación File-based</strong>
-                        <p>Rutas automáticas mediante Expo Router con estructura de archivos intuitiva.</p>
+                        <strong>RankingController</strong>
+                        <p>Clasificación del grupo, histórico de MVP y ranking global.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>AchievementController</strong>
+                        <p>Catálogo de logros con el progreso del usuario.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>ChatController</strong>
+                        <p>Mensajería del grupo: listado y envío.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>FriendController</strong>
+                        <p>Búsqueda de usuarios, solicitudes, aceptación, rechazo y eliminación de
+                        amigos.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>GameController</strong>
+                        <p>Verdad o Reto, ¿Quién es más probable?, Yo nunca he… y la ruleta del
+                        grupo.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>PushController</strong>
+                        <p>Registro del dispositivo para recibir notificaciones push.</p>
                     </div>
                 </div>
+            </div>
+
+            <!-- Arquitectura -->
+            <div class="project-section">
+                <h2><i class="fas fa-sitemap"></i> Arquitectura</h2>
+                <p>
+                    Backend estructurado como un mini-framework propio: <code>Router</code> resuelve las
+                    rutas con parámetros dinámicos, <code>Auth</code> y <code>Jwt</code> gestionan la
+                    autenticación, <code>Database</code> encapsula PDO, y <code>PushService</code> y
+                    <code>PhotoService</code> aíslan las dos operaciones con efectos externos.
+                </p>
+                <p>
+                    El frontend es una SPA sin build: <code>router.js</code> gestiona la navegación
+                    entre las ocho vistas de <code>views/</code>, <code>api.js</code> centraliza las
+                    llamadas y <code>ui.js</code> los componentes compartidos.
+                </p>
+                <pre class="code-tree"><span class="t-dir">PintLeague/</span>
+├── <span class="t-file">index.php</span> · <span class="t-file">.htaccess</span>
+├── <span class="t-dir">backend/src/</span>
+│   ├── <span class="t-file">Router.php</span>          <span class="t-note"># rutas con parámetros</span>
+│   ├── <span class="t-file">routes.php</span>          <span class="t-note"># las 40 rutas</span>
+│   ├── <span class="t-file">Auth.php</span> · <span class="t-file">Jwt.php</span>    <span class="t-note"># autenticación</span>
+│   ├── <span class="t-file">Database.php</span>        <span class="t-note"># capa PDO</span>
+│   ├── <span class="t-file">PushService.php</span>     <span class="t-note"># notificaciones</span>
+│   ├── <span class="t-file">PhotoService.php</span>    <span class="t-note"># procesado de imágenes</span>
+│   └── <span class="t-dir">Controllers/</span>         <span class="t-note"># los 9 controladores</span>
+├── <span class="t-dir">backend/migrate/</span>
+│   └── <span class="t-file">migrate_from_drinklegends.php</span>  <span class="t-note"># traspaso de datos</span>
+└── <span class="t-dir">frontend/</span>
+    ├── <span class="t-file">index.html</span> · <span class="t-file">sw.js</span> · <span class="t-file">manifest.webmanifest</span>
+    ├── <span class="t-dir">js/</span>                  <span class="t-note"># app, api, router, ui, players</span>
+    └── <span class="t-dir">js/views/</span>            <span class="t-note"># 8 vistas de la SPA</span></pre>
+            </div>
+
+            <!-- Las 40 Rutas por Área -->
+            <div class="project-section">
+                <h2><i class="fas fa-sitemap"></i> Las 40 Rutas por Área</h2>
+                <ul class="features-list">
+                    <li><strong>Autenticación</strong> — registro, login, refresh, perfil, edición y
+                    cambio de contraseña.</li>
+                    <li><strong>Bares</strong> — listar, crear, unirse por código, ver, editar, bebidas
+                    personalizadas y salir.</li>
+                    <li><strong>Rondas y muro</strong> — muro del grupo, registrar ronda, like,
+                    comentarios y rondas propias.</li>
+                    <li><strong>Rankings</strong> — clasificación del grupo, histórico de MVP y ranking
+                    global.</li>
+                    <li><strong>Logros</strong> — catálogo con progreso.</li>
+                    <li><strong>Chat</strong> — mensajes del grupo: leer y enviar.</li>
+                    <li><strong>Amigos</strong> — buscar, listar, solicitar, aceptar, rechazar y
+                    eliminar.</li>
+                    <li><strong>Juegos</strong> — Verdad o Reto, ¿Quién es más probable?, Yo nunca he… y
+                    ruleta.</li>
+                    <li><strong>Push</strong> — registro del dispositivo para notificaciones.</li>
+                </ul>
+            </div>
+
+            <!-- Seguridad Implementada -->
+            <div class="project-section">
+                <h2><i class="fas fa-lock"></i> Seguridad Implementada</h2>
+                <ul class="features-list">
+                    <li><strong>JWT propio</strong>: generación, firma y verificación implementadas en
+                    <code>Jwt.php</code>.</li>
+                    <li>Endpoint de <strong>refresh</strong> para renovar el token sin volver a pedir
+                    credenciales.</li>
+                    <li>Separación explícita entre rutas públicas (registro, login, refresh) y
+                    privadas.</li>
+                    <li>Contraseñas hasheadas; el cambio de contraseña exige la actual.</li>
+                    <li>Consultas mediante la capa <code>Database</code> con PDO y sentencias
+                    preparadas.</li>
+                    <li><code>backend/public/uploads/</code> protegido con <code>.htaccess</code> e
+                    <code>index.html</code>.</li>
+                    <li>Configuración separada en <code>config.php</code> y
+                    <code>config.local.php</code>.</li>
+                </ul>
+            </div>
+
+            <!-- Retos Técnicos y Decisiones de Diseño -->
+            <div class="project-section">
+                <h2><i class="fas fa-lightbulb"></i> Retos Técnicos y Decisiones de Diseño</h2>
+                <h3>¿Por qué reescribir algo que funcionaba?</h3>
+                <p>
+                    DrinkLegends en Laravel funcionaba, pero arrastraba el peso del framework para un
+                    producto que en realidad hace cuatro cosas: autenticar, guardar rondas, calcular
+                    rankings y notificar. Sobre PHP plano la aplicación despliega en cualquier hosting
+                    compartido sin Composer, y el coste de mantenimiento deja de depender de las
+                    versiones de un framework ajeno.
+                </p>
+                <h3>Escribir el JWT a mano</h3>
+                <p>
+                    Un JWT es tres bloques en base64url separados por puntos, con una firma HMAC del
+                    encabezado y el cuerpo. Implementarlo en <code>Jwt.php</code> obliga a resolver el
+                    base64url — que no es el base64 estándar —, la comparación de firmas en tiempo
+                    constante y la validación de la expiración. Es el tipo de código en el que un atajo
+                    se convierte en un agujero de seguridad.
+                </p>
+                <h3>Un router con parámetros en 100 líneas</h3>
+                <p>
+                    <code>Router.php</code> soporta rutas como
+                    <code>/api/groups/{groupId}/rounds</code>: hay que convertir el patrón en una
+                    expresión regular, extraer los parámetros con nombre y despachar al par
+                    controlador-método. Es la pieza que hace que las 40 rutas de <code>routes.php</code>
+                    se lean como una tabla y no como un <code>switch</code>.
+                </p>
+                <h3>Migrar los datos, no solo el código</h3>
+                <p>
+                    Una reescritura que obliga a los usuarios a empezar de cero pierde los puntos, los
+                    logros y el histórico, que es justamente el valor acumulado del producto.
+                    <code>migrate_from_drinklegends.php</code> traslada los datos de la versión Laravel
+                    al nuevo esquema; sin ese script la reescritura no habría sido viable.
+                </p>
             </div>
 
             <!-- Mi Rol -->
             <div class="project-section">
                 <h2><i class="fas fa-user-tie"></i> Mi Rol</h2>
-                <p><strong>Desarrollador Full Stack — Autor Único</strong></p>
                 <p>
-                    Diseñé y desarrollé la app móvil multiplataforma completa: frontend en React Native con Expo,
-                    backend con Node.js, diseño de la arquitectura y sistema de puntuación.
+                    <strong>Desarrollador full stack — autor único.</strong>
+                </p>
+                <p>
+                    Router, capa de autenticación con JWT, servicio de push, procesado de fotos, los
+                    nueve controladores, la SPA vanilla con su router y el script de migración desde
+                    DrinkLegends.
                 </p>
             </div>
 
-            <!-- Estado -->
+            <!-- Estado del Proyecto -->
             <div class="project-section">
-                <h2><i class="fas fa-info"></i> Estado del Proyecto</h2>
-                <p><strong>Estado:</strong> <span style="color: #f59e0b; font-weight: bold;">🚧 En desarrollo</span></p>
+                <h2><i class="fas fa-flag-checkered"></i> Estado del Proyecto</h2>
+                <p>
+                    Aplicación funcional que sustituye a DrinkLegends. La API cubre las 40 rutas y la
+                    SPA sus ocho vistas. Incluye scripts de migración tanto desde DrinkLegends como para
+                    producción.
+                </p>
             </div>
 
-            <!-- Código -->
+            <!-- Código y Enlaces -->
             <div class="project-section">
-                <h2><i class="fas fa-link"></i> Código Fuente</h2>
+                <h2><i class="fas fa-link"></i> Código y Enlaces</h2>
                 <div class="project-links">
-                    <a href="https://github.com/Valentindg2506/Pint-league" target="_blank">
-                        <i class="fab fa-github"></i> Ver Código en GitHub
+                    <span class="link-muted">
+                        <i class="fas fa-lock"></i> Código privado
+                    </span>
+                    <a href="drinklegends.html" target="_blank" rel="noopener">
+                        <i class="fas fa-arrow-left"></i> Ver DrinkLegends, la versión anterior
                     </a>
                 </div>
+                <p style="margin-top: 16px;">
+                    Repositorio no publicado por contener configuración de despliegue. Puedo mostrar el
+                    código — en particular el router y la implementación del JWT — en una entrevista.
+                </p>
             </div>
+
         </div>
     </div>
 
     <button id="scrollTop" class="scroll-top" aria-label="Volver arriba">
         <i class="fas fa-arrow-up"></i>
     </button>
+
     <script src="../js/main.js"></script>
 </body>
+
 </html>

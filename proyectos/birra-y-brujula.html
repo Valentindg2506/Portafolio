@@ -1,106 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Birra y Brujula - Web temática para organizar juntadas">
-    <title>Birra y Brujula - Valentín De Gennaro</title>
+    <meta name="description" content="Birra y Brújula — app para organizar un viaje en grupo con votaciones, reparto de gastos e itinerario">
+    <title>Birra y Brújula - Valentín De Gennaro</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/proyecto.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script>
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        if (savedTheme === 'dark') {
-            document.documentElement.classList.add('dark');
-        }
-    </script>
-    <style>
-        .project-detail { min-height: 100vh; padding: 80px 20px 40px; }
-        .project-hero { max-width: 1000px; margin: 0 auto 50px; text-align: center; }
-        .project-hero h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .project-content { max-width: 900px; margin: 0 auto; }
-        .project-section {
-            margin-bottom: 40px;
-            padding: 30px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        .project-section h2 { font-size: 1.8em; margin-bottom: 20px; color: #3b82f6; }
-        .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; }
-        .tech-badge {
-            padding: 10px 15px;
-            background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(99,102,241,0.2));
-            border: 1px solid rgba(59,130,246,0.5);
-            border-radius: 8px;
-            text-align: center;
-            font-weight: 500;
-        }
-        .features-list { list-style: none; padding: 0; }
-        .features-list li { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .features-list li:last-child { border-bottom: none; }
-        .features-list li:before { content: "✓ "; color: #10b981; font-weight: bold; margin-right: 10px; }
-        .back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
-            background: rgba(59,130,246,0.2);
-            border: 1px solid rgba(59,130,246,0.5);
-            color: #3b82f6;
-            border-radius: 6px;
-            text-decoration: none;
-            margin-bottom: 30px;
-            transition: all 0.3s ease;
-        }
-        .back-btn:hover { background: rgba(59,130,246,0.3); transform: translateX(-5px); }
-        .project-links { display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap; }
-        .project-links a {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: 6px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        .project-links a:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(102,126,234,0.3); }
-    
-        .modules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin-top: 15px; }
-        .module-card { padding: 15px 18px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.25); border-radius: 10px; }
-        .module-card strong { display: block; margin-bottom: 4px; color: #a5b4fc; }
-        .module-card p { margin: 0; font-size: 0.9em; opacity: 0.85; }
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; margin: 20px 0; }
-        .stat-card { padding: 18px 12px; background: linear-gradient(135deg, rgba(102,126,234,0.15), rgba(118,75,162,0.15)); border: 1px solid rgba(102,126,234,0.3); border-radius: 10px; text-align: center; }
-        .stat-card .stat-num { display: block; font-size: 2em; font-weight: 800; color: #818cf8; line-height: 1; }
-        .stat-card .stat-label { display: block; font-size: 0.8em; opacity: 0.75; margin-top: 6px; }
-        .integration-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
-        .integration-card { padding: 15px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.25); border-radius: 10px; }
-        .integration-card strong { display: block; margin-bottom: 4px; color: #34d399; }
-        .integration-card p { margin: 0; font-size: 0.88em; opacity: 0.85; }
-        .roles-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-        .roles-table th, .roles-table td { padding: 10px 14px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.08); }
-        .roles-table th { color: #3b82f6; font-weight: 600; border-bottom: 1px solid rgba(59,130,246,0.3); }
-        .roles-table tr:last-child td { border-bottom: none; }
-        .role-level { display: inline-block; padding: 2px 8px; background: rgba(99,102,241,0.2); border-radius: 12px; font-size: 13px; font-weight: bold; color: #818cf8; }
-        .workflow-steps { counter-reset: step-counter; list-style: none; padding: 0; }
-        .workflow-steps li { counter-increment: step-counter; padding: 12px 0 12px 50px; border-bottom: 1px solid rgba(255,255,255,0.08); position: relative; }
-        .workflow-steps li:before { content: counter(step-counter); position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 32px; height: 32px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.85em; color: white; }
-        .workflow-steps li:last-child { border-bottom: none; }
-</style>
 </head>
+
 <body>
     <nav class="navbar" id="navbar">
         <div class="container">
-            <div class="nav-brand"><a href="../index.html#home">&lt;VDG /&gt;</a></div>
+            <div class="nav-brand">
+                <a href="../index.html#home">&lt;VDG /&gt;</a>
+            </div>
             <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
                 <i class="fas fa-moon"></i>
             </button>
@@ -113,19 +29,24 @@
         </a>
 
         <div class="project-hero">
-            <h1>Birra y Brujula</h1>
-            <p style="font-size: 1.2em; color: #a0aec0;">Web temática y navegación por secciones para planes y juntadas</p>
+            <h1>🧭 Birra y Brújula</h1>
+            <p class="project-tagline">Organiza un viaje en grupo de principio a fin: votaciones, transporte, compra, itinerario y reparto de gastos</p>
+            <div class="project-badges">
+                <span class="status-badge"><i class="fas fa-scale-balanced"></i> Liquidación entre amigos</span>
+                <span class="status-badge"><i class="fas fa-cloud-arrow-down"></i> Offline</span>
+                <span class="status-badge"><i class="fas fa-users"></i> En colaboración</span>
+            </div>
         </div>
 
         <div class="project-content">
-
-            <!-- Cifras Clave -->
+            <!-- Escala del Proyecto -->
             <div class="project-section">
                 <h2><i class="fas fa-chart-line"></i> Escala del Proyecto</h2>
                 <div class="stats-grid">
                     <div class="stat-card"><span class="stat-num">6</span><span class="stat-label">Módulos</span></div>
-                    <div class="stat-card"><span class="stat-num">4</span><span class="stat-label">Tecnologías</span></div>
-                    <div class="stat-card"><span class="stat-num">v1.0</span><span class="stat-label">Versión</span></div>
+                    <div class="stat-card"><span class="stat-num">5</span><span class="stat-label">Páginas</span></div>
+                    <div class="stat-card"><span class="stat-num">8</span><span class="stat-label">Archivos</span></div>
+                    <div class="stat-card"><span class="stat-num">2.5k</span><span class="stat-label">Líneas</span></div>
                 </div>
             </div>
 
@@ -133,86 +54,195 @@
             <div class="project-section">
                 <h2><i class="fas fa-info-circle"></i> Descripción General</h2>
                 <p>
-                    <strong>Birra y Brujula</strong> web temática y navegación por secciones para planes y juntadas.
-                    Este proyecto ha sido desarrollado siguiendo estrictos estándares de calidad, 
-                    con un enfoque claro en la escalabilidad y la experiencia de usuario.
+                    Organizar un viaje entre ocho amigos genera un grupo de WhatsApp con 400 mensajes
+                    donde nadie encuentra nada, y termina con alguien intentando cuadrar cuentas de
+                    memoria. Birra y Brújula sustituye ese caos por seis módulos con un dashboard.
                 </p>
                 <p>
-                    A través de su arquitectura modular, el sistema permite una gestión integral de todas las
-                    operaciones necesarias, garantizando un rendimiento óptimo y un mantenimiento simplificado.
+                    Cubre el ciclo completo: gestionar asistentes, <strong>proponer casas y
+                    votarlas</strong> con ranking en directo, calcular el transporte según el modo —
+                    coche, tren o avión —, mantener una lista de compra compartida con responsable y
+                    estado, proponer y votar actividades con presupuesto por persona, y construir el
+                    itinerario por días con bloques horarios.
+                </p>
+                <p>
+                    La pieza que más valor aporta es la última: el <strong>reparto de gastos</strong>.
+                    Calcula el balance de cada participante y propone los pagos concretos entre deudores
+                    y acreedores para cuadrar. Y genera un informe del plan, compacto o detallado, listo
+                    para imprimir o pasar a PDF.
                 </p>
             </div>
 
-            <!-- Tecnologías -->
+            <!-- Tecnologías Utilizadas -->
             <div class="project-section">
                 <h2><i class="fas fa-tools"></i> Tecnologías Utilizadas</h2>
                 <div class="tech-grid">
-                    <div class="tech-badge"><i class="fab fa-html5"></i><br>HTML5</div>
+                    <div class="tech-badge"><i class="fab fa-html5"></i><br>HTML5 multipágina</div>
                     <div class="tech-badge"><i class="fab fa-css3-alt"></i><br>CSS3</div>
-                    <div class="tech-badge"><i class="fab fa-js"></i><br>JavaScript</div>
-                    <div class="tech-badge"><i class="fas fa-mobile-alt"></i><br>PWA</div>
+                    <div class="tech-badge"><i class="fab fa-js"></i><br>JavaScript vanilla</div>
+                    <div class="tech-badge"><i class="fas fa-database"></i><br>localStorage</div>
+                    <div class="tech-badge"><i class="fas fa-cloud-arrow-down"></i><br>Service Worker</div>
+                    <div class="tech-badge"><i class="fas fa-print"></i><br>Informe imprimible</div>
                 </div>
             </div>
 
-            <!-- Módulos -->
+            <!-- Los Seis Módulos -->
             <div class="project-section">
-                <h2><i class="fas fa-th-large"></i> Arquitectura y Módulos</h2>
+                <h2><i class="fas fa-th-large"></i> Los Seis Módulos</h2>
                 <div class="modules-grid">
                     <div class="module-card">
-                        <strong>⚡ Inicialización:</strong>
-                        <p>Configuración del entorno y carga de parámetros iniciales.</p>
+                        <strong>🏠 Dashboard</strong>
+                        <p><code>index.html</code> — resumen general del viaje y gestión de
+                        asistentes.</p>
                     </div>
                     <div class="module-card">
-                        <strong>⚡ Procesamiento:</strong>
-                        <p>Ejecución de la lógica de negocio principal y validación de datos.</p>
+                        <strong>🗳️ Votación de casa</strong>
+                        <p><code>votaciones.html</code> — propuestas de alojamiento con votación y
+                        ranking automático en directo.</p>
                     </div>
                     <div class="module-card">
-                        <strong>⚡ Persistencia:</strong>
-                        <p>Almacenamiento seguro de la información generada.</p>
+                        <strong>🚗 Transporte</strong>
+                        <p><code>transporte.html</code> — calculadora de coste según el modo elegido:
+                        coche, tren o avión.</p>
                     </div>
                     <div class="module-card">
-                        <strong>⚡ Visualización:</strong>
-                        <p>Renderizado de la interfaz y entrega de resultados al usuario final.</p>
+                        <strong>🛒 Lista de compra</strong>
+                        <p><code>compra.html</code> — lista compartida con responsable asignado y estado
+                        de cada artículo.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🎯 Actividades e itinerario</strong>
+                        <p><code>actividades.html</code> — propuestas votables con presupuesto por
+                        persona, e itinerario por días con bloques horarios.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>💰 Liquidación</strong>
+                        <p>Balance por participante y pagos recomendados entre deudores y
+                        acreedores.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📄 Informe exportable</strong>
+                        <p>Generación del plan completo en formato compacto o detallado para imprimir o
+                        guardar como PDF.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🔄 Reinicio</strong>
+                        <p>Botón para limpiar todo y empezar un viaje nuevo desde cero.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Flujo Completo -->
+            <!-- Arquitectura -->
             <div class="project-section">
-                <h2><i class="fas fa-route"></i> Flujo Completo de Funcionamiento</h2>
+                <h2><i class="fas fa-sitemap"></i> Arquitectura</h2>
+                <p>
+                    Aplicación multipágina sin backend: cinco HTML que comparten <code>app.js</code> —
+                    donde vive la lógica de los seis módulos — y <code>style.css</code>. La persistencia
+                    es <strong>localStorage</strong> del navegador, con una clave por módulo:
+                    <code>trip_members</code>, <code>trip_houses</code>, <code>trip_transport</code>,
+                    <code>trip_shopping</code>, <code>trip_activities</code> y
+                    <code>trip_itinerary</code>.
+                </p>
+                <pre class="code-tree"><span class="t-dir">Birra-y-Brujula/</span>
+├── <span class="t-file">index.html</span>             <span class="t-note"># dashboard y asistentes</span>
+├── <span class="t-file">votaciones.html</span>        <span class="t-note"># propuestas y voto de casa</span>
+├── <span class="t-file">transporte.html</span>        <span class="t-note"># calculadora de coste</span>
+├── <span class="t-file">compra.html</span>            <span class="t-note"># lista compartida</span>
+├── <span class="t-file">actividades.html</span>       <span class="t-note"># votos e itinerario</span>
+├── <span class="t-file">app.js</span>                 <span class="t-note"># lógica de todos los módulos</span>
+├── <span class="t-file">style.css</span>
+└── <span class="t-file">sw.js</span>                  <span class="t-note"># caché del shell y offline básico</span></pre>
+            </div>
+
+            <!-- Flujo Recomendado de Uso -->
+            <div class="project-section">
+                <h2><i class="fas fa-route"></i> Flujo Recomendado de Uso</h2>
                 <ol class="workflow-steps">
-                    <li><strong>Inicialización:</strong> Configuración del entorno y carga de parámetros iniciales.</li>
-                    <li><strong>Procesamiento:</strong> Ejecución de la lógica de negocio principal y validación de datos.</li>
-                    <li><strong>Persistencia:</strong> Almacenamiento seguro de la información generada.</li>
-                    <li><strong>Visualización:</strong> Renderizado de la interfaz y entrega de resultados al usuario final.</li>
+                    <li><strong>Añadir asistentes:</strong> desde el dashboard se registra quién viene;
+                    todo lo demás se calcula sobre esa lista.</li>
+                    <li><strong>Proponer y votar casa:</strong> cada uno propone alojamientos y el
+                    ranking se actualiza con los votos.</li>
+                    <li><strong>Definir transporte:</strong> se elige el modo y se guarda el coste
+                    calculado.</li>
+                    <li><strong>Completar la lista de compra:</strong> con responsable asignado y estado
+                    por artículo.</li>
+                    <li><strong>Proponer y votar actividades:</strong> con su presupuesto estimado por
+                    persona.</li>
+                    <li><strong>Construir el itinerario:</strong> se reparten las actividades por días
+                    en bloques horarios, con generador automático de plan.</li>
+                    <li><strong>Revisar la liquidación:</strong> el sistema calcula el balance y propone
+                    quién paga a quién.</li>
+                    <li><strong>Exportar el informe:</strong> el plan completo se genera para imprimir o
+                    guardar en PDF.</li>
                 </ol>
+            </div>
+
+            <!-- Retos Técnicos y Decisiones de Diseño -->
+            <div class="project-section">
+                <h2><i class="fas fa-lightbulb"></i> Retos Técnicos y Decisiones de Diseño</h2>
+                <h3>Convertir un balance en pagos concretos</h3>
+                <p>
+                    Saber que Ana ha puesto 120 € y Luis 40 € no resuelve nada: lo útil es "Luis paga 40
+                    € a Ana". El módulo de liquidación calcula el balance de cada participante y luego
+                    empareja deudores con acreedores para proponer el menor número de transferencias
+                    posible. Es la parte con más lógica del proyecto y la única que la gente usa sí o
+                    sí.
+                </p>
+                <h3>localStorage: la decisión y su límite</h3>
+                <p>
+                    Sin backend, la aplicación se despliega en cualquier sitio y no gestiona datos
+                    personales de nadie. El precio es explícito y está documentado en el README: los
+                    datos son <strong>locales a ese navegador y dispositivo</strong>. Para un viaje que
+                    organiza una persona es suficiente; para edición simultánea real, no.
+                </p>
+                <h3>Todo a coste por persona</h3>
+                <p>
+                    Cada módulo — casa, transporte, actividades, compra — termina reduciendo su importe
+                    a coste por cabeza. Esa normalización es lo que permite que la liquidación final
+                    funcione sumando módulos heterogéneos, y lo que hace la cifra comprensible para el
+                    grupo.
+                </p>
+                <h3>Offline con honestidad sobre su alcance</h3>
+                <p>
+                    <code>sw.js</code> cachea el esqueleto de la aplicación y los recursos propios. El
+                    README aclara que las imágenes externas siguen dependiendo de la red si no están en
+                    caché: prefiero documentar el límite del modo offline antes que prometer que
+                    funciona todo.
+                </p>
             </div>
 
             <!-- Mi Rol -->
             <div class="project-section">
                 <h2><i class="fas fa-user-tie"></i> Mi Rol</h2>
-                <p><strong>Desarrollador Full Stack — Autor Único</strong></p>
                 <p>
-                    Diseñé y desarrollé el sistema completo de forma independiente: desde el análisis de requisitos, 
-                    diseño de la arquitectura, implementación de backend y frontend, hasta el despliegue final.
+                    <strong>Desarrollo en colaboración.</strong>
+                </p>
+                <p>
+                    Proyecto desarrollado junto a un amigo. Participé en la arquitectura multipágina, la
+                    lógica de los módulos en <code>app.js</code>, el algoritmo de liquidación y el
+                    generador de informe.
                 </p>
             </div>
 
-            <!-- Estado -->
+            <!-- Estado del Proyecto -->
             <div class="project-section">
-                <h2><i class="fas fa-info"></i> Estado del Proyecto</h2>
-                <p><strong>Estado:</strong> <span style="color: #10b981; font-weight: bold;"></span></p>
+                <h2><i class="fas fa-flag-checkered"></i> Estado del Proyecto</h2>
+                <p>
+                    Aplicación funcional y completa en sus seis módulos. Requiere servirse por HTTP — no
+                    por <code>file://</code> — para que el service worker se registre correctamente.
+                </p>
             </div>
 
-            <!-- Código -->
+            <!-- Código y Enlaces -->
             <div class="project-section">
-                <h2><i class="fas fa-link"></i> Código Fuente</h2>
+                <h2><i class="fas fa-link"></i> Código y Enlaces</h2>
                 <div class="project-links">
-                    <a href="#" target="_blank">
-                        <i class="fab fa-github"></i> Ver Código en GitHub
+                    <a href="https://github.com/Valentindg2506/Birra-y-Brujula" target="_blank" rel="noopener">
+                        <i class="fab fa-github"></i> Ver código en GitHub
                     </a>
                 </div>
             </div>
+
         </div>
     </div>
 
@@ -222,4 +252,5 @@
 
     <script src="../js/main.js"></script>
 </body>
+
 </html>

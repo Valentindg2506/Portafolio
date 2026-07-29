@@ -1,60 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="BirraFinder - Aplicación para descubrir y calificar bares cerveceros">
+    <meta name="description" content="BirraFinder — PWA de descubrimiento de bares con Google Places, rankings comunitarios y modo offline">
     <title>BirraFinder - Valentín De Gennaro</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/proyecto.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script>
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        if (savedTheme === 'dark') {
-            document.documentElement.classList.add('dark');
-        }
-    </script>
-    <style>
-        .project-detail { min-height: 100vh; padding: 80px 20px 40px; }
-        .project-hero { max-width: 1000px; margin: 0 auto 50px; text-align: center; }
-        .project-hero h1 { font-size: 3em; margin-bottom: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .project-content { max-width: 900px; margin: 0 auto; }
-        .project-section { margin-bottom: 40px; padding: 30px; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
-        .project-section h2 { font-size: 1.8em; margin-bottom: 20px; color: #3b82f6; }
-        .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-bottom: 20px; }
-        .tech-badge { padding: 10px 15px; background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(99, 102, 241, 0.2)); border: 1px solid rgba(59, 130, 246, 0.5); border-radius: 8px; text-align: center; font-weight: 500; }
-        .features-list { list-style: none; padding: 0; }
-        .features-list li { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .features-list li:last-child { border-bottom: none; }
-        .features-list li:before { content: "✓ "; color: #10b981; font-weight: bold; margin-right: 10px; }
-        .back-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; margin-bottom: 30px; transition: all 0.3s ease; }
-        .back-btn:hover { background: rgba(59, 130, 246, 0.3); transform: translateX(-5px); }
-        .project-links { display: flex; gap: 15px; margin-top: 20px; }
-        .project-links a { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 6px; text-decoration: none; transition: all 0.3s ease; }
-        .project-links a:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3); }
-    
-        .modules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin-top: 15px; }
-        .module-card { padding: 15px 18px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.25); border-radius: 10px; }
-        .module-card strong { display: block; margin-bottom: 4px; color: #a5b4fc; }
-        .module-card p { margin: 0; font-size: 0.9em; opacity: 0.85; }
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; margin: 20px 0; }
-        .stat-card { padding: 18px 12px; background: linear-gradient(135deg, rgba(102,126,234,0.15), rgba(118,75,162,0.15)); border: 1px solid rgba(102,126,234,0.3); border-radius: 10px; text-align: center; }
-        .stat-card .stat-num { display: block; font-size: 2em; font-weight: 800; color: #818cf8; line-height: 1; }
-        .stat-card .stat-label { display: block; font-size: 0.8em; opacity: 0.75; margin-top: 6px; }
-        .integration-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
-        .integration-card { padding: 15px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.25); border-radius: 10px; }
-        .integration-card strong { display: block; margin-bottom: 4px; color: #34d399; }
-        .integration-card p { margin: 0; font-size: 0.88em; opacity: 0.85; }
-        .roles-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-        .roles-table th, .roles-table td { padding: 10px 14px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.08); }
-        .roles-table th { color: #3b82f6; font-weight: 600; border-bottom: 1px solid rgba(59,130,246,0.3); }
-        .roles-table tr:last-child td { border-bottom: none; }
-        .role-level { display: inline-block; padding: 2px 8px; background: rgba(99,102,241,0.2); border-radius: 12px; font-size: 13px; font-weight: bold; color: #818cf8; }
-        .workflow-steps { counter-reset: step-counter; list-style: none; padding: 0; }
-        .workflow-steps li { counter-increment: step-counter; padding: 12px 0 12px 50px; border-bottom: 1px solid rgba(255,255,255,0.08); position: relative; }
-        .workflow-steps li:before { content: counter(step-counter); position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 32px; height: 32px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.85em; color: white; }
-        .workflow-steps li:last-child { border-bottom: none; }
-</style>
 </head>
+
 <body>
     <nav class="navbar" id="navbar">
         <div class="container">
@@ -73,19 +29,24 @@
         </a>
 
         <div class="project-hero">
-            <h1>BirraFinder</h1>
-            <p style="font-size: 1.2em; color: #a0aec0;">Aplicación para descubrir y calificar bares cerveceros</p>
+            <h1>🍺 BirraFinder</h1>
+            <p class="project-tagline">Diario de bares con comunidad: geolocaliza locales, puntúa tus visitas y descubre los mejor valorados</p>
+            <div class="project-badges">
+                <span class="status-badge"><i class="fab fa-google"></i> Google Maps y Places</span>
+                <span class="status-badge"><i class="fas fa-mobile-screen"></i> PWA instalable</span>
+                <span class="status-badge"><i class="fas fa-ranking-star"></i> Rankings comunitarios</span>
+            </div>
         </div>
 
         <div class="project-content">
-
-            <!-- Cifras Clave -->
+            <!-- Escala del Proyecto -->
             <div class="project-section">
                 <h2><i class="fas fa-chart-line"></i> Escala del Proyecto</h2>
                 <div class="stats-grid">
-                    <div class="stat-card"><span class="stat-num">10</span><span class="stat-label">Módulos</span></div>
-                    <div class="stat-card"><span class="stat-num">4</span><span class="stat-label">Tecnologías</span></div>
-                    <div class="stat-card"><span class="stat-num">v1.0</span><span class="stat-label">Versión</span></div>
+                    <div class="stat-card"><span class="stat-num">3</span><span class="stat-label">Vistas principales</span></div>
+                    <div class="stat-card"><span class="stat-num">2</span><span class="stat-label">Rankings top 10</span></div>
+                    <div class="stat-card"><span class="stat-num">16</span><span class="stat-label">Archivos</span></div>
+                    <div class="stat-card"><span class="stat-num">2.9k</span><span class="stat-label">Líneas</span></div>
                 </div>
             </div>
 
@@ -93,108 +54,222 @@
             <div class="project-section">
                 <h2><i class="fas fa-info-circle"></i> Descripción General</h2>
                 <p>
-                    <strong>BirraFinder</strong> aplicación para descubrir y calificar bares cerveceros.
-                    Este proyecto ha sido desarrollado siguiendo estrictos estándares de calidad, 
-                    con un enfoque claro en la escalabilidad y la experiencia de usuario.
+                    Todo el mundo tiene una lista mental de bares recomendados que nunca recuerda cuando
+                    hace falta. BirraFinder convierte esa lista en un <strong>diario de bares</strong>:
+                    guardas los sitios que te han recomendado como pendientes, y registras los que ya
+                    has visitado con su puntuación.
                 </p>
                 <p>
-                    A través de su arquitectura modular, el sistema permite una gestión integral de todas las
-                    operaciones necesarias, garantizando un rendimiento óptimo y un mantenimiento simplificado.
+                    La exploración se apoya en <strong>Google Maps y Places</strong>: geolocalización
+                    para ver qué hay alrededor ahora mismo, y búsqueda por ciudad o zona para planificar
+                    una salida en otro sitio.
+                </p>
+                <p>
+                    La capa que lo diferencia de una nota del móvil es la <strong>comunidad</strong>: un
+                    top 10 de los más visitados por todos los usuarios, otro top 10 por calidad, y un
+                    recomendador que sugiere locales aleatorios entre los que han recibido 4 estrellas o
+                    más. Y como se usa en la calle, funciona instalada y con soporte offline.
                 </p>
             </div>
 
-            <!-- Tecnologías -->
+            <!-- Tecnologías Utilizadas -->
             <div class="project-section">
                 <h2><i class="fas fa-tools"></i> Tecnologías Utilizadas</h2>
                 <div class="tech-grid">
-                    <div class="tech-badge"><i class="fab fa-js"></i><br>JavaScript</div>
-                    <div class="tech-badge"><i class="fas fa-map-marked-alt"></i><br>Google Maps API</div>
-                    <div class="tech-badge"><i class="fab fa-php"></i><br>PHP</div>
-                    <div class="tech-badge"><i class="fas fa-mobile-alt"></i><br>PWA</div>
+                    <div class="tech-badge"><i class="fab fa-php"></i><br>PHP 8 (MVC ligero)</div>
+                    <div class="tech-badge"><i class="fas fa-database"></i><br>MySQL / MariaDB</div>
+                    <div class="tech-badge"><i class="fab fa-google"></i><br>Google Maps API</div>
+                    <div class="tech-badge"><i class="fas fa-location-dot"></i><br>Places API</div>
+                    <div class="tech-badge"><i class="fab fa-js"></i><br>JavaScript ES6+</div>
+                    <div class="tech-badge"><i class="fab fa-css3-alt"></i><br>Glassmorphism</div>
+                    <div class="tech-badge"><i class="fas fa-mobile-screen"></i><br>PWA</div>
+                    <div class="tech-badge"><i class="fas fa-cloud-arrow-down"></i><br>Service Worker</div>
                 </div>
             </div>
 
-            <!-- Módulos -->
+            <!-- Las Tres Vistas y sus Funciones -->
             <div class="project-section">
-                <h2><i class="fas fa-th-large"></i> Arquitectura y Módulos</h2>
+                <h2><i class="fas fa-th-large"></i> Las Tres Vistas y sus Funciones</h2>
                 <div class="modules-grid">
                     <div class="module-card">
-                        <strong>⚡ Integración profunda con Google Places API</strong>
-                        <p>Implementación completa y optimizada de la funcionalidad de integración profunda con google places api.</p>
+                        <strong>🏠 Inicio (dashboard)</strong>
+                        <p>Centro de mando: tus estadísticas personales — visitados frente a pendientes
+                        — y las tendencias globales de la comunidad.</p>
                     </div>
                     <div class="module-card">
-                        <strong>⚡ Sistema de ranking comunitario</strong>
-                        <p>Implementación completa y optimizada de la funcionalidad de sistema de ranking comunitario.</p>
+                        <strong>🗺️ Mapa</strong>
+                        <p>Exploración visual con pines. Usa tu ubicación actual o el buscador por
+                        ciudad y zona.</p>
                     </div>
                     <div class="module-card">
-                        <strong>⚡ Estadísticas y diario personal de visitas</strong>
-                        <p>Implementación completa y optimizada de la funcionalidad de estadísticas y diario personal de visitas.</p>
+                        <strong>📒 Mis bares</strong>
+                        <p>Tu colección personal, separada entre lo que quieres visitar y lo que ya
+                        conoces.</p>
                     </div>
                     <div class="module-card">
-                        <strong>⚡ Recomendaciones algorítmicas aleatorias</strong>
-                        <p>Implementación completa y optimizada de la funcionalidad de recomendaciones algorítmicas aleatorias.</p>
+                        <strong>📅 Lista de pendientes</strong>
+                        <p>Los sitios recomendados, guardados para no olvidarlos.</p>
                     </div>
                     <div class="module-card">
-                        <strong>⚡ Modo offline (Service Worker)</strong>
-                        <p>Implementación completa y optimizada de la funcionalidad de modo offline (service worker).</p>
+                        <strong>✅ Historial de visitas</strong>
+                        <p>Dónde has estado, qué tal fue y qué puntuación le diste.</p>
                     </div>
                     <div class="module-card">
-                        <strong>⚡ Optimización de mapas interactivos</strong>
-                        <p>Implementación completa y optimizada de la funcionalidad de optimización de mapas interactivos.</p>
+                        <strong>🔝 Top 10 visitados</strong>
+                        <p>Ranking dinámico de los locales más populares entre todos los usuarios.</p>
                     </div>
                     <div class="module-card">
-                        <strong>⚡ Diseño centrado en comunidad</strong>
-                        <p>Implementación completa y optimizada de la funcionalidad de diseño centrado en comunidad.</p>
+                        <strong>⭐ Top 10 calidad</strong>
+                        <p>Ranking de los mejor valorados por la comunidad.</p>
                     </div>
                     <div class="module-card">
-                        <strong>⚡ Frontend Vanilla de alto rendimiento</strong>
-                        <p>Implementación completa y optimizada de la funcionalidad de frontend vanilla de alto rendimiento.</p>
+                        <strong>🎲 Recomendaciones</strong>
+                        <p>Sugerencias aleatorias entre los locales con valoración de 4 estrellas o
+                        más.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🛠️ Panel de administración</strong>
+                        <p><code>admin/</code> y <code>dashboard.php</code> para la gestión de la
+                        plataforma.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Flujo Completo -->
+            <!-- Arquitectura -->
             <div class="project-section">
-                <h2><i class="fas fa-route"></i> Flujo Completo de Funcionamiento</h2>
+                <h2><i class="fas fa-sitemap"></i> Arquitectura</h2>
+                <p>
+                    Backend PHP 8 con un <strong>MVC ligero</strong> propio en <code>app/</code> y una
+                    API en <code>api/</code> que consume el frontend. La configuración vive en
+                    <code>config/</code> y el esquema en <code>sql/</code>. Como PWA, tiene su
+                    <code>manifest.json</code> y su <code>service-worker.js</code>.
+                </p>
+                <pre class="code-tree"><span class="t-dir">BirraFinder/</span>
+├── <span class="t-file">index.php</span>              <span class="t-note"># punto de entrada</span>
+├── <span class="t-file">dashboard.php</span>
+├── <span class="t-file">layout_bar_card.php</span>    <span class="t-note"># componente de tarjeta de bar</span>
+├── <span class="t-file">manifest.json</span> · <span class="t-file">service-worker.js</span>
+├── <span class="t-dir">app/</span>                    <span class="t-note"># MVC ligero</span>
+├── <span class="t-dir">api/</span>                    <span class="t-note"># endpoints consumidos por el front</span>
+├── <span class="t-dir">admin/</span>                  <span class="t-note"># panel de administración</span>
+├── <span class="t-dir">config/</span>
+├── <span class="t-dir">sql/</span>
+└── <span class="t-dir">css/</span> · <span class="t-dir">js/</span> · <span class="t-dir">img/</span></pre>
+            </div>
+
+            <!-- Integraciones Externas -->
+            <div class="project-section">
+                <h2><i class="fas fa-plug"></i> Integraciones Externas</h2>
+                <div class="integration-grid">
+                    <div class="integration-card">
+                        <strong>Google Maps JavaScript API</strong>
+                        <p>Renderizado del mapa con los pines de los locales, sobre el que se apoya toda
+                        la vista de exploración.</p>
+                    </div>
+                    <div class="integration-card">
+                        <strong>Google Places API</strong>
+                        <p>Búsqueda de establecimientos reales por ubicación o por texto, para no tener
+                        que mantener un catálogo propio de bares.</p>
+                    </div>
+                    <div class="integration-card">
+                        <strong>Geolocalización del navegador</strong>
+                        <p>Detección de la posición del usuario para mostrar qué hay a su alrededor al
+                        instante.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ciclo de Uso -->
+            <div class="project-section">
+                <h2><i class="fas fa-route"></i> Ciclo de Uso</h2>
                 <ol class="workflow-steps">
-                    <li><strong>Inicialización:</strong> Configuración del entorno y carga de parámetros iniciales.</li>
-                    <li><strong>Procesamiento:</strong> Ejecución de la lógica de negocio principal y validación de datos.</li>
-                    <li><strong>Persistencia:</strong> Almacenamiento seguro de la información generada.</li>
-                    <li><strong>Visualización:</strong> Renderizado de la interfaz y entrega de resultados al usuario final.</li>
+                    <li><strong>Descubrir:</strong> el usuario abre el mapa y ve los locales cercanos a
+                    su ubicación, o busca una zona concreta.</li>
+                    <li><strong>Guardar como pendiente:</strong> un sitio recomendado se añade a la
+                    lista de pendientes para no perderlo.</li>
+                    <li><strong>Visitar y puntuar:</strong> tras la visita, el local pasa al historial
+                    con su valoración.</li>
+                    <li><strong>Alimentar la comunidad:</strong> esa valoración entra en los rankings
+                    globales de popularidad y calidad.</li>
+                    <li><strong>Recibir recomendaciones:</strong> el sistema sugiere locales con 4
+                    estrellas o más valorados por otros usuarios.</li>
                 </ol>
+            </div>
+
+            <!-- Retos Técnicos y Decisiones de Diseño -->
+            <div class="project-section">
+                <h2><i class="fas fa-lightbulb"></i> Retos Técnicos y Decisiones de Diseño</h2>
+                <h3>No mantener un catálogo propio de bares</h3>
+                <p>
+                    Construir y mantener una base de datos de establecimientos es un trabajo sin fin:
+                    abren, cierran y cambian de nombre. Apoyarse en <strong>Google Places</strong>
+                    resuelve el problema de raíz: la aplicación solo guarda la relación entre el usuario
+                    y el local, y los datos del establecimiento los aporta una fuente que ya se mantiene
+                    sola.
+                </p>
+                <h3>De diario personal a producto con comunidad</h3>
+                <p>
+                    Un diario privado de bares se abandona en dos semanas porque no devuelve nada. Los
+                    rankings globales y el recomendador convierten cada valoración individual en valor
+                    para el resto: puntuar deja de ser archivar y pasa a ser contribuir.
+                </p>
+                <h3>Filtrar las recomendaciones por calidad, no por volumen</h3>
+                <p>
+                    El recomendador no sugiere al azar entre todo el catálogo: solo entra en el sorteo
+                    lo que ha recibido 4 estrellas o más de otros usuarios. Un recomendador que propone
+                    sitios mediocres se ignora a la segunda sugerencia.
+                </p>
+                <h3>PWA porque es una app de calle</h3>
+                <p>
+                    Se usa decidiendo dónde entrar, en la acera, con mala cobertura. Instalable en la
+                    pantalla de inicio y con service worker para consultar los bares guardados sin
+                    datos: sin eso, la aplicación falla justo en el momento en que se necesita.
+                </p>
             </div>
 
             <!-- Mi Rol -->
             <div class="project-section">
                 <h2><i class="fas fa-user-tie"></i> Mi Rol</h2>
-                <p><strong>Desarrollador Full Stack — Autor Único</strong></p>
                 <p>
-                    Diseñé y desarrollé el sistema completo de forma independiente: desde el análisis de requisitos, 
-                    diseño de la arquitectura, implementación de backend y frontend, hasta el despliegue final.
+                    <strong>Desarrollador full stack — autor único.</strong>
+                </p>
+                <p>
+                    MVC ligero en PHP, modelo de datos, integración de Maps y Places, lógica de rankings
+                    y recomendaciones, frontend con glassmorphism y configuración de la PWA.
                 </p>
             </div>
 
-            <!-- Estado -->
+            <!-- Estado del Proyecto -->
             <div class="project-section">
-                <h2><i class="fas fa-info"></i> Estado del Proyecto</h2>
-                <p><strong>Estado:</strong> <span style="color: #10b981; font-weight: bold;"></span></p>
+                <h2><i class="fas fa-flag-checkered"></i> Estado del Proyecto</h2>
+                <p>
+                    Aplicación funcional con panel de administración, API propia y soporte PWA completo
+                    con iconos e instalación.
+                </p>
             </div>
 
-            <!-- Código -->
+            <!-- Código y Enlaces -->
             <div class="project-section">
-                <h2><i class="fas fa-link"></i> Código Fuente</h2>
+                <h2><i class="fas fa-link"></i> Código y Enlaces</h2>
                 <div class="project-links">
-                    <a href="https://github.com/Valentindg2506/BirraFinder" target="_blank">
-                        <i class="fab fa-github"></i> Ver Código en GitHub
+                    <a href="https://github.com/Valentindg2506/BirraFinder" target="_blank" rel="noopener">
+                        <i class="fab fa-github"></i> Ver código en GitHub
                     </a>
                 </div>
+                <p style="margin-top: 16px;">
+                    Requiere una clave de la API de Google Maps y Places, que se configura en
+                    <code>config/</code> y no se incluye en el repositorio.
+                </p>
             </div>
+
         </div>
     </div>
 
     <button id="scrollTop" class="scroll-top" aria-label="Volver arriba">
         <i class="fas fa-arrow-up"></i>
     </button>
+
     <script src="../js/main.js"></script>
 </body>
+
 </html>

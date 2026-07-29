@@ -1,146 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="AdminViews - Tracker de series y películas">
+    <meta name="description" content="AdminViews — gestor de series y películas en PHP y MySQL con integración de la API de TheMovieDB">
     <title>AdminViews - Valentín De Gennaro</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/proyecto.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script>
-        // Cargar tema inmediatamente para evitar flash de color
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        if (savedTheme === 'dark') {
-            document.documentElement.classList.add('dark');
-        }
-    </script>
-    <style>
-        .project-detail {
-            min-height: 100vh;
-            padding: 80px 20px 40px;
-        }
-        .project-hero {
-            max-width: 1000px;
-            margin: 0 auto 50px;
-            text-align: center;
-        }
-        .project-hero h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .project-content {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        .project-section {
-            margin-bottom: 40px;
-            padding: 30px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        .project-section h2 {
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            color: #3b82f6;
-        }
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-        .tech-badge {
-            padding: 10px 15px;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(99, 102, 241, 0.2));
-            border: 1px solid rgba(59, 130, 246, 0.5);
-            border-radius: 8px;
-            text-align: center;
-            font-weight: 500;
-        }
-        .features-list {
-            list-style: none;
-            padding: 0;
-        }
-        .features-list li {
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        .features-list li:last-child {
-            border-bottom: none;
-        }
-        .features-list li:before {
-            content: "✓ ";
-            color: #10b981;
-            font-weight: bold;
-            margin-right: 10px;
-        }
-        .back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
-            background: rgba(59, 130, 246, 0.2);
-            border: 1px solid rgba(59, 130, 246, 0.5);
-            color: #3b82f6;
-            border-radius: 6px;
-            text-decoration: none;
-            margin-bottom: 30px;
-            transition: all 0.3s ease;
-        }
-        .back-btn:hover {
-            background: rgba(59, 130, 246, 0.3);
-            transform: translateX(-5px);
-        }
-        .project-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-        .project-links a {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: 6px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        .project-links a:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
-        }
-    
-        .modules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin-top: 15px; }
-        .module-card { padding: 15px 18px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.25); border-radius: 10px; }
-        .module-card strong { display: block; margin-bottom: 4px; color: #a5b4fc; }
-        .module-card p { margin: 0; font-size: 0.9em; opacity: 0.85; }
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; margin: 20px 0; }
-        .stat-card { padding: 18px 12px; background: linear-gradient(135deg, rgba(102,126,234,0.15), rgba(118,75,162,0.15)); border: 1px solid rgba(102,126,234,0.3); border-radius: 10px; text-align: center; }
-        .stat-card .stat-num { display: block; font-size: 2em; font-weight: 800; color: #818cf8; line-height: 1; }
-        .stat-card .stat-label { display: block; font-size: 0.8em; opacity: 0.75; margin-top: 6px; }
-        .integration-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
-        .integration-card { padding: 15px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.25); border-radius: 10px; }
-        .integration-card strong { display: block; margin-bottom: 4px; color: #34d399; }
-        .integration-card p { margin: 0; font-size: 0.88em; opacity: 0.85; }
-        .roles-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-        .roles-table th, .roles-table td { padding: 10px 14px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.08); }
-        .roles-table th { color: #3b82f6; font-weight: 600; border-bottom: 1px solid rgba(59,130,246,0.3); }
-        .roles-table tr:last-child td { border-bottom: none; }
-        .role-level { display: inline-block; padding: 2px 8px; background: rgba(99,102,241,0.2); border-radius: 12px; font-size: 13px; font-weight: bold; color: #818cf8; }
-        .workflow-steps { counter-reset: step-counter; list-style: none; padding: 0; }
-        .workflow-steps li { counter-increment: step-counter; padding: 12px 0 12px 50px; border-bottom: 1px solid rgba(255,255,255,0.08); position: relative; }
-        .workflow-steps li:before { content: counter(step-counter); position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 32px; height: 32px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.85em; color: white; }
-        .workflow-steps li:last-child { border-bottom: none; }
-</style>
 </head>
+
 <body>
     <nav class="navbar" id="navbar">
         <div class="container">
@@ -159,19 +29,24 @@
         </a>
 
         <div class="project-hero">
-            <h1>AdminViews</h1>
-            <p style="font-size: 1.2em; color: #a0aec0;">Tu tracker personal de series y películas</p>
+            <h1>🎬 AdminViews</h1>
+            <p class="project-tagline">Gestor personal de series y películas con listas por estado y datos traídos de TheMovieDB</p>
+            <div class="project-badges">
+                <span class="status-badge is-live"><i class="fas fa-circle-check"></i> En producción</span>
+                <span class="status-badge"><i class="fas fa-film"></i> API TheMovieDB</span>
+                <span class="status-badge"><i class="fas fa-users"></i> Proyecto en pareja</span>
+            </div>
         </div>
 
         <div class="project-content">
-
-            <!-- Cifras Clave -->
+            <!-- Escala del Proyecto -->
             <div class="project-section">
                 <h2><i class="fas fa-chart-line"></i> Escala del Proyecto</h2>
                 <div class="stats-grid">
-                    <div class="stat-card"><span class="stat-num">6</span><span class="stat-label">Módulos</span></div>
-                    <div class="stat-card"><span class="stat-num">5</span><span class="stat-label">Tecnologías</span></div>
-                    <div class="stat-card"><span class="stat-num">v1.0</span><span class="stat-label">Versión</span></div>
+                    <div class="stat-card"><span class="stat-num">11</span><span class="stat-label">Capturas</span></div>
+                    <div class="stat-card"><span class="stat-num">30</span><span class="stat-label">Archivos</span></div>
+                    <div class="stat-card"><span class="stat-num">3.9k</span><span class="stat-label">Líneas</span></div>
+                    <div class="stat-card"><span class="stat-num">2</span><span class="stat-label">Autores</span></div>
                 </div>
             </div>
 
@@ -179,87 +54,265 @@
             <div class="project-section">
                 <h2><i class="fas fa-info-circle"></i> Descripción General</h2>
                 <p>
-                    <strong>AdminViews</strong> tu tracker personal de series y películas.
-                    Este proyecto ha sido desarrollado siguiendo estrictos estándares de calidad, 
-                    con un enfoque claro en la escalabilidad y la experiencia de usuario.
+                    Llevar la cuenta de qué series estás viendo, cuáles ya terminaste y cuáles tienes
+                    pendientes acaba siempre en una nota del móvil que nadie mantiene. AdminViews
+                    resuelve eso con una aplicación web propia: te registras y organizas todo tu
+                    contenido audiovisual en listas por estado — viendo, vistas, pendientes.
                 </p>
                 <p>
-                    A través de su arquitectura modular, el sistema permite una gestión integral de todas las
-                    operaciones necesarias, garantizando un rendimiento óptimo y un mantenimiento simplificado.
+                    El detalle que le da valor de uso real es la integración con la <strong>API de
+                    TheMovieDB</strong>: al empezar a escribir el nombre de una película o serie, la
+                    aplicación autocompleta el título y trae la carátula oficial. Sin eso, rellenar la
+                    ficha a mano hace que dejes de usarla a la tercera película.
+                </p>
+                <p>
+                    Fue mi primer proyecto web con base de datos y autenticación real, desarrollado en
+                    pareja con <a href="https://github.com/ElOrange12" target="_blank"
+                    rel="noopener">Daniel Oliveira</a>. Es también el proyecto del portafolio con
+                    documentación visual más completa: once capturas y el diagrama entidad-relación.
                 </p>
             </div>
 
-            <!-- Tecnologías -->
+            <!-- Tecnologías Utilizadas -->
             <div class="project-section">
                 <h2><i class="fas fa-tools"></i> Tecnologías Utilizadas</h2>
                 <div class="tech-grid">
-                    <div class="tech-badge"><i class="fab fa-php"></i><br>PHP</div>
+                    <div class="tech-badge"><i class="fab fa-php"></i><br>PHP nativo</div>
                     <div class="tech-badge"><i class="fas fa-database"></i><br>MySQL</div>
-                    <div class="tech-badge"><i class="fab fa-js"></i><br>JavaScript</div>
-                    <div class="tech-badge"><i class="fab fa-bootstrap"></i><br>Bootstrap</div>
-                    <div class="tech-badge"><i class="fas fa-exchange-alt"></i><br>AJAX</div>
+                    <div class="tech-badge"><i class="fab fa-html5"></i><br>HTML5</div>
+                    <div class="tech-badge"><i class="fab fa-css3-alt"></i><br>CSS3</div>
+                    <div class="tech-badge"><i class="fab fa-js"></i><br>JavaScript / Fetch</div>
+                    <div class="tech-badge"><i class="fas fa-film"></i><br>API TheMovieDB</div>
                 </div>
             </div>
 
-            <!-- Módulos -->
+            <!-- Estructura Funcional -->
             <div class="project-section">
-                <h2><i class="fas fa-th-large"></i> Arquitectura y Módulos</h2>
+                <h2><i class="fas fa-th-large"></i> Estructura Funcional</h2>
                 <div class="modules-grid">
                     <div class="module-card">
-                        <strong>⚡ Inicialización:</strong>
-                        <p>Configuración del entorno y carga de parámetros iniciales.</p>
+                        <strong>🔑 Autenticación</strong>
+                        <p><code>index.php</code> es la página de aterrizaje con login y registro. La
+                        sesión se mantiene con <code>session_start()</code>.</p>
                     </div>
                     <div class="module-card">
-                        <strong>⚡ Procesamiento:</strong>
-                        <p>Ejecución de la lógica de negocio principal y validación de datos.</p>
+                        <strong>📊 Dashboard</strong>
+                        <p><code>exito.php</code> es la primera pantalla tras iniciar sesión: el panel
+                        principal del usuario.</p>
                     </div>
                     <div class="module-card">
-                        <strong>⚡ Persistencia:</strong>
-                        <p>Almacenamiento seguro de la información generada.</p>
+                        <strong>🎬 Películas</strong>
+                        <p><code>peliculas.php</code> gestiona el catálogo personal de películas y su
+                        estado.</p>
                     </div>
                     <div class="module-card">
-                        <strong>⚡ Visualización:</strong>
-                        <p>Renderizado de la interfaz y entrega de resultados al usuario final.</p>
+                        <strong>📺 Series</strong>
+                        <p><code>series.php</code> hace lo mismo con las series.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🎛️ Controladores</strong>
+                        <p><code>/controladores</code> contiene los scripts que procesan login y
+                        registro sin renderizar interfaz.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🧩 Includes</strong>
+                        <p><code>/inc</code> agrupa la conexión a base de datos, la cabecera y el pie
+                        reutilizables.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🗄️ Base de datos</strong>
+                        <p><code>/back</code> guarda <code>BD.sql</code> y los diagramas del modelo
+                        entidad-relación.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Flujo Completo -->
+            <!-- Arquitectura -->
             <div class="project-section">
-                <h2><i class="fas fa-route"></i> Flujo Completo de Funcionamiento</h2>
+                <h2><i class="fas fa-sitemap"></i> Arquitectura</h2>
+                <p>
+                    Separación clara entre <code>front/</code> — la aplicación web — y
+                    <code>back/</code> — el esquema y los diagramas. Dentro del front, el patrón es el
+                    clásico de PHP nativo: cada página detecta si recibe un POST, ejecuta la consulta
+                    correspondiente y redirige con <code>header("Location: …")</code> para que el
+                    navegador recargue con los datos ya actualizados.
+                </p>
+                <pre class="code-tree"><span class="t-dir">AdminViews/</span>
+├── <span class="t-dir">front/</span>
+│   ├── <span class="t-file">index.php</span>          <span class="t-note"># login y registro</span>
+│   ├── <span class="t-file">exito.php</span>          <span class="t-note"># dashboard</span>
+│   ├── <span class="t-file">peliculas.php</span> · <span class="t-file">series.php</span>
+│   ├── <span class="t-dir">controladores/</span>      <span class="t-note"># procesado de formularios</span>
+│   ├── <span class="t-dir">inc/</span>                <span class="t-note"># conexión, cabecera, pie</span>
+│   └── <span class="t-dir">css/</span> · <span class="t-dir">img/</span>
+├── <span class="t-dir">admin/</span>                  <span class="t-note"># panel y diagramas de BBDD</span>
+├── <span class="t-dir">screenshots/</span>            <span class="t-note"># 11 capturas + diagrama E-R</span>
+├── <span class="t-dir">pruebas_CB/</span>             <span class="t-note"># informe de pruebas caja blanca</span>
+├── <span class="t-file">informe.md</span> · <span class="t-file">Reporte-Proyecto.md</span>
+└── <span class="t-file">README.md</span></pre>
+            </div>
+
+            <!-- Integraciones Externas -->
+            <div class="project-section">
+                <h2><i class="fas fa-plug"></i> Integraciones Externas</h2>
+                <div class="integration-grid">
+                    <div class="integration-card">
+                        <strong>API de TheMovieDB</strong>
+                        <p>Al escribir el nombre de una película o serie, una llamada con
+                        <code>fetch</code> autocompleta el título y recupera la carátula oficial. Sin
+                        esto, el alta manual haría la aplicación inservible en la práctica.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cómo Funciona por Dentro -->
+            <div class="project-section">
+                <h2><i class="fas fa-route"></i> Cómo Funciona por Dentro</h2>
                 <ol class="workflow-steps">
-                    <li><strong>Inicialización:</strong> Configuración del entorno y carga de parámetros iniciales.</li>
-                    <li><strong>Procesamiento:</strong> Ejecución de la lógica de negocio principal y validación de datos.</li>
-                    <li><strong>Persistencia:</strong> Almacenamiento seguro de la información generada.</li>
-                    <li><strong>Visualización:</strong> Renderizado de la interfaz y entrega de resultados al usuario final.</li>
+                    <li><strong>Registro:</strong> se valida que el correo sea real y que la contraseña
+                    tenga más de 8 caracteres, una mayúscula y un símbolo.</li>
+                    <li><strong>Cifrado:</strong> la contraseña se guarda con
+                    <code>password_hash()</code>, nunca en claro.</li>
+                    <li><strong>Login:</strong> se busca al usuario y se compara la contraseña con el
+                    hash almacenado usando <code>password_verify()</code>.</li>
+                    <li><strong>Búsqueda:</strong> al escribir un título, JavaScript consulta TheMovieDB
+                    y autocompleta los datos y la carátula.</li>
+                    <li><strong>Acción del usuario:</strong> el formulario envía un POST con la acción —
+                    agregar, mover, borrar — al propio fichero.</li>
+                    <li><strong>Procesado:</strong> PHP detecta el POST, ejecuta la consulta SQL y
+                    redirige con <code>header()</code> para mostrar el estado actualizado.</li>
                 </ol>
+            </div>
+
+            <!-- Seguridad Implementada -->
+            <div class="project-section">
+                <h2><i class="fas fa-lock"></i> Seguridad Implementada</h2>
+                <ul class="features-list">
+                    <li>Contraseñas cifradas con <code>password_hash()</code> y verificadas con
+                    <code>password_verify()</code>.</li>
+                    <li><strong>Política de contraseña</strong>: mínimo 8 caracteres, al menos una
+                    mayúscula y un símbolo.</li>
+                    <li>Validación del formato del correo electrónico en el registro.</li>
+                    <li>Sesiones PHP para el control de acceso a las páginas privadas.</li>
+                    <li>Redirección tras POST para evitar reenvíos del formulario al recargar.</li>
+                </ul>
+            </div>
+
+            <!-- Capturas -->
+            <div class="project-section">
+                <h2><i class="fas fa-images"></i> Capturas</h2>
+                <p>
+                    El repositorio incluye once capturas de la aplicación real y el diagrama
+                    entidad-relación de la base de datos.
+                </p>
+                <div class="screenshot-grid">
+                    <figure>
+                        <img src="../assets/images/adminviews/login.png" alt="Pantalla de inicio de sesión" loading="lazy">
+                        <figcaption>Pantalla de inicio de sesión</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="../assets/images/adminviews/registro.png" alt="Registro con validación de contraseña" loading="lazy">
+                        <figcaption>Registro con validación de contraseña</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="../assets/images/adminviews/inicio.png" alt="Dashboard tras iniciar sesión" loading="lazy">
+                        <figcaption>Dashboard tras iniciar sesión</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="../assets/images/adminviews/series.png" alt="Gestión de series por estado" loading="lazy">
+                        <figcaption>Gestión de series por estado</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="../assets/images/adminviews/peliculas.png" alt="Gestión de películas" loading="lazy">
+                        <figcaption>Gestión de películas</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="../assets/images/adminviews/adminindex.png" alt="Panel de administración" loading="lazy">
+                        <figcaption>Panel de administración</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="../assets/images/adminviews/tablausuarios.png" alt="Tabla de usuarios" loading="lazy">
+                        <figcaption>Tabla de usuarios</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="../assets/images/adminviews/tablacontenido.png" alt="Tabla de contenido" loading="lazy">
+                        <figcaption>Tabla de contenido</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="../assets/images/adminviews/contenidousuarios.png" alt="Detalle de usuarios" loading="lazy">
+                        <figcaption>Detalle de usuarios</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="../assets/images/adminviews/contenidocontenido.png" alt="Detalle de contenido" loading="lazy">
+                        <figcaption>Detalle de contenido</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="../assets/images/adminviews/diagrama.svg" alt="Diagrama entidad-relación" loading="lazy">
+                        <figcaption>Diagrama entidad-relación</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <!-- Retos Técnicos y Decisiones de Diseño -->
+            <div class="project-section">
+                <h2><i class="fas fa-lightbulb"></i> Retos Técnicos y Decisiones de Diseño</h2>
+                <h3>Una API externa cambia por completo la usabilidad</h3>
+                <p>
+                    La primera versión pedía escribir el título y la URL de la carátula a mano.
+                    Funcionaba, pero nadie la usaría dos veces. Conectar TheMovieDB fue lo que la
+                    convirtió en algo usable a diario: la diferencia entre un ejercicio y una aplicación
+                    está en cuántos campos tiene que rellenar el usuario.
+                </p>
+                <h3>Hacer bien la autenticación desde el principio</h3>
+                <p>
+                    Era mi primer proyecto con usuarios reales y decidí no atajar: hash con
+                    <code>password_hash()</code>, verificación con <code>password_verify()</code> y una
+                    política de contraseña exigida en el registro. Es la base que después reutilicé en
+                    todos los proyectos posteriores.
+                </p>
+                <h3>Documentar como parte del trabajo</h3>
+                <p>
+                    El repositorio incluye <code>informe.md</code>, <code>Reporte-Proyecto.md</code>, un
+                    informe de pruebas de caja blanca con sus decisiones de código, once capturas y el
+                    diagrama E-R. Aprendí aquí que un proyecto sin documentación es un proyecto que no
+                    se puede enseñar.
+                </p>
             </div>
 
             <!-- Mi Rol -->
             <div class="project-section">
                 <h2><i class="fas fa-user-tie"></i> Mi Rol</h2>
-                <p><strong>Desarrollador Full Stack — Autor Único</strong></p>
                 <p>
-                    Diseñé y desarrollé el sistema completo de forma independiente: desde el análisis de requisitos, 
-                    diseño de la arquitectura, implementación de backend y frontend, hasta el despliegue final.
+                    <strong>Desarrollo compartido</strong> con Daniel Oliveira.
+                </p>
+                <p>
+                    Participé en el modelo de datos, la autenticación, los módulos de series y
+                    películas, la integración con TheMovieDB y la documentación del proyecto.
                 </p>
             </div>
 
-            <!-- Estado -->
+            <!-- Estado del Proyecto -->
             <div class="project-section">
-                <h2><i class="fas fa-info"></i> Estado del Proyecto</h2>
-                <p><strong>Estado:</strong> <span style="color: #10b981; font-weight: bold;"></span></p>
+                <h2><i class="fas fa-flag-checkered"></i> Estado del Proyecto</h2>
+                <p>
+                    <strong>En producción</strong> en <code>adminviews.valentindg.com</code>. Incluye
+                    informe de proyecto y pruebas de caja blanca documentadas.
+                </p>
             </div>
 
-            <!-- Código -->
+            <!-- Código y Enlaces -->
             <div class="project-section">
-                <h2><i class="fas fa-link"></i> Código Fuente</h2>
+                <h2><i class="fas fa-link"></i> Código y Enlaces</h2>
                 <div class="project-links">
-                    <a href="#" target="_blank">
-                        <i class="fab fa-github"></i> Ver Código en GitHub
+                    <a href="https://adminviews.valentindg.com/" target="_blank" rel="noopener">
+                        <i class="fas fa-external-link-alt"></i> Ver en producción
+                    </a>
+                    <a href="https://github.com/Valentindg2506/AdminViews" target="_blank" rel="noopener">
+                        <i class="fab fa-github"></i> Ver código en GitHub
                     </a>
                 </div>
             </div>
+
         </div>
     </div>
 
@@ -269,4 +322,5 @@
 
     <script src="../js/main.js"></script>
 </body>
+
 </html>

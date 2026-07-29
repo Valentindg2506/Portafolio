@@ -1,50 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="BookingApp - Sistema de reservas con WhatsApp y Google Meet">
+    <meta name="description" content="BookingApp — sistema de reserva de citas en PHP integrado con Meta Lead Ads, WhatsApp y Google Meet">
     <title>BookingApp - Valentín De Gennaro</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/proyecto.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script>
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        if (savedTheme === 'dark') {
-            document.documentElement.classList.add('dark');
-        }
-    </script>
-    <style>
-        .project-detail { min-height: 100vh; padding: 80px 20px 40px; }
-        .project-hero { max-width: 1000px; margin: 0 auto 50px; text-align: center; }
-        .project-hero h1 { font-size: 3em; margin-bottom: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .project-content { max-width: 900px; margin: 0 auto; }
-        .project-section { margin-bottom: 40px; padding: 30px; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
-        .project-section h2 { font-size: 1.8em; margin-bottom: 20px; color: #3b82f6; }
-        .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-bottom: 20px; }
-        .tech-badge { padding: 10px 15px; background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(99, 102, 241, 0.2)); border: 1px solid rgba(59, 130, 246, 0.5); border-radius: 8px; text-align: center; font-weight: 500; }
-        .features-list { list-style: none; padding: 0; }
-        .features-list li { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .features-list li:last-child { border-bottom: none; }
-        .features-list li:before { content: "✓ "; color: #10b981; font-weight: bold; margin-right: 10px; }
-        .back-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; margin-bottom: 30px; transition: all 0.3s ease; }
-        .back-btn:hover { background: rgba(59, 130, 246, 0.3); transform: translateX(-5px); }
-        .project-links { display: flex; gap: 15px; margin-top: 20px; }
-        .project-links a { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 6px; text-decoration: none; transition: all 0.3s ease; }
-        .project-links a:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3); }
-        .modules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin-top: 15px; }
-        .module-card { padding: 15px 18px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.25); border-radius: 10px; }
-        .module-card strong { display: block; margin-bottom: 4px; color: #a5b4fc; }
-        .module-card p { margin: 0; font-size: 0.9em; opacity: 0.85; }
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; margin: 20px 0; }
-        .stat-card { padding: 18px 12px; background: linear-gradient(135deg, rgba(102,126,234,0.15), rgba(118,75,162,0.15)); border: 1px solid rgba(102,126,234,0.3); border-radius: 10px; text-align: center; }
-        .stat-card .stat-num { display: block; font-size: 2em; font-weight: 800; color: #818cf8; line-height: 1; }
-        .stat-card .stat-label { display: block; font-size: 0.8em; opacity: 0.75; margin-top: 6px; }
-        .integration-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
-        .integration-card { padding: 15px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.25); border-radius: 10px; }
-        .integration-card strong { display: block; margin-bottom: 4px; color: #34d399; }
-        .integration-card p { margin: 0; font-size: 0.88em; opacity: 0.85; }
-    </style>
 </head>
+
 <body>
     <nav class="navbar" id="navbar">
         <div class="container">
@@ -63,19 +29,25 @@
         </a>
 
         <div class="project-hero">
-            <h1>BookingApp</h1>
-            <p style="font-size: 1.2em; color: #a0aec0;">Sistema de reservas con WhatsApp & Google Meet</p>
+            <h1>📅 BookingApp</h1>
+            <p class="project-tagline">Del anuncio de Meta a la reunión en Google Meet, con recordatorios automáticos por WhatsApp</p>
+            <div class="project-badges">
+                <span class="status-badge"><i class="fab fa-whatsapp"></i> WhatsApp / Twilio</span>
+                <span class="status-badge"><i class="fas fa-video"></i> Google Meet</span>
+                <span class="status-badge"><i class="fab fa-meta"></i> Meta Lead Ads</span>
+            </div>
         </div>
 
         <div class="project-content">
-
-            <!-- Cifras Clave -->
+            <!-- Escala del Proyecto -->
             <div class="project-section">
                 <h2><i class="fas fa-chart-line"></i> Escala del Proyecto</h2>
                 <div class="stats-grid">
-                    <div class="stat-card"><span class="stat-num">6</span><span class="stat-label">Tablas BD</span></div>
-                    <div class="stat-card"><span class="stat-num">3</span><span class="stat-label">APIs Externas</span></div>
-                    <div class="stat-card"><span class="stat-num">5</span><span class="stat-label">Módulos</span></div>
+                    <div class="stat-card"><span class="stat-num">7</span><span class="stat-label">Tablas</span></div>
+                    <div class="stat-card"><span class="stat-num">3</span><span class="stat-label">Integraciones</span></div>
+                    <div class="stat-card"><span class="stat-num">2</span><span class="stat-label">Recordatorios</span></div>
+                    <div class="stat-card"><span class="stat-num">21</span><span class="stat-label">Archivos</span></div>
+                    <div class="stat-card"><span class="stat-num">5.1k</span><span class="stat-label">Líneas</span></div>
                 </div>
             </div>
 
@@ -83,114 +55,299 @@
             <div class="project-section">
                 <h2><i class="fas fa-info-circle"></i> Descripción General</h2>
                 <p>
-                    <strong>BookingApp</strong> es un sistema completo de reserva de citas online integrado con
-                    Meta Lead Ads, WhatsApp (Twilio) y Google Meet. Pensado para negocios que captan clientes
-                    mediante publicidad en Facebook e Instagram.
+                    Un negocio que capta clientes con publicidad en Facebook e Instagram tiene un
+                    problema de continuidad: el anuncio genera el interés, pero entre el clic y la
+                    reunión efectiva se pierde la mitad de los leads. Alguien tiene que llamar, cuadrar
+                    agenda, crear la videollamada y recordarla.
                 </p>
                 <p>
-                    Cuando un usuario hace clic en un anuncio de Meta, llega a una landing page donde puede rellenar
-                    sus datos, elegir un día en un calendario interactivo, seleccionar la hora y confirmar la reserva.
-                    En ese momento se crea automáticamente una sala de Google Meet, se envía confirmación por WhatsApp
-                    y se registra todo en la base de datos. El sistema también envía recordatorios automáticos 24h y 2h
-                    antes de la reunión.
+                    BookingApp automatiza toda esa cadena. El usuario llega desde el anuncio a una
+                    landing de cuatro pasos, rellena sus datos, ve el calendario con la
+                    <strong>disponibilidad real</strong>, elige hora y confirma. En ese instante el
+                    sistema crea la sala de <strong>Google Meet</strong>, envía la confirmación por
+                    <strong>WhatsApp</strong> y registra todo.
+                </p>
+                <p>
+                    Después vienen los recordatorios: uno <strong>24 horas antes</strong> y otro
+                    <strong>2 horas antes</strong>, este último con el enlace directo a la videollamada.
+                    Un cron se encarga de enviarlos. El panel de administración cierra el círculo con
+                    KPIs, gestión de citas, configuración de horario semanal, días bloqueados y el log
+                    de todos los mensajes enviados.
                 </p>
             </div>
 
-            <!-- Tecnologías -->
+            <!-- Tecnologías Utilizadas -->
             <div class="project-section">
                 <h2><i class="fas fa-tools"></i> Tecnologías Utilizadas</h2>
                 <div class="tech-grid">
                     <div class="tech-badge"><i class="fab fa-php"></i><br>PHP 8.1+</div>
                     <div class="tech-badge"><i class="fas fa-database"></i><br>MySQL 8</div>
-                    <div class="tech-badge"><i class="fab fa-js"></i><br>JavaScript</div>
-                    <div class="tech-badge"><i class="fab fa-whatsapp"></i><br>Twilio API</div>
-                    <div class="tech-badge"><i class="fab fa-google"></i><br>Google Meet API</div>
-                    <div class="tech-badge"><i class="fab fa-facebook"></i><br>Meta Lead Ads</div>
+                    <div class="tech-badge"><i class="fas fa-plug"></i><br>PDO Singleton</div>
+                    <div class="tech-badge"><i class="fab fa-whatsapp"></i><br>Twilio WhatsApp</div>
+                    <div class="tech-badge"><i class="fab fa-google"></i><br>Google Calendar API</div>
+                    <div class="tech-badge"><i class="fab fa-meta"></i><br>Meta Webhook</div>
+                    <div class="tech-badge"><i class="fas fa-clock"></i><br>Cron</div>
+                    <div class="tech-badge"><i class="fab fa-js"></i><br>AJAX</div>
                 </div>
             </div>
 
-            <!-- Integraciones -->
+            <!-- Módulos Principales -->
+            <div class="project-section">
+                <h2><i class="fas fa-th-large"></i> Módulos Principales</h2>
+                <div class="modules-grid">
+                    <div class="module-card">
+                        <strong>🌐 Landing pública</strong>
+                        <p>Formulario de cuatro pasos con barra de progreso, calendario con
+                        disponibilidad en tiempo real por AJAX y diseño mobile-first sin dependencias
+                        externas.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📣 Webhook de Meta Lead Ads</strong>
+                        <p>Recibe los leads en tiempo real verificando la firma HMAC-SHA256, y asocia
+                        automáticamente los datos del lead a la cita.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📹 Google Meet</strong>
+                        <p>Crea la sala de reunión al confirmar la cita mediante la API de Google
+                        Calendar, e incluye el enlace en los recordatorios.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🔔 Notificaciones WhatsApp</strong>
+                        <p>Confirmación inmediata, recordatorio a 24 horas y recordatorio a 2 horas con
+                        el enlace de Meet. Todo queda registrado.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📊 Dashboard</strong>
+                        <p>KPIs en tiempo real: citas de hoy, de la semana, confirmadas y leads
+                        recibidos.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🗂️ Gestión de citas</strong>
+                        <p>Listado con filtros por estado, fecha y búsqueda, con acciones de cancelar y
+                        completar desde la propia tabla.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🕐 Disponibilidad</strong>
+                        <p>Horario semanal configurable día por día, con interruptores y duración de los
+                        tramos.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🚫 Días bloqueados</strong>
+                        <p>Excepciones puntuales para festivos y vacaciones, o para habilitar días
+                        extra.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📜 Log de notificaciones</strong>
+                        <p>Historial completo de los mensajes de WhatsApp enviados.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>⏰ Cron de recordatorios</strong>
+                        <p><code>cron/reminders.php</code> recorre las citas próximas y dispara los
+                        avisos correspondientes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Arquitectura -->
+            <div class="project-section">
+                <h2><i class="fas fa-sitemap"></i> Arquitectura</h2>
+                <p>
+                    Aplicación PHP plana con separación clara entre la parte pública, el panel privado,
+                    las integraciones y el cron. La conexión a base de datos se resuelve con un
+                    <strong>Singleton PDO</strong> en <code>db.php</code>, y cada integración externa
+                    está encapsulada en su propio fichero de <code>includes/</code> para que se pueda
+                    sustituir sin tocar el flujo de reserva.
+                </p>
+                <pre class="code-tree"><span class="t-dir">booking-app/</span>
+├── <span class="t-file">index.php</span>              <span class="t-note"># landing con calendario</span>
+├── <span class="t-file">get_slots.php</span>          <span class="t-note"># AJAX: tramos disponibles</span>
+├── <span class="t-file">process_booking.php</span>    <span class="t-note"># confirmación de la reserva</span>
+├── <span class="t-file">confirm.php</span>
+├── <span class="t-file">webhook.php</span>            <span class="t-note"># receptor de Meta Lead Ads</span>
+├── <span class="t-file">db.php</span>                 <span class="t-note"># conexión PDO Singleton</span>
+├── <span class="t-dir">includes/</span>
+│   ├── <span class="t-file">whatsapp.php</span>       <span class="t-note"># Twilio WhatsApp API</span>
+│   ├── <span class="t-file">google_meet.php</span>    <span class="t-note"># Google Calendar API</span>
+│   ├── <span class="t-file">helpers.php</span>        <span class="t-note"># CSRF, formateo</span>
+│   └── <span class="t-file">auth_check.php</span>     <span class="t-note"># middleware del panel</span>
+├── <span class="t-dir">admin/</span>                  <span class="t-note"># login, dashboard, citas, disponibilidad</span>
+├── <span class="t-dir">cron/reminders.php</span>      <span class="t-note"># recordatorios automáticos</span>
+└── <span class="t-dir">sql/schema.sql</span></pre>
+            </div>
+
+            <!-- Base de Datos -->
+            <div class="project-section">
+                <h2><i class="fas fa-database"></i> Base de Datos</h2>
+                <p>
+                    <strong>7 tablas</strong>. La separación entre horario recurrente y excepciones
+                    puntuales es lo que permite configurar "los martes de 10 a 14" y a la vez bloquear
+                    un martes concreto sin romper la regla general.
+                </p>
+                <div class="table-scroll">
+                    <table class="modules-table">
+                        <thead>
+                            <tr><th>Tabla</th><th>Contenido</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>admin_users</strong></td><td>Usuarios del panel de administración</td></tr>
+                            <tr><td><strong>leads</strong></td><td>Leads recibidos desde Meta y Facebook Ads</td></tr>
+                            <tr><td><strong>appointments</strong></td><td>Citas agendadas con todos sus datos y su enlace de Meet</td></tr>
+                            <tr><td><strong>availability_schedule</strong></td><td>Horario recurrente por día de la semana</td></tr>
+                            <tr><td><strong>availability_exceptions</strong></td><td>Días bloqueados o habilitados de forma puntual</td></tr>
+                            <tr><td><strong>notification_logs</strong></td><td>Registro de todos los mensajes de WhatsApp enviados</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Integraciones Externas -->
             <div class="project-section">
                 <h2><i class="fas fa-plug"></i> Integraciones Externas</h2>
                 <div class="integration-grid">
                     <div class="integration-card">
-                        <strong><i class="fab fa-whatsapp"></i> Twilio WhatsApp</strong>
-                        <p>Confirmación inmediata + recordatorios automáticos 24h y 2h antes de la cita.</p>
+                        <strong>Twilio WhatsApp API</strong>
+                        <p>Envío de la confirmación inmediata y de los dos recordatorios. Cada mensaje
+                        queda registrado en <code>notification_logs</code>.</p>
                     </div>
                     <div class="integration-card">
-                        <strong><i class="fas fa-video"></i> Google Calendar API</strong>
-                        <p>Creación automática de salas Google Meet al confirmar reserva.</p>
+                        <strong>Google Calendar API</strong>
+                        <p>Creación automática de la sala de Google Meet en el momento de confirmar la
+                        cita.</p>
                     </div>
                     <div class="integration-card">
-                        <strong><i class="fab fa-facebook"></i> Meta Lead Ads</strong>
-                        <p>Webhook para recibir leads en tiempo real con verificación HMAC-SHA256.</p>
+                        <strong>Meta for Developers</strong>
+                        <p>Webhook que recibe los leads de Facebook e Instagram Ads en tiempo real, con
+                        verificación de firma.</p>
+                    </div>
+                    <div class="integration-card">
+                        <strong>Cron del sistema</strong>
+                        <p>Ejecución programada de <code>cron/reminders.php</code>, protegida contra
+                        acceso web sin clave secreta.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Módulos -->
+            <!-- Del Anuncio a la Reunión -->
             <div class="project-section">
-                <h2><i class="fas fa-th-large"></i> Arquitectura y Módulos</h2>
-                <div class="modules-grid">
-                    <div class="module-card">
-                        <strong>⚡ Landing Pública Multi-step</strong>
-                        <p>Formulario de 4 pasos con barra de progreso, calendario con disponibilidad en tiempo real vía AJAX.</p>
-                    </div>
-                    <div class="module-card">
-                        <strong>⚡ Panel de Administración</strong>
-                        <p>Dashboard con KPIs, gestión de citas con filtros, disponibilidad por día con toggles.</p>
-                    </div>
-                    <div class="module-card">
-                        <strong>⚡ Notificaciones WhatsApp</strong>
-                        <p>Confirmación + 2 recordatorios automáticos con link de Meet. Log completo de mensajes.</p>
-                    </div>
-                    <div class="module-card">
-                        <strong>⚡ Cron de Recordatorios</strong>
-                        <p>Job programado para envío automático de recordatorios protegido contra acceso web.</p>
-                    </div>
-                    <div class="module-card">
-                        <strong>⚡ Gestión de Disponibilidad</strong>
-                        <p>Horario semanal configurable, días bloqueados (festivos/vacaciones) y slots dinámicos.</p>
-                    </div>
-                    <div class="module-card">
-                        <strong>⚡ Seguridad Avanzada</strong>
-                        <p>CSRF tokens, prepared statements, HMAC webhook, bcrypt passwords, anti brute-force.</p>
-                    </div>
-                </div>
+                <h2><i class="fas fa-route"></i> Del Anuncio a la Reunión</h2>
+                <ol class="workflow-steps">
+                    <li><strong>Clic en el anuncio:</strong> el usuario llega a la landing con su
+                    <code>lead_id</code> de Meta en la URL.</li>
+                    <li><strong>Datos personales:</strong> primer paso del formulario: nombre, email y
+                    teléfono.</li>
+                    <li><strong>Elección de día:</strong> el calendario muestra los días con
+                    disponibilidad real.</li>
+                    <li><strong>Elección de hora:</strong> una llamada AJAX a <code>get_slots.php</code>
+                    devuelve los tramos libres de ese día.</li>
+                    <li><strong>Confirmación:</strong> al confirmar se crea la sala de Google Meet, se
+                    envía la confirmación por WhatsApp y se registra todo en base de datos.</li>
+                    <li><strong>Recordatorio a 24 horas:</strong> el cron detecta la cita del día
+                    siguiente y envía el aviso.</li>
+                    <li><strong>Recordatorio a 2 horas:</strong> segundo aviso, esta vez con el enlace
+                    directo a Google Meet.</li>
+                    <li><strong>Gestión:</strong> desde el panel se marca la cita como completada o
+                    cancelada.</li>
+                </ol>
+            </div>
+
+            <!-- Seguridad Implementada -->
+            <div class="project-section">
+                <h2><i class="fas fa-lock"></i> Seguridad Implementada</h2>
+                <ul class="features-list">
+                    <li>Verificación <strong>HMAC-SHA256</strong> de la firma en el webhook de Meta: sin
+                    firma válida no se procesa nada.</li>
+                    <li>Token <strong>CSRF</strong> de sesión en todos los formularios.</li>
+                    <li><strong>Prepared statements</strong> en todas las consultas.</li>
+                    <li><code>session_regenerate_id()</code> en el login para evitar fijación de
+                    sesión.</li>
+                    <li>Contraseñas con <code>password_hash()</code> y bcrypt.</li>
+                    <li>Retardo de 1 segundo en los intentos de login fallidos como freno al ataque por
+                    fuerza bruta.</li>
+                    <li>El <strong>cron está protegido</strong> contra ejecución por web sin clave
+                    secreta.</li>
+                    <li><code>config.php</code> y <code>google_tokens.json</code> excluidos del
+                    repositorio.</li>
+                </ul>
+            </div>
+
+            <!-- Retos Técnicos y Decisiones de Diseño -->
+            <div class="project-section">
+                <h2><i class="fas fa-lightbulb"></i> Retos Técnicos y Decisiones de Diseño</h2>
+                <h3>Disponibilidad real, no un calendario decorativo</h3>
+                <p>
+                    Mostrar todos los tramos y descubrir al confirmar que ya estaba ocupado es la peor
+                    experiencia posible. El calendario consulta la disponibilidad por AJAX contra
+                    <code>get_slots.php</code>, que cruza el horario recurrente con las excepciones y
+                    con las citas ya existentes. Lo que se muestra es lo que hay.
+                </p>
+                <h3>Horario recurrente frente a excepciones</h3>
+                <p>
+                    Modelar la agenda como una lista de huecos concretos obliga a generarlos con meses
+                    de antelación. Separar <code>availability_schedule</code> — la regla semanal — de
+                    <code>availability_exceptions</code> — el caso puntual — permite decir "los martes
+                    de 10 a 14" una sola vez y luego bloquear un martes de agosto sin tocar la regla.
+                </p>
+                <h3>Tres integraciones que pueden fallar en el peor momento</h3>
+                <p>
+                    En la confirmación conviven tres servicios externos. Si Google falla, la cita no
+                    debe perderse; si Twilio falla, la reserva sigue siendo válida. Cada integración
+                    está aislada en su fichero, y el log de notificaciones permite ver exactamente qué
+                    se envió y qué no, en lugar de suponerlo.
+                </p>
+                <h3>Verificar el webhook antes de confiar en él</h3>
+                <p>
+                    Un endpoint público que crea registros es una invitación. La verificación
+                    HMAC-SHA256 de la firma de Meta es lo que separa recibir leads de recibir basura:
+                    sin firma válida, la petición se descarta antes de tocar la base de datos.
+                </p>
             </div>
 
             <!-- Mi Rol -->
             <div class="project-section">
                 <h2><i class="fas fa-user-tie"></i> Mi Rol</h2>
-                <p><strong>Desarrollador Full Stack — Autor Único</strong></p>
                 <p>
-                    Diseñé e implementé todo el sistema: desde la landing multi-step hasta las integraciones
-                    con Twilio, Google Calendar y Meta Webhooks. Sin frameworks, sin dependencias externas.
-                    PHP puro + MySQL con foco en seguridad y rendimiento.
+                    <strong>Desarrollador full stack — autor único.</strong>
+                </p>
+                <p>
+                    Modelo de datos, landing multipaso, motor de disponibilidad, las tres integraciones
+                    externas, el cron de recordatorios, el panel de administración y la documentación de
+                    configuración en <code>SETUP.md</code>.
                 </p>
             </div>
 
-            <!-- Estado -->
+            <!-- Estado del Proyecto -->
             <div class="project-section">
-                <h2><i class="fas fa-info"></i> Estado del Proyecto</h2>
-                <p><strong>Estado:</strong> <span style="color: #10b981; font-weight: bold;">✅ Production Ready</span></p>
+                <h2><i class="fas fa-flag-checkered"></i> Estado del Proyecto</h2>
+                <p>
+                    Marcado como <strong>listo para producción</strong> en el repositorio. Requiere PHP
+                    8.1+, MySQL 8, acceso a cron y cuentas de Twilio, Google Cloud y Meta for
+                    Developers. Licencia MIT.
+                </p>
             </div>
 
-            <!-- Código -->
+            <!-- Código y Enlaces -->
             <div class="project-section">
-                <h2><i class="fas fa-link"></i> Código Fuente</h2>
+                <h2><i class="fas fa-link"></i> Código y Enlaces</h2>
                 <div class="project-links">
-                    <a href="https://github.com/Valentindg2506/BookingApp" target="_blank">
-                        <i class="fab fa-github"></i> Ver Código en GitHub
+                    <a href="https://github.com/Valentindg2506/BookingApp" target="_blank" rel="noopener">
+                        <i class="fab fa-github"></i> Ver código en GitHub
                     </a>
                 </div>
+                <p style="margin-top: 16px;">
+                    La configuración detallada de las tres integraciones está en <code>SETUP.md</code>.
+                    Las credenciales viven en <code>config.php</code>, excluido del control de
+                    versiones.
+                </p>
             </div>
+
         </div>
     </div>
 
     <button id="scrollTop" class="scroll-top" aria-label="Volver arriba">
         <i class="fas fa-arrow-up"></i>
     </button>
+
     <script src="../js/main.js"></script>
 </body>
+
 </html>

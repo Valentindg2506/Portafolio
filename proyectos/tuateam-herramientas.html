@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TuaTeam — herramientas internas desarrolladas en prácticas: extensión de Chrome, verificador de emails y scrapers">
+    <title>TuaTeam — Herramientas internas - Valentín De Gennaro</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/proyecto.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="../index.html#home">&lt;VDG /&gt;</a>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="project-detail">
+        <a href="../index.html#projects" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Volver a Proyectos
+        </a>
+
+        <div class="project-hero">
+            <h1>🧑‍💻 TuaTeam — Herramientas internas</h1>
+            <p class="project-tagline">Utilidades creadas en las prácticas de empresa: transcripción con extensión de Chrome, verificación de emails y scrapers</p>
+            <div class="project-badges">
+                <span class="status-badge"><i class="fas fa-briefcase"></i> Desarrollado en empresa</span>
+                <span class="status-badge"><i class="fab fa-chrome"></i> Extensión de Chrome</span>
+                <span class="status-badge"><i class="fas fa-terminal"></i> 4 herramientas</span>
+            </div>
+        </div>
+
+        <div class="project-content">
+            <!-- Escala del Proyecto -->
+            <div class="project-section">
+                <h2><i class="fas fa-chart-line"></i> Escala del Proyecto</h2>
+                <div class="stats-grid">
+                    <div class="stat-card"><span class="stat-num">4</span><span class="stat-label">Herramientas</span></div>
+                    <div class="stat-card"><span class="stat-num">3.1k</span><span class="stat-label">Líneas</span></div>
+                    <div class="stat-card"><span class="stat-num">2026</span><span class="stat-label">Prácticas</span></div>
+                </div>
+            </div>
+
+            <!-- Descripción General -->
+            <div class="project-section">
+                <h2><i class="fas fa-info-circle"></i> Descripción General</h2>
+                <p>
+                    Además de <a href="soft-scrappeo.html">Soft-Scrappeo</a>, durante las prácticas de
+                    empresa desarrollé cuatro utilidades más pequeñas, cada una resolviendo un cuello de
+                    botella concreto del equipo. Ninguna es espectacular por separado; juntas son lo que
+                    realmente se hace en un puesto de desarrollo: resolver el problema que tiene alguien
+                    delante.
+                </p>
+                <p>
+                    La más completa es la de <strong>transcripción</strong>, que combina un servicio en
+                    Python con una <strong>extensión de Chrome propia</strong> para capturar el
+                    contenido de una reunión desde el propio navegador. Las otras tres son un
+                    verificador de emails, un scraper configurable por YAML y un enriquecedor de datos
+                    sobre Excel.
+                </p>
+                <p>
+                    Las agrupo en una sola ficha porque comparten origen y contexto, pero son proyectos
+                    independientes con su propio README dentro del repositorio.
+                </p>
+            </div>
+
+            <!-- Tecnologías Utilizadas -->
+            <div class="project-section">
+                <h2><i class="fas fa-tools"></i> Tecnologías Utilizadas</h2>
+                <div class="tech-grid">
+                    <div class="tech-badge"><i class="fab fa-python"></i><br>Python</div>
+                    <div class="tech-badge"><i class="fas fa-fire"></i><br>Flask</div>
+                    <div class="tech-badge"><i class="fab fa-chrome"></i><br>Chrome Extension</div>
+                    <div class="tech-badge"><i class="fab fa-js"></i><br>JavaScript</div>
+                    <div class="tech-badge"><i class="fas fa-file-code"></i><br>YAML</div>
+                    <div class="tech-badge"><i class="fas fa-file-excel"></i><br>Excel</div>
+                    <div class="tech-badge"><i class="fas fa-envelope"></i><br>Verificación SMTP</div>
+                </div>
+            </div>
+
+            <!-- Las Cuatro Herramientas -->
+            <div class="project-section">
+                <h2><i class="fas fa-th-large"></i> Las Cuatro Herramientas</h2>
+                <div class="modules-grid">
+                    <div class="module-card">
+                        <strong>🎙️ Transcripción</strong>
+                        <p>Servicio Python con <code>main.py</code>, <code>api.py</code> y
+                        <code>app.py</code>, más una extensión de Chrome propia con
+                        <code>manifest.json</code>, <code>background.js</code>, <code>content.js</code>
+                        y <code>page_probe.js</code> para capturar el contenido de una reunión desde el
+                        navegador.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>✉️ Verificación de emails</strong>
+                        <p>Aplicación Flask (<code>app.py</code> con su plantilla) que valida
+                        direcciones de correo antes de lanzar una campaña, evitando rebotes que dañan la
+                        reputación del dominio.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🕷️ Scrapping</strong>
+                        <p>Scraper con la configuración externalizada en
+                        <code>config.example.yaml</code>: cambiar el objetivo es editar un YAML, no el
+                        código.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📊 Comp-scrappeo</strong>
+                        <p><code>main.py</code> y <code>enriquecer.py</code> que trabajan sobre un Excel
+                        de empresas de Valencia, separando la captura del enriquecimiento posterior.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Arquitectura -->
+            <div class="project-section">
+                <h2><i class="fas fa-sitemap"></i> Arquitectura</h2>
+                <p>
+                    Cada herramienta es autónoma, con su propio README y sus dependencias. El patrón que
+                    se repite en las tres relacionadas con datos es la <strong>separación entre captura
+                    y enriquecimiento</strong>: un proceso obtiene lo mínimo fiable y otro completa
+                    después. Eso permite reintentar el enriquecimiento sin volver a capturar.
+                </p>
+                <p>
+                    La extensión de Chrome sigue la estructura estándar de Manifest: un <em>service
+                    worker</em> de fondo, un script de contenido inyectado en la página y una sonda que
+                    detecta si la página es la esperada.
+                </p>
+                <pre class="code-tree"><span class="t-dir">TuaTeam/</span>
+├── <span class="t-dir">Transcripcion/</span>
+│   ├── <span class="t-dir">src/</span>                 <span class="t-note"># main.py, api.py, app.py</span>
+│   └── <span class="t-dir">chrome_extension/</span>
+│       ├── <span class="t-file">manifest.json</span>
+│       ├── <span class="t-file">background.js</span>   <span class="t-note"># service worker</span>
+│       ├── <span class="t-file">content.js</span>      <span class="t-note"># script inyectado</span>
+│       └── <span class="t-file">page_probe.js</span>   <span class="t-note"># detección de página</span>
+├── <span class="t-dir">Verif-email/</span>             <span class="t-note"># app.py + templates/</span>
+├── <span class="t-dir">Scrapping/</span>               <span class="t-note"># src/main.py + config.example.yaml</span>
+├── <span class="t-dir">Comp-scrappeo/</span>           <span class="t-note"># main.py, enriquecer.py, Valencia.xlsx</span>
+└── <span class="t-dir">Soft-Scrappeo/</span>           <span class="t-note"># el CRM, con ficha propia</span></pre>
+            </div>
+
+            <!-- Qué Resuelve Cada Una -->
+            <div class="project-section">
+                <h2><i class="fas fa-circle-check"></i> Qué Resuelve Cada Una</h2>
+                <ul class="features-list">
+                    <li><strong>Transcripción</strong>: dejar de tomar notas a mano en las reuniones,
+                    capturando el contenido desde el propio navegador.</li>
+                    <li><strong>Verificación de emails</strong>: no enviar una campaña a direcciones
+                    inválidas, que generan rebotes y penalizan la reputación del remitente.</li>
+                    <li><strong>Scrapping</strong>: obtener listados de una fuente configurable sin
+                    tocar código para cambiar de objetivo.</li>
+                    <li><strong>Comp-scrappeo</strong>: partir de un Excel de empresas y completarlo con
+                    los datos que faltan.</li>
+                </ul>
+            </div>
+
+            <!-- Retos Técnicos y Decisiones de Diseño -->
+            <div class="project-section">
+                <h2><i class="fas fa-lightbulb"></i> Retos Técnicos y Decisiones de Diseño</h2>
+                <h3>Una extensión de Chrome es la única vía para ciertas cosas</h3>
+                <p>
+                    Capturar el contenido de una reunión que ocurre dentro de una aplicación web no se
+                    puede hacer desde fuera del navegador. Eso obligó a aprender el modelo de una
+                    extensión: el <em>service worker</em> de fondo, el script de contenido inyectado en
+                    la página y la comunicación por mensajes entre ambos, que es un modelo de ejecución
+                    distinto a cualquier cosa que hubiera escrito antes.
+                </p>
+                <h3>Configuración en YAML en lugar de constantes en el código</h3>
+                <p>
+                    El scraper apuntaba inicialmente a un objetivo fijo escrito en el propio fichero.
+                    Sacarlo a <code>config.yaml</code> permitió que otra persona del equipo cambiara el
+                    objetivo sin tocar Python, que era el requisito real: la herramienta no la usaba
+                    solo yo.
+                </p>
+                <h3>Verificar emails sin acabar en una lista negra</h3>
+                <p>
+                    Comprobar si una dirección existe implica hablar con el servidor de correo, y
+                    hacerlo de forma agresiva es la forma más rápida de que bloqueen tu IP. La
+                    herramienta prioriza no quemar el dominio de la empresa sobre verificar rápido.
+                </p>
+            </div>
+
+            <!-- Mi Rol -->
+            <div class="project-section">
+                <h2><i class="fas fa-user-tie"></i> Mi Rol</h2>
+                <p>
+                    <strong>Desarrollador en prácticas — autor de las cuatro herramientas.</strong>
+                </p>
+                <p>
+                    Cada una nació de una necesidad planteada por el equipo. Recogí el requisito, elegí
+                    el enfoque y las desarrollé y documenté con su propio README.
+                </p>
+            </div>
+
+            <!-- Estado del Proyecto -->
+            <div class="project-section">
+                <h2><i class="fas fa-flag-checkered"></i> Estado del Proyecto</h2>
+                <p>
+                    Herramientas entregadas y utilizadas por el equipo durante las prácticas (abril-mayo
+                    de 2026). Los datos reales de empresas y las credenciales no se incluyen en el
+                    repositorio.
+                </p>
+            </div>
+
+            <!-- Código y Enlaces -->
+            <div class="project-section">
+                <h2><i class="fas fa-link"></i> Código y Enlaces</h2>
+                <div class="project-links">
+                    <a href="https://github.com/Valentindg2506/TuaTeam" target="_blank" rel="noopener">
+                        <i class="fab fa-github"></i> Ver código en GitHub
+                    </a>
+                    <a href="soft-scrappeo.html" target="_blank" rel="noopener">
+                        <i class="fas fa-arrow-right"></i> Ver Soft-Scrappeo, el CRM
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <button id="scrollTop" class="scroll-top" aria-label="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

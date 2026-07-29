@@ -4,310 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="RoomManager - Plataforma de gestión de alquileres por habitaciones">
+    <meta name="description" content="RoomManager — plataforma de gestión de alquiler por habitaciones con Stripe y firma digital">
     <title>RoomManager - Valentín De Gennaro</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/proyecto.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script>
-        // Cargar tema inmediatamente para evitar flash de color
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        if (savedTheme === 'dark') {
-            document.documentElement.classList.add('dark');
-        }
-    </script>
-    <style>
-        .project-detail {
-            min-height: 100vh;
-            padding: 80px 20px 40px;
-        }
-
-        .project-hero {
-            max-width: 1000px;
-            margin: 0 auto 50px;
-            text-align: center;
-        }
-
-        .project-hero h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .project-content {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .project-section {
-            margin-bottom: 40px;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .project-section h2 {
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            color: #3b82f6;
-        }
-
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .tech-badge {
-            padding: 10px 15px;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(99, 102, 241, 0.2));
-            border: 1px solid rgba(59, 130, 246, 0.5);
-            border-radius: 8px;
-            text-align: center;
-            font-weight: 500;
-        }
-
-        .features-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .features-list li {
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .features-list li:last-child {
-            border-bottom: none;
-        }
-
-        .features-list li:before {
-            content: "✓ ";
-            color: #10b981;
-            font-weight: bold;
-            margin-right: 10px;
-        }
-
-        .back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
-            background: rgba(59, 130, 246, 0.2);
-            border: 1px solid rgba(59, 130, 246, 0.5);
-            color: #3b82f6;
-            border-radius: 6px;
-            text-decoration: none;
-            margin-bottom: 30px;
-            transition: all 0.3s ease;
-        }
-
-        .back-btn:hover {
-            background: rgba(59, 130, 246, 0.3);
-            transform: translateX(-5px);
-        }
-
-        .project-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-
-        .project-links a {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: 6px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .project-links a:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
-        }
-
-        .modules-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-        }
-
-        .modules-table th,
-        .modules-table td {
-            padding: 10px 14px;
-            text-align: left;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .modules-table th {
-            color: #3b82f6;
-            font-weight: 600;
-            border-bottom: 1px solid rgba(59, 130, 246, 0.3);
-        }
-
-        .modules-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .modules-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .module-card {
-            padding: 15px 18px;
-            background: rgba(99, 102, 241, 0.08);
-            border: 1px solid rgba(99, 102, 241, 0.25);
-            border-radius: 10px;
-        }
-
-        .module-card strong {
-            display: block;
-            margin-bottom: 4px;
-            color: #a5b4fc;
-        }
-
-        .module-card p {
-            margin: 0;
-            font-size: 0.9em;
-            opacity: 0.85;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
-        }
-
-        .stat-card {
-            padding: 18px 12px;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(118, 75, 162, 0.15));
-            border: 1px solid rgba(102, 126, 234, 0.3);
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        .stat-card .stat-num {
-            display: block;
-            font-size: 2em;
-            font-weight: 800;
-            color: #818cf8;
-            line-height: 1;
-        }
-
-        .stat-card .stat-label {
-            display: block;
-            font-size: 0.8em;
-            opacity: 0.75;
-            margin-top: 6px;
-        }
-
-        .integration-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .integration-card {
-            padding: 15px;
-            background: rgba(16, 185, 129, 0.08);
-            border: 1px solid rgba(16, 185, 129, 0.25);
-            border-radius: 10px;
-        }
-
-        .integration-card strong {
-            display: block;
-            margin-bottom: 4px;
-            color: #34d399;
-        }
-
-        .integration-card p {
-            margin: 0;
-            font-size: 0.88em;
-            opacity: 0.85;
-        }
-
-        .roles-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-        }
-
-        .roles-table th,
-        .roles-table td {
-            padding: 10px 14px;
-            text-align: left;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .roles-table th {
-            color: #3b82f6;
-            font-weight: 600;
-            border-bottom: 1px solid rgba(59, 130, 246, 0.3);
-        }
-
-        .roles-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .role-level {
-            display: inline-block;
-            padding: 2px 8px;
-            background: rgba(99, 102, 241, 0.2);
-            border-radius: 12px;
-            font-size: 13px;
-            font-weight: bold;
-            color: #818cf8;
-        }
-
-        .workflow-steps {
-            counter-reset: step-counter;
-            list-style: none;
-            padding: 0;
-        }
-
-        .workflow-steps li {
-            counter-increment: step-counter;
-            padding: 12px 0 12px 50px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            position: relative;
-        }
-
-        .workflow-steps li:before {
-            content: counter(step-counter);
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 32px;
-            height: 32px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 0.85em;
-            color: white;
-        }
-
-        .workflow-steps li:last-child {
-            border-bottom: none;
-        }
-    </style>
 </head>
 
 <body>
@@ -328,22 +29,25 @@
         </a>
 
         <div class="project-hero">
-            <h1>🏠 RoomManager</h1>
-            <p style="font-size: 1.2em; color: #a0aec0;">Plataforma profesional para la gestión de alquileres por
-                habitaciones (coliving / rent to rent)</p>
+            <h1>🔑 RoomManager</h1>
+            <p class="project-tagline">Gestión integral de alquiler por habitaciones: contratos, caja, liquidaciones a propietarios y firma digital</p>
+            <div class="project-badges">
+                <span class="status-badge is-live"><i class="fas fa-circle-check"></i> En producción</span>
+                <span class="status-badge"><i class="fas fa-credit-card"></i> Suscripciones Stripe</span>
+                <span class="status-badge"><i class="fas fa-signature"></i> Firma digital</span>
+            </div>
         </div>
 
         <div class="project-content">
-
-            <!-- Cifras Clave -->
+            <!-- Escala del Proyecto -->
             <div class="project-section">
                 <h2><i class="fas fa-chart-line"></i> Escala del Proyecto</h2>
                 <div class="stats-grid">
-                    <div class="stat-card"><span class="stat-num">6</span><span class="stat-label">Módulos</span></div>
-                    <div class="stat-card"><span class="stat-num">6</span><span class="stat-label">Tecnologías</span>
-                    </div>
-                    <div class="stat-card"><span class="stat-num">v1.0</span><span class="stat-label">Versión</span>
-                    </div>
+                    <div class="stat-card"><span class="stat-num">22</span><span class="stat-label">Tablas</span></div>
+                    <div class="stat-card"><span class="stat-num">33</span><span class="stat-label">Endpoints API</span></div>
+                    <div class="stat-card"><span class="stat-num">12</span><span class="stat-label">Migraciones</span></div>
+                    <div class="stat-card"><span class="stat-num">84</span><span class="stat-label">Archivos</span></div>
+                    <div class="stat-card"><span class="stat-num">28.8k</span><span class="stat-label">Líneas</span></div>
                 </div>
             </div>
 
@@ -351,91 +55,315 @@
             <div class="project-section">
                 <h2><i class="fas fa-info-circle"></i> Descripción General</h2>
                 <p>
-                    <strong>🏠 RoomManager</strong> plataforma profesional para la gestión de alquileres por
-                    habitaciones (coliving / rent to rent).
-                    Este proyecto ha sido desarrollado siguiendo estrictos estándares de calidad,
-                    con un enfoque claro en la escalabilidad y la experiencia de usuario.
+                    Alquilar un piso completo es sencillo. Alquilarlo <strong>por habitaciones</strong>
+                    — coliving o rent to rent — multiplica el trabajo administrativo: cada habitación
+                    tiene su inquilino, su contrato, su fianza, su fecha de cobro y su parte
+                    proporcional de los gastos comunes. Con cinco pisos y cuatro habitaciones cada uno,
+                    eso son veinte relaciones contractuales simultáneas.
                 </p>
                 <p>
-                    A través de su arquitectura modular, el sistema permite una gestión integral de todas las
-                    operaciones necesarias, garantizando un rendimiento óptimo y un mantenimiento simplificado.
+                    RoomManager gestiona ese modelo completo: pisos, habitaciones, inquilinos,
+                    alquileres, pagos, fianzas, gastos con comprobante, incidencias, tareas y
+                    calendario. Y cierra el círculo por arriba, con el módulo de <strong>caja</strong>:
+                    liquida al propietario del piso lo que le corresponde, genera el recibo y recoge su
+                    firma digital.
+                </p>
+                <p>
+                    Además publica una <strong>oferta pública</strong> de las habitaciones libres, de
+                    forma que los interesados envían consultas que entran directamente en el sistema. Es
+                    software de gestión con su propia puerta de entrada comercial.
                 </p>
             </div>
 
-            <!-- Tecnologías -->
+            <!-- Tecnologías Utilizadas -->
             <div class="project-section">
                 <h2><i class="fas fa-tools"></i> Tecnologías Utilizadas</h2>
                 <div class="tech-grid">
                     <div class="tech-badge"><i class="fab fa-php"></i><br>PHP</div>
                     <div class="tech-badge"><i class="fas fa-database"></i><br>MySQL / MariaDB</div>
-                    <div class="tech-badge"><i class="fab fa-js"></i><br>JavaScript</div>
                     <div class="tech-badge"><i class="fab fa-bootstrap"></i><br>Bootstrap 5</div>
-                    <div class="tech-badge"><i class="fas fa-stream"></i><br>RESTful API</div>
-                    <div class="tech-badge"><i class="fas fa-chart-bar"></i><br>Chart.js</div>
+                    <div class="tech-badge"><i class="fab fa-js"></i><br>JavaScript</div>
+                    <div class="tech-badge"><i class="fas fa-stream"></i><br>API REST</div>
+                    <div class="tech-badge"><i class="fab fa-stripe"></i><br>Stripe</div>
+                    <div class="tech-badge"><i class="fas fa-file-pdf"></i><br>PDF</div>
+                    <div class="tech-badge"><i class="fas fa-heart-pulse"></i><br>Health check</div>
                 </div>
             </div>
 
-            <!-- Módulos -->
+            <!-- Módulos del Sistema -->
             <div class="project-section">
-                <h2><i class="fas fa-th-large"></i> Arquitectura y Módulos</h2>
+                <h2><i class="fas fa-th-large"></i> Módulos del Sistema</h2>
                 <div class="modules-grid">
                     <div class="module-card">
-                        <strong>⚡ Inicialización:</strong>
-                        <p>Configuración del entorno y carga de parámetros iniciales.</p>
+                        <strong>🏢 Pisos y habitaciones</strong>
+                        <p>Inventario con servicios asociados a cada piso y a cada habitación por
+                        separado, y galería de fotos.</p>
                     </div>
                     <div class="module-card">
-                        <strong>⚡ Procesamiento:</strong>
-                        <p>Ejecución de la lógica de negocio principal y validación de datos.</p>
+                        <strong>👤 Inquilinos</strong>
+                        <p>Ficha del inquilino, avatar, documentación y cambio de habitación sin perder
+                        el histórico.</p>
                     </div>
                     <div class="module-card">
-                        <strong>⚡ Persistencia:</strong>
-                        <p>Almacenamiento seguro de la información generada.</p>
+                        <strong>📄 Alquileres</strong>
+                        <p>Contratos con generación en PDF, fechas, importes y estado.</p>
                     </div>
                     <div class="module-card">
-                        <strong>⚡ Visualización:</strong>
-                        <p>Renderizado de la interfaz y entrega de resultados al usuario final.</p>
+                        <strong>💵 Pagos</strong>
+                        <p>Registro de cobros por alquiler con su comprobante adjunto.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🛡️ Fianzas</strong>
+                        <p>Control de fianzas entregadas, retenidas y devueltas.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🧾 Gastos</strong>
+                        <p>Gastos del piso con subida de comprobante y reparto.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>💰 Caja y liquidaciones</strong>
+                        <p>Liquidación al propietario por periodo, con desglose de items, recibo
+                        imprimible y firma digital.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🔧 Incidencias</strong>
+                        <p>Parte de incidencias por habitación o piso con seguimiento.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>✅ Tareas y recordatorios</strong>
+                        <p>Trabajo pendiente y avisos por fecha.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📅 Calendario</strong>
+                        <p>Vista unificada de cobros, vencimientos y tareas.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🌐 Oferta pública</strong>
+                        <p>Landing con las habitaciones disponibles y formulario de consulta.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📨 Consultas</strong>
+                        <p>Bandeja de las consultas recibidas desde la oferta pública.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📊 Resúmenes</strong>
+                        <p>Cifras agregadas de ocupación e ingresos.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>👥 Administración</strong>
+                        <p>Gestión de usuarios y de suscripciones de la plataforma.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Flujo Completo -->
+            <!-- Arquitectura -->
+            <div class="project-section">
+                <h2><i class="fas fa-sitemap"></i> Arquitectura</h2>
+                <p>
+                    Arquitectura híbrida deliberada: las páginas son PHP renderizado en servidor — carga
+                    inmediata y funciona sin JavaScript — pero cada acción interactiva llama a un
+                    endpoint REST de <code>api/</code> que responde JSON. Son <strong>33
+                    endpoints</strong>, uno por recurso, más los webhooks de Stripe y un
+                    <code>health.php</code> para monitorización.
+                </p>
+                <pre class="code-tree"><span class="t-dir">RoomManager/</span>
+├── <span class="t-file">index.php</span> · <span class="t-file">landing.php</span> · <span class="t-file">oferta.php</span>   <span class="t-note"># privado y público</span>
+├── <span class="t-file">login.php</span> · <span class="t-file">register.php</span> · <span class="t-file">forgot_password.php</span> · <span class="t-file">reset_password.php</span>
+├── <span class="t-file">pisos.php</span> · <span class="t-file">habitaciones.php</span> · <span class="t-file">inquilinos.php</span> · <span class="t-file">alquileres.php</span>
+├── <span class="t-file">pagos.php</span> · <span class="t-file">fianzas.php</span> · <span class="t-file">gastos.php</span> · <span class="t-file">caja.php</span>
+├── <span class="t-file">firmar_liquidacion.php</span> · <span class="t-file">recibo_liquidacion.php</span>  <span class="t-note"># firma y recibo</span>
+├── <span class="t-file">checkout.php</span> · <span class="t-file">pago_exitoso.php</span> · <span class="t-file">suscripcion_expirada.php</span>
+├── <span class="t-dir">api/</span>                 <span class="t-note"># 33 endpoints REST + webhook_stripe + health</span>
+├── <span class="t-dir">config/</span>              <span class="t-note"># database.php, auth.php</span>
+├── <span class="t-dir">includes/</span>            <span class="t-note"># header, footer, rental_helpers</span>
+├── <span class="t-dir">sql/</span>                 <span class="t-note"># schema + 12 migraciones + deploy_safe_upgrade.sh</span>
+├── <span class="t-dir">uploads/</span>             <span class="t-note"># fotos, avatares, comprobantes</span>
+└── <span class="t-dir">backups/</span>             <span class="t-note"># volcados previos a migración</span></pre>
+            </div>
+
+            <!-- Base de Datos -->
+            <div class="project-section">
+                <h2><i class="fas fa-database"></i> Base de Datos</h2>
+                <p>
+                    <strong>22 tablas</strong> en el esquema de producción. Las tres de caja son las que
+                    hacen posible la liquidación con firma: cabecera, líneas de detalle y estado de
+                    firma.
+                </p>
+                <div class="table-scroll">
+                    <table class="modules-table">
+                        <thead>
+                            <tr><th>Tabla</th><th>Contenido</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>usuarios</strong></td><td>Cuentas de acceso con su suscripción asociada</td></tr>
+                            <tr><td><strong>pisos</strong></td><td>Inmuebles gestionados</td></tr>
+                            <tr><td><strong>habitaciones</strong></td><td>Habitaciones de cada piso, con precio y estado</td></tr>
+                            <tr><td><strong>inquilinos</strong></td><td>Personas alojadas, con avatar y documentación</td></tr>
+                            <tr><td><strong>alquileres</strong></td><td>Relación contractual entre inquilino y habitación</td></tr>
+                            <tr><td><strong>pagos</strong></td><td>Cobros registrados con su comprobante</td></tr>
+                            <tr><td><strong>fianzas</strong></td><td>Fianzas entregadas, retenidas y devueltas</td></tr>
+                            <tr><td><strong>gastos</strong></td><td>Gastos del piso con comprobante adjunto</td></tr>
+                            <tr><td><strong>servicios</strong></td><td>Catálogo de servicios (luz, agua, internet, limpieza…)</td></tr>
+                            <tr><td><strong>piso_servicios</strong></td><td>Servicios contratados a nivel de piso</td></tr>
+                            <tr><td><strong>habitacion_servicios</strong></td><td>Servicios incluidos en una habitación concreta</td></tr>
+                            <tr><td><strong>caja_propietarios</strong></td><td>Cuenta corriente de cada propietario</td></tr>
+                            <tr><td><strong>caja_liquidaciones</strong></td><td>Liquidación por periodo, con su estado de firma</td></tr>
+                            <tr><td><strong>caja_liquidacion_items</strong></td><td>Líneas de detalle de cada liquidación</td></tr>
+                            <tr><td><strong>consultas_habitaciones</strong></td><td>Consultas recibidas desde la oferta pública</td></tr>
+                            <tr><td><strong>incidencias</strong></td><td>Partes de incidencia con seguimiento</td></tr>
+                            <tr><td><strong>tareas</strong></td><td>Trabajo pendiente asignado</td></tr>
+                            <tr><td><strong>recordatorios</strong></td><td>Avisos por fecha</td></tr>
+                            <tr><td><strong>documentos</strong></td><td>Documentación adjunta</td></tr>
+                            <tr><td><strong>fotos_habitaciones</strong></td><td>Galería por habitación</td></tr>
+                            <tr><td><strong>notificaciones</strong></td><td>Avisos en la aplicación</td></tr>
+                            <tr><td><strong>login_attempts</strong></td><td>Intentos de acceso, para el bloqueo por fuerza bruta</td></tr>
+                            <tr><td><strong>password_resets</strong></td><td>Tokens de recuperación de contraseña</td></tr>
+                            <tr><td><strong>preferencias_usuario</strong></td><td>Ajustes de interfaz por usuario</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Integraciones Externas -->
+            <div class="project-section">
+                <h2><i class="fas fa-plug"></i> Integraciones Externas</h2>
+                <div class="integration-grid">
+                    <div class="integration-card">
+                        <strong>Stripe Checkout</strong>
+                        <p>Cobro de la suscripción a la plataforma mediante sesión de Checkout, con
+                        páginas de éxito y cancelación.</p>
+                    </div>
+                    <div class="integration-card">
+                        <strong>Stripe Webhooks</strong>
+                        <p><code>api/webhook_stripe.php</code> recibe los eventos y activa, renueva o
+                        expira la suscripción del usuario.</p>
+                    </div>
+                    <div class="integration-card">
+                        <strong>Generación de PDF</strong>
+                        <p>Contratos de alquiler y recibos de liquidación exportables e imprimibles.</p>
+                    </div>
+                    <div class="integration-card">
+                        <strong>Health check</strong>
+                        <p><code>api/health.php</code> expone el estado del servicio y de la base de
+                        datos para monitorización externa.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flujo Completo de Funcionamiento -->
             <div class="project-section">
                 <h2><i class="fas fa-route"></i> Flujo Completo de Funcionamiento</h2>
                 <ol class="workflow-steps">
-                    <li><strong>Inicialización:</strong> Configuración del entorno y carga de parámetros iniciales.</li>
-                    <li><strong>Procesamiento:</strong> Ejecución de la lógica de negocio principal y validación de
-                        datos.</li>
-                    <li><strong>Persistencia:</strong> Almacenamiento seguro de la información generada.</li>
-                    <li><strong>Visualización:</strong> Renderizado de la interfaz y entrega de resultados al usuario
-                        final.</li>
+                    <li><strong>Suscripción:</strong> el usuario se registra y activa su plan mediante
+                    Stripe Checkout; el webhook confirma el alta.</li>
+                    <li><strong>Alta del inmueble:</strong> se crea el piso, sus habitaciones y los
+                    servicios que incluye cada una.</li>
+                    <li><strong>Publicación:</strong> las habitaciones libres aparecen en la oferta
+                    pública con sus fotos.</li>
+                    <li><strong>Consulta entrante:</strong> un interesado envía el formulario y la
+                    consulta entra en la bandeja del gestor.</li>
+                    <li><strong>Contrato:</strong> se da de alta al inquilino, se firma el alquiler y se
+                    genera el contrato en PDF.</li>
+                    <li><strong>Fianza y cobros:</strong> se registra la fianza y se van anotando los
+                    pagos mensuales con su comprobante.</li>
+                    <li><strong>Gastos:</strong> los gastos del piso se registran con justificante y se
+                    reparten.</li>
+                    <li><strong>Liquidación:</strong> al cerrar el periodo, la caja calcula lo que
+                    corresponde al propietario y desglosa cada línea.</li>
+                    <li><strong>Firma digital:</strong> el propietario firma el recibo; el sistema
+                    guarda su nombre, la IP y la fecha como prueba.</li>
+                    <li><strong>Recibo:</strong> se emite el recibo de liquidación imprimible como
+                    cierre documental de la operación.</li>
                 </ol>
+            </div>
+
+            <!-- Seguridad Implementada -->
+            <div class="project-section">
+                <h2><i class="fas fa-lock"></i> Seguridad Implementada</h2>
+                <ul class="features-list">
+                    <li>Contraseñas con <code>password_hash()</code> y verificación por hash.</li>
+                    <li><strong>Bloqueo por fuerza bruta</strong> con registro de intentos en la tabla
+                    <code>login_attempts</code>.</li>
+                    <li>Recuperación de contraseña por <strong>token de un solo uso</strong> con
+                    caducidad.</li>
+                    <li>Consultas con <strong>prepared statements PDO</strong> en toda la
+                    aplicación.</li>
+                    <li>Verificación de <strong>firma del webhook de Stripe</strong> antes de alterar el
+                    estado de la suscripción.</li>
+                    <li><strong>Trazabilidad de la firma digital</strong>: se almacena nombre, IP y
+                    fecha de firma de cada liquidación.</li>
+                    <li>Comprobantes y documentos servidos por ruta controlada, no como estático
+                    público.</li>
+                    <li>Configuración fuera del código y directorios sensibles protegidos por
+                    <code>.htaccess</code>.</li>
+                </ul>
+            </div>
+
+            <!-- Retos Técnicos y Decisiones de Diseño -->
+            <div class="project-section">
+                <h2><i class="fas fa-lightbulb"></i> Retos Técnicos y Decisiones de Diseño</h2>
+                <h3>Migrar en producción sin perder datos</h3>
+                <p>
+                    El esquema evolucionó doce veces con inquilinos y cobros reales dentro. En lugar de
+                    un único <code>schema.sql</code> destructivo, cada cambio es una migración numerada
+                    (<code>migration_v2</code> … <code>migration_v12</code>) acompañada de
+                    <code>deploy_safe_upgrade.sh</code>, que hace copia de seguridad antes de aplicar.
+                    La carpeta <code>backups/</code> conserva los volcados previos a cada salto.
+                </p>
+                <h3>Dar valor probatorio a una firma en el navegador</h3>
+                <p>
+                    Una firma dibujada en un canvas no vale nada por sí sola. Lo que le da peso es el
+                    contexto: <code>api/caja_firma.php</code> guarda junto a la firma el nombre
+                    declarado, la dirección IP, la fecha exacta y el estado del proceso. Con eso el
+                    recibo de liquidación es defendible ante el propietario.
+                </p>
+                <h3>Servidor y API a la vez</h3>
+                <p>
+                    Las páginas se renderizan en PHP porque cargan al instante y no dependen de
+                    JavaScript; pero cada acción concreta pasa por un endpoint REST. Así el frontend
+                    actualiza sin recargar y esos mismos endpoints quedan disponibles para cualquier
+                    cliente futuro.
+                </p>
             </div>
 
             <!-- Mi Rol -->
             <div class="project-section">
                 <h2><i class="fas fa-user-tie"></i> Mi Rol</h2>
-                <p><strong>Desarrollador Full Stack — Autor Único</strong></p>
                 <p>
-                    Diseñé y desarrollé el sistema completo de forma independiente: desde el análisis de requisitos,
-                    diseño de la arquitectura, implementación de backend y frontend, hasta el despliegue final.
+                    <strong>Desarrollador full stack — autor único.</strong>
+                </p>
+                <p>
+                    Modelo de datos, los 33 endpoints, el frontend con Bootstrap 5, la integración de
+                    Stripe, el circuito de firma digital, la estrategia de migraciones y el despliegue.
                 </p>
             </div>
 
-            <!-- Estado -->
+            <!-- Estado del Proyecto -->
             <div class="project-section">
-                <h2><i class="fas fa-info"></i> Estado del Proyecto</h2>
-                <p><strong>Estado:</strong> <span style="color: #10b981; font-weight: bold;"></span></p>
+                <h2><i class="fas fa-flag-checkered"></i> Estado del Proyecto</h2>
+                <p>
+                    <strong>En producción</strong> en <code>roommanager.tinoprop.com</code>, con datos
+                    reales de pisos, inquilinos y liquidaciones. El esquema va por la doceava migración.
+                </p>
             </div>
 
-            <!-- Código -->
+            <!-- Código y Enlaces -->
             <div class="project-section">
-                <h2><i class="fas fa-link"></i> Código Fuente</h2>
+                <h2><i class="fas fa-link"></i> Código y Enlaces</h2>
                 <div class="project-links">
-                    <a href="#" target="_blank">
-                        <i class="fab fa-github"></i> Ver Código en GitHub
+                    <a href="https://roommanager.tinoprop.com" target="_blank" rel="noopener">
+                        <i class="fas fa-external-link-alt"></i> Ver en producción
                     </a>
+                    <span class="link-muted">
+                        <i class="fas fa-lock"></i> Código privado
+                    </span>
                 </div>
+                <p style="margin-top: 16px;">
+                    El repositorio no es público al contener configuración de producción y datos de
+                    inquilinos reales. Puedo mostrar el código en una entrevista.
+                </p>
             </div>
+
         </div>
     </div>
 

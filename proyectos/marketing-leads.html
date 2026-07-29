@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Plataforma de captación automática de leads inmobiliarios en TypeScript con Telegram y análisis por IA local">
+    <title>Plataforma de Leads Inmobiliarios - Valentín De Gennaro</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/proyecto.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="../index.html#home">&lt;VDG /&gt;</a>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="project-detail">
+        <a href="../index.html#projects" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Volver a Proyectos
+        </a>
+
+        <div class="project-hero">
+            <h1>📡 Plataforma de Leads Inmobiliarios</h1>
+            <p class="project-tagline">Backend que rastrea portales inmobiliarios de Valencia, filtra por criterios de cliente y avisa en tiempo real</p>
+            <div class="project-badges">
+                <span class="status-badge"><i class="fas fa-clock-rotate-left"></i> Pipeline con cron</span>
+                <span class="status-badge"><i class="fas fa-robot"></i> IA local con Ollama</span>
+                <span class="status-badge"><i class="fas fa-code-branch"></i> V1 y V2</span>
+            </div>
+        </div>
+
+        <div class="project-content">
+            <!-- Escala del Proyecto -->
+            <div class="project-section">
+                <h2><i class="fas fa-chart-line"></i> Escala del Proyecto</h2>
+                <div class="stats-grid">
+                    <div class="stat-card"><span class="stat-num">2</span><span class="stat-label">Versiones</span></div>
+                    <div class="stat-card"><span class="stat-num">3</span><span class="stat-label">Conectores</span></div>
+                    <div class="stat-card"><span class="stat-num">48h</span><span class="stat-label">Cooldown</span></div>
+                    <div class="stat-card"><span class="stat-num">4k</span><span class="stat-label">Líneas</span></div>
+                </div>
+            </div>
+
+            <!-- Descripción General -->
+            <div class="project-section">
+                <h2><i class="fas fa-info-circle"></i> Descripción General</h2>
+                <p>
+                    Una agencia inmobiliaria que quiere captar inmuebles tiene que revisar los portales
+                    cada día buscando novedades. Es trabajo mecánico, se hace mal y siempre se llega
+                    tarde: el que llama primero al propietario se lleva la captación.
+                </p>
+                <p>
+                    Esta plataforma automatiza el ciclo completo. Un <strong>pipeline de
+                    ingesta</strong> programado por cron recorre los portales de Valencia,
+                    <strong>normaliza</strong> los datos y hace upsert de cada propiedad. Después un
+                    <strong>matcher</strong> cruza esas propiedades con los filtros de cada cliente —
+                    zona, precio, habitaciones, tipo — les asigna una <strong>puntuación</strong> y
+                    descarta las que no superan su umbral.
+                </p>
+                <p>
+                    Lo que llega al cliente es un aviso por <strong>Telegram o WhatsApp</strong> solo
+                    con lo que le interesa, con una supresión de duplicados de 48 horas para no repetir
+                    el mismo inmueble. La V2 añade una capa de <strong>IA local con Ollama</strong> que
+                    analiza y prioriza los leads, y un bot conversacional para consultar la cartera por
+                    chat.
+                </p>
+            </div>
+
+            <!-- Tecnologías Utilizadas -->
+            <div class="project-section">
+                <h2><i class="fas fa-tools"></i> Tecnologías Utilizadas</h2>
+                <div class="tech-grid">
+                    <div class="tech-badge"><i class="fas fa-code"></i><br>TypeScript</div>
+                    <div class="tech-badge"><i class="fab fa-node-js"></i><br>Node.js</div>
+                    <div class="tech-badge"><i class="fas fa-server"></i><br>Express</div>
+                    <div class="tech-badge"><i class="fas fa-clock"></i><br>node-cron</div>
+                    <div class="tech-badge"><i class="fas fa-spider"></i><br>Cheerio</div>
+                    <div class="tech-badge"><i class="fas fa-file-csv"></i><br>csv-parse</div>
+                    <div class="tech-badge"><i class="fas fa-check-double"></i><br>Zod</div>
+                    <div class="tech-badge"><i class="fab fa-telegram"></i><br>Telegram Bot API</div>
+                    <div class="tech-badge"><i class="fas fa-robot"></i><br>Ollama</div>
+                </div>
+            </div>
+
+            <!-- Arquitectura por Dominios -->
+            <div class="project-section">
+                <h2><i class="fas fa-th-large"></i> Arquitectura por Dominios</h2>
+                <div class="modules-grid">
+                    <div class="module-card">
+                        <strong>🌐 Conector conservador</strong>
+                        <p><code>portalValenciaConservativeConnector.ts</code> rastrea el portal real
+                        con un enfoque deliberadamente prudente en frecuencia y volumen.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📄 Conector CSV / API</strong>
+                        <p><code>csvFeedConnector.ts</code> ingiere un feed externo cuando el portal
+                        bloquea el rastreo. Garantiza captación aunque falle la vía principal.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🧪 Conector mock</strong>
+                        <p><code>portalValenciaMockConnector.ts</code> permite desarrollar y probar el
+                        pipeline sin tocar el portal.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🔄 Pipeline</strong>
+                        <p><code>pipeline.ts</code> orquesta el ciclo: ingesta, normalización y upsert
+                        de propiedades.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🎯 Matcher</strong>
+                        <p><code>matcher.ts</code> cruza cada propiedad con los filtros del cliente y
+                        calcula su puntuación.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>💾 Storage</strong>
+                        <p><code>storage.ts</code> mantiene el estado de propiedades y leads, con
+                        control de duplicados.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📣 Notificadores</strong>
+                        <p><code>senders.ts</code> envía por Telegram y por webhook de WhatsApp; ambos
+                        opcionales según variables de entorno.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>💬 Bot de búsqueda</strong>
+                        <p>Bot conversacional de Telegram para consultar inmuebles por zona, precio y
+                        habitaciones.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🖥️ Panel interno</strong>
+                        <p>Vista mínima en <code>GET /app</code> para inspeccionar el estado del
+                        sistema.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🧠 Capa de IA</strong>
+                        <p>En la V2, Ollama analiza los leads y los prioriza operativamente.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Arquitectura -->
+            <div class="project-section">
+                <h2><i class="fas fa-sitemap"></i> Arquitectura</h2>
+                <p>
+                    Monorepo con la API en <code>apps/api</code> y el código dividido por dominio:
+                    <code>domain/</code> con los tipos, el almacenamiento y el matcher;
+                    <code>ingestion/</code> con el pipeline y los conectores; y
+                    <code>notifications/</code> con los emisores.
+                </p>
+                <p>
+                    Los conectores comparten una interfaz común (<code>connectors/types.ts</code>), de
+                    forma que añadir un portal nuevo no requiere tocar el pipeline. Es el punto donde la
+                    arquitectura paga: cambiar de fuente es implementar una interfaz, no reescribir el
+                    flujo.
+                </p>
+                <pre class="code-tree"><span class="t-dir">Marketing/</span>
+├── <span class="t-dir">V1/</span>                       <span class="t-note"># implementación inicial</span>
+└── <span class="t-dir">V2/</span>                       <span class="t-note"># versión con IA local</span>
+    ├── <span class="t-dir">data/</span>                 <span class="t-note"># valencia-feed-example.csv</span>
+    └── <span class="t-dir">apps/api/</span>
+        ├── <span class="t-file">src/server.ts</span>
+        ├── <span class="t-dir">src/domain/</span>       <span class="t-note"># types, storage, matcher</span>
+        ├── <span class="t-dir">src/ingestion/</span>
+        │   ├── <span class="t-file">pipeline.ts</span>
+        │   └── <span class="t-dir">connectors/</span>   <span class="t-note"># conservative, csvFeed, mock, types</span>
+        ├── <span class="t-dir">src/notifications/</span> <span class="t-note"># senders.ts</span>
+        ├── <span class="t-dir">scripts/</span>          <span class="t-note"># production-check.mjs</span>
+        └── <span class="t-file">.env.example</span></pre>
+            </div>
+
+            <!-- Integraciones Externas -->
+            <div class="project-section">
+                <h2><i class="fas fa-plug"></i> Integraciones Externas</h2>
+                <div class="integration-grid">
+                    <div class="integration-card">
+                        <strong>Telegram Bot API</strong>
+                        <p>Notificación en tiempo real de cada lead que supera el umbral, y bot
+                        conversacional para consultar la cartera por zona, precio o habitaciones.</p>
+                    </div>
+                    <div class="integration-card">
+                        <strong>WhatsApp por webhook</strong>
+                        <p>Vía alternativa de aviso, activable de forma independiente por variable de
+                        entorno.</p>
+                    </div>
+                    <div class="integration-card">
+                        <strong>Ollama</strong>
+                        <p>Modelo de lenguaje ejecutado en local para el análisis operativo y la
+                        priorización de leads, sin enviar datos a terceros.</p>
+                    </div>
+                    <div class="integration-card">
+                        <strong>node-cron</strong>
+                        <p>Programación del pipeline de ingesta con frecuencia configurable.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flujo del Pipeline -->
+            <div class="project-section">
+                <h2><i class="fas fa-route"></i> Flujo del Pipeline</h2>
+                <ol class="workflow-steps">
+                    <li><strong>Disparo por cron:</strong> el scheduler lanza el ciclo de ingesta con la
+                    frecuencia configurada.</li>
+                    <li><strong>Ingesta:</strong> el conector activo recorre el portal o el feed CSV y
+                    devuelve las propiedades encontradas.</li>
+                    <li><strong>Validación:</strong> Zod verifica el esquema de cada registro y descarta
+                    lo que llega malformado.</li>
+                    <li><strong>Normalización y upsert:</strong> los datos se homogeneizan y se insertan
+                    o actualizan en el almacenamiento.</li>
+                    <li><strong>Matching:</strong> el matcher cruza cada propiedad con los filtros de
+                    cada cliente: zona, precio, habitaciones y tipo.</li>
+                    <li><strong>Scoring:</strong> se calcula la puntuación del lead y se compara con el
+                    umbral mínimo del cliente.</li>
+                    <li><strong>Supresión de duplicados:</strong> si ese inmueble ya se notificó en las
+                    últimas 48 horas, se descarta.</li>
+                    <li><strong>Análisis con IA:</strong> en la V2, Ollama revisa los leads que pasan el
+                    filtro y ajusta su prioridad.</li>
+                    <li><strong>Notificación:</strong> el lead se envía por Telegram y, si está
+                    activado, por el webhook de WhatsApp.</li>
+                </ol>
+            </div>
+
+            <!-- Retos Técnicos y Decisiones de Diseño -->
+            <div class="project-section">
+                <h2><i class="fas fa-lightbulb"></i> Retos Técnicos y Decisiones de Diseño</h2>
+                <h3>El scraping siempre se rompe: hay que asumirlo en el diseño</h3>
+                <p>
+                    Depender de un único conector significa que el día que el portal cambie su HTML o
+                    bloquee el acceso, la captación se detiene. Por eso hay <strong>tres conectores tras
+                    la misma interfaz</strong>: el conservador contra el portal real, uno de feed CSV o
+                    API externa como respaldo, y uno mock para desarrollar. Cambiar de fuente es
+                    configuración, no reescritura.
+                </p>
+                <h3>Ser conservador a propósito</h3>
+                <p>
+                    El conector principal se llama <em>conservative</em> por una razón: rastrear
+                    agresivamente consigue que te bloqueen la IP en una tarde. Limitar frecuencia y
+                    volumen reduce lo que capturas por ciclo, pero es la diferencia entre un sistema que
+                    funciona durante meses y uno que funciona un día.
+                </p>
+                <h3>Notificar poco para que se lea</h3>
+                <p>
+                    Un sistema que avisa de todo se silencia a la semana. El valor está en el filtro:
+                    puntuación con umbral configurable por cliente y cooldown de 48 horas por inmueble.
+                    La métrica de éxito no es cuántos leads envías, es que el cliente siga abriendo los
+                    avisos al mes siguiente.
+                </p>
+                <h3>IA local en lugar de una API de pago</h3>
+                <p>
+                    Analizar cada lead con un servicio en la nube sería un coste variable por cada
+                    inmueble rastreado, y enviaría datos de propietarios a un tercero. Ollama corriendo
+                    en la misma máquina hace el coste fijo y mantiene los datos dentro.
+                </p>
+            </div>
+
+            <!-- Mi Rol -->
+            <div class="project-section">
+                <h2><i class="fas fa-user-tie"></i> Mi Rol</h2>
+                <p>
+                    <strong>Desarrollador backend — autor único.</strong>
+                </p>
+                <p>
+                    Diseño del pipeline, los tres conectores, el matcher con scoring, la supresión de
+                    duplicados, los emisores de notificación, el bot de Telegram y la integración de
+                    Ollama en la V2.
+                </p>
+            </div>
+
+            <!-- Estado del Proyecto -->
+            <div class="project-section">
+                <h2><i class="fas fa-flag-checkered"></i> Estado del Proyecto</h2>
+                <p>
+                    Dos versiones funcionales. La <strong>V2</strong> es la actual e incorpora la capa
+                    de IA local y el bot conversacional. Incluye <code>production-check.mjs</code> para
+                    validar la configuración antes de desplegar.
+                </p>
+            </div>
+
+            <!-- Código y Enlaces -->
+            <div class="project-section">
+                <h2><i class="fas fa-link"></i> Código y Enlaces</h2>
+                <div class="project-links">
+                    <a href="https://github.com/Valentindg2506/Marketing" target="_blank" rel="noopener">
+                        <i class="fab fa-github"></i> Ver código en GitHub
+                    </a>
+                </div>
+                <p style="margin-top: 16px;">
+                    Las variables sensibles (token del bot, chat ID, clave de la API de ingesta y URL
+                    del portal objetivo) viven en <code>.env</code> y nunca se suben al repositorio.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <button id="scrollTop" class="scroll-top" aria-label="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

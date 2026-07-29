@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Seguimiento CAS — PWA de seguimiento de propietarios, inquilinos y visitas para una inmobiliaria">
+    <title>Seguimiento CAS - Valentín De Gennaro</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/proyecto.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="../index.html#home">&lt;VDG /&gt;</a>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="project-detail">
+        <a href="../index.html#projects" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Volver a Proyectos
+        </a>
+
+        <div class="project-hero">
+            <h1>📋 Seguimiento CAS</h1>
+            <p class="project-tagline">PWA de seguimiento comercial inmobiliario con plantillas de contacto y funcionamiento offline</p>
+            <div class="project-badges">
+                <span class="status-badge"><i class="fas fa-mobile-screen"></i> PWA instalable</span>
+                <span class="status-badge"><i class="fas fa-key"></i> Auth por token</span>
+                <span class="status-badge"><i class="fas fa-comment-dots"></i> Plantillas de mensaje</span>
+            </div>
+        </div>
+
+        <div class="project-content">
+            <!-- Escala del Proyecto -->
+            <div class="project-section">
+                <h2><i class="fas fa-chart-line"></i> Escala del Proyecto</h2>
+                <div class="stats-grid">
+                    <div class="stat-card"><span class="stat-num">8</span><span class="stat-label">Tablas</span></div>
+                    <div class="stat-card"><span class="stat-num">9</span><span class="stat-label">Endpoints</span></div>
+                    <div class="stat-card"><span class="stat-num">17</span><span class="stat-label">Archivos</span></div>
+                    <div class="stat-card"><span class="stat-num">3.3k</span><span class="stat-label">Líneas</span></div>
+                </div>
+            </div>
+
+            <!-- Descripción General -->
+            <div class="project-section">
+                <h2><i class="fas fa-info-circle"></i> Descripción General</h2>
+                <p>
+                    El trabajo comercial de una inmobiliaria se pierde en el seguimiento. Contactar con
+                    un propietario una vez es fácil; recordar que hay que volver a llamarle en dos
+                    semanas, y saber qué se le dijo la última vez, es lo que se olvida. Y lo que se
+                    olvida no se cierra.
+                </p>
+                <p>
+                    Seguimiento CAS es una <strong>PWA</strong> pensada para usarse desde el móvil
+                    durante la jornada: registra propietarios, inquilinos, compradores, propiedades y
+                    visitas, y mantiene el estado de seguimiento de cada contacto con su agenda de
+                    próximos pasos.
+                </p>
+                <p>
+                    Para no reescribir el mismo mensaje veinte veces, incluye
+                    <strong>plantillas</strong> reutilizables. Y como se usa en la calle, funciona
+                    instalada en la pantalla de inicio y con soporte offline mediante service worker.
+                </p>
+            </div>
+
+            <!-- Tecnologías Utilizadas -->
+            <div class="project-section">
+                <h2><i class="fas fa-tools"></i> Tecnologías Utilizadas</h2>
+                <div class="tech-grid">
+                    <div class="tech-badge"><i class="fab fa-php"></i><br>PHP</div>
+                    <div class="tech-badge"><i class="fas fa-database"></i><br>MySQL</div>
+                    <div class="tech-badge"><i class="fas fa-mobile-screen"></i><br>PWA</div>
+                    <div class="tech-badge"><i class="fas fa-cloud-arrow-down"></i><br>Service Worker</div>
+                    <div class="tech-badge"><i class="fab fa-js"></i><br>JavaScript</div>
+                    <div class="tech-badge"><i class="fas fa-key"></i><br>Tokens con TTL</div>
+                </div>
+            </div>
+
+            <!-- Módulos y Endpoints -->
+            <div class="project-section">
+                <h2><i class="fas fa-th-large"></i> Módulos y Endpoints</h2>
+                <div class="modules-grid">
+                    <div class="module-card">
+                        <strong>🏠 Propiedades</strong>
+                        <p><code>api/propiedades.php</code> — cartera de inmuebles en seguimiento.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>👤 Propietarios</strong>
+                        <p><code>api/propietarios.php</code> — captación: contactos con el dueño del
+                        inmueble.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🧑 Inquilinos</strong>
+                        <p><code>api/inquilinos.php</code> — seguimiento del lado del arrendatario.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🚶 Visitas</strong>
+                        <p><code>api/visitas.php</code> — visitas concertadas y su resultado.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>💬 Plantillas</strong>
+                        <p><code>api/plantillas.php</code> — mensajes reutilizables para el contacto
+                        habitual.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📈 Estado de seguimiento</strong>
+                        <p><code>api/seguimiento_meta.php</code> — metadatos del pipeline de
+                        contacto.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🔐 Sesión</strong>
+                        <p><code>api/login.php</code> y <code>api/logout.php</code> — autenticación por
+                        token.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>⚙️ Instalación</strong>
+                        <p><code>setup.php</code> — creación del esquema, protegida por clave.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🔄 Migración</strong>
+                        <p><code>api/migrate_v2.php</code> — actualización del esquema sin perder
+                        datos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Arquitectura -->
+            <div class="project-section">
+                <h2><i class="fas fa-sitemap"></i> Arquitectura</h2>
+                <p>
+                    Frontend de una sola página en <code>index.html</code> con la lógica repartida en
+                    tres ficheros: <code>api.js</code> centraliza las llamadas,
+                    <code>captacion.js</code> el flujo de propietarios y <code>seguimiento.js</code> el
+                    de contacto. El backend es una API PHP con un endpoint por recurso y
+                    <code>_db.php</code> como conexión compartida.
+                </p>
+                <pre class="code-tree"><span class="t-dir">cas/</span>
+├── <span class="t-file">index.html</span>             <span class="t-note"># aplicación de una página</span>
+├── <span class="t-file">manifest.json</span>          <span class="t-note"># instalable como app</span>
+├── <span class="t-file">service-worker.js</span>      <span class="t-note"># caché y soporte offline</span>
+├── <span class="t-file">setup.php</span>              <span class="t-note"># instalador con SETUP_KEY</span>
+├── <span class="t-file">schema.sql</span>             <span class="t-note"># 8 tablas</span>
+├── <span class="t-dir">js/</span>                     <span class="t-note"># api, captacion, seguimiento</span>
+├── <span class="t-dir">css/</span>
+├── <span class="t-dir">assets/</span>                 <span class="t-note"># iconos PWA</span>
+└── <span class="t-dir">api/</span>                    <span class="t-note"># un endpoint por recurso + _db.php</span></pre>
+            </div>
+
+            <!-- Base de Datos -->
+            <div class="project-section">
+                <h2><i class="fas fa-database"></i> Base de Datos</h2>
+                <p>
+                    <strong>8 tablas</strong> en <code>schema.sql</code>. La tabla <code>tokens</code>
+                    es la que sostiene la sesión: no se usa la sesión de PHP, sino tokens con caducidad
+                    configurable.
+                </p>
+                <div class="table-scroll">
+                    <table class="modules-table">
+                        <thead>
+                            <tr><th>Tabla</th><th>Contenido</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>usuarios</strong></td><td>Cuentas de acceso de los comerciales</td></tr>
+                            <tr><td><strong>tokens</strong></td><td>Tokens de sesión con su caducidad (<code>TOKEN_TTL</code>, 30 días por defecto)</td></tr>
+                            <tr><td><strong>propiedades</strong></td><td>Inmuebles en seguimiento</td></tr>
+                            <tr><td><strong>propietarios</strong></td><td>Contactos del lado de la captación</td></tr>
+                            <tr><td><strong>inquilinos</strong></td><td>Contactos del lado del arrendamiento</td></tr>
+                            <tr><td><strong>visitas</strong></td><td>Visitas concertadas y su resultado</td></tr>
+                            <tr><td><strong>plantillas</strong></td><td>Mensajes reutilizables para el contacto</td></tr>
+                            <tr><td><strong>seguimiento_meta</strong></td><td>Estado y metadatos del pipeline de seguimiento</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Seguridad Implementada -->
+            <div class="project-section">
+                <h2><i class="fas fa-lock"></i> Seguridad Implementada</h2>
+                <ul class="features-list">
+                    <li>Autenticación por <strong>token con caducidad</strong> configurable mediante
+                    <code>TOKEN_TTL</code>, no por sesión de PHP.</li>
+                    <li><code>setup.php</code> protegido por <strong>clave de instalación</strong>
+                    (<code>SETUP_KEY</code>), que debe cambiarse antes de publicar.</li>
+                    <li>Credenciales de base de datos fuera del código, en variables de entorno.</li>
+                    <li>Conexión centralizada en <code>api/_db.php</code> con sentencias
+                    preparadas.</li>
+                    <li>Los endpoints validan el token antes de devolver cualquier dato.</li>
+                </ul>
+            </div>
+
+            <!-- Retos Técnicos y Decisiones de Diseño -->
+            <div class="project-section">
+                <h2><i class="fas fa-lightbulb"></i> Retos Técnicos y Decisiones de Diseño</h2>
+                <h3>Tokens en lugar de sesiones de PHP</h3>
+                <p>
+                    Una PWA que se usa desde el móvil durante horas y que puede perder conexión encaja
+                    mal con la sesión de PHP, que caduca por inactividad del servidor. Un token propio
+                    con TTL configurable — 30 días por defecto — permite que el comercial no tenga que
+                    volver a entrar cada mañana.
+                </p>
+                <h3>Offline en una herramienta de calle</h3>
+                <p>
+                    La aplicación se usa visitando inmuebles, donde la cobertura es irregular. El
+                    service worker cachea el esqueleto de la aplicación para que abrirla no dependa de
+                    la red, aunque la consulta de datos sí la necesite.
+                </p>
+                <h3>Migrar un esquema ya en uso</h3>
+                <p>
+                    <code>api/migrate_v2.php</code> existe porque el esquema cambió cuando ya había
+                    datos dentro. Separar el instalador inicial de la migración evita el error clásico
+                    de reimportar el <code>schema.sql</code> sobre una base con información y perderla.
+                </p>
+            </div>
+
+            <!-- Mi Rol -->
+            <div class="project-section">
+                <h2><i class="fas fa-user-tie"></i> Mi Rol</h2>
+                <p>
+                    <strong>Desarrollador full stack — autor único.</strong>
+                </p>
+                <p>
+                    Modelo de datos, API por recurso, autenticación por token, frontend de una página,
+                    configuración de la PWA e instalador con clave.
+                </p>
+            </div>
+
+            <!-- Estado del Proyecto -->
+            <div class="project-section">
+                <h2><i class="fas fa-flag-checkered"></i> Estado del Proyecto</h2>
+                <p>
+                    Aplicación funcional con esquema instalable, migración a la versión 2 y
+                    configuración por variables de entorno. Desarrollada para el seguimiento comercial
+                    de una inmobiliaria real.
+                </p>
+            </div>
+
+            <!-- Código y Enlaces -->
+            <div class="project-section">
+                <h2><i class="fas fa-link"></i> Código y Enlaces</h2>
+                <div class="project-links">
+                    <a href="https://github.com/Valentindg2506/Seguimiento" target="_blank" rel="noopener">
+                        <i class="fab fa-github"></i> Ver código en GitHub
+                    </a>
+                </div>
+                <p style="margin-top: 16px;">
+                    La configuración (credenciales de base de datos, <code>SETUP_KEY</code> y
+                    <code>TOKEN_TTL</code>) se define por variables de entorno y no se sube al
+                    repositorio.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <button id="scrollTop" class="scroll-top" aria-label="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

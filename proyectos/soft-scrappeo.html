@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Soft-Scrappeo — CRM de captación de leads B2B en Flask desarrollado durante las prácticas en empresa">
+    <title>Soft-Scrappeo - Valentín De Gennaro</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/proyecto.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="../index.html#home">&lt;VDG /&gt;</a>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="project-detail">
+        <a href="../index.html#projects" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Volver a Proyectos
+        </a>
+
+        <div class="project-hero">
+            <h1>🎯 Soft-Scrappeo</h1>
+            <p class="project-tagline">CRM de captación de leads B2B: rastrea empresas, las enriquece y las reparte entre el equipo comercial</p>
+            <div class="project-badges">
+                <span class="status-badge"><i class="fas fa-briefcase"></i> Desarrollado en empresa</span>
+                <span class="status-badge"><i class="fas fa-code-branch"></i> 4 versiones</span>
+                <span class="status-badge"><i class="fas fa-users"></i> Roles admin / comercial</span>
+            </div>
+        </div>
+
+        <div class="project-content">
+            <!-- Escala del Proyecto -->
+            <div class="project-section">
+                <h2><i class="fas fa-chart-line"></i> Escala del Proyecto</h2>
+                <div class="stats-grid">
+                    <div class="stat-card"><span class="stat-num">7.7k</span><span class="stat-label">Líneas</span></div>
+                    <div class="stat-card"><span class="stat-num">4</span><span class="stat-label">Versiones</span></div>
+                    <div class="stat-card"><span class="stat-num">2</span><span class="stat-label">Roles</span></div>
+                    <div class="stat-card"><span class="stat-num">2026</span><span class="stat-label">Prácticas</span></div>
+                </div>
+            </div>
+
+            <!-- Descripción General -->
+            <div class="project-section">
+                <h2><i class="fas fa-info-circle"></i> Descripción General</h2>
+                <p>
+                    El equipo comercial de la empresa necesitaba una cosa muy concreta: dejar de buscar
+                    empresas a mano. Soft-Scrappeo automatiza ese trabajo — rastrea listados públicos,
+                    extrae los datos de cada empresa, los <strong>enriquece</strong> con información
+                    adicional y las clasifica por <strong>código CNAE</strong>, que es el estándar de
+                    actividad económica que usa el comercial para saber si un lead le encaja.
+                </p>
+                <p>
+                    Pero un scraper suelto no resuelve el problema: los leads hay que repartirlos. Por
+                    eso el proyecto creció hasta ser un CRM completo con <strong>dos roles</strong>: el
+                    administrador ve el dashboard global y asigna leads, y cada comercial ve solo su
+                    cartera con la ficha detallada de cada empresa. Incluye chat interno y
+                    notificaciones.
+                </p>
+                <p>
+                    Es el proyecto que desarrollé durante las <strong>prácticas de empresa</strong> del
+                    ciclo. Es el que más se parece a trabajar de verdad: requisitos que cambian sobre la
+                    marcha, usuarios reales usándolo mientras se desarrolla, y cuatro versiones en tres
+                    semanas.
+                </p>
+            </div>
+
+            <!-- Tecnologías Utilizadas -->
+            <div class="project-section">
+                <h2><i class="fas fa-tools"></i> Tecnologías Utilizadas</h2>
+                <div class="tech-grid">
+                    <div class="tech-badge"><i class="fab fa-python"></i><br>Python</div>
+                    <div class="tech-badge"><i class="fas fa-fire"></i><br>Flask</div>
+                    <div class="tech-badge"><i class="fas fa-database"></i><br>SQLAlchemy</div>
+                    <div class="tech-badge"><i class="fas fa-spider"></i><br>Web Scraping</div>
+                    <div class="tech-badge"><i class="fas fa-code"></i><br>Jinja2</div>
+                    <div class="tech-badge"><i class="fas fa-table"></i><br>Catálogo CNAE</div>
+                </div>
+            </div>
+
+            <!-- Módulos del Sistema -->
+            <div class="project-section">
+                <h2><i class="fas fa-th-large"></i> Módulos del Sistema</h2>
+                <div class="modules-grid">
+                    <div class="module-card">
+                        <strong>🕷️ Scraper</strong>
+                        <p><code>scraper.py</code> recorre los listados de origen y normaliza los datos
+                        de cada empresa.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>✨ Enriquecimiento</strong>
+                        <p><code>enrichment.py</code> completa la ficha con datos adicionales tras el
+                        primer rastreo.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🏷️ Catálogo CNAE</strong>
+                        <p><code>cnae_catalog.py</code> clasifica cada empresa por su actividad
+                        económica oficial.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🧹 Saneado de leads</strong>
+                        <p><code>fix_leads.py</code> corrige y deduplica registros del histórico.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📊 Dashboard admin</strong>
+                        <p>Vista global de la captación, con volumen y estado de los leads.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🤝 Asignaciones</strong>
+                        <p>El administrador reparte leads entre los comerciales del equipo.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📁 Cartera del comercial</strong>
+                        <p>Cada comercial ve solo sus leads, con ficha de detalle completa.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>💬 Chat interno</strong>
+                        <p>Comunicación entre administrador y comerciales dentro de la herramienta.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🔔 Notificaciones</strong>
+                        <p>Avisos de asignación y de novedades sobre un lead.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>👥 Usuarios</strong>
+                        <p>Gestión de cuentas y de su rol.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Arquitectura -->
+            <div class="project-section">
+                <h2><i class="fas fa-sitemap"></i> Arquitectura</h2>
+                <p>
+                    Aplicación Flask clásica con plantillas Jinja2 y modelos SQLAlchemy. La separación
+                    importante no es por capas sino por rol: <code>templates/admin/</code> y
+                    <code>templates/comercial/</code> son dos interfaces distintas sobre los mismos
+                    datos, y una página <code>403.html</code> dedicada cierra el paso a lo que no
+                    corresponde.
+                </p>
+                <pre class="code-tree"><span class="t-dir">Soft-Scrappeo/V0.0.4/</span>
+├── <span class="t-file">app.py</span>              <span class="t-note"># rutas y lógica de la aplicación</span>
+├── <span class="t-file">models.py</span>           <span class="t-note"># modelos SQLAlchemy</span>
+├── <span class="t-file">config.py</span>           <span class="t-note"># configuración</span>
+├── <span class="t-file">init_db.py</span>          <span class="t-note"># creación del esquema</span>
+├── <span class="t-file">scraper.py</span>          <span class="t-note"># rastreo de listados</span>
+├── <span class="t-file">enrichment.py</span>       <span class="t-note"># enriquecimiento de fichas</span>
+├── <span class="t-file">cnae_catalog.py</span>     <span class="t-note"># clasificación por actividad</span>
+├── <span class="t-file">fix_leads.py</span>        <span class="t-note"># saneado del histórico</span>
+└── <span class="t-dir">templates/</span>
+    ├── <span class="t-file">base.html</span> · <span class="t-file">login.html</span> · <span class="t-file">403.html</span>
+    ├── <span class="t-file">chat.html</span> · <span class="t-file">notificaciones.html</span>
+    ├── <span class="t-dir">admin/</span>           <span class="t-note"># dashboard, usuarios, asignaciones</span>
+    └── <span class="t-dir">comercial/</span>       <span class="t-note"># cartera y lead_detail</span></pre>
+            </div>
+
+            <!-- Evolución en 4 Versiones -->
+            <div class="project-section">
+                <h2><i class="fas fa-code-branch"></i> Evolución en 4 Versiones</h2>
+                <p>
+                    Cada versión es una carpeta completa, lo que refleja cómo creció el encargo: empezó
+                    siendo un script con interfaz y acabó siendo un CRM con roles.
+                </p>
+                <ul class="version-timeline">
+                    <li><span class="v-tag">V0.0.1</span>Primer prototipo: scraper con una interfaz
+                    mínima para lanzarlo y ver resultados.</li>
+                    <li><span class="v-tag">V0.0.2</span>Iteración sobre la interfaz y el volcado de
+                    datos.</li>
+                    <li><span class="v-tag">V0.0.3-CRM</span>El salto: modelos SQLAlchemy, login,
+                    enriquecimiento y estructura de CRM.</li>
+                    <li><span class="v-tag">V0.0.4</span>Versión final: roles admin y comercial,
+                    asignaciones, catálogo CNAE, chat, notificaciones y saneado de leads.</li>
+                </ul>
+            </div>
+
+            <!-- Seguridad Implementada -->
+            <div class="project-section">
+                <h2><i class="fas fa-lock"></i> Seguridad Implementada</h2>
+                <ul class="features-list">
+                    <li>Acceso con login y sesión; sin sesión no hay acceso a ninguna vista de
+                    datos.</li>
+                    <li><strong>Separación estricta por rol</strong>: el comercial no puede alcanzar las
+                    vistas de administración.</li>
+                    <li>Página <code>403.html</code> dedicada para los accesos no autorizados.</li>
+                    <li>Configuración de credenciales y orígenes fuera del código, en
+                    <code>config.py</code>.</li>
+                    <li>Consultas mediante el ORM de SQLAlchemy, sin SQL concatenado.</li>
+                </ul>
+            </div>
+
+            <!-- Retos Técnicos y Decisiones de Diseño -->
+            <div class="project-section">
+                <h2><i class="fas fa-lightbulb"></i> Retos Técnicos y Decisiones de Diseño</h2>
+                <h3>El scraping es la parte fácil; mantenerlo es la difícil</h3>
+                <p>
+                    Un scraper funciona el día que se escribe y se rompe la semana siguiente. La
+                    estrategia fue separar rastreo de enriquecimiento: <code>scraper.py</code> solo
+                    captura lo mínimo fiable y <code>enrichment.py</code> completa después. Así un
+                    cambio en el origen degrada la calidad del dato pero no tumba el proceso, y el
+                    histórico se puede reparar con <code>fix_leads.py</code> sin volver a rastrear.
+                </p>
+                <h3>Clasificar por CNAE en lugar de por palabras clave</h3>
+                <p>
+                    Al principio los leads se etiquetaban por texto libre, y el resultado era inservible
+                    para filtrar. Adoptar el <strong>catálogo CNAE</strong> — el código oficial de
+                    actividad económica — convirtió la clasificación en algo estándar y comparable: el
+                    comercial pide un sector y el sistema sabe exactamente qué devolver.
+                </p>
+                <h3>Dos interfaces, no una con condicionales</h3>
+                <p>
+                    Tener admin y comercial en las mismas plantillas con <code>if rol ==</code> por
+                    todas partes envenena el código y filtra información por descuido. Separar
+                    <code>templates/admin/</code> y <code>templates/comercial/</code> duplica algo de
+                    maquetación pero hace imposible que un comercial vea la vista global por accidente.
+                </p>
+            </div>
+
+            <!-- Mi Rol -->
+            <div class="project-section">
+                <h2><i class="fas fa-user-tie"></i> Mi Rol</h2>
+                <p>
+                    <strong>Desarrollador en prácticas — autor del proyecto.</strong>
+                </p>
+                <p>
+                    Recogí el requisito con el equipo comercial, propuse el enfoque y desarrollé las
+                    cuatro versiones: scraper, enriquecimiento, modelo de datos, sistema de roles, ambas
+                    interfaces y las utilidades de mantenimiento del histórico.
+                </p>
+            </div>
+
+            <!-- Estado del Proyecto -->
+            <div class="project-section">
+                <h2><i class="fas fa-flag-checkered"></i> Estado del Proyecto</h2>
+                <p>
+                    Entregado y usado por el equipo comercial de la empresa durante las prácticas
+                    (abril-mayo de 2026). La versión final es la <code>V0.0.4</code>.
+                </p>
+            </div>
+
+            <!-- Código y Enlaces -->
+            <div class="project-section">
+                <h2><i class="fas fa-link"></i> Código y Enlaces</h2>
+                <div class="project-links">
+                    <a href="https://github.com/Valentindg2506/TuaTeam" target="_blank" rel="noopener">
+                        <i class="fab fa-github"></i> Ver código en GitHub
+                    </a>
+                </div>
+                <p style="margin-top: 16px;">
+                    El código está en el repositorio <code>TuaTeam</code>, dentro de la carpeta
+                    <code>Soft-Scrappeo/</code>. Los datos de empresas rastreados no se incluyen.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <button id="scrollTop" class="scroll-top" aria-label="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

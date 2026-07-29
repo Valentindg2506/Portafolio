@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DrinkLegends — app social de rondas en grupo con Laravel 13, JWT, rankings, logros y notificaciones push">
+    <title>DrinkLegends - Valentín De Gennaro</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/proyecto.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="../index.html#home">&lt;VDG /&gt;</a>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="project-detail">
+        <a href="../index.html#projects" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Volver a Proyectos
+        </a>
+
+        <div class="project-hero">
+            <h1>🍻 DrinkLegends</h1>
+            <p class="project-tagline">App social para registrar rondas en grupo con foto y competir por puntos, logros y rachas</p>
+            <div class="project-badges">
+                <span class="status-badge"><i class="fas fa-layer-group"></i> Laravel 13</span>
+                <span class="status-badge"><i class="fas fa-key"></i> JWT</span>
+                <span class="status-badge"><i class="fas fa-mobile-screen"></i> PWA con push</span>
+            </div>
+        </div>
+
+        <div class="project-content">
+            <!-- Escala del Proyecto -->
+            <div class="project-section">
+                <h2><i class="fas fa-chart-line"></i> Escala del Proyecto</h2>
+                <div class="stats-grid">
+                    <div class="stat-card"><span class="stat-num">42</span><span class="stat-label">Rutas API</span></div>
+                    <div class="stat-card"><span class="stat-num">16</span><span class="stat-label">Logros</span></div>
+                    <div class="stat-card"><span class="stat-num">4</span><span class="stat-label">Rankings</span></div>
+                    <div class="stat-card"><span class="stat-num">79</span><span class="stat-label">Archivos</span></div>
+                    <div class="stat-card"><span class="stat-num">6.8k</span><span class="stat-label">Líneas</span></div>
+                </div>
+            </div>
+
+            <!-- Descripción General -->
+            <div class="project-section">
+                <h2><i class="fas fa-info-circle"></i> Descripción General</h2>
+                <p>
+                    DrinkLegends convierte una reunión con amigos en una liga. Cada participante
+                    registra su ronda eligiendo bebida, cantidad y una foto, y eso le da puntos. Los
+                    puntos alimentan cuatro clasificaciones — semanal, mensual, anual y total — más un
+                    ranking global mundial al que se entra por decisión propia.
+                </p>
+                <p>
+                    Alrededor de eso hay una capa de <strong>engagement</strong> diseñada para que la
+                    gente vuelva: <strong>16 logros</strong> con barra de progreso, <strong>rachas
+                    diarias</strong> que dan bonus cada siete días, el <strong>MVP de la noche</strong>
+                    que premia automáticamente al máximo anotador del día anterior, retos semanales
+                    creados por el administrador del grupo, eventos con su propia clasificación y
+                    estadísticas avanzadas.
+                </p>
+                <p>
+                    La parte social la completan los grupos con código de invitación de 6 caracteres, el
+                    muro con likes y comentarios, el chat con notificaciones push, el sistema de amigos
+                    y tres juegos integrados. El backend está en <strong>Laravel 13</strong> con
+                    autenticación JWT.
+                </p>
+            </div>
+
+            <!-- Tecnologías Utilizadas -->
+            <div class="project-section">
+                <h2><i class="fas fa-tools"></i> Tecnologías Utilizadas</h2>
+                <div class="tech-grid">
+                    <div class="tech-badge"><i class="fab fa-laravel"></i><br>Laravel 13</div>
+                    <div class="tech-badge"><i class="fab fa-php"></i><br>PHP 8.3</div>
+                    <div class="tech-badge"><i class="fas fa-key"></i><br>firebase/php-jwt</div>
+                    <div class="tech-badge"><i class="fas fa-database"></i><br>MySQL</div>
+                    <div class="tech-badge"><i class="fas fa-bell"></i><br>Web Push</div>
+                    <div class="tech-badge"><i class="fas fa-mobile-screen"></i><br>PWA</div>
+                    <div class="tech-badge"><i class="fas fa-vial"></i><br>PHPUnit</div>
+                    <div class="tech-badge"><i class="fas fa-language"></i><br>i18n es / en</div>
+                </div>
+            </div>
+
+            <!-- Funcionalidades Implementadas -->
+            <div class="project-section">
+                <h2><i class="fas fa-th-large"></i> Funcionalidades Implementadas</h2>
+                <div class="modules-grid">
+                    <div class="module-card">
+                        <strong>🔐 Autenticación</strong>
+                        <p>Registro y login con límite de intentos, token de acceso corto y refresh
+                        largo, con reintento automático al caducar.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>👥 Grupos</strong>
+                        <p>Creación y acceso por código de invitación de 6 caracteres, foto de portada
+                        editable solo por quien lo creó.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🥤 Bebidas personalizadas</strong>
+                        <p>Cuatro bebidas por defecto más tres configurables por grupo.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📸 Rondas</strong>
+                        <p>Se elige bebida, se fija cantidad de 1 a 20 y se hace una foto comprimida en
+                        el cliente antes de subirla.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📰 Muro</strong>
+                        <p>Feed del grupo con likes, comentarios y botón de compartir nativo.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🏆 Rankings</strong>
+                        <p>Clasificación del grupo en semanal, mensual, anual y total, con medallas.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🌍 Ranking global</strong>
+                        <p>Top mundial al que se entra activando el perfil público.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>⭐ MVP de la noche</strong>
+                        <p>El máximo anotador de cada día pasado recibe 10 puntos automáticamente.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🎖️ 16 logros</strong>
+                        <p>Por rondas, puntos, MVPs, rachas, amigos y grupos, cada uno con su barra de
+                        progreso.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🔥 Rachas diarias</strong>
+                        <p>Cuenta los días consecutivos y otorga 5 puntos de bonus en cada hito de 7
+                        días.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📊 Estadísticas avanzadas</strong>
+                        <p>Gráfico de los últimos 7 días, distribución por día de la semana, hora punta
+                        y bebidas favoritas.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🎯 Retos semanales</strong>
+                        <p>Retos por grupo creados por su administrador, con puntos extra.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🗓️ Eventos</strong>
+                        <p>Eventos dentro del grupo; las rondas se etiquetan y generan una clasificación
+                        propia.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🤝 Amigos</strong>
+                        <p>Búsqueda por email o apodo, solicitudes, aceptación, rechazo y lista de
+                        amigos.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>💬 Chat de grupo</strong>
+                        <p>Mensajería con notificación push a los miembros.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🎲 Juegos</strong>
+                        <p>Verdad o Reto en tres niveles con más de 90 preguntas en español, ruleta para
+                        elegir participante y ¿Quién es más probable? con 20 preguntas.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Arquitectura -->
+            <div class="project-section">
+                <h2><i class="fas fa-sitemap"></i> Arquitectura</h2>
+                <p>
+                    Backend Laravel 13 con la estructura estándar del framework: controladores de API en
+                    <code>app/Http/Controllers/Api</code>, modelos Eloquent, servicios para la lógica
+                    que no cabe en un controlador y middleware para la validación del JWT. Las 42 rutas
+                    viven en <code>routes/api.php</code>.
+                </p>
+                <p>
+                    El frontend se sirve como PWA desde <code>public/</code>, con su manifiesto y su
+                    service worker. Todo el esquema de base de datos está en una única migración
+                    inicial.
+                </p>
+                <pre class="code-tree"><span class="t-dir">DrinkLegends/</span>
+├── <span class="t-dir">memory/</span>                  <span class="t-note"># PRD.md: documento de producto</span>
+├── <span class="t-file">design_guidelines.json</span>   <span class="t-note"># sistema visual</span>
+├── <span class="t-dir">test_reports/</span>            <span class="t-note"># resultados PHPUnit y pytest</span>
+└── <span class="t-dir">backend/</span>
+    ├── <span class="t-dir">app/Http/Controllers/Api/</span>
+    ├── <span class="t-dir">app/Models/</span> · <span class="t-dir">app/Services/</span>
+    ├── <span class="t-dir">app/Http/Middleware/</span>  <span class="t-note"># validación JWT</span>
+    ├── <span class="t-file">routes/api.php</span>       <span class="t-note"># 42 rutas</span>
+    ├── <span class="t-dir">database/migrations/</span>  <span class="t-note"># esquema completo</span>
+    ├── <span class="t-dir">config/drinklegends.php</span> <span class="t-note"># config propia</span>
+    └── <span class="t-dir">public/</span>              <span class="t-note"># PWA: manifest.json, sw.js</span></pre>
+            </div>
+
+            <!-- Los Cuatro Sistemas de Puntuación -->
+            <div class="project-section">
+                <h2><i class="fas fa-trophy"></i> Los Cuatro Sistemas de Puntuación</h2>
+                <ul class="features-list">
+                    <li><strong>Puntos por ronda</strong>: la base, según bebida y cantidad
+                    registrada.</li>
+                    <li><strong>MVP de la noche</strong>: 10 puntos automáticos al máximo anotador de
+                    cada día ya cerrado.</li>
+                    <li><strong>Bonus de racha</strong>: 5 puntos adicionales al completar cada ciclo de
+                    7 días consecutivos.</li>
+                    <li><strong>Retos semanales</strong>: puntos extra definidos por el administrador
+                    del grupo.</li>
+                    <li>Las cuatro fuentes alimentan los rankings semanal, mensual, anual y total, y el
+                    global para quien active su perfil público.</li>
+                </ul>
+            </div>
+
+            <!-- Seguridad Implementada -->
+            <div class="project-section">
+                <h2><i class="fas fa-lock"></i> Seguridad Implementada</h2>
+                <ul class="features-list">
+                    <li><strong>Rate limiting</strong> en autenticación: 10 intentos de login y 5 de
+                    registro por minuto y por IP.</li>
+                    <li>Contraseñas con <strong>bcrypt</strong>; el cambio de contraseña exige verificar
+                    la actual.</li>
+                    <li><strong>Token de acceso de vida corta</strong> (60 min) más refresh token de 30
+                    días, con reintento automático ante un 401.</li>
+                    <li>Middleware propio de validación del JWT en todas las rutas privadas.</li>
+                    <li><strong>Perfil público opcional</strong>: nadie aparece en el ranking mundial
+                    sin activarlo explícitamente.</li>
+                    <li>Compresión de imágenes en el cliente a 900 px y JPEG al 60% antes de subirlas,
+                    reduciendo tanto el peso como los metadatos.</li>
+                </ul>
+            </div>
+
+            <!-- Retos Técnicos y Decisiones de Diseño -->
+            <div class="project-section">
+                <h2><i class="fas fa-lightbulb"></i> Retos Técnicos y Decisiones de Diseño</h2>
+                <h3>Migrar de FastAPI y MongoDB a Laravel y MySQL</h3>
+                <p>
+                    El <code>PRD.md</code> del proyecto define el stack original: React Native con Expo,
+                    backend FastAPI y MongoDB. La implementación acabó siendo <strong>Laravel 13 con
+                    MySQL</strong>. El motivo fue de despliegue: un backend PHP con MySQL entra en
+                    cualquier hosting compartido, mientras que FastAPI y MongoDB requieren
+                    infraestructura propia. Documentar la desviación respecto al PRD me parece más
+                    honesto que reescribir el PRD.
+                </p>
+                <h3>Fotos en base de datos, con compresión en el cliente</h3>
+                <p>
+                    Las imágenes se guardan como base64 en la base de datos, lo cual no escala bien y
+                    está reconocido como limitación en el PRD. La mitigación es comprimir
+                    <strong>antes</strong> de subir: 900 px y JPEG al 60% en el navegador. La migración
+                    a un servicio de imágenes quedó deliberadamente aplazada por requerir una cuenta
+                    externa.
+                </p>
+                <h3>Diseñar para que la gente vuelva</h3>
+                <p>
+                    La mecánica de puntos sola no retiene a nadie más de una semana. Los cuatro sistemas
+                    — MVP diario, rachas con hito a 7 días, 16 logros con progreso visible y ranking
+                    global — están pensados en escalas de tiempo distintas: el MVP da motivo para volver
+                    mañana, la racha para volver toda la semana, y los logros para seguir a los tres
+                    meses.
+                </p>
+                <h3>Limitaciones asumidas y escritas</h3>
+                <p>
+                    El PRD deja constancia de lo que no funciona: las notificaciones push requieren una
+                    build de desarrollo o producción de Expo, y el flujo de cámara en web cae a una foto
+                    de demostración porque la cámara real es de móvil. Un proyecto que documenta sus
+                    límites es más útil que uno que finge no tenerlos.
+                </p>
+            </div>
+
+            <!-- Mi Rol -->
+            <div class="project-section">
+                <h2><i class="fas fa-user-tie"></i> Mi Rol</h2>
+                <p>
+                    <strong>Desarrollador full stack — autor único.</strong>
+                </p>
+                <p>
+                    Documento de producto, modelo de datos, las 42 rutas de la API, autenticación JWT
+                    con refresh, sistemas de puntuación y logros, frontend PWA e internacionalización.
+                </p>
+            </div>
+
+            <!-- Estado del Proyecto -->
+            <div class="project-section">
+                <h2><i class="fas fa-flag-checkered"></i> Estado del Proyecto</h2>
+                <p>
+                    Versión 3 funcional con todas las funcionalidades de los niveles 1 y 2
+                    implementadas. La carpeta <code>test_reports/</code> conserva los resultados de
+                    PHPUnit y pytest de tres iteraciones de prueba. Su sucesor es <strong>Pint
+                    League</strong>, una reescritura completa sobre PHP sin framework.
+                </p>
+            </div>
+
+            <!-- Código y Enlaces -->
+            <div class="project-section">
+                <h2><i class="fas fa-link"></i> Código y Enlaces</h2>
+                <div class="project-links">
+                    <a href="https://github.com/Valentindg2506/DrinkLegends" target="_blank" rel="noopener">
+                        <i class="fab fa-github"></i> Ver código en GitHub
+                    </a>
+                    <a href="pint-league.html" target="_blank" rel="noopener">
+                        <i class="fas fa-arrow-right"></i> Ver Pint League, su sucesor
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <button id="scrollTop" class="scroll-top" aria-label="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

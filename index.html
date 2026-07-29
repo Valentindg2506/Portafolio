@@ -53,15 +53,15 @@
         </div>
         <div class="container hero-content">
             <div class="hero-text">
-                <p class="hero-greeting">👋 Hola, soy</p>
+                <p class="hero-greeting">Desarrollador full stack · Valencia, España</p>
                 <h1 class="hero-title">
                     <span class="gradient-text">Valentín De Gennaro</span>
                 </h1>
-                <h2 class="hero-subtitle">Desarrollador de Aplicaciones Multiplataforma</h2>
+                <h2 class="hero-subtitle">Construyo software de gestión que llega a producción</h2>
                 <p class="hero-description">
-                    Estudiante de DAM en Valencia, España. Dinámico, organizado y comprometido con
-                    el desarrollo personal y profesional. Especializado en desarrollo web con
-                    HTML, CSS, JavaScript, PHP y MySQL.
+                    38 proyectos documentados y 9 funcionando con usuarios reales: CRM inmobiliarios
+                    multi-tenant, gestión de alquileres con pagos y firma digital, y herramientas de
+                    escritorio con IA local. De cada uno tienes aquí el stack, la arquitectura y el código.
                 </p>
                 <div class="hero-buttons">
                     <a href="#projects" class="btn btn-primary">
@@ -75,7 +75,7 @@
                     <a href="https://github.com/Valentindg2506" target="_blank" aria-label="GitHub">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+                    <a href="https://www.linkedin.com/in/valentin-antonio-de-gennaro/" target="_blank" aria-label="LinkedIn">
                         <i class="fab fa-linkedin"></i>
                     </a>
                     <a href="mailto:info@valentindg.com" aria-label="Email">
@@ -89,21 +89,29 @@
                         <span class="dot dot-red"></span>
                         <span class="dot dot-yellow"></span>
                         <span class="dot dot-green"></span>
-                        <span class="code-title">app.py</span>
+                        <span class="code-title">Jwt.php</span>
                     </div>
                     <div class="code-body">
-                        <pre><code><span class="code-keyword">class</span> <span class="code-class">Desarrollador</span>:
-    <span class="code-keyword">def</span> <span class="code-method">__init__</span>(<span class="code-keyword">self</span>):
-        <span class="code-keyword">self</span>.nombre = <span class="code-string">"Estudiante DAM"</span>
-        <span class="code-keyword">self</span>.ubicacion = <span class="code-string">"Valencia, España"</span>
-        <span class="code-keyword">self</span>.habilidades = [
-            <span class="code-string">"Python"</span>, <span class="code-string">"HTML"</span>, <span class="code-string">"CSS"</span>,
-            <span class="code-string">"JavaScript"</span>, <span class="code-string">"PHP"</span>, <span class="code-string">"MySQL"</span>
-        ]
-    
-    <span class="code-keyword">def</span> <span class="code-method">presentarse</span>(<span class="code-keyword">self</span>):
-        print(<span class="code-string">"¡Listo para crear!"</span>)</code></pre>
+                        <pre><code><span class="code-comment">/** Devuelve el payload o null si no es válido. */</span>
+<span class="code-keyword">public static function</span> <span class="code-method">decode</span>(<span class="code-type">string</span> $token): ?<span class="code-type">array</span>
+{
+    [$h, $p, $s] = <span class="code-method">explode</span>(<span class="code-string">'.'</span>, $token);
+
+    $expected = <span class="code-class">self</span>::<span class="code-method">b64url</span>(<span class="code-method">hash_hmac</span>(
+        <span class="code-string">'sha256'</span>, <span class="code-string">"$h.$p"</span>, <span class="code-method">cfg</span>(<span class="code-string">'jwt_secret'</span>), <span class="code-keyword">true</span>
+    ));
+    <span class="code-keyword">if</span> (!<span class="code-method">hash_equals</span>($expected, $s)) <span class="code-keyword">return null</span>;
+
+    $payload = <span class="code-method">json_decode</span>(<span class="code-class">self</span>::<span class="code-method">b64urlDecode</span>($p), <span class="code-keyword">true</span>);
+    <span class="code-keyword">if</span> ($payload[<span class="code-string">'exp'</span>] &lt; <span class="code-method">time</span>()) <span class="code-keyword">return null</span>;
+
+    <span class="code-keyword">return</span> $payload;
+}</code></pre>
                     </div>
+                    <p class="code-caption">
+                        <i class="fas fa-shield-halved"></i>
+                        Pint League — verificación de firma HS256 en tiempo constante
+                    </p>
                 </div>
             </div>
         </div>
@@ -118,91 +126,93 @@
     <section id="about" class="section">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Conóceme</span>
-                <h2 class="section-title">Sobre Mí</h2>
+                <span class="section-tag">Catálogo Técnico</span>
+                <h2 class="section-title">Proyectos y Experiencia</h2>
                 <p class="section-description">
-                    Mi trayectoria como estudiante de Desarrollo de Aplicaciones Multiplataforma
+                    Selección de trabajos que muestran capacidad real para construir productos completos
                 </p>
             </div>
             <div class="about-content">
-                <div class="about-image">
-                    <div class="about-image-wrapper">
-                        <img src="assets/images/perfil.png" alt="Foto de perfil">
-                        <div class="about-image-overlay"></div>
-                    </div>
+                <div class="about-figures">
                     <div class="about-stats">
                         <div class="stat-item">
-                            <span class="stat-number" data-target="38">0</span>
-                            <span class="stat-label">Proyectos</span>
+                            <span class="stat-number" data-target="38">38</span>
+                            <span class="stat-label">Proyectos documentados</span>
                         </div>
-                        <!--    
                         <div class="stat-item">
-                            <span class="stat-number" data-target="1">0</span>
-                            <span class="stat-label">Años Estudiando</span>
+                            <span class="stat-number" data-target="9">9</span>
+                            <span class="stat-label">En producción</span>
                         </div>
-                        -->
                         <div class="stat-item">
-                            <span class="stat-number" data-target="5">0</span>
+                            <span class="stat-figure">156k</span>
+                            <span class="stat-label">Líneas de código</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="14">14</span>
                             <span class="stat-label">Tecnologías</span>
                         </div>
                     </div>
+                    <p class="about-figures-note">
+                        <i class="fas fa-circle-info"></i>
+                        Cifras contadas sobre el código de los repositorios, sin duplicar las versiones
+                        archivadas de un mismo proyecto.
+                    </p>
                 </div>
                 <div class="about-text">
-                    <h3>Desarrollador de Aplicaciones Multiplataforma</h3>
+                    <h3>Lo que puedes revisar aquí</h3>
                     <p>
-                        Actualmente curso el <strong>Grado Superior en Desarrollo de Aplicaciones Multiplataforma
-                            (DAM)</strong>
-                        en CEACFP, Valencia, España. Me caracterizo por ser una persona <strong>dinámica, organizada
-                            y expeditiva</strong>, altamente comprometido en trabajar en proyectos que impulsen mi
-                        desarrollo personal y profesional.
+                        Este portafolio está pensado para que puedas evaluar mi trabajo de forma rápida: qué
+                        he construido, qué tecnologías uso y cómo resuelvo problemas reales con código.
                     </p>
                     <p>
-                        Durante mi formación, he desarrollado múltiples proyectos que abarcan <strong>sistemas de
-                            gestión inmobiliaria</strong> (CAS Real State, Tinoprop), <strong>paneles
-                            administrativos</strong>
-                        (AdminViews), y <strong>landing pages</strong> profesionales. Me especializo en desarrollo
-                        web con <strong>HTML5, CSS3, JavaScript, PHP y MySQL</strong>, creando aplicaciones robustas
-                        con interfaces intuitivas y responsive.
+                        Aquí encontrarás <strong>CRM y sistemas de gestión</strong> como TinoProp CRM (multi-tenant,
+                        19 módulos) o RoomManager, <strong>herramientas de escritorio con IA local</strong> como
+                        LocalCoder, <strong>software desarrollado en empresa</strong> como Soft-Scrappeo, y
+                        <strong>webs corporativas</strong> como CAS Real State o MP Solutions.
                     </p>
                     <p>
-                        Además del desarrollo, cuento con experiencia en <strong>bases de datos relacionales</strong>,
-                        diseño responsive, y despliegue de aplicaciones
-                        en producción. Me apasiona aprender nuevas tecnologías y resolver problemas reales mediante
-                        el código.
+                        Los proyectos académicos van marcados como tal y están al final del listado: son ejercicios
+                        de clase, no producto. Prefiero que veas la diferencia antes de abrirlos.
+                    </p>
+                    <p>
+                        La idea no es solo enseñar pantallas bonitas: es mostrar que puedo diseñar,
+                        programar y publicar soluciones útiles, con foco en experiencia de usuario,
+                        bases de datos y despliegue.
                     </p>
                     <div class="about-highlights">
                         <div class="highlight-item">
                             <i class="fas fa-check-circle"></i>
-                            <span>Desarrollo Web Front-end (HTML/CSS/JS)</span>
+                            <span>Proyectos web y CRM reales</span>
                         </div>
                         <div class="highlight-item">
                             <i class="fas fa-check-circle"></i>
-                            <span>Desarrollo Back-end (PHP/MySQL)</span>
+                            <span>Back-end con PHP y MySQL</span>
                         </div>
                         <div class="highlight-item">
                             <i class="fas fa-check-circle"></i>
-                            <span>Sistemas de Gestión Completas</span>
+                            <span>Interfaces responsive</span>
                         </div>
                         <div class="highlight-item">
                             <i class="fas fa-check-circle"></i>
-                            <span>Diseño Responsive & UI/UX</span>
+                            <span>Bases de datos relacionales</span>
                         </div>
                         <div class="highlight-item">
                             <i class="fas fa-check-circle"></i>
-                            <span>Control de Versiones (GitHub Desktop)</span>
+                            <span>Control de versiones y despliegue</span>
                         </div>
                         <div class="highlight-item">
                             <i class="fas fa-check-circle"></i>
-                            <span>Despliegue en Producción</span>
+                            <span>Entrega en producción</span>
                         </div>
                     </div>
-                    <a href="https://cv.valentindg.com" class="btn btn-primary" target="_blank"
-                        style="margin-left: 0px;">
-                        <i class="fas fa-file-alt"></i> Ver CV Online
-                        <a href="assets/CV.Valentin Antonio De Gennaro.pdf" class="btn btn-primary" download
-                            style="margin-left: 10px;">
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px;">
+                        <a href="https://cv.valentindg.com" class="btn btn-primary" target="_blank">
+                            <i class="fas fa-file-alt"></i> Ver CV Online
+                        </a>
+                        <a href="assets/CV.Valentin Antonio De Gennaro.pdf" class="btn btn-primary" download>
                             <i class="fas fa-download"></i> Descargar CV
                         </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -222,7 +232,7 @@
                 <!-- Lenguajes de Programación -->
                 <div class="skill-category">
                     <h3><i class="fas fa-code"></i> Lenguajes de Programación</h3>
-                    <div class="skills-list" style="display: flex; flex-wrap: wrap; gap: 10px;">
+                    <div class="skills-list">
                         <span class="tag"><i class="fab fa-python"></i> Python</span>
                         <span class="tag"><i class="fab fa-js"></i> JavaScript</span>
                         <span class="tag"><i class="fab fa-php"></i> PHP</span>
@@ -233,7 +243,7 @@
                 <!-- Desarrollo Web -->
                 <div class="skill-category">
                     <h3><i class="fas fa-laptop-code"></i> Desarrollo Web</h3>
-                    <div class="skills-list" style="display: flex; flex-wrap: wrap; gap: 10px;">
+                    <div class="skills-list">
                         <span class="tag"><i class="fab fa-html5"></i> HTML5</span>
                         <span class="tag"><i class="fab fa-css3-alt"></i> CSS3</span>
                         <span class="tag"><i class="fas fa-mobile-alt"></i> Responsive Design</span>
@@ -244,7 +254,7 @@
                 <!-- Bases de Datos -->
                 <div class="skill-category">
                     <h3><i class="fas fa-database"></i> Bases de Datos</h3>
-                    <div class="skills-list" style="display: flex; flex-wrap: wrap; gap: 10px;">
+                    <div class="skills-list">
                         <span class="tag"><i class="fas fa-database"></i> SQL/MySQL</span>
                         <span class="tag"><i class="fas fa-database"></i> MongoDB</span>
                         <span class="tag"><i class="fas fa-database"></i> Sqlite</span>
@@ -255,7 +265,7 @@
                 <!-- Herramientas y Otros -->
                 <div class="skill-category">
                     <h3><i class="fas fa-tools"></i> Herramientas</h3>
-                    <div class="skills-list" style="display: flex; flex-wrap: wrap; gap: 10px;">
+                    <div class="skills-list">
                         <span class="tag"><i class="fab fa-github"></i> GitHub</span>
                         <span class="tag"><i class="fas fa-code"></i> VS Code</span>
                         <span class="tag"><i class="fas fa-terminal"></i> Linux</span>
@@ -278,24 +288,441 @@
 
             <!-- Filtros de Proyectos -->
             <div class="project-filters">
-				<button class="filter-btn active" data-filter="all">Todos</button>
-				<button class="filter-btn" data-filter="web">Web / PHP</button>
-				<button class="filter-btn" data-filter="python">Python</button>
-				<button class="filter-btn" data-filter="frontend">Frontend</button>
-				<button class="filter-btn" data-filter="ia">IA</button>
-			</div>
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="web">Web / PHP</button>
+                <button class="filter-btn" data-filter="pwa">PWA</button>
+                <button class="filter-btn" data-filter="frontend">Frontend</button>
+                <button class="filter-btn" data-filter="ia">IA</button>
+                <button class="filter-btn" data-filter="python">Python</button>
+            </div>
 
             <div class="projects-grid">
-                <!-- Proyecto 1: CAS-WEB -->
+                <!-- Proyecto 1: TinoProp CRM -->
                 <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="assets/images/tinoprop.png" alt="TinoProp CRM">
+                        <div class="project-overlay">
+                            <a href="https://tinoprop.com" target="_blank" class="project-link" title="Ver Demo">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="https://github.com/Valentindg2506/Tinoprop" target="_blank" class="project-link" title="Ver Código">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">PHP 8</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">Multi-Tenant</span>
+                            <span class="tag">Chart.js</span>
+                        </div>
+                        <h3>TinoProp CRM</h3>
+                        <p>
+                            CRM inmobiliario multi-tenant con 19 módulos y jerarquía de 7 roles. Varias inmobiliarias
+                            comparten instalación viendo solo sus datos: pipeline Kanban, matching demanda-oferta,
+                            gestión documental, tickets internos e i18n.
+                        </p>
+                        <div class="project-features">
+                            <span><i class="fas fa-check"></i> 19 módulos</span>
+                            <span><i class="fas fa-check"></i> 7 roles jerárquicos</span>
+                            <span><i class="fas fa-check"></i> 41 versiones</span>
+                        </div>
+                        <a href="proyectos/tinoprop-crm.html" class="project-detail-link">
+                            <i class="fas fa-arrow-right"></i> Ver detalles
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Proyecto 2: RoomManager -->
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="assets/images/rm.png" alt="RoomManager">
+                        <div class="project-overlay">
+                            <a href="https://roommanager.tinoprop.com" target="_blank" class="project-link" title="Ver Demo">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="https://github.com/Valentindg2506" target="_blank" class="project-link" title="Ver Código">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">PHP</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">Stripe</span>
+                            <span class="tag">API REST</span>
+                        </div>
+                        <h3>RoomManager</h3>
+                        <p>
+                            Plataforma de gestión de alquiler por habitaciones (coliving / rent to rent). Contratos y
+                            recibos en PDF, caja y liquidaciones a propietarios con firma digital, suscripciones vía
+                            Stripe y oferta pública de habitaciones.
+                        </p>
+                        <div class="project-features">
+                            <span><i class="fas fa-check"></i> 33 endpoints API</span>
+                            <span><i class="fas fa-check"></i> Firma digital</span>
+                            <span><i class="fas fa-check"></i> 12 migraciones</span>
+                        </div>
+                        <a href="proyectos/roommanager.html" class="project-detail-link">
+                            <i class="fas fa-arrow-right"></i> Ver detalles
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Proyecto 3: InmoCRM -->
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="assets/images/crm.png" alt="InmoCRM">
+                        <div class="project-overlay">
+                            <a href="https://github.com/Valentindg2506" target="_blank" class="project-link" title="Ver Código">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">PHP</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">2FA TOTP</span>
+                            <span class="tag">Matching</span>
+                        </div>
+                        <h3>InmoCRM</h3>
+                        <p>
+                            CRM inmobiliario con 14 módulos y segundo factor de autenticación TOTP implementado desde
+                            cero. Incluye motor de matching entre demandas y cartera, facturación con conversión de
+                            presupuestos y auditoría de actividad.
+                        </p>
+                        <div class="project-features">
+                            <span><i class="fas fa-check"></i> 2FA TOTP propio</span>
+                            <span><i class="fas fa-check"></i> Motor de matching</span>
+                            <span><i class="fas fa-check"></i> 23 tablas</span>
+                        </div>
+                        <a href="proyectos/inmocrm.html" class="project-detail-link">
+                            <i class="fas fa-arrow-right"></i> Ver detalles
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Proyecto 4: Soft-Scrappeo -->
+                <div class="project-card" data-category="python">
+                    <div class="project-image">
+                        <img src="assets/images/soft-scrappeo.svg" alt="Soft-Scrappeo">
+                        <div class="project-overlay">
+                            <a href="https://github.com/Valentindg2506/TuaTeam" target="_blank" class="project-link" title="Ver Código">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Flask</span>
+                            <span class="tag">SQLAlchemy</span>
+                            <span class="tag">Scraping</span>
+                        </div>
+                        <h3>Soft-Scrappeo</h3>
+                        <p>
+                            CRM de captación de leads B2B desarrollado durante las prácticas en empresa. Rastrea
+                            empresas, las enriquece con datos públicos y las clasifica por código CNAE, con roles de
+                            admin y comercial, asignaciones, chat y notificaciones.
+                        </p>
+                        <div class="project-features">
+                            <span><i class="fas fa-check"></i> 13.9k líneas</span>
+                            <span><i class="fas fa-check"></i> Catálogo CNAE</span>
+                            <span><i class="fas fa-check"></i> 4 versiones</span>
+                        </div>
+                        <a href="proyectos/soft-scrappeo.html" class="project-detail-link">
+                            <i class="fas fa-arrow-right"></i> Ver detalles
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Proyecto 5: Juntadas Party -->
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="assets/images/juntadas-party.svg" alt="Juntadas Party">
+                        <div class="project-overlay">
+                            <a href="https://github.com/Valentindg2506/Proyectos-Personales" target="_blank" class="project-link" title="Ver Código">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">PHP 8.3</span>
+                            <span class="tag">WebSockets</span>
+                            <span class="tag">Docker</span>
+                            <span class="tag">Redis</span>
+                        </div>
+                        <h3>Juntadas Party</h3>
+                        <p>
+                            Plataforma de juegos multijugador para 4-20 personas en tiempo real y sin registro.
+                            Micro-router PHP propio, servidor WebSocket con Ratchet y ReactPHP, e implementación
+                            completa de las reglas del Truco argentino.
+                        </p>
+                        <div class="project-features">
+                            <span><i class="fas fa-check"></i> Ratchet + ReactPHP</span>
+                            <span><i class="fas fa-check"></i> Truco y Color Match</span>
+                            <span><i class="fas fa-check"></i> Docker Compose</span>
+                        </div>
+                        <a href="proyectos/juntadas-party.html" class="project-detail-link">
+                            <i class="fas fa-arrow-right"></i> Ver detalles
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Proyecto 6: CodePanel -->
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="assets/images/codepanel.svg" alt="CodePanel">
+                        <div class="project-overlay">
+                            <a href="https://github.com/Valentindg2506" target="_blank" class="project-link" title="Ver Código">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">PHP 8.1</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">API JSON</span>
+                            <span class="tag">Vanilla JS</span>
+                        </div>
+                        <h3>CodePanel</h3>
+                        <p>
+                            Espacio de trabajo para programadores: proyectos, ideas, clientes, presupuestos, bitácora y
+                            tareas en una sola interfaz. Calcula rentabilidad por proyecto cruzando ingresos, tiempo
+                            registrado y costes de infraestructura.
+                        </p>
+                        <div class="project-features">
+                            <span><i class="fas fa-check"></i> 14 recursos CRUD</span>
+                            <span><i class="fas fa-check"></i> Cronómetro y rentabilidad</span>
+                            <span><i class="fas fa-check"></i> Sin build ni Composer</span>
+                        </div>
+                        <a href="proyectos/codepanel.html" class="project-detail-link">
+                            <i class="fas fa-arrow-right"></i> Ver detalles
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Proyecto 7: Plataforma de Leads Inmobiliarios -->
+                <div class="project-card" data-category="ia">
+                    <div class="project-image">
+                        <img src="assets/images/marketing.png" alt="Plataforma de Leads Inmobiliarios">
+                        <div class="project-overlay">
+                            <a href="https://github.com/Valentindg2506/Marketing" target="_blank" class="project-link" title="Ver Código">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">TypeScript</span>
+                            <span class="tag">Express</span>
+                            <span class="tag">Telegram</span>
+                            <span class="tag">Ollama</span>
+                        </div>
+                        <h3>Plataforma de Leads Inmobiliarios</h3>
+                        <p>
+                            Backend que automatiza la captación de inmuebles en portales de Valencia: pipeline de
+                            ingesta con cron, normalización, matching por filtros de cliente, scoring con IA local y
+                            avisos por Telegram y WhatsApp.
+                        </p>
+                        <div class="project-features">
+                            <span><i class="fas fa-check"></i> Pipeline con cron</span>
+                            <span><i class="fas fa-check"></i> Scoring con Ollama</span>
+                            <span><i class="fas fa-check"></i> Bot de Telegram</span>
+                        </div>
+                        <a href="proyectos/marketing-leads.html" class="project-detail-link">
+                            <i class="fas fa-arrow-right"></i> Ver detalles
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Proyecto 8: DrinkLegends -->
+                <div class="project-card" data-category="pwa">
+                    <div class="project-image">
+                        <img src="assets/images/drinklegends.svg" alt="DrinkLegends">
+                        <div class="project-overlay">
+                            <a href="https://github.com/Valentindg2506/DrinkLegends" target="_blank" class="project-link" title="Ver Código">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Laravel 13</span>
+                            <span class="tag">PHP 8.3</span>
+                            <span class="tag">JWT</span>
+                            <span class="tag">PWA</span>
+                        </div>
+                        <h3>DrinkLegends</h3>
+                        <p>
+                            App social para registrar rondas en grupo con foto y competir por puntos. Rankings semanal,
+                            mensual, anual y global, 16 logros con progreso, rachas diarias, MVP de la noche, retos,
+                            eventos, amigos y chat con push.
+                        </p>
+                        <div class="project-features">
+                            <span><i class="fas fa-check"></i> 42 rutas API</span>
+                            <span><i class="fas fa-check"></i> 16 logros</span>
+                            <span><i class="fas fa-check"></i> Rankings y rachas</span>
+                        </div>
+                        <a href="proyectos/drinklegends.html" class="project-detail-link">
+                            <i class="fas fa-arrow-right"></i> Ver detalles
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Proyecto 9: BookingApp -->
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="assets/images/bookingapp.svg" alt="BookingApp">
+                        <div class="project-overlay">
+                            <a href="https://github.com/Valentindg2506/BookingApp" target="_blank" class="project-link" title="Ver Código">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">PHP 8.1</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">Twilio</span>
+                            <span class="tag">Google Meet</span>
+                        </div>
+                        <h3>BookingApp</h3>
+                        <p>
+                            Sistema de reserva de citas conectado a la publicidad de Meta. Al confirmar, crea la sala de
+                            Google Meet, avisa por WhatsApp y programa recordatorios automáticos a 24 h y 2 h mediante
+                            cron.
+                        </p>
+                        <div class="project-features">
+                            <span><i class="fas fa-check"></i> Google Meet automático</span>
+                            <span><i class="fas fa-check"></i> Webhook Meta con HMAC</span>
+                            <span><i class="fas fa-check"></i> Recordatorios por cron</span>
+                        </div>
+                        <a href="proyectos/bookingapp.html" class="project-detail-link">
+                            <i class="fas fa-arrow-right"></i> Ver detalles
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Proyecto 10: Pint League -->
+                <div class="project-card" data-category="pwa">
+                    <div class="project-image">
+                        <img src="assets/images/pint-league.svg" alt="Pint League">
+                        <div class="project-overlay">
+                            <a href="https://github.com/Valentindg2506" target="_blank" class="project-link" title="Ver Código">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">PHP vanilla</span>
+                            <span class="tag">JWT</span>
+                            <span class="tag">Web Push</span>
+                            <span class="tag">PWA</span>
+                        </div>
+                        <h3>Pint League</h3>
+                        <p>
+                            Reescritura completa de DrinkLegends sobre PHP sin framework: router, autenticación JWT,
+                            servicio de notificaciones push y procesado de fotos implementados a mano, con SPA vanilla
+                            de 8 vistas y router propio.
+                        </p>
+                        <div class="project-features">
+                            <span><i class="fas fa-check"></i> 9 controladores</span>
+                            <span><i class="fas fa-check"></i> 40 rutas</span>
+                            <span><i class="fas fa-check"></i> Router y JWT propios</span>
+                        </div>
+                        <a href="proyectos/pint-league.html" class="project-detail-link">
+                            <i class="fas fa-arrow-right"></i> Ver detalles
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Proyecto 11: AdminViews -->
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="assets/images/adminviews.jpg" alt="AdminViews">
+                        <div class="project-overlay">
+                            <a href="https://adminviews.valentindg.com" target="_blank" class="project-link" title="Ver Demo">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="https://github.com/Valentindg2506/AdminViews" target="_blank" class="project-link" title="Ver Código">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">PHP</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">API TMDB</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <h3>AdminViews</h3>
+                        <p>
+                            Gestor personal de series y películas con listas por estado (viendo, vistas, pendientes).
+                            Autocompleta títulos y carátulas desde la API de TheMovieDB y cifra las contraseñas con
+                            password_hash.
+                        </p>
+                        <div class="project-features">
+                            <span><i class="fas fa-check"></i> Integración TMDB</span>
+                            <span><i class="fas fa-check"></i> Panel de administración</span>
+                            <span><i class="fas fa-check"></i> En producción</span>
+                        </div>
+                        <a href="proyectos/adminviews.html" class="project-detail-link">
+                            <i class="fas fa-arrow-right"></i> Ver detalles
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Proyecto 12: Seguimiento CAS -->
+                <div class="project-card" data-category="pwa">
+                    <div class="project-image">
+                        <img src="assets/images/seguimiento-cas.svg" alt="Seguimiento CAS">
+                        <div class="project-overlay">
+                            <a href="https://github.com/Valentindg2506/Seguimiento" target="_blank" class="project-link" title="Ver Código">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">PHP</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">PWA</span>
+                            <span class="tag">Service Worker</span>
+                        </div>
+                        <h3>Seguimiento CAS</h3>
+                        <p>
+                            PWA de seguimiento de propietarios, inquilinos y visitas para una inmobiliaria. Plantillas
+                            de mensaje reutilizables, autenticación por token con caducidad e instalador protegido por
+                            clave.
+                        </p>
+                        <div class="project-features">
+                            <span><i class="fas fa-check"></i> 8 tablas</span>
+                            <span><i class="fas fa-check"></i> Plantillas de contacto</span>
+                            <span><i class="fas fa-check"></i> Soporte offline</span>
+                        </div>
+                        <a href="proyectos/seguimiento-cas.html" class="project-detail-link">
+                            <i class="fas fa-arrow-right"></i> Ver detalles
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Proyecto 13: CAS Real State -->
+                <div class="project-card" data-category="frontend">
                     <div class="project-image">
                         <img src="assets/images/cas.jpg" alt="CAS Real State">
                         <div class="project-overlay">
                             <a href="https://casrs.es" target="_blank" class="project-link" title="Ver Demo">
                                 <i class="fas fa-external-link-alt"></i>
                             </a>
-                            <a href="https://github.com/Valentindg2506/CAS-WEB" target="_blank" class="project-link"
-                                title="Ver Código">
+                            <a href="https://github.com/Valentindg2506/CAS-WEB" target="_blank" class="project-link" title="Ver Código">
                                 <i class="fab fa-github"></i>
                             </a>
                         </div>
@@ -308,70 +735,268 @@
                         </div>
                         <h3>CAS Real State</h3>
                         <p>
-                            Página web profesional para agencia inmobiliaria en Valencia. Diseño moderno
-                            y responsive con secciones de servicios, reseñas de clientes y sistema de
-                            agenda de citas. 🌐 En producción.
+                            Web corporativa de una agencia inmobiliaria de Valencia, orientada a conversión. Hero
+                            panorámico, explicación paso a paso de cada proceso, reseñas de clientes y agenda de citas.
                         </p>
                         <div class="project-features">
                             <span><i class="fas fa-check"></i> Diseño responsive</span>
-                            <span><i class="fas fa-check"></i> Animaciones suaves</span>
-                            <span><i class="fas fa-check"></i> Sistema de citas</span>
+                            <span><i class="fas fa-check"></i> Agenda de citas</span>
+                            <span><i class="fas fa-check"></i> En producción</span>
                         </div>
-                        <a href="proyectos/cas-real-state.html" class="project-detail-link"
-                            style="display: inline-block; margin-top: 15px; padding: 8px 16px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; font-size: 14px;"><i
-                                class="fas fa-arrow-right"></i> Ver detalles</a>
+                        <a href="proyectos/cas-real-state.html" class="project-detail-link">
+                            <i class="fas fa-arrow-right"></i> Ver detalles
+                        </a>
                     </div>
                 </div>
 
-                <!-- Proyecto 2: Tinoprop -->
-                <div class="project-card" data-category="web">
+                <!-- Proyecto 14: BirraFinder -->
+                <div class="project-card" data-category="pwa">
                     <div class="project-image">
-                        <img src="assets/images/tinoprop.png" alt="Tinoprop">
+                        <img src="assets/images/birrafinder.svg" alt="BirraFinder">
                         <div class="project-overlay">
-                            <a href="https://tinoprop.com" target="_blank" class="project-link" title="Ver Demo">
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                            <a href="https://github.com/Valentindg2506/Tinoprop" target="_blank" class="project-link"
-                                title="Ver Código">
+                            <a href="https://github.com/Valentindg2506/BirraFinder" target="_blank" class="project-link" title="Ver Código">
                                 <i class="fab fa-github"></i>
                             </a>
                         </div>
                     </div>
                     <div class="project-content">
                         <div class="project-tags">
-                            <span class="tag">PHP</span>
+                            <span class="tag">PHP 8</span>
                             <span class="tag">MySQL</span>
+                            <span class="tag">Google Maps</span>
+                            <span class="tag">PWA</span>
+                        </div>
+                        <h3>BirraFinder</h3>
+                        <p>
+                            Diario de bares con comunidad: geolocaliza locales con Google Places, guarda pendientes y
+                            visitados con puntuación, y genera rankings de los más visitados y mejor valorados por todos
+                            los usuarios.
+                        </p>
+                        <div class="project-features">
+                            <span><i class="fas fa-check"></i> Google Places API</span>
+                            <span><i class="fas fa-check"></i> Rankings comunitarios</span>
+                            <span><i class="fas fa-check"></i> Instalable y offline</span>
+                        </div>
+                        <a href="proyectos/birrafinder.html" class="project-detail-link">
+                            <i class="fas fa-arrow-right"></i> Ver detalles
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Proyecto 15: Iglesia del Santo Jocarsa -->
+                <div class="project-card" data-category="frontend">
+                    <div class="project-image">
+                        <img src="assets/images/jocarsismo.svg" alt="Iglesia del Santo Jocarsa">
+                        <div class="project-overlay">
+                            <a href="https://jocarsismo.vercel.app" target="_blank" class="project-link" title="Ver Demo">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="https://github.com/Valentindg2506/Jocarsismo" target="_blank" class="project-link" title="Ver Código">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">Vanilla JS</span>
+                        </div>
+                        <h3>Iglesia del Santo Jocarsa</h3>
+                        <p>
+                            Web paródica sobre la cultura Linux y el software libre, con confesionario tecnológico,
+                            oráculo del Kernel, BSOD simulado y una biblia virtual repartida en siete libros navegables.
+                        </p>
+                        <div class="project-features">
+                            <span><i class="fas fa-check"></i> Easter eggs interactivos</span>
+                            <span><i class="fas fa-check"></i> Biblia en 7 libros</span>
+                            <span><i class="fas fa-check"></i> Accesibilidad ARIA</span>
+                        </div>
+                        <a href="proyectos/jocarsismo.html" class="project-detail-link">
+                            <i class="fas fa-arrow-right"></i> Ver detalles
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Proyecto 16: Birra y Brújula -->
+                <div class="project-card" data-category="pwa">
+                    <div class="project-image">
+                        <img src="assets/images/birra-y-brujula.png" alt="Birra y Brújula">
+                        <div class="project-overlay">
+                            <a href="https://github.com/Valentindg2506/Birra-y-Brujula" target="_blank" class="project-link" title="Ver Código">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">HTML5</span>
                             <span class="tag">JavaScript</span>
-                            <span class="tag">Multi-Tenant</span>
+                            <span class="tag">localStorage</span>
+                            <span class="tag">PWA</span>
                         </div>
-                        <h3>Tinoprop - CRM Inmobiliario</h3>
+                        <h3>Birra y Brújula</h3>
                         <p>
-                            CRM multi-tenant completo para agencias inmobiliarias con 19 módulos, sistema
-                            de roles jerárquico (7 niveles), Kanban, matching y más. Proyecto intermodular DAM.
-                            ✅ En producción (V1.0).
+                            App para organizar un viaje en grupo de principio a fin: votación de casa, transporte, lista
+                            de compra, actividades e itinerario. Calcula el coste por persona y sugiere quién paga a
+                            quién para cuadrar cuentas.
                         </p>
                         <div class="project-features">
-                            <span><i class="fas fa-check"></i> 19 módulos</span>
-                            <span><i class="fas fa-check"></i> Pipeline Kanban</span>
-                            <span><i class="fas fa-check"></i> Multi-tenant</span>
+                            <span><i class="fas fa-check"></i> 6 módulos</span>
+                            <span><i class="fas fa-check"></i> Liquidación entre amigos</span>
+                            <span><i class="fas fa-check"></i> Informe exportable</span>
                         </div>
-                        <a href="proyectos/tinoprop.html" class="project-detail-link"
-                            style="display: inline-block; margin-top: 15px; padding: 8px 16px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; font-size: 14px;"><i
-                                class="fas fa-arrow-right"></i> Ver detalles</a>
+                        <a href="proyectos/birra-y-brujula.html" class="project-detail-link">
+                            <i class="fas fa-arrow-right"></i> Ver detalles
+                        </a>
                     </div>
                 </div>
 
-                <!-- Proyecto 3: RoomManager -->
-                <div class="project-card" data-category="web">
+                <!-- Proyecto 17: MP Solutions Group -->
+                <div class="project-card" data-category="frontend">
                     <div class="project-image">
-                        <img src="assets/images/rm.png" alt="RoomManager">
+                        <img src="assets/images/mp-solutions.png" alt="MP Solutions Group">
                         <div class="project-overlay">
-                            <a href="https://roommanager.tinoprop.com" target="_blank" class="project-link"
-                                title="Ver Demo">
+                            <a href="https://mpsolutions.com.ar" target="_blank" class="project-link" title="Ver Demo">
                                 <i class="fas fa-external-link-alt"></i>
                             </a>
-                            <a href="https://github.com/Valentindg2506/RoomManager" target="_blank" class="project-link"
-                                title="Ver Código">
+                            <a href="https://github.com/Valentindg2506" target="_blank" class="project-link" title="Ver Código">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">SEO</span>
+                        </div>
+                        <h3>MP Solutions Group</h3>
+                        <p>
+                            Landing corporativa de un call center argentino. Todos los datos de empresa viven en un
+                            único config.js que rellena contacto, páginas legales y el JSON-LD de Google, sin tocar el
+                            HTML.
+                        </p>
+                        <div class="project-features">
+                            <span><i class="fas fa-check"></i> Config única tipo .env</span>
+                            <span><i class="fas fa-check"></i> JSON-LD LocalBusiness</span>
+                            <span><i class="fas fa-check"></i> En producción</span>
+                        </div>
+                        <a href="proyectos/mp-solutions.html" class="project-detail-link">
+                            <i class="fas fa-arrow-right"></i> Ver detalles
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Proyecto 18: LocalCoder -->
+                <div class="project-card" data-category="ia">
+                    <div class="project-image">
+                        <img src="assets/images/localcoder.svg" alt="LocalCoder">
+                        <div class="project-overlay">
+                            <a href="https://github.com/Valentindg2506/LocalCoder" target="_blank" class="project-link" title="Ver Código">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Rust / Tauri 2</span>
+                            <span class="tag">React 18</span>
+                            <span class="tag">TypeScript</span>
+                            <span class="tag">Ollama</span>
+                        </div>
+                        <h3>LocalCoder</h3>
+                        <p>
+                            IDE de escritorio con asistente de IA totalmente local. Editor Monaco, chat con respuesta en
+                            streaming, memoria por sesión en SQLite y un escáner de hardware que recomienda qué modelo
+                            de Ollama puede mover tu equipo.
+                        </p>
+                        <div class="project-features">
+                            <span><i class="fas fa-check"></i> Editor Monaco</span>
+                            <span><i class="fas fa-check"></i> Scanner de hardware</span>
+                            <span><i class="fas fa-check"></i> 100% offline</span>
+                        </div>
+                        <a href="proyectos/localcoder.html" class="project-detail-link">
+                            <i class="fas fa-arrow-right"></i> Ver detalles
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Proyecto 19: ExplainMyCodebase -->
+                <div class="project-card" data-category="ia">
+                    <div class="project-image">
+                        <img src="assets/images/explainmycodebase.svg" alt="ExplainMyCodebase">
+                        <div class="project-overlay">
+                            <a href="https://github.com/Valentindg2506/Proyectos-Personales" target="_blank" class="project-link" title="Ver Código">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Next.js 14</span>
+                            <span class="tag">TypeScript</span>
+                            <span class="tag">Express</span>
+                            <span class="tag">Ollama</span>
+                        </div>
+                        <h3>ExplainMyCodebase</h3>
+                        <p>
+                            Herramienta que recibe un proyecto, recorre su estructura y genera con IA local una
+                            explicación de cada módulo para acelerar el onboarding técnico. Frontend en Next.js App
+                            Router y backend Express con parser propio.
+                        </p>
+                        <div class="project-features">
+                            <span><i class="fas fa-check"></i> Árbol de carpetas navegable</span>
+                            <span><i class="fas fa-check"></i> Análisis con Ollama</span>
+                            <span><i class="fas fa-check"></i> IA sin nube</span>
+                        </div>
+                        <a href="proyectos/explainmycodebase.html" class="project-detail-link">
+                            <i class="fas fa-arrow-right"></i> Ver detalles
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Proyecto 20: TuaTeam — Herramientas internas -->
+                <div class="project-card" data-category="python">
+                    <div class="project-image">
+                        <img src="assets/images/tuateam-herramientas.svg" alt="TuaTeam — Herramientas internas">
+                        <div class="project-overlay">
+                            <a href="https://github.com/Valentindg2506/TuaTeam" target="_blank" class="project-link" title="Ver Código">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Flask</span>
+                            <span class="tag">Chrome Extension</span>
+                            <span class="tag">Scraping</span>
+                        </div>
+                        <h3>TuaTeam — Herramientas internas</h3>
+                        <p>
+                            Conjunto de utilidades creadas durante las prácticas en empresa: extensión de Chrome propia
+                            para transcribir reuniones, verificador de emails, scraper configurable por YAML y
+                            enriquecedor de datos sobre Excel.
+                        </p>
+                        <div class="project-features">
+                            <span><i class="fas fa-check"></i> Extensión de Chrome</span>
+                            <span><i class="fas fa-check"></i> Verificador de emails</span>
+                            <span><i class="fas fa-check"></i> Scraper con YAML</span>
+                        </div>
+                        <a href="proyectos/tuateam-herramientas.html" class="project-detail-link">
+                            <i class="fas fa-arrow-right"></i> Ver detalles
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Proyecto 21: Eurcontroller -->
+                <div class="project-card" data-category="pwa">
+                    <div class="project-image">
+                        <img src="assets/images/eurcontroller.svg" alt="Eurcontroller">
+                        <div class="project-overlay">
+                            <a href="https://github.com/Valentindg2506/Eurcontroller" target="_blank" class="project-link" title="Ver Código">
                                 <i class="fab fa-github"></i>
                             </a>
                         </div>
@@ -380,35 +1005,35 @@
                         <div class="project-tags">
                             <span class="tag">PHP</span>
                             <span class="tag">MySQL</span>
-                            <span class="tag">Bootstrap 5</span>
-                            <span class="tag">RESTful API</span>
+                            <span class="tag">PWA</span>
+                            <span class="tag">Cache API</span>
                         </div>
-                        <h3>RoomManager - Gestión de Alquileres</h3>
+                        <h3>Eurcontroller</h3>
                         <p>
-                            Plataforma integral para gestionar alquileres por habitaciones (coliving / rent to rent).
-                            Contratos, pagos, tareas, oferta pública y dashboard con KPIs financieros.
+                            PWA de finanzas personales con gastos, ingresos y objetivos de ahorro. Si se pierde la
+                            conexión, las transacciones se encolan en el navegador y se sincronizan solas al volver la
+                            red.
                         </p>
                         <div class="project-features">
-                            <span><i class="fas fa-check"></i> Dashboard KPIs</span>
-                            <span><i class="fas fa-check"></i> Contratos PDF</span>
-                            <span><i class="fas fa-check"></i> Oferta pública</span>
+                            <span><i class="fas fa-check"></i> Cola offline y sync</span>
+                            <span><i class="fas fa-check"></i> Objetivos de ahorro</span>
+                            <span><i class="fas fa-check"></i> Textos legales RGPD</span>
                         </div>
-                        <a href="proyectos/roommanager.html" class="project-detail-link"
-                            style="display: inline-block; margin-top: 15px; padding: 8px 16px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; font-size: 14px;"><i
-                                class="fas fa-arrow-right"></i> Ver detalles</a>
+                        <a href="proyectos/eurcontroller.html" class="project-detail-link">
+                            <i class="fas fa-arrow-right"></i> Ver detalles
+                        </a>
                     </div>
                 </div>
 
-                <!-- Proyecto 4: MBA - RSVP Evento -->
+                <!-- Proyecto 22: MBA — RSVP Evento -->
                 <div class="project-card" data-category="web">
                     <div class="project-image">
-                        <img src="assets/images/mba.png" alt="MBA RSVP Evento">
+                        <img src="assets/images/mba.png" alt="MBA — RSVP Evento">
                         <div class="project-overlay">
                             <a href="https://mba.valentindg.com" target="_blank" class="project-link" title="Ver Demo">
                                 <i class="fas fa-external-link-alt"></i>
                             </a>
-                            <a href="https://github.com/Valentindg2506/mba" target="_blank" class="project-link"
-                                title="Ver Código">
+                            <a href="https://github.com/Valentindg2506/Proyectos-Personales" target="_blank" class="project-link" title="Ver Código">
                                 <i class="fab fa-github"></i>
                             </a>
                         </div>
@@ -417,72 +1042,34 @@
                         <div class="project-tags">
                             <span class="tag">PHP</span>
                             <span class="tag">MySQL</span>
-                            <span class="tag">WhatsApp API</span>
+                            <span class="tag">WhatsApp</span>
                         </div>
-                        <h3>MBA - RSVP Evento</h3>
+                        <h3>MBA — RSVP Evento</h3>
                         <p>
-                            Aplicación web para gestionar confirmaciones de asistencia a eventos. Genera
-                            enlaces únicos por token, control de pagos por asistente y recordatorios por WhatsApp.
+                            Gestor de confirmaciones para eventos. Cada evento genera un enlace público con token,
+                            reparte la lista de compra entre los asistentes confirmados y controla quién ha pagado, con
+                            recordatorio por WhatsApp.
                         </p>
                         <div class="project-features">
-                            <span><i class="fas fa-check"></i> Token único</span>
-                            <span><i class="fas fa-check"></i> Control pagos</span>
-                            <span><i class="fas fa-check"></i> Recordatorio WA</span>
+                            <span><i class="fas fa-check"></i> Enlace con token</span>
+                            <span><i class="fas fa-check"></i> Reparto automático</span>
+                            <span><i class="fas fa-check"></i> Control de pagos</span>
                         </div>
-                        <a href="proyectos/mba.html" class="project-detail-link"
-                            style="display: inline-block; margin-top: 15px; padding: 8px 16px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; font-size: 14px;"><i
-                                class="fas fa-arrow-right"></i> Ver detalles</a>
+                        <a href="proyectos/mba-rsvp.html" class="project-detail-link">
+                            <i class="fas fa-arrow-right"></i> Ver detalles
+                        </a>
                     </div>
                 </div>
 
-                <!-- Proyecto 5: AdminViews (Proyecto-Entornos) -->
-                <div class="project-card" data-category="web">
+                <!-- Proyecto 23: Landing Page Personal -->
+                <div class="project-card" data-category="frontend">
                     <div class="project-image">
-                        <img src="assets/images/adminviews.jpg" alt="AdminViews">
-                        <div class="project-overlay">
-                            <a href="https://adminviews.valentindg.com/" target="_blank" class="project-link"
-                                title="Ver Demo">
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                            <a href="https://github.com/Valentindg2506/AdminViews" target="_blank" class="project-link"
-                                title="Ver Código">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span class="tag">PHP</span>
-                            <span class="tag">MySQL</span>
-                            <span class="tag">JavaScript</span>
-                        </div>
-                        <h3>AdminViews - Tracker de Series</h3>
-                        <p>
-                            Aplicación web para llevar control de series y películas vistas. Sistema de
-                            registro, organización por listas personalizadas (viendo, vistas, pendientes)
-                            y panel de control. 🌐 En producción.
-                        </p>
-                        <div class="project-features">
-                            <span><i class="fas fa-check"></i> Sistema de usuarios</span>
-                            <span><i class="fas fa-check"></i> Listas personalizadas</span>
-                            <span><i class="fas fa-check"></i> Dashboard completo</span>
-                        </div>
-                        <a href="proyectos/adminviews.html" class="project-detail-link"
-                            style="display: inline-block; margin-top: 15px; padding: 8px 16px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; font-size: 14px;"><i
-                                class="fas fa-arrow-right"></i> Ver detalles</a>
-                    </div>
-                </div>
-
-                <!-- Proyecto 6: WEB (Landing Personal) -->
-                <div class="project-card" data-category="web">
-                    <div class="project-image">
-                        <img src="assets/images/valentindg.png" alt="Landing Personal">
+                        <img src="assets/images/valentindg.png" alt="Landing Page Personal">
                         <div class="project-overlay">
                             <a href="https://valentindg.com" target="_blank" class="project-link" title="Ver Demo">
                                 <i class="fas fa-external-link-alt"></i>
                             </a>
-                            <a href="https://github.com/Valentindg2506/WEB" target="_blank" class="project-link"
-                                title="Ver Código">
+                            <a href="https://github.com/Valentindg2506/WEB" target="_blank" class="project-link" title="Ver Código">
                                 <i class="fab fa-github"></i>
                             </a>
                         </div>
@@ -495,31 +1082,29 @@
                         </div>
                         <h3>Landing Page Personal</h3>
                         <p>
-                            Página de presentación profesional con diseño moderno glassmorphism. Hub central
-                            para conectar portafolio, CV y redes profesionales. Totalmente responsive con
-                            animaciones sutiles. 🌐 En producción.
+                            Tarjeta de visita digital que centraliza portafolio, CV y redes profesionales. Diseño
+                            glassmorphism con animaciones sutiles y gestión de tema mediante variables CSS.
                         </p>
                         <div class="project-features">
                             <span><i class="fas fa-check"></i> Diseño glassmorphism</span>
-                            <span><i class="fas fa-check"></i> Responsive design</span>
-                            <span><i class="fas fa-check"></i> Animaciones CSS</span>
+                            <span><i class="fas fa-check"></i> Totalmente responsive</span>
+                            <span><i class="fas fa-check"></i> En producción</span>
                         </div>
-                        <a href="proyectos/landing-personal.html" class="project-detail-link"
-                            style="display: inline-block; margin-top: 15px; padding: 8px 16px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; font-size: 14px;"><i
-                                class="fas fa-arrow-right"></i> Ver detalles</a>
+                        <a href="proyectos/landing-personal.html" class="project-detail-link">
+                            <i class="fas fa-arrow-right"></i> Ver detalles
+                        </a>
                     </div>
                 </div>
 
-                <!-- Proyecto 7: Curriculum -->
-                <div class="project-card" data-category="web">
+                <!-- Proyecto 24: Currículum Vitae Web -->
+                <div class="project-card" data-category="frontend">
                     <div class="project-image">
-                        <img src="assets/images/curriculum.png" alt="Curriculum">
+                        <img src="assets/images/curriculum.png" alt="Currículum Vitae Web">
                         <div class="project-overlay">
                             <a href="https://cv.valentindg.com" target="_blank" class="project-link" title="Ver Demo">
                                 <i class="fas fa-external-link-alt"></i>
                             </a>
-                            <a href="https://github.com/Valentindg2506/Curriculum" target="_blank" class="project-link"
-                                title="Ver Código">
+                            <a href="https://github.com/Valentindg2506/Curriculum" target="_blank" class="project-link" title="Ver Código">
                                 <i class="fab fa-github"></i>
                             </a>
                         </div>
@@ -528,66 +1113,30 @@
                         <div class="project-tags">
                             <span class="tag">HTML5</span>
                             <span class="tag">CSS3</span>
+                            <span class="tag">Print CSS</span>
                         </div>
-                        <h3>Curriculum Vitae Web</h3>
+                        <h3>Currículum Vitae Web</h3>
                         <p>
-                            Currículum vitae interactivo en formato web. Diseño limpio y profesional
-                            que presenta mi formación, experiencia y habilidades de manera visual y
-                            accesible desde cualquier dispositivo.
+                            CV interactivo en una sola página con estructura de dos columnas: barra lateral oscura y
+                            contenido claro. Sin dependencias y con hoja de estilos específica para imprimirlo en papel.
                         </p>
                         <div class="project-features">
-                            <span><i class="fas fa-check"></i> Diseño profesional</span>
-                            <span><i class="fas fa-check"></i> Formato web</span>
-                            <span><i class="fas fa-check"></i> Fácil acceso</span>
+                            <span><i class="fas fa-check"></i> Cero dependencias</span>
+                            <span><i class="fas fa-check"></i> Optimizado para impresión</span>
+                            <span><i class="fas fa-check"></i> En producción</span>
                         </div>
-                        <a href="proyectos/curriculum.html" class="project-detail-link"
-                            style="display: inline-block; margin-top: 15px; padding: 8px 16px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; font-size: 14px;"><i
-                                class="fas fa-arrow-right"></i> Ver detalles</a>
+                        <a href="proyectos/curriculum.html" class="project-detail-link">
+                            <i class="fas fa-arrow-right"></i> Ver detalles
+                        </a>
                     </div>
                 </div>
 
-                <!-- Proyecto 8: Birra y Brujula -->
-                <div class="project-card" data-category="frontend">
-                    <div class="project-image">
-                        <img src="assets/images/birra-y-brujula.png" alt="Birra y Brujula">
-                        <div class="project-overlay">
-                            <a href="https://github.com/Valentindg2506/Birra-y-Brujula" target="_blank" class="project-link"
-                                title="Ver Código">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span class="tag">HTML5</span>
-                            <span class="tag">CSS3</span>
-                            <span class="tag">JavaScript</span>
-                            <span class="tag">PWA</span>
-                        </div>
-                        <h3>Birra y Brujula</h3>
-                        <p>
-                            Web temática para organizar juntadas con distintas pantallas de experiencia,
-                            navegación fluida y soporte progresivo. Proyecto desarrollado en colaboración
-                            con un amigo.
-                        </p>
-                        <div class="project-features">
-                            <span><i class="fas fa-check"></i> Diseño temático</span>
-                            <span><i class="fas fa-check"></i> Múltiples vistas</span>
-                            <span><i class="fas fa-check"></i> Service Worker</span>
-                        </div>
-                        <a href="proyectos/birra-y-brujula.html" class="project-detail-link"
-                            style="display: inline-block; margin-top: 15px; padding: 8px 16px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; font-size: 14px;"><i
-                                class="fas fa-arrow-right"></i> Ver detalles</a>
-                    </div>
-                </div>
-
-                <!-- Proyecto 9: ExplainMyCodebase -->
+                <!-- Proyecto 25: Bot-IA -->
                 <div class="project-card" data-category="ia">
                     <div class="project-image">
-                        <img src="assets/images/explainmycodebase.svg" alt="ExplainMyCodebase">
+                        <img src="assets/images/bot-ia.svg" alt="Bot-IA">
                         <div class="project-overlay">
-                            <a href="https://github.com/Valentindg2506/ExplainMyCodebase" target="_blank" class="project-link"
-                                title="Ver Código">
+                            <a href="https://github.com/Valentindg2506/Bot-IA" target="_blank" class="project-link" title="Ver Código">
                                 <i class="fab fa-github"></i>
                             </a>
                         </div>
@@ -595,1022 +1144,457 @@
                     <div class="project-content">
                         <div class="project-tags">
                             <span class="tag">Python</span>
-                            <span class="tag">IA</span>
-                            <span class="tag">CLI</span>
+                            <span class="tag">Selenium</span>
+                            <span class="tag">Ollama</span>
                         </div>
-                        <h3>ExplainMyCodebase</h3>
+                        <h3>Bot-IA</h3>
                         <p>
-                            Herramienta que recorre un repositorio y genera explicaciones automáticas de
-                            su estructura y componentes para acelerar onboarding técnico y documentación.
+                            Asistente de estudio que detecta tareas pendientes en un portal educativo con Selenium y
+                            redacta un borrador con IA local siguiendo el estilo de los resúmenes de cada asignatura.
+                            Nunca entrega sin revisión humana.
                         </p>
                         <div class="project-features">
-                            <span><i class="fas fa-check"></i> Exploración automática</span>
-                            <span><i class="fas fa-check"></i> Resúmenes por módulo</span>
-                            <span><i class="fas fa-check"></i> Output legible</span>
+                            <span><i class="fas fa-check"></i> Modo estudio seguro</span>
+                            <span><i class="fas fa-check"></i> IA local con Ollama</span>
+                            <span><i class="fas fa-check"></i> Salida en Markdown</span>
                         </div>
-                        <a href="proyectos/explainmycodebase.html" class="project-detail-link"
-                            style="display: inline-block; margin-top: 15px; padding: 8px 16px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; font-size: 14px;"><i
-                                class="fas fa-arrow-right"></i> Ver detalles</a>
+                        <a href="proyectos/bot-ia.html" class="project-detail-link">
+                            <i class="fas fa-arrow-right"></i> Ver detalles
+                        </a>
                     </div>
                 </div>
 
-                <!-- Proyecto 10: CRM -->
+                <!-- Proyecto 26: Codaprende -->
                 <div class="project-card" data-category="web">
                     <div class="project-image">
-                        <img src="assets/images/crm.png" alt="CRM">
+                        <img src="assets/images/codaprende.svg" alt="Codaprende">
                         <div class="project-overlay">
-                            <a href="https://github.com/Valentindg2506/CRM" target="_blank" class="project-link"
-                                title="Ver Código">
+                            <a href="https://github.com/Valentindg2506/Plataforma-interactiva-para-aprender-desarrollo-web" target="_blank" class="project-link" title="Ver Código">
                                 <i class="fab fa-github"></i>
                             </a>
                         </div>
                     </div>
                     <div class="project-content">
                         <div class="project-tags">
+                            <span class="tag">Diseño de producto</span>
+                            <span class="tag">Laravel</span>
+                            <span class="tag">Livewire</span>
+                        </div>
+                        <h3>Codaprende</h3>
+                        <p>
+                            Memoria de producto de una plataforma para aprender desarrollo web en español. Incluye
+                            análisis competitivo de 8 plataformas, hipótesis verificables, plan de validación y la
+                            arquitectura elegida. Aún sin código.
+                        </p>
+                        <div class="project-features">
+                            <span><i class="fas fa-check"></i> Análisis de 8 competidores</span>
+                            <span><i class="fas fa-check"></i> Plan de validación</span>
+                            <span><i class="fas fa-check"></i> En definición</span>
+                        </div>
+                        <a href="proyectos/codaprende.html" class="project-detail-link">
+                            <i class="fas fa-arrow-right"></i> Ver detalles
+                        </a>
+                    </div>
+                </div>
+
+                <!-- ===== Proyectos académicos ===== -->
+                <!-- Proyecto 27: Agente IA Autónomo -->
+                <div class="project-card" data-category="ia">
+                    <div class="project-image">
+                        <img src="assets/images/agente-ia.svg" alt="Agente IA Autónomo">
+                        <div class="project-overlay">
+                            <a href="https://github.com/Valentindg2506/Programacion-DAM-25-26" target="_blank" class="project-link" title="Ver Código">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Académico</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Ollama</span>
+                            <span class="tag">AST</span>
+                        </div>
+                        <h3>Agente IA Autónomo</h3>
+                        <p>
+                            Práctica de IA: un agente genera código Python con un modelo local, lo valida por capas
+                            (sintaxis con AST, seguridad y ejecución) y reinyecta sus propios errores en el siguiente
+                            prompt para corregirse.
+                        </p>
+                        <div class="project-features">
+                            <span><i class="fas fa-check"></i> Validación con AST</span>
+                            <span><i class="fas fa-check"></i> Memoria de errores</span>
+                            <span><i class="fas fa-check"></i> 9 iteraciones</span>
+                        </div>
+                        <a href="proyectos/agente-ia.html" class="project-detail-link">
+                            <i class="fas fa-arrow-right"></i> Ver detalles
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Proyecto 28: Paint Canvas -->
+                <div class="project-card" data-category="frontend">
+                    <div class="project-image">
+                        <img src="assets/images/paint-canvas.svg" alt="Paint Canvas">
+                        <div class="project-overlay">
+                            <a href="https://github.com/Valentindg2506/Programacion-DAM-25-26" target="_blank" class="project-link" title="Ver Código">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Académico</span>
+                            <span class="tag">HTML5 Canvas</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <h3>Paint Canvas</h3>
+                        <p>
+                            Ejercicio de informática gráfica construido en 20 pasos, desde dibujar un rectángulo hasta
+                            una app de pintura completa con selector de color, grosor y tipo de punta, y descarga del
+                            lienzo como PNG.
+                        </p>
+                        <div class="project-features">
+                            <span><i class="fas fa-check"></i> 20 pasos progresivos</span>
+                            <span><i class="fas fa-check"></i> Tipos de punta</span>
+                            <span><i class="fas fa-check"></i> Descarga en PNG</span>
+                        </div>
+                        <a href="proyectos/paint-canvas.html" class="project-detail-link">
+                            <i class="fas fa-arrow-right"></i> Ver detalles
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Proyecto 29: Bart vs Bob Patiño -->
+                <div class="project-card" data-category="frontend">
+                    <div class="project-image">
+                        <img src="assets/images/bart-vs-bob.svg" alt="Bart vs Bob Patiño">
+                        <div class="project-overlay">
+                            <a href="https://github.com/Valentindg2506/Lenguajes-de-marcas-DAM-25-26" target="_blank" class="project-link" title="Ver Código">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Académico</span>
+                            <span class="tag">HTML5 Canvas</span>
+                            <span class="tag">POO</span>
+                        </div>
+                        <h3>Bart vs Bob Patiño</h3>
+                        <p>
+                            Videojuego 2D de clase levantado en 10 pasos: bucle de render, control de FPS, sprites
+                            propios y NPCs con movimiento autónomo, todo con clases de JavaScript y detección de
+                            colisiones.
+                        </p>
+                        <div class="project-features">
+                            <span><i class="fas fa-check"></i> Bucle de juego y FPS</span>
+                            <span><i class="fas fa-check"></i> NPCs con movimiento</span>
+                            <span><i class="fas fa-check"></i> Sprites propios</span>
+                        </div>
+                        <a href="proyectos/bart-vs-bob.html" class="project-detail-link">
+                            <i class="fas fa-arrow-right"></i> Ver detalles
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Proyecto 30: Tienda Online -->
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="assets/images/tienda-online.svg" alt="Tienda Online">
+                        <div class="project-overlay">
+                            <a href="https://github.com/Valentindg2506/Programacion-DAM-25-26" target="_blank" class="project-link" title="Ver Código">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Académico</span>
                             <span class="tag">PHP</span>
                             <span class="tag">MySQL</span>
-                            <span class="tag">Automatización</span>
                         </div>
-                        <h3>CRM</h3>
+                        <h3>Tienda Online</h3>
                         <p>
-                            Plataforma CRM modular con múltiples instaladores de funcionalidades,
-                            formularios, embudos, campañas y gestión de prospectos para procesos
-                            comerciales completos.
+                            E-commerce de clase desarrollado en 7 versiones desde cero: catálogo leído de base de datos,
+                            carrito en sesión y cierre de pedido con inserción en MySQL. Incluye diagramas
+                            entidad-relación y de flujo.
                         </p>
                         <div class="project-features">
-                            <span><i class="fas fa-check"></i> Arquitectura modular</span>
-                            <span><i class="fas fa-check"></i> Funnels y campañas</span>
-                            <span><i class="fas fa-check"></i> Gestión de leads</span>
+                            <span><i class="fas fa-check"></i> 7 versiones</span>
+                            <span><i class="fas fa-check"></i> Carrito en sesión</span>
+                            <span><i class="fas fa-check"></i> Diagramas E-R</span>
                         </div>
-                        <a href="proyectos/crm.html" class="project-detail-link"
-                            style="display: inline-block; margin-top: 15px; padding: 8px 16px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; font-size: 14px;"><i
-                                class="fas fa-arrow-right"></i> Ver detalles</a>
+                        <a href="proyectos/tienda-online.html" class="project-detail-link">
+                            <i class="fas fa-arrow-right"></i> Ver detalles
+                        </a>
                     </div>
                 </div>
 
-                <!-- Proyecto 11: Marketing -->
+                <!-- Proyecto 31: Supercontrolador -->
                 <div class="project-card" data-category="web">
                     <div class="project-image">
-                        <img src="assets/images/marketing.png" alt="Marketing">
+                        <img src="assets/images/supercontrolador.svg" alt="Supercontrolador">
                         <div class="project-overlay">
-                            <a href="https://github.com/Valentindg2506/Marketing" target="_blank" class="project-link"
-                                title="Ver Código">
+                            <a href="https://github.com/Valentindg2506/Programacion-DAM-25-26" target="_blank" class="project-link" title="Ver Código">
                                 <i class="fab fa-github"></i>
                             </a>
                         </div>
                     </div>
                     <div class="project-content">
                         <div class="project-tags">
+                            <span class="tag">Académico</span>
                             <span class="tag">PHP</span>
-                            <span class="tag">Landing Pages</span>
-                            <span class="tag">Conversión</span>
+                            <span class="tag">MySQL</span>
                         </div>
-                        <h3>Marketing</h3>
+                        <h3>Supercontrolador</h3>
                         <p>
-                            Proyecto orientado a captación digital con páginas de alto impacto,
-                            enfoque en conversión, estructura comercial clara y contenidos pensados
-                            para campañas online.
+                            Panel de administración agnóstico de tabla: un único controlador consulta el esquema con
+                            SHOW TABLES y DESCRIBE para construir menú, formularios e INSERT de cualquier tabla sin
+                            escribir código por entidad.
                         </p>
                         <div class="project-features">
-                            <span><i class="fas fa-check"></i> Orientado a conversión</span>
-                            <span><i class="fas fa-check"></i> Estructura comercial</span>
-                            <span><i class="fas fa-check"></i> Enfoque en captación</span>
+                            <span><i class="fas fa-check"></i> Menú generado del esquema</span>
+                            <span><i class="fas fa-check"></i> Formularios dinámicos</span>
+                            <span><i class="fas fa-check"></i> 6 versiones</span>
                         </div>
-                        <a href="proyectos/marketing.html" class="project-detail-link"
-                            style="display: inline-block; margin-top: 15px; padding: 8px 16px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; font-size: 14px;"><i
-                                class="fas fa-arrow-right"></i> Ver detalles</a>
+                        <a href="proyectos/supercontrolador.html" class="project-detail-link">
+                            <i class="fas fa-arrow-right"></i> Ver detalles
+                        </a>
                     </div>
                 </div>
 
-                <!-- Proyecto 12: Duelo de Dragones -->
+                <!-- Proyecto 32: Camaron Prop -->
                 <div class="project-card" data-category="web">
                     <div class="project-image">
-                        <img src="assets/images/duelodedragones.jpg" alt="Duelo de Dragones">
+                        <img src="assets/images/camaron-prop.svg" alt="Camaron Prop">
                         <div class="project-overlay">
-                            <a href="../Portafolio/proyectos/duelodedragones.html" target="_blank" class="project-link"
-                                title="Ver Proyecto">
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                            <a href="https://github.com/Valentindg2506" target="_blank" class="project-link"
-                                title="Ver Código">
+                            <a href="https://github.com/Valentindg2506/Programacion-DAM-25-26" target="_blank" class="project-link" title="Ver Código">
                                 <i class="fab fa-github"></i>
                             </a>
                         </div>
                     </div>
                     <div class="project-content">
                         <div class="project-tags">
+                            <span class="tag">Académico</span>
+                            <span class="tag">PHP</span>
+                            <span class="tag">MySQL</span>
+                        </div>
+                        <h3>Camaron Prop</h3>
+                        <p>
+                            Portal inmobiliario de clase construido en 4 iteraciones: búsqueda de viviendas por
+                            localidad y rango de precio, encadenando un segundo filtro, y panel de administración para
+                            el CRUD de propiedades.
+                        </p>
+                        <div class="project-features">
+                            <span><i class="fas fa-check"></i> Filtros encadenados</span>
+                            <span><i class="fas fa-check"></i> Panel de administración</span>
+                            <span><i class="fas fa-check"></i> 4 iteraciones</span>
+                        </div>
+                        <a href="proyectos/camaron-prop.html" class="project-detail-link">
+                            <i class="fas fa-arrow-right"></i> Ver detalles
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Proyecto 33: Microtienda -->
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="assets/images/microtienda.svg" alt="Microtienda">
+                        <div class="project-overlay">
+                            <a href="https://github.com/Valentindg2506/Lenguajes-de-marcas-DAM-25-26" target="_blank" class="project-link" title="Ver Código">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Académico</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">MySQL</span>
+                        </div>
+                        <h3>Microtienda</h3>
+                        <p>
+                            Práctica de integración de módulos empresariales: catálogo, carrito dinámico y formulario de
+                            cliente que consolidan un objeto JSON de pedido, con la preparación de la base de datos y
+                            sus permisos.
+                        </p>
+                        <div class="project-features">
+                            <span><i class="fas fa-check"></i> Pedido como JSON</span>
+                            <span><i class="fas fa-check"></i> 10 pasos</span>
+                            <span><i class="fas fa-check"></i> Permisos de BD</span>
+                        </div>
+                        <a href="proyectos/microtienda.html" class="project-detail-link">
+                            <i class="fas fa-arrow-right"></i> Ver detalles
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Proyecto 34: SVG & Data Viz -->
+                <div class="project-card" data-category="frontend">
+                    <div class="project-image">
+                        <img src="assets/images/svg-dataviz.svg" alt="SVG & Data Viz">
+                        <div class="project-overlay">
+                            <a href="https://github.com/Valentindg2506/Programacion-DAM-25-26" target="_blank" class="project-link" title="Ver Código">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Académico</span>
+                            <span class="tag">SVG</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <h3>SVG & Data Viz</h3>
+                        <p>
+                            Recorrido por gráficos vectoriales sin librerías: desde formas básicas hasta un gráfico de
+                            barras animado con easing y tooltips, alimentado por datos y manipulado desde JavaScript.
+                        </p>
+                        <div class="project-features">
+                            <span><i class="fas fa-check"></i> SVG puro sin librerías</span>
+                            <span><i class="fas fa-check"></i> Animación con easing</span>
+                            <span><i class="fas fa-check"></i> 13 pasos</span>
+                        </div>
+                        <a href="proyectos/svg-dataviz.html" class="project-detail-link">
+                            <i class="fas fa-arrow-right"></i> Ver detalles
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Proyecto 35: Apps CLI Python -->
+                <div class="project-card" data-category="python">
+                    <div class="project-image">
+                        <img src="assets/images/apps-cli-python.svg" alt="Apps CLI Python">
+                        <div class="project-overlay">
+                            <a href="https://github.com/Valentindg2506/Programacion-DAM-25-26" target="_blank" class="project-link" title="Ver Código">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Académico</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">POO</span>
+                            <span class="tag">JSON / Pickle</span>
+                        </div>
+                        <h3>Apps CLI Python</h3>
+                        <p>
+                            Colección de 13 aplicaciones de consola que practican programación orientada a objetos y
+                            persistencia con JSON y pickle sobre casos reales: cuenta bancaria, facturación con IVA,
+                            agenda y gestión de clientes.
+                        </p>
+                        <div class="project-features">
+                            <span><i class="fas fa-check"></i> 13 aplicaciones</span>
+                            <span><i class="fas fa-check"></i> Encapsulación y POO</span>
+                            <span><i class="fas fa-check"></i> Persistencia en fichero</span>
+                        </div>
+                        <a href="proyectos/apps-cli-python.html" class="project-detail-link">
+                            <i class="fas fa-arrow-right"></i> Ver detalles
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Proyecto 36: Minichat Flask -->
+                <div class="project-card" data-category="python">
+                    <div class="project-image">
+                        <img src="assets/images/minichat-flask.svg" alt="Minichat Flask">
+                        <div class="project-overlay">
+                            <a href="https://github.com/Valentindg2506/Programacion-DAM-25-26" target="_blank" class="project-link" title="Ver Código">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Académico</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Flask</span>
+                            <span class="tag">REST</span>
+                        </div>
+                        <h3>Minichat Flask</h3>
+                        <p>
+                            Introducción a Flask en 5 pasos: de un servidor mínimo a un chat multiusuario que refresca
+                            los mensajes por polling contra un endpoint JSON, sin WebSockets ni base de datos.
+                        </p>
+                        <div class="project-features">
+                            <span><i class="fas fa-check"></i> Chat por polling</span>
+                            <span><i class="fas fa-check"></i> Endpoint JSON</span>
+                            <span><i class="fas fa-check"></i> 5 pasos</span>
+                        </div>
+                        <a href="proyectos/minichat-flask.html" class="project-detail-link">
+                            <i class="fas fa-arrow-right"></i> Ver detalles
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Proyecto 37: Duelo de Dragones -->
+                <div class="project-card" data-category="python">
+                    <div class="project-image">
+                        <img src="assets/images/duelo-dragones.svg" alt="Duelo de Dragones">
+                        <div class="project-overlay">
+                            <a href="https://github.com/Valentindg2506/Programacion-DAM-25-26" target="_blank" class="project-link" title="Ver Código">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Académico</span>
                             <span class="tag">Python</span>
                             <span class="tag">Lógica</span>
-                            <span class="tag">Programación</span>
                         </div>
                         <h3>Duelo de Dragones</h3>
                         <p>
-                            Simulador por turnos entre dos dragones con estadísticas dinámicas, fase de
-                            entrenamiento y validación de datos. Un proyecto educativo que implementa lógica
-                            compleja de combate, cálculo de daño y gestión de atributos.
+                            Ejercicio de estructuras de control: simulador de combate por turnos entre dos dragones con
+                            fase de entrenamiento, estadísticas que evolucionan, cálculo de daño y validación de toda
+                            entrada del usuario.
                         </p>
                         <div class="project-features">
                             <span><i class="fas fa-check"></i> Combate por turnos</span>
-                            <span><i class="fas fa-check"></i> Entrenamiento dinámico</span>
-                            <span><i class="fas fa-check"></i> Validación de datos</span>
+                            <span><i class="fas fa-check"></i> Fase de entrenamiento</span>
+                            <span><i class="fas fa-check"></i> 207 líneas</span>
                         </div>
-                        <a href="proyectos/duelo-dragones.html" class="project-detail-link"
-                            style="display: inline-block; margin-top: 15px; padding: 8px 16px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; font-size: 14px;"><i
-                                class="fas fa-arrow-right"></i> Ver detalles</a>
+                        <a href="proyectos/duelo-dragones.html" class="project-detail-link">
+                            <i class="fas fa-arrow-right"></i> Ver detalles
+                        </a>
                     </div>
                 </div>
 
-                <!-- Proyecto 13: Duelo de Magos -->
-                <div class="project-card" data-category="web">
+                <!-- Proyecto 38: Duelo de Magos -->
+                <div class="project-card" data-category="python">
                     <div class="project-image">
-                        <img src="assets/images/duelodemagos.jpg" alt="Duelo de Magos">
+                        <img src="assets/images/duelo-magos.svg" alt="Duelo de Magos">
                         <div class="project-overlay">
-                            <a href="../Portafolio/proyectos/duelodemagos.html" target="_blank" class="project-link"
-                                title="Ver Proyecto">
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                            <a href="https://github.com/Valentindg2506" target="_blank" class="project-link"
-                                title="Ver Código">
+                            <a href="https://github.com/Valentindg2506/Programacion-DAM-25-26" target="_blank" class="project-link" title="Ver Código">
                                 <i class="fab fa-github"></i>
                             </a>
                         </div>
                     </div>
                     <div class="project-content">
                         <div class="project-tags">
+                            <span class="tag">Académico</span>
                             <span class="tag">Python</span>
-                            <span class="tag">Simulación</span>
-                            <span class="tag">Programación</span>
+                            <span class="tag">Lógica</span>
                         </div>
                         <h3>Duelo de Magos</h3>
                         <p>
-                            Simulación en Python donde un mago ataca un escudo energético con hechizos
-                            basados en su rango y poder. Un proyecto que demuestra manejo de validación,
-                            estructuras de control y cálculos dinámicos basados en parámetros variables.
+                            Ejercicio de clasificación y condicionales: un mago ataca un escudo energético con hechizos
+                            cuyo efecto depende de su rango y poder, resolviendo el duelo con cálculos derivados de
+                            parámetros variables.
                         </p>
                         <div class="project-features">
-                            <span><i class="fas fa-check"></i> Clasificación de magos</span>
+                            <span><i class="fas fa-check"></i> Clasificación por rango</span>
                             <span><i class="fas fa-check"></i> Sistema de hechizos</span>
-                            <span><i class="fas fa-check"></i> Simulación de combate</span>
+                            <span><i class="fas fa-check"></i> 110 líneas</span>
                         </div>
-                        <a href="proyectos/duelo-magos.html" class="project-detail-link"
-                            style="display: inline-block; margin-top: 15px; padding: 8px 16px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; font-size: 14px;"><i
-                                class="fas fa-arrow-right"></i> Ver detalles</a>
+                        <a href="proyectos/duelo-magos.html" class="project-detail-link">
+                            <i class="fas fa-arrow-right"></i> Ver detalles
+                        </a>
                     </div>
                 </div>
-                
-                <!-- Proyecto 14: Tienda Online -->
-                <div class="project-card" data-category="web">
-					<div class="project-image">
-						<img src="assets/images/tienda-online.svg" alt="Tienda Online">
-						<div class="project-overlay">
-							<a href="https://github.com/Valentindg2506/Programacion-DAM-25-26/tree/master/Apuntes/010-Programci%C3%B3n%20en%20el%20lado%20del%20servidor/010-Tienda%20online"
-								target="_blank" class="project-link" title="Ver Código">
-								<i class="fab fa-github"></i>
-							</a>
-						</div>
-					</div>
-					<div class="project-content">
-						<div class="project-tags">
-							<span class="tag">PHP</span>
-							<span class="tag">MySQL</span>
-							<span class="tag">CSS3</span>
-						</div>
-						<h3>Tienda Online</h3>
-						<p>
-							E-commerce completo con catálogo dinámico, carrito de compra y proceso de
-							finalización de pedidos con registro en base de datos. Desarrollado en
-							7 versiones progresivas desde cero.
-						</p>
-						<div class="project-features">
-							<span><i class="fas fa-check"></i> Catálogo desde BD</span>
-							<span><i class="fas fa-check"></i> Carrito de compra</span>
-							<span><i class="fas fa-check"></i> Checkout con MySQL</span>
-						</div>
-						<a href="proyectos/tienda-online.html" class="project-detail-link"
-							style="display: inline-block; margin-top: 15px; padding: 8px 16px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; font-size: 14px;">
-							<i class="fas fa-arrow-right"></i> Ver detalles</a>
-					</div>
-				</div>
-				
-                <!-- Proyecto 15: SuperControlador -->
-				<div class="project-card" data-category="web">
-					<div class="project-image">
-						<img src="assets/images/supercontrolador.svg" alt="Supercontrolador">
-						<div class="project-overlay">
-							<a href="https://github.com/Valentindg2506/Programacion-DAM-25-26/tree/master/Apuntes/010-Programci%C3%B3n%20en%20el%20lado%20del%20servidor/011-Supercontrolador"
-								target="_blank" class="project-link" title="Ver Código">
-								<i class="fab fa-github"></i>
-							</a>
-						</div>
-					</div>
-					<div class="project-content">
-						<div class="project-tags">
-							<span class="tag">PHP</span>
-							<span class="tag">MySQL</span>
-							<span class="tag">MVC</span>
-						</div>
-						<h3>Supercontrolador</h3>
-						<p>
-							Panel de administración de base de datos con arquitectura table-agnostic:
-							un único controlador PHP gestiona cualquier tabla sin código específico por
-							entidad, usando SHOW TABLES y consultas dinámicas.
-						</p>
-						<div class="project-features">
-							<span><i class="fas fa-check"></i> Menú dinámico automático</span>
-							<span><i class="fas fa-check"></i> Formularios generados por BD</span>
-							<span><i class="fas fa-check"></i> INSERT universal</span>
-						</div>
-						<a href="proyectos/supercontrolador.html" class="project-detail-link"
-							style="display: inline-block; margin-top: 15px; padding: 8px 16px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; font-size: 14px;">
-							<i class="fas fa-arrow-right"></i> Ver detalles</a>
-					</div>
-				</div>
-				
-                <!-- Proyecto 16: CamaronProp -->
-				<div class="project-card" data-category="web">
-					<div class="project-image">
-						<img src="assets/images/camaron-prop.svg" alt="Camaron Prop">
-						<div class="project-overlay">
-							<a href="https://github.com/Valentindg2506/Programacion-DAM-25-26/tree/master/Apuntes/010-Programci%C3%B3n%20en%20el%20lado%20del%20servidor/016-Proyecto%20camaron"
-								target="_blank" class="project-link" title="Ver Código">
-								<i class="fab fa-github"></i>
-							</a>
-						</div>
-					</div>
-					<div class="project-content">
-						<div class="project-tags">
-							<span class="tag">PHP</span>
-							<span class="tag">MySQL</span>
-							<span class="tag">CSS3</span>
-						</div>
-						<h3>Camaron Prop</h3>
-						<p>
-							Portal inmobiliario con búsqueda de viviendas por localidad y rango de precio,
-							y panel de administración para gestión de propiedades. Desarrollado en
-							4 iteraciones progresivas.
-						</p>
-						<div class="project-features">
-							<span><i class="fas fa-check"></i> Filtros localidad + precio</span>
-							<span><i class="fas fa-check"></i> Panel de administración</span>
-							<span><i class="fas fa-check"></i> CRUD de viviendas</span>
-						</div>
-						<a href="proyectos/camaron-prop.html" class="project-detail-link"
-							style="display: inline-block; margin-top: 15px; padding: 8px 16px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; font-size: 14px;">
-							<i class="fas fa-arrow-right"></i> Ver detalles</a>
-					</div>
-				</div>
-				
-                <!-- Proyecto 17: Minichat Flask -->
-				<div class="project-card" data-category="python">
-					<div class="project-image">
-						<img src="assets/images/minichat-flask.svg" alt="Minichat Flask">
-						<div class="project-overlay">
-							<a href="https://github.com/Valentindg2506/Programacion-DAM-25-26/tree/master/Apuntes/010-Programci%C3%B3n%20en%20el%20lado%20del%20servidor/025-Chat"
-								target="_blank" class="project-link" title="Ver Código">
-								<i class="fab fa-github"></i>
-							</a>
-						</div>
-					</div>
-					<div class="project-content">
-						<div class="project-tags">
-							<span class="tag">Python</span>
-							<span class="tag">Flask</span>
-							<span class="tag">REST API</span>
-						</div>
-						<h3>Minichat Flask</h3>
-						<p>
-							Aplicación de chat multiusuario en tiempo real con Python y Flask. Los mensajes
-							se actualizan cada segundo mediante polling a un endpoint REST sin necesidad
-							de WebSockets.
-						</p>
-						<div class="project-features">
-							<span><i class="fas fa-check"></i> Tiempo real (polling 1s)</span>
-							<span><i class="fas fa-check"></i> API REST JSON</span>
-							<span><i class="fas fa-check"></i> Timestamps por mensaje</span>
-						</div>
-						<a href="proyectos/minichat-flask.html" class="project-detail-link"
-							style="display: inline-block; margin-top: 15px; padding: 8px 16px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; font-size: 14px;">
-							<i class="fas fa-arrow-right"></i> Ver detalles</a>
-					</div>
-				</div>
-				
-                <!-- Proyecto 18: Agente IA Autónomo -->
-				<div class="project-card" data-category="ia">
-					<div class="project-image">
-						<img src="assets/images/agente-ia.svg" alt="Agente IA">
-						<div class="project-overlay">
-							<a href="https://github.com/Valentindg2506/Programacion-DAM-25-26/tree/master/Apuntes/012-Inteligencia%20artificial/011-Agente%20IA"
-								target="_blank" class="project-link" title="Ver Código">
-								<i class="fab fa-github"></i>
-							</a>
-						</div>
-					</div>
-					<div class="project-content">
-						<div class="project-tags">
-							<span class="tag">Python</span>
-							<span class="tag">Ollama</span>
-							<span class="tag">LLM</span>
-						</div>
-						<h3>Agente IA Autónomo</h3>
-						<p>
-							Agente que genera código Python con un LLM local (Ollama), lo valida en múltiples
-							capas (sintaxis, seguridad, ejecución) y aprende de sus errores inyectándolos
-							en el siguiente prompt automáticamente.
-						</p>
-						<div class="project-features">
-							<span><i class="fas fa-check"></i> Validación multicapa (AST)</span>
-							<span><i class="fas fa-check"></i> Memoria de errores</span>
-							<span><i class="fas fa-check"></i> Feedback loop autónomo</span>
-						</div>
-						<a href="proyectos/agente-ia.html" class="project-detail-link"
-							style="display: inline-block; margin-top: 15px; padding: 8px 16px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; font-size: 14px;">
-							<i class="fas fa-arrow-right"></i> Ver detalles</a>
-					</div>
-				</div>
-				
-                <!-- Proyecto 19: Paint Canvas -->
-				<div class="project-card" data-category="frontend">
-					<div class="project-image">
-						<img src="assets/images/paint-canvas.svg" alt="Paint Canvas">
-						<div class="project-overlay">
-							<a href="https://github.com/Valentindg2506/Programacion-DAM-25-26/tree/master/Apuntes/013-Informatica%20grafica/001-Empezamos%20a%20dibujar"
-								target="_blank" class="project-link" title="Ver Código">
-								<i class="fab fa-github"></i>
-							</a>
-						</div>
-					</div>
-					<div class="project-content">
-						<div class="project-tags">
-							<span class="tag">HTML5 Canvas</span>
-							<span class="tag">JavaScript</span>
-							<span class="tag">CSS3</span>
-						</div>
-						<h3>Paint Canvas</h3>
-						<p>
-							Aplicación de pintura interactiva construida sobre la API Canvas de HTML5.
-							Dibujo a mano alzada con selección de color, tamaño de brocha, tipo de punta
-							y descarga del resultado como PNG.
-						</p>
-						<div class="project-features">
-							<span><i class="fas fa-check"></i> Color picker + grosor</span>
-							<span><i class="fas fa-check"></i> Tipos de punta</span>
-							<span><i class="fas fa-check"></i> Descarga como PNG</span>
-						</div>
-						<a href="proyectos/paint-canvas.html" class="project-detail-link"
-							style="display: inline-block; margin-top: 15px; padding: 8px 16px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; font-size: 14px;">
-							<i class="fas fa-arrow-right"></i> Ver detalles</a>
-					</div>
-				</div>
-				
-                <!-- Proyecto 20: SVG & Data Viz -->
-				<div class="project-card" data-category="frontend">
-					<div class="project-image">
-						<img src="assets/images/svg-dataviz.svg" alt="SVG Data Viz">
-						<div class="project-overlay">
-							<a href="https://github.com/Valentindg2506/Programacion-DAM-25-26/tree/master/Apuntes/013-Informatica%20grafica/002-Vectores"
-								target="_blank" class="project-link" title="Ver Código">
-								<i class="fab fa-github"></i>
-							</a>
-						</div>
-					</div>
-					<div class="project-content">
-						<div class="project-tags">
-							<span class="tag">SVG</span>
-							<span class="tag">JavaScript</span>
-							<span class="tag">CSS3</span>
-						</div>
-						<h3>SVG & Data Viz</h3>
-						<p>
-							Gráfico de barras animado construido con SVG puro y JavaScript vanilla.
-							Animación de entrada con easing, tooltips interactivos y datos desde JSON.
-							Sin librerías externas.
-						</p>
-						<div class="project-features">
-							<span><i class="fas fa-check"></i> Animación easeOutCubic</span>
-							<span><i class="fas fa-check"></i> Tooltips interactivos</span>
-							<span><i class="fas fa-check"></i> Datos desde JSON</span>
-						</div>
-						<a href="proyectos/svg-dataviz.html" class="project-detail-link"
-							style="display: inline-block; margin-top: 15px; padding: 8px 16px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; font-size: 14px;">
-							<i class="fas fa-arrow-right"></i> Ver detalles</a>
-					</div>
-				</div>
-				
-                <!-- Proyecto 21: Apps CLI Python -->
-				<div class="project-card" data-category="python">
-					<div class="project-image">
-						<img src="assets/images/apps-cli-python.svg" alt="Apps CLI Python">
-						<div class="project-overlay">
-							<a href="https://github.com/Valentindg2506/Programacion-DAM-25-26/tree/master/APP"
-								target="_blank" class="project-link" title="Ver Código">
-								<i class="fab fa-github"></i>
-							</a>
-						</div>
-					</div>
-					<div class="project-content">
-						<div class="project-tags">
-							<span class="tag">Python</span>
-							<span class="tag">OOP</span>
-							<span class="tag">JSON / Pickle</span>
-						</div>
-						<h3>Apps CLI Python</h3>
-						<p>
-							Colección de 13 aplicaciones de consola en Python con programación orientada
-							a objetos, persistencia con JSON y pickle, y lógica de negocio real
-							(banco, facturación, agenda deportiva).
-						</p>
-						<div class="project-features">
-							<span><i class="fas fa-check"></i> Encapsulación y POO</span>
-							<span><i class="fas fa-check"></i> Persistencia JSON/Pickle</span>
-							<span><i class="fas fa-check"></i> 13 aplicaciones</span>
-						</div>
-						<a href="proyectos/apps-cli-python.html" class="project-detail-link"
-							style="display: inline-block; margin-top: 15px; padding: 8px 16px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; font-size: 14px;">
-							<i class="fas fa-arrow-right"></i> Ver detalles</a>
-					</div>
-				</div>
-				
-                <!-- Proyecto 22: Bart vs Bob Patiño -->
-				<div class="project-card" data-category="frontend">
-					<div class="project-image">
-						<img src="assets/images/bart-vs-bob.svg" alt="Bart vs Bob Patiño">
-						<div class="project-overlay">
-							<a href="https://github.com/Valentindg2506/Lenguajes-de-marcas-DAM-25-26/blob/main/Apuntes/008-Proyectos/001-Videjuegos/000-IA.html"
-								target="_blank" class="project-link" title="Ver Código">
-								<i class="fab fa-github"></i>
-							</a>
-						</div>
-					</div>
-					<div class="project-content">
-						<div class="project-tags">
-							<span class="tag">HTML5 Canvas</span>
-							<span class="tag">JavaScript</span>
-							<span class="tag">OOP</span>
-						</div>
-						<h3>Bart vs Bob Patiño</h3>
-						<p>
-							Juego 2D desarrollado con HTML5 Canvas y JavaScript puro. Arquitectura orientada
-							a objetos con clases para jugador, NPCs y balas. Sistema de niveles, power-ups,
-							disparos y frames de invencibilidad.
-						</p>
-						<div class="project-features">
-							<span><i class="fas fa-check"></i> IA para NPCs</span>
-							<span><i class="fas fa-check"></i> Power-ups y niveles</span>
-							<span><i class="fas fa-check"></i> Detección de colisiones</span>
-						</div>
-						<a href="proyectos/bart-vs-bob.html" class="project-detail-link"
-							style="display: inline-block; margin-top: 15px; padding: 8px 16px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; font-size: 14px;">
-							<i class="fas fa-arrow-right"></i> Ver detalles</a>
-					</div>
-				</div>
-				
-                <!-- Proyecto 23: Microtienda -->
-				<div class="project-card" data-category="frontend">
-					<div class="project-image">
-						<img src="assets/images/microtienda.svg" alt="Microtienda">
-						<div class="project-overlay">
-							<a href="https://github.com/Valentindg2506/Lenguajes-de-marcas-DAM-25-26/blob/main/Apuntes/007-Sistemas%20de%20gestion%20empresarial/004-Integraci%C3%B3n%20de%20modulos/007-Datos%20de%20pedido.html"
-								target="_blank" class="project-link" title="Ver Código">
-								<i class="fab fa-github"></i>
-							</a>
-						</div>
-					</div>
-					<div class="project-content">
-						<div class="project-tags">
-							<span class="tag">HTML5</span>
-							<span class="tag">CSS3</span>
-							<span class="tag">JavaScript</span>
-						</div>
-						<h3>Microtienda</h3>
-						<p>
-							Aplicación de comercio electrónico con catálogo de productos, carrito de compras
-							dinámico y formulario de pedido. Genera un objeto JSON con cliente, productos
-							y número/fecha de pedido.
-						</p>
-						<div class="project-features">
-							<span><i class="fas fa-check"></i> Carrito dinámico</span>
-							<span><i class="fas fa-check"></i> Gestión de pedidos</span>
-							<span><i class="fas fa-check"></i> Diseño responsive</span>
-						</div>
-						<a href="proyectos/microtienda.html" class="project-detail-link"
-							style="display: inline-block; margin-top: 15px; padding: 8px 16px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; font-size: 14px;">
-							<i class="fas fa-arrow-right"></i> Ver detalles</a>
-					</div>
-				</div>
 
-				<!-- Proyecto 24: App-SaaS -->
-				<div class="project-card" data-category="web">
-					<div class="project-image">
-						<div style="width: 100%; height: 200px; background: linear-gradient(135deg, #1e3a8a, #3b82f6); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white;">
-							<i class="fas fa-cloud"></i>
-						</div>
-						<div class="project-overlay">
-							<a href="https://github.com/Valentindg2506/App-SaaS" target="_blank" class="project-link" title="Ver Código">
-								<i class="fab fa-github"></i>
-							</a>
-						</div>
-					</div>
-					<div class="project-content">
-						<div class="project-tags">
-							<span class="tag">PHP</span>
-							<span class="tag">MySQL</span>
-							<span class="tag">SaaS</span>
-						</div>
-						<h3>App-SaaS</h3>
-						<p>
-							CRM/ERP escalable desarrollado en PHP nativo y MySQL. Permite gestionar clientes, 
-							pedidos, facturación y personal con un sistema robusto de roles y permisos.
-						</p>
-						<div class="project-features">
-							<span><i class="fas fa-check"></i> Roles jerárquicos</span>
-							<span><i class="fas fa-check"></i> Tablero Kanban</span>
-							<span><i class="fas fa-check"></i> Dashboard analítico</span>
-						</div>
-						<a href="proyectos/app-saas.html" class="project-detail-link"
-							style="display: inline-block; margin-top: 15px; padding: 8px 16px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; font-size: 14px;">
-							<i class="fas fa-arrow-right"></i> Ver detalles</a>
-					</div>
-				</div>
-
-				<!-- Proyecto 25: Dev Dashboard -->
-				<div class="project-card" data-category="web">
-					<div class="project-image">
-						<div style="width: 100%; height: 200px; background: linear-gradient(135deg, #ef4444, #f87171); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white;">
-							<i class="fab fa-laravel"></i>
-						</div>
-						<div class="project-overlay">
-							<a href="https://github.com/Valentindg2506/dev-dashboard" target="_blank" class="project-link" title="Ver Código">
-								<i class="fab fa-github"></i>
-							</a>
-						</div>
-					</div>
-					<div class="project-content">
-						<div class="project-tags">
-							<span class="tag">Laravel</span>
-							<span class="tag">APIs</span>
-							<span class="tag">GitHub OAuth</span>
-						</div>
-						<h3>Dev Dashboard</h3>
-						<p>
-							Panel de control centralizado para desarrolladores con Laravel 11. Integra repositorios
-							vía GitHub API, despliegues de Vercel y tráfico de Google Analytics 4.
-						</p>
-						<div class="project-features">
-							<span><i class="fas fa-check"></i> Sincronización en tiempo real</span>
-							<span><i class="fas fa-check"></i> Integración Vercel y GA4</span>
-							<span><i class="fas fa-check"></i> Arquitectura limpia y segura</span>
-						</div>
-						<a href="proyectos/dev-dashboard.html" class="project-detail-link"
-							style="display: inline-block; margin-top: 15px; padding: 8px 16px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; font-size: 14px;">
-							<i class="fas fa-arrow-right"></i> Ver detalles</a>
-					</div>
-				</div>
-
-				<!-- Proyecto 26: DrinkLegend -->
-				<div class="project-card" data-category="frontend">
-					<div class="project-image">
-						<div style="width: 100%; height: 200px; background: linear-gradient(135deg, #f59e0b, #fbbf24); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white;">
-							<i class="fas fa-beer"></i>
-						</div>
-						<div class="project-overlay">
-							<a href="https://github.com/Valentindg2506/Juego%20de%20beber" target="_blank" class="project-link" title="Ver Código">
-								<i class="fab fa-github"></i>
-							</a>
-						</div>
-					</div>
-					<div class="project-content">
-						<div class="project-tags">
-							<span class="tag">PWA</span>
-							<span class="tag">JavaScript</span>
-							<span class="tag">PHP</span>
-						</div>
-						<h3>DrinkLegend</h3>
-						<p>
-							Aplicación Web Progresiva para gamificar reuniones sociales con retos,
-							ruletas y verdades. Completamente instalable y con soporte offline.
-						</p>
-						<div class="project-features">
-							<span><i class="fas fa-check"></i> Soporte Offline</span>
-							<span><i class="fas fa-check"></i> Minijuegos interactivos</span>
-							<span><i class="fas fa-check"></i> UX/UI Gamificada</span>
-						</div>
-						<a href="proyectos/drinklegend.html" class="project-detail-link"
-							style="display: inline-block; margin-top: 15px; padding: 8px 16px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; font-size: 14px;">
-							<i class="fas fa-arrow-right"></i> Ver detalles</a>
-					</div>
-				</div>
-
-				<!-- Proyecto 27: Juntadas Party -->
-				<div class="project-card" data-category="web">
-					<div class="project-image">
-						<div style="width: 100%; height: 200px; background: linear-gradient(135deg, #10b981, #34d399); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white;">
-							<i class="fas fa-gamepad"></i>
-						</div>
-						<div class="project-overlay">
-							<a href="https://github.com/Valentindg2506/JuntadasParty" target="_blank" class="project-link" title="Ver Código">
-								<i class="fab fa-github"></i>
-							</a>
-						</div>
-					</div>
-					<div class="project-content">
-						<div class="project-tags">
-							<span class="tag">PHP 8.3</span>
-							<span class="tag">WebSockets</span>
-							<span class="tag">Docker</span>
-						</div>
-						<h3>Juntadas Party</h3>
-						<p>
-							Plataforma multijugador web para 4-20 personas con arquitectura de WebSockets.
-							Incluye "Color Match", "Truco", "El Impostor" y "Verdad o Reto" en tiempo real.
-						</p>
-						<div class="project-features">
-							<span><i class="fas fa-check"></i> Conexión WebSockets</span>
-							<span><i class="fas fa-check"></i> Salas sin registro</span>
-							<span><i class="fas fa-check"></i> ReactPHP + Ratchet</span>
-						</div>
-						<a href="proyectos/juntadasparty.html" class="project-detail-link"
-							style="display: inline-block; margin-top: 15px; padding: 8px 16px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; font-size: 14px;">
-							<i class="fas fa-arrow-right"></i> Ver detalles</a>
-					</div>
-				</div>
-
-				<!-- Proyecto 28: Bot IA Jocarsa -->
-				<div class="project-card" data-category="ia">
-					<div class="project-image">
-						<div style="width: 100%; height: 200px; background: linear-gradient(135deg, #6366f1, #818cf8); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white;">
-							<i class="fas fa-robot"></i>
-						</div>
-						<div class="project-overlay">
-							<a href="https://github.com/Valentindg2506/Bot-IA" target="_blank" class="project-link" title="Ver Código">
-								<i class="fab fa-github"></i>
-							</a>
-						</div>
-					</div>
-					<div class="project-content">
-						<div class="project-tags">
-							<span class="tag">Python</span>
-							<span class="tag">Ollama</span>
-							<span class="tag">Scraping</span>
-						</div>
-						<h3>Bot IA Jocarsa</h3>
-						<p>
-							Asistente de estudio seguro en Python que usa Selenium para navegar un portal educativo 
-							y modelos locales (Ollama) para sugerir respuestas validadas al usuario.
-						</p>
-						<div class="project-features">
-							<span><i class="fas fa-check"></i> IA Generativa local</span>
-							<span><i class="fas fa-check"></i> Web Scraping seguro</span>
-							<span><i class="fas fa-check"></i> Generación de Markdown</span>
-						</div>
-						<a href="proyectos/bot-ia.html" class="project-detail-link"
-							style="display: inline-block; margin-top: 15px; padding: 8px 16px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; font-size: 14px;">
-							<i class="fas fa-arrow-right"></i> Ver detalles</a>
-					</div>
-				</div>
-
-				<!-- Proyecto 29: BirraFinder -->
-				<div class="project-card" data-category="frontend">
-					<div class="project-image">
-						<div style="width: 100%; height: 200px; background: linear-gradient(135deg, #a855f7, #c084fc); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white;">
-							<i class="fas fa-map-marked-alt"></i>
-						</div>
-						<div class="project-overlay">
-							<a href="https://github.com/Valentindg2506/BirraFinder" target="_blank" class="project-link" title="Ver Código">
-								<i class="fab fa-github"></i>
-							</a>
-						</div>
-					</div>
-					<div class="project-content">
-						<div class="project-tags">
-							<span class="tag">PWA</span>
-							<span class="tag">Google Maps</span>
-							<span class="tag">PHP</span>
-						</div>
-						<h3>BirraFinder</h3>
-						<p>
-							Comunidad de amantes de la cerveza y el tapeo. Explora zonas a través 
-							de la integración con Google Places, califica bares y guarda tus favoritos.
-						</p>
-						<div class="project-features">
-							<span><i class="fas fa-check"></i> Búsqueda geolocalizada</span>
-							<span><i class="fas fa-check"></i> Algoritmos de recomendación</span>
-							<span><i class="fas fa-check"></i> Diario personal de visitas</span>
-						</div>
-						<a href="proyectos/birrafinder.html" class="project-detail-link"
-							style="display: inline-block; margin-top: 15px; padding: 8px 16px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; font-size: 14px;">
-							<i class="fas fa-arrow-right"></i> Ver detalles</a>
-					</div>
-				</div>
-
-				<!-- Proyecto 30: Iglesia del Santo Jocarsa -->
-				<div class="project-card" data-category="frontend">
-					<div class="project-image">
-						<div style="width: 100%; height: 200px; background: linear-gradient(135deg, #ec4899, #f472b6); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white;">
-							<i class="fas fa-church"></i>
-						</div>
-						<div class="project-overlay">
-							<a href="https://github.com/Valentindg2506/Jocarsismo" target="_blank" class="project-link" title="Ver Código">
-								<i class="fab fa-github"></i>
-							</a>
-						</div>
-					</div>
-					<div class="project-content">
-						<div class="project-tags">
-							<span class="tag">HTML5</span>
-							<span class="tag">CSS3</span>
-							<span class="tag">Vanilla JS</span>
-						</div>
-						<h3>Iglesia del Santo Jocarsa</h3>
-						<p>
-							Página web paródica llena de humor sobre la cultura del desarrollo, Linux
-							y el software libre, con confesionarios interactivos y "easter eggs".
-						</p>
-						<div class="project-features">
-							<span><i class="fas fa-check"></i> Animaciones y humor</span>
-							<span><i class="fas fa-check"></i> Interacciones Vanilla JS</span>
-							<span><i class="fas fa-check"></i> Semántica y accesibilidad</span>
-						</div>
-						<a href="proyectos/jocarsismo.html" class="project-detail-link"
-							style="display: inline-block; margin-top: 15px; padding: 8px 16px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; font-size: 14px;">
-							<i class="fas fa-arrow-right"></i> Ver detalles</a>
-					</div>
-				</div>
-
-				<!-- Proyecto 31: Dashboard PHP Excel -->
-				<div class="project-card" data-category="web">
-					<div class="project-image">
-						<div style="width: 100%; height: 200px; background: linear-gradient(135deg, #14b8a6, #2dd4bf); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white;">
-							<i class="fas fa-file-excel"></i>
-						</div>
-						<div class="project-overlay">
-							<a href="https://github.com/Valentindg2506/php-grafico-excel" target="_blank" class="project-link" title="Ver Código">
-								<i class="fab fa-github"></i>
-							</a>
-						</div>
-					</div>
-					<div class="project-content">
-						<div class="project-tags">
-							<span class="tag">PHP</span>
-							<span class="tag">DataViz</span>
-							<span class="tag">XLSX Parse</span>
-						</div>
-						<h3>Dashboard PHP Excel</h3>
-						<p>
-							Panel analítico inmobiliario renderizado en PHP puro tomando los datos
-							de forma transparente desde hojas de cálculo Excel, sin bases de datos.
-						</p>
-						<div class="project-features">
-							<span><i class="fas fa-check"></i> Parseo de XLSX nativo</span>
-							<span><i class="fas fa-check"></i> Análisis automático</span>
-							<span><i class="fas fa-check"></i> Sistema sin persistencia</span>
-						</div>
-						<a href="proyectos/php-grafico-excel.html" class="project-detail-link"
-							style="display: inline-block; margin-top: 15px; padding: 8px 16px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; font-size: 14px;">
-							<i class="fas fa-arrow-right"></i> Ver detalles</a>
-					</div>
-				</div>
-
-				<!-- Proyecto 32: Seguimiento CAS -->
-				<div class="project-card" data-category="web">
-					<div class="project-image">
-						<div style="width: 100%; height: 200px; background: linear-gradient(135deg, #0ea5e9, #38bdf8); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white;">
-							<i class="fas fa-clipboard-list"></i>
-						</div>
-						<div class="project-overlay">
-							<a href="https://github.com/Valentindg2506/Seguimiento" target="_blank" class="project-link" title="Ver Código">
-								<i class="fab fa-github"></i>
-							</a>
-						</div>
-					</div>
-					<div class="project-content">
-						<div class="project-tags">
-							<span class="tag">PHP</span>
-							<span class="tag">MySQL</span>
-							<span class="tag">PWA</span>
-						</div>
-						<h3>Seguimiento CAS</h3>
-						<p>
-							PWA de seguimiento y captación de prospectos inmobiliarios para CAS Real State.
-							Pipeline visual, historial de interacciones, dashboard con KPIs y soporte offline.
-						</p>
-						<div class="project-features">
-							<span><i class="fas fa-check"></i> Pipeline de captación</span>
-							<span><i class="fas fa-check"></i> Historial de contactos</span>
-							<span><i class="fas fa-check"></i> Soporte offline</span>
-						</div>
-						<a href="proyectos/seguimiento.html" class="project-detail-link"
-							style="display: inline-block; margin-top: 15px; padding: 8px 16px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; font-size: 14px;">
-							<i class="fas fa-arrow-right"></i> Ver detalles</a>
-					</div>
-				</div>
-
-				<!-- Proyecto 33: BookingApp -->
-				<div class="project-card" data-category="web">
-					<div class="project-image">
-						<div style="width: 100%; height: 200px; background: linear-gradient(135deg, #06b6d4, #67e8f9); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white;">
-							<i class="fas fa-calendar-check"></i>
-						</div>
-						<div class="project-overlay">
-							<a href="https://github.com/Valentindg2506/BookingApp" target="_blank" class="project-link" title="Ver Código">
-								<i class="fab fa-github"></i>
-							</a>
-						</div>
-					</div>
-					<div class="project-content">
-						<div class="project-tags">
-							<span class="tag">PHP</span>
-							<span class="tag">MySQL</span>
-							<span class="tag">WhatsApp API</span>
-						</div>
-						<h3>BookingApp</h3>
-						<p>
-							Sistema completo de reserva de citas integrado con Meta Lead Ads, WhatsApp (Twilio)
-							y Google Meet. Recordatorios automáticos y panel de administración con KPIs.
-						</p>
-						<div class="project-features">
-							<span><i class="fas fa-check"></i> Google Meet automático</span>
-							<span><i class="fas fa-check"></i> Recordatorios WhatsApp</span>
-							<span><i class="fas fa-check"></i> Meta Lead Ads webhook</span>
-						</div>
-						<a href="proyectos/bookingapp.html" class="project-detail-link"
-							style="display: inline-block; margin-top: 15px; padding: 8px 16px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; font-size: 14px;">
-							<i class="fas fa-arrow-right"></i> Ver detalles</a>
-					</div>
-				</div>
-
-				<!-- Proyecto 34: CRM-LGRY -->
-				<div class="project-card" data-category="web">
-					<div class="project-image">
-						<div style="width: 100%; height: 200px; background: linear-gradient(135deg, #8b5cf6, #a78bfa); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white;">
-							<i class="fas fa-building"></i>
-						</div>
-						<div class="project-overlay">
-							<a href="https://github.com/Valentindg2506/CRM-LGRY" target="_blank" class="project-link" title="Ver Código">
-								<i class="fab fa-github"></i>
-							</a>
-						</div>
-					</div>
-					<div class="project-content">
-						<div class="project-tags">
-							<span class="tag">PHP 8.3</span>
-							<span class="tag">MySQL</span>
-							<span class="tag">Stripe</span>
-						</div>
-						<h3>CRM-LGRY</h3>
-						<p>
-							CRM inmobiliario profesional con 20+ módulos y 60+ tablas. Captación, clientes,
-							propiedades, marketing automatizado, finanzas, contratos y 5 integraciones API externas.
-						</p>
-						<div class="project-features">
-							<span><i class="fas fa-check"></i> 20+ módulos</span>
-							<span><i class="fas fa-check"></i> Marketing automatizado</span>
-							<span><i class="fas fa-check"></i> 0 dependencias externas</span>
-						</div>
-						<a href="proyectos/crm-lgry.html" class="project-detail-link"
-							style="display: inline-block; margin-top: 15px; padding: 8px 16px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; font-size: 14px;">
-							<i class="fas fa-arrow-right"></i> Ver detalles</a>
-					</div>
-				</div>
-
-				<!-- Proyecto 35: Eurcontroller -->
-				<div class="project-card" data-category="web">
-					<div class="project-image">
-						<div style="width: 100%; height: 200px; background: linear-gradient(135deg, #059669, #34d399); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white;">
-							<i class="fas fa-euro-sign"></i>
-						</div>
-						<div class="project-overlay">
-							<a href="https://github.com/Valentindg2506/Eurcontroller" target="_blank" class="project-link" title="Ver Código">
-								<i class="fab fa-github"></i>
-							</a>
-						</div>
-					</div>
-					<div class="project-content">
-						<div class="project-tags">
-							<span class="tag">PHP</span>
-							<span class="tag">MySQL</span>
-							<span class="tag">PWA</span>
-						</div>
-						<h3>Eurcontroller</h3>
-						<p>
-							PWA de control de finanzas personales con registro de gastos, ingresos y
-							objetivos de ahorro. Dashboard con resumen, filtros avanzados y soporte offline
-							con sincronización automática.
-						</p>
-						<div class="project-features">
-							<span><i class="fas fa-check"></i> Objetivos de ahorro</span>
-							<span><i class="fas fa-check"></i> Cola offline</span>
-							<span><i class="fas fa-check"></i> API REST completa</span>
-						</div>
-						<a href="proyectos/eurcontroller.html" class="project-detail-link"
-							style="display: inline-block; margin-top: 15px; padding: 8px 16px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; font-size: 14px;">
-							<i class="fas fa-arrow-right"></i> Ver detalles</a>
-					</div>
-				</div>
-
-				<!-- Proyecto 36: Freelance-Hub -->
-				<div class="project-card" data-category="web">
-					<div class="project-image">
-						<div style="width: 100%; height: 200px; background: linear-gradient(135deg, #dc2626, #f87171); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white;">
-							<i class="fab fa-laravel"></i>
-						</div>
-						<div class="project-overlay">
-							<a href="https://github.com/Valentindg2506/Freelance-Hub" target="_blank" class="project-link" title="Ver Código">
-								<i class="fab fa-github"></i>
-							</a>
-						</div>
-					</div>
-					<div class="project-content">
-						<div class="project-tags">
-							<span class="tag">Laravel</span>
-							<span class="tag">PHP</span>
-							<span class="tag">MySQL</span>
-						</div>
-						<h3>Freelance Hub</h3>
-						<p>
-							Plataforma de gestión integral para freelancers con Laravel. Gestión de clientes,
-							proyectos, facturación y tareas con arquitectura MVC, Eloquent ORM y migraciones.
-						</p>
-						<div class="project-features">
-							<span><i class="fas fa-check"></i> Arquitectura MVC</span>
-							<span><i class="fas fa-check"></i> Eloquent ORM</span>
-							<span><i class="fas fa-check"></i> Dashboard analítico</span>
-						</div>
-						<a href="proyectos/freelance-hub.html" class="project-detail-link"
-							style="display: inline-block; margin-top: 15px; padding: 8px 16px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; font-size: 14px;">
-							<i class="fas fa-arrow-right"></i> Ver detalles</a>
-					</div>
-				</div>
-
-				<!-- Proyecto 37: LocalCoder -->
-				<div class="project-card" data-category="ia">
-					<div class="project-image">
-						<div style="width: 100%; height: 200px; background: linear-gradient(135deg, #0f172a, #334155); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: #38bdf8;">
-							<i class="fas fa-terminal"></i>
-						</div>
-						<div class="project-overlay">
-							<a href="https://github.com/Valentindg2506/LocalCoder" target="_blank" class="project-link" title="Ver Código">
-								<i class="fab fa-github"></i>
-							</a>
-						</div>
-					</div>
-					<div class="project-content">
-						<div class="project-tags">
-							<span class="tag">Rust / Tauri</span>
-							<span class="tag">TypeScript</span>
-							<span class="tag">Ollama</span>
-						</div>
-						<h3>LocalCoder</h3>
-						<p>
-							IDE ligero con asistente de IA 100% local usando Ollama. Editor Monaco (VS Code),
-							chat con streaming, memoria por sesión en SQLite y análisis de proyectos completos.
-							Sin nube, sin telemetría.
-						</p>
-						<div class="project-features">
-							<span><i class="fas fa-check"></i> Monaco Editor</span>
-							<span><i class="fas fa-check"></i> IA local (Ollama)</span>
-							<span><i class="fas fa-check"></i> 100% Offline</span>
-						</div>
-						<a href="proyectos/localcoder.html" class="project-detail-link"
-							style="display: inline-block; margin-top: 15px; padding: 8px 16px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; font-size: 14px;">
-							<i class="fas fa-arrow-right"></i> Ver detalles</a>
-					</div>
-				</div>
-
-				<!-- Proyecto 38: Pint League -->
-				<div class="project-card" data-category="frontend">
-					<div class="project-image">
-						<div style="width: 100%; height: 200px; background: linear-gradient(135deg, #d97706, #fbbf24); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white;">
-							<i class="fas fa-trophy"></i>
-						</div>
-						<div class="project-overlay">
-							<a href="https://github.com/Valentindg2506/Pint-league" target="_blank" class="project-link" title="Ver Código">
-								<i class="fab fa-github"></i>
-							</a>
-						</div>
-					</div>
-					<div class="project-content">
-						<div class="project-tags">
-							<span class="tag">React Native</span>
-							<span class="tag">Expo</span>
-							<span class="tag">TypeScript</span>
-						</div>
-						<h3>Pint League</h3>
-						<p>
-							App móvil de liga social cervecera con React Native y Expo. Organiza torneos,
-							registra puntuaciones y gestiona clasificaciones. Compatible con Android, iOS y Web.
-						</p>
-						<div class="project-features">
-							<span><i class="fas fa-check"></i> Multiplataforma</span>
-							<span><i class="fas fa-check"></i> Expo Router</span>
-							<span><i class="fas fa-check"></i> Sistema de ranking</span>
-						</div>
-						<a href="proyectos/pint-league.html" class="project-detail-link"
-							style="display: inline-block; margin-top: 15px; padding: 8px 16px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; font-size: 14px;">
-							<i class="fas fa-arrow-right"></i> Ver detalles</a>
-					</div>
-				</div>
-
-				
             </div>
         </div>
     </section>
@@ -1689,22 +1673,48 @@
                             <div class="timeline-dot"></div>
                             <div class="timeline-content">
                                 <div class="timeline-date">2025 - Actualidad</div>
-                                <h4>Desarrollador Web Full Stack (Proyectos Académicos)</h4>
+                                <h4>Desarrollador Web Full Stack</h4>
                                 <p class="timeline-place">
                                     <i class="fas fa-code"></i> Desarrollo Independiente
                                 </p>
                                 <p class="timeline-description">
-                                    Desarrollo de aplicaciones web complejas utilizando arquitecturas modernas.
-                                    Proyectos destacados: CAS Real State (sistema inmobiliario), Tinoprop CRM,
-                                    AdminViews (gestor de series), landing pages responsivas con diseño moderno
-                                    y aplicaciones Python educativas.
+                                    Diseño y desarrollo de aplicaciones web completas, de la base de datos al
+                                    despliegue. Proyectos destacados: TinoProp CRM (inmobiliario multi-tenant con
+                                    7 roles jerárquicos), RoomManager (gestión de alquileres con Stripe y firma
+                                    digital), CodePanel (espacio de trabajo con API JSON) y LocalCoder (IDE de
+                                    escritorio con IA local en Tauri y Rust).
                                 </p>
                                 <div class="timeline-tags">
                                     <span>PHP</span>
                                     <span>MySQL</span>
                                     <span>JavaScript</span>
                                     <span>Python</span>
-                                    <span>Responsive</span>
+                                    <span>Laravel</span>
+                                    <span>TypeScript</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-date">04/2026 - 05/2026</div>
+                                <h4>Desarrollador en Prácticas</h4>
+                                <p class="timeline-place">
+                                    <i class="fas fa-briefcase"></i> TuaTeam
+                                </p>
+                                <p class="timeline-description">
+                                    Desarrollo de herramientas internas para el equipo comercial. Construí
+                                    Soft-Scrappeo, un CRM de captación de leads B2B en Flask con roles, asignaciones
+                                    y clasificación por código CNAE, además de una extensión de Chrome para
+                                    transcribir reuniones, un verificador de emails y un scraper configurable.
+                                </p>
+                                <div class="timeline-tags">
+                                    <span>Python</span>
+                                    <span>Flask</span>
+                                    <span>SQLAlchemy</span>
+                                    <span>Chrome Extension</span>
+                                    <span>Web Scraping</span>
                                 </div>
                             </div>
                         </div>

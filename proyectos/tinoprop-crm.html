@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TinoProp CRM — CRM inmobiliario multi-tenant en PHP con 19 módulos y 7 niveles de rol">
+    <title>TinoProp CRM - Valentín De Gennaro</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/proyecto.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="../index.html#home">&lt;VDG /&gt;</a>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="project-detail">
+        <a href="../index.html#projects" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Volver a Proyectos
+        </a>
+
+        <div class="project-hero">
+            <h1>🏠 TinoProp CRM</h1>
+            <p class="project-tagline">CRM inmobiliario multi-tenant: varias agencias sobre una misma instalación, cada una viendo solo sus datos</p>
+            <div class="project-badges">
+                <span class="status-badge is-live"><i class="fas fa-circle-check"></i> En producción</span>
+                <span class="status-badge"><i class="fas fa-code-branch"></i> V1.0.3</span>
+                <span class="status-badge"><i class="fas fa-graduation-cap"></i> Proyecto Intermodular DAM</span>
+            </div>
+        </div>
+
+        <div class="project-content">
+            <!-- Escala del Proyecto -->
+            <div class="project-section">
+                <h2><i class="fas fa-chart-line"></i> Escala del Proyecto</h2>
+                <div class="stats-grid">
+                    <div class="stat-card"><span class="stat-num">19</span><span class="stat-label">Módulos</span></div>
+                    <div class="stat-card"><span class="stat-num">7</span><span class="stat-label">Niveles de rol</span></div>
+                    <div class="stat-card"><span class="stat-num">18</span><span class="stat-label">Tablas</span></div>
+                    <div class="stat-card"><span class="stat-num">41</span><span class="stat-label">Versiones</span></div>
+                    <div class="stat-card"><span class="stat-num">48</span><span class="stat-label">Archivos</span></div>
+                    <div class="stat-card"><span class="stat-num">23.6k</span><span class="stat-label">Líneas</span></div>
+                </div>
+            </div>
+
+            <!-- Descripción General -->
+            <div class="project-section">
+                <h2><i class="fas fa-info-circle"></i> Descripción General</h2>
+                <p>
+                    Una agencia inmobiliaria trabaja simultáneamente dos lados del negocio que casi
+                    nunca conviven en el mismo software: el del <strong>vendedor</strong>, que capta
+                    propietarios y publica inmuebles, y el del <strong>comprador</strong>, que busca
+                    vivienda y necesita que alguien le cruce su demanda con la cartera disponible.
+                    TinoProp los une en una sola aplicación y decide qué ve cada empleado según su rol.
+                </p>
+                <p>
+                    El sistema es <strong>multi-tenant</strong>: varias inmobiliarias comparten la misma
+                    instalación y base de datos, pero cada una accede exclusivamente a sus clientes,
+                    propiedades y operaciones. Un panel de SuperAdmin gestiona las agencias como
+                    inquilinos: alta, baja, configuración y límites.
+                </p>
+                <p>
+                    Es mi proyecto intermodular del Grado Superior en DAM y el más grande del
+                    portafolio. Está construido en <strong>PHP sin frameworks</strong>, sin Composer y
+                    sin npm: cada pieza — enrutado, sesiones, permisos, internacionalización,
+                    exportación — está escrita a mano, que era precisamente el objetivo del ejercicio.
+                </p>
+            </div>
+
+            <!-- Tecnologías Utilizadas -->
+            <div class="project-section">
+                <h2><i class="fas fa-tools"></i> Tecnologías Utilizadas</h2>
+                <div class="tech-grid">
+                    <div class="tech-badge"><i class="fab fa-php"></i><br>PHP 8.x</div>
+                    <div class="tech-badge"><i class="fas fa-database"></i><br>MySQL / MariaDB</div>
+                    <div class="tech-badge"><i class="fas fa-plug"></i><br>PDO</div>
+                    <div class="tech-badge"><i class="fab fa-js"></i><br>JavaScript ES6+</div>
+                    <div class="tech-badge"><i class="fab fa-css3-alt"></i><br>CSS3 puro</div>
+                    <div class="tech-badge"><i class="fas fa-chart-bar"></i><br>Chart.js</div>
+                    <div class="tech-badge"><i class="fas fa-language"></i><br>i18n es / en</div>
+                    <div class="tech-badge"><i class="fab fa-linux"></i><br>Apache</div>
+                </div>
+            </div>
+
+            <!-- Los 19 Módulos del Sistema -->
+            <div class="project-section">
+                <h2><i class="fas fa-th-large"></i> Los 19 Módulos del Sistema</h2>
+                <div class="modules-grid">
+                    <div class="module-card">
+                        <strong>📊 Dashboard</strong>
+                        <p>Métricas, gráficos con Chart.js y KPIs con widgets personalizables por
+                        usuario.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>👥 Clientes Vendedor / Comprador</strong>
+                        <p>Gestión separada por lado del negocio, con fichas detalladas.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🎯 Prospectos</strong>
+                        <p>Pipeline Kanban de leads con arrastrar y soltar entre etapas.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🏠 Propiedades</strong>
+                        <p>Inventario de inmuebles de venta y alquiler con galería de imágenes.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🔑 Alquileres</strong>
+                        <p>Circuito específico para propiedades en régimen de alquiler.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📋 Proceso</strong>
+                        <p>Kanban de operación: captación → publicada → visitas → negociación →
+                        documentación → cerrada.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🚶 Visitas</strong>
+                        <p>Programación y seguimiento con estados y recordatorios asociados.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>💰 Ofertas</strong>
+                        <p>Ciclo de oferta con estados de pendiente, aceptada, rechazada y
+                        contraoferta.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🏡 Post-Venta</strong>
+                        <p>Seguimiento posterior al cierre de la operación.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🔗 Matching</strong>
+                        <p>Cruce automático entre la demanda de cada comprador y la cartera
+                        disponible.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🔎 Búsqueda Avanzada</strong>
+                        <p>Buscador multicriterio con filtros guardables por sección y usuario.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>⏰ Recordatorios</strong>
+                        <p>Alertas por fecha y hora vinculadas a prospectos y visitas.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📖 Documentación</strong>
+                        <p>Gestión documental por entidad: subida, generación de PDF y descarga.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📥 Importar CSV</strong>
+                        <p>Carga masiva de clientes y propiedades desde ficheros CSV.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📜 Historial de Actividad</strong>
+                        <p>Log de auditoría de todas las acciones realizadas.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🔔 Notificaciones</strong>
+                        <p>Avisos automáticos de visitas pendientes y recordatorios vencidos.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📩 Peticiones / Tickets</strong>
+                        <p>Soporte interno entre los distintos niveles de la jerarquía.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>⚙️ Configuración</strong>
+                        <p>Perfil, contraseña, widgets, tema, densidad de tablas e idioma.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📜 Legal</strong>
+                        <p>Términos y condiciones versionados con aceptación obligatoria.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sistema de Roles y Permisos -->
+            <div class="project-section">
+                <h2><i class="fas fa-user-shield"></i> Sistema de Roles y Permisos</h2>
+                <p>
+                    La jerarquía tiene <strong>7 niveles con permisos acumulativos</strong>: cada rol
+                    hereda lo del inferior y añade su alcance. Los dos roles de nivel 1 son
+                    deliberadamente asimétricos: ven el mismo número de secciones, pero de lados
+                    opuestos del negocio.
+                </p>
+                <div class="table-scroll">
+                    <table class="roles-table">
+                        <thead>
+                            <tr><th>Nivel</th><th>Rol</th><th>Alcance</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><span class="role-level">99</span></td><td><strong>Super Admin</strong></td><td>Control absoluto de la plataforma: inmobiliarias, usuarios y tickets</td></tr>
+                            <tr><td><span class="role-level">5</span></td><td><strong>Jefe</strong></td><td>Director de inmobiliaria. Control total de su tenant</td></tr>
+                            <tr><td><span class="role-level">4</span></td><td><strong>Supervisor</strong></td><td>Supervisa agentes y accede a herramientas de sistema</td></tr>
+                            <tr><td><span class="role-level">3</span></td><td><strong>Marketing</strong></td><td>Herramientas de difusión. Ve los dos lados, vendedor y comprador</td></tr>
+                            <tr><td><span class="role-level">2</span></td><td><strong>Agente</strong></td><td>Agente completo. Ve los dos lados</td></tr>
+                            <tr><td><span class="role-level">1</span></td><td><strong>Agente Vendedor</strong></td><td>Solo las secciones del lado vendedor</td></tr>
+                            <tr><td><span class="role-level">1</span></td><td><strong>Agente Comprador</strong></td><td>Solo las secciones del lado comprador</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Arquitectura -->
+            <div class="project-section">
+                <h2><i class="fas fa-sitemap"></i> Arquitectura</h2>
+                <p>
+                    Monolito modular con un punto de entrada y secciones autocontenidas. El aislamiento
+                    multi-tenant no se resuelve con bases de datos separadas sino con un filtro de
+                    inmobiliaria aplicado en la capa de acceso a datos, de forma que ninguna consulta
+                    puede devolver registros de otro inquilino.
+                </p>
+                <pre class="code-tree"><span class="t-dir">Tinoprop/</span>
+├── <span class="t-file">index.php</span>              <span class="t-note"># dashboard y punto de entrada</span>
+├── <span class="t-file">login.php</span> · <span class="t-file">logout.php</span>
+├── <span class="t-file">aceptar-terminos.php</span>   <span class="t-note"># gate de T&amp;C versionados</span>
+├── <span class="t-file">cambiar-password.php</span>   <span class="t-note"># cambio obligatorio en 1er login</span>
+├── <span class="t-dir">inc/</span>                    <span class="t-note"># núcleo: auth, permisos, helpers, i18n</span>
+├── <span class="t-dir">secciones/</span>              <span class="t-note"># los 19 módulos funcionales</span>
+├── <span class="t-dir">api/</span>                    <span class="t-note"># endpoints AJAX internos</span>
+├── <span class="t-dir">database/</span> · <span class="t-dir">sql/</span>         <span class="t-note"># esquema y migraciones</span>
+├── <span class="t-dir">scripts/</span>                <span class="t-note"># utilidades de mantenimiento</span>
+├── <span class="t-dir">storage/</span>                <span class="t-note"># documentos y galerías subidas</span>
+└── <span class="t-dir">css/</span> · <span class="t-dir">js/</span>               <span class="t-note"># frontend sin bundler</span></pre>
+            </div>
+
+            <!-- Base de Datos -->
+            <div class="project-section">
+                <h2><i class="fas fa-database"></i> Base de Datos</h2>
+                <p>
+                    <strong>18 tablas</strong> con claves ajenas e índices, motor InnoDB para tener
+                    transacciones y cotejamiento <code>utf8mb4_unicode_ci</code> para que los acentos y
+                    emojis no rompan nada.
+                </p>
+                <div class="table-scroll">
+                    <table class="modules-table">
+                        <thead>
+                            <tr><th>Tabla</th><th>Contenido</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>inmobiliarias</strong></td><td>Los tenants de la plataforma, con su configuración y límites</td></tr>
+                            <tr><td><strong>usuarios</strong></td><td>Cuentas con rol, inmobiliaria asignada y preferencias de interfaz</td></tr>
+                            <tr><td><strong>clientes</strong></td><td>Compradores y vendedores, separados por lado del negocio</td></tr>
+                            <tr><td><strong>propiedades</strong></td><td>Cartera de inmuebles con superficies, extras y estado de publicación</td></tr>
+                            <tr><td><strong>prospectos</strong></td><td>Leads de captación con su etapa dentro del pipeline Kanban</td></tr>
+                            <tr><td><strong>visitas</strong></td><td>Visitas programadas con agente, cliente, propiedad y estado</td></tr>
+                            <tr><td><strong>ofertas</strong></td><td>Ofertas con su ciclo de aceptación, rechazo y contraoferta</td></tr>
+                            <tr><td><strong>recordatorios</strong></td><td>Alertas por fecha y hora asociadas a prospectos y visitas</td></tr>
+                            <tr><td><strong>documentos</strong></td><td>Documentación adjunta por entidad</td></tr>
+                            <tr><td><strong>peticiones</strong></td><td>Tickets de soporte interno entre niveles jerárquicos</td></tr>
+                            <tr><td><strong>actividad</strong></td><td>Log de auditoría de todas las acciones</td></tr>
+                            <tr><td><strong>etiquetas</strong></td><td>Etiquetas personalizadas con color, reutilizables entre módulos</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Características Transversales -->
+            <div class="project-section">
+                <h2><i class="fas fa-layer-group"></i> Características Transversales</h2>
+                <ul class="features-list">
+                    <li><strong>Buscador global</strong> en el sidebar que consulta clientes,
+                    propiedades y prospectos a la vez.</li>
+                    <li><strong>Favoritos</strong>: cualquier sección se marca para acceso rápido.</li>
+                    <li><strong>Internacionalización</strong> completa en español e inglés.</li>
+                    <li><strong>Tres temas</strong> — sistema, claro y oscuro — con persistencia por
+                    usuario.</li>
+                    <li><strong>Densidad de tablas</strong> configurable en media, cómoda o
+                    compacta.</li>
+                    <li><strong>Filtros guardados</strong> por sección y por usuario, para no repetir la
+                    misma búsqueda cada día.</li>
+                    <li><strong>Etiquetas con color</strong> definibles y compartidas entre
+                    módulos.</li>
+                    <li><strong>Exportación a CSV</strong> de cualquier listado.</li>
+                </ul>
+            </div>
+
+            <!-- Flujo Completo de Negocio -->
+            <div class="project-section">
+                <h2><i class="fas fa-route"></i> Flujo Completo de Negocio</h2>
+                <ol class="workflow-steps">
+                    <li><strong>Alta del tenant:</strong> el SuperAdmin crea la inmobiliaria y su
+                    usuario Jefe, con contraseña temporal.</li>
+                    <li><strong>Primer acceso:</strong> el usuario acepta los términos versionados y
+                    cambia obligatoriamente la contraseña.</li>
+                    <li><strong>Captación:</strong> entra un lead como prospecto y avanza por el
+                    pipeline Kanban arrastrándolo entre etapas.</li>
+                    <li><strong>Alta de propiedad:</strong> el prospecto captado se convierte en
+                    propiedad de la cartera con su galería.</li>
+                    <li><strong>Demanda del comprador:</strong> se registra al cliente comprador con su
+                    presupuesto, zona y requisitos.</li>
+                    <li><strong>Matching:</strong> el sistema cruza esa demanda con la cartera y propone
+                    los inmuebles compatibles.</li>
+                    <li><strong>Visitas:</strong> se programan y quedan reflejadas con recordatorio y
+                    notificación al agente.</li>
+                    <li><strong>Oferta:</strong> se registra la oferta y se resuelve como aceptada,
+                    rechazada o contraoferta.</li>
+                    <li><strong>Cierre y documentación:</strong> el Kanban de proceso llega a
+                    documentación y la operación se cierra.</li>
+                    <li><strong>Post-venta:</strong> el módulo de post-venta mantiene el seguimiento del
+                    cliente ya cerrado.</li>
+                </ol>
+            </div>
+
+            <!-- Seguridad Implementada -->
+            <div class="project-section">
+                <h2><i class="fas fa-lock"></i> Seguridad Implementada</h2>
+                <ul class="features-list">
+                    <li>Contraseñas hasheadas con <strong>bcrypt</strong> mediante
+                    <code>password_hash()</code>.</li>
+                    <li>Contraseñas temporales con <strong>cambio obligatorio</strong> en el primer
+                    inicio de sesión.</li>
+                    <li>Protección <strong>CSRF</strong> con token por formulario.</li>
+                    <li>Escape <strong>XSS</strong> en toda la salida HTML.</li>
+                    <li><strong>Prepared statements PDO</strong> en el 100% de las consultas: nunca
+                    concatenación.</li>
+                    <li><strong>Rate limiting</strong> contra ataques de fuerza bruta en el login.</li>
+                    <li>Cabeceras de seguridad: <code>X-Frame-Options</code>,
+                    <code>X-Content-Type-Options</code> y <strong>HSTS</strong> con max-age de un
+                    año.</li>
+                    <li>Redirección forzada a HTTPS y protección de directorios y ficheros de
+                    configuración.</li>
+                    <li>Aislamiento entre tenants verificado en la capa de datos, no solo en la
+                    interfaz.</li>
+                    <li>Términos y condiciones versionados con registro de aceptación por usuario.</li>
+                </ul>
+            </div>
+
+            <!-- Evolución en 41 Versiones -->
+            <div class="project-section">
+                <h2><i class="fas fa-code-branch"></i> Evolución en 41 Versiones</h2>
+                <p>
+                    El repositorio conserva cada versión como una carpeta independiente, desde el primer
+                    prototipo hasta producción. No es un historial de commits: es el proyecto entero
+                    congelado en 41 momentos, lo que permite ver exactamente qué se añadió en cada paso.
+                </p>
+                <p>
+                    Las cifras de arriba corresponden a la <strong>versión V1.0.3</strong>, que es el producto
+                    real: 48 archivos y 23.600 líneas. Sumar las 41 carpetas daría 254.000 líneas, pero sería
+                    contar el mismo código cuarenta y una veces.
+                </p>
+                <ul class="version-timeline">
+                    <li><span class="v-tag">V0.0.01</span>Web de presentación para vender el
+                    producto.</li>
+                    <li><span class="v-tag">V0.0.03</span>Primer módulo real: gestión de clientes.</li>
+                    <li><span class="v-tag">V0.0.07</span>Inmuebles, el corazón de la cartera.</li>
+                    <li><span class="v-tag">V0.0.08</span>Dashboard con métricas y gráficos.</li>
+                    <li><span class="v-tag">V0.0.09</span>Rediseño de la base de datos con claves ajenas
+                    e índices.</li>
+                    <li><span class="v-tag">V0.0.13</span>Kanban con arrastrar y soltar.</li>
+                    <li><span class="v-tag">V0.0.14</span>Inicio personalizable con widgets por
+                    usuario.</li>
+                    <li><span class="v-tag">V0.0.16</span>Sistema de recordatorios.</li>
+                    <li><span class="v-tag">V0.0.17</span>Galería de imágenes por propiedad.</li>
+                    <li><span class="v-tag">V0.0.19</span>Búsqueda avanzada multicriterio.</li>
+                    <li><span class="v-tag">V0.0.21</span>Preferencias de interfaz: tema y densidad de
+                    tablas.</li>
+                    <li><span class="v-tag">V0.0.22</span>Internacionalización español / inglés.</li>
+                    <li><span class="v-tag">V0.0.24</span>Autenticación reforzada.</li>
+                    <li><span class="v-tag">V0.0.26</span>Módulo de visitas.</li>
+                    <li><span class="v-tag">V0.0.29</span>Jerarquía definitiva de 7 niveles de
+                    usuario.</li>
+                    <li><span class="v-tag">V0.0.30</span>Preparación para producción.</li>
+                    <li><span class="v-tag">V0.0.31</span>Documentación del código.</li>
+                    <li><span class="v-tag">V1.0.0</span>Primera versión en producción.</li>
+                    <li><span class="v-tag">V1.0.3</span>Versión actual, tras tres rondas de corrección
+                    de errores.</li>
+                </ul>
+            </div>
+
+            <!-- Retos Técnicos y Decisiones de Diseño -->
+            <div class="project-section">
+                <h2><i class="fas fa-lightbulb"></i> Retos Técnicos y Decisiones de Diseño</h2>
+                <h3>Multi-tenant sin multiplicar bases de datos</h3>
+                <p>
+                    La opción fácil era una base de datos por inmobiliaria, pero eso obliga a replicar
+                    migraciones N veces y encarece el hosting. Opté por una sola base con
+                    <code>inmobiliaria_id</code> en cada tabla y el filtro aplicado en la capa de acceso
+                    a datos, no en cada consulta suelta: así una sección nueva hereda el aislamiento sin
+                    que haya que recordar añadirlo.
+                </p>
+                <h3>Siete roles sin convertirlo en un laberinto</h3>
+                <p>
+                    Con siete niveles, un sistema de permisos por casuística se vuelve inmantenible. La
+                    solución fue hacer los permisos <strong>acumulativos</strong> por nivel numérico:
+                    comprobar acceso es comparar enteros. Los dos roles de nivel 1 son la excepción
+                    deliberada — mismo nivel, secciones distintas — porque el negocio realmente tiene
+                    dos lados simétricos.
+                </p>
+                <h3>Por qué PHP sin frameworks</h3>
+                <p>
+                    Era el requisito del proyecto intermodular, pero acabó siendo lo más formativo:
+                    escribir a mano el enrutado, las sesiones, la i18n y la exportación obliga a
+                    entender qué hace Laravel por debajo. El coste es evidente en volumen de código; el
+                    beneficio es que despliega en cualquier hosting compartido sin build ni
+                    dependencias.
+                </p>
+            </div>
+
+            <!-- Mi Rol -->
+            <div class="project-section">
+                <h2><i class="fas fa-user-tie"></i> Mi Rol</h2>
+                <p>
+                    <strong>Desarrollador full stack — autor único.</strong>
+                </p>
+                <p>
+                    Análisis de requisitos, modelo de datos, arquitectura multi-tenant, sistema de
+                    roles, los 19 módulos, el frontend completo y el despliegue. También la
+                    documentación del repositorio: LICENSE, SECURITY.md, CONTRIBUTING.md y
+                    CODE_OF_CONDUCT.md.
+                </p>
+            </div>
+
+            <!-- Estado del Proyecto -->
+            <div class="project-section">
+                <h2><i class="fas fa-flag-checkered"></i> Estado del Proyecto</h2>
+                <p>
+                    <strong>En producción</strong> desde la versión V1.0.0, actualmente en V1.0.3 tras
+                    tres iteraciones de corrección. Presentado como proyecto intermodular del Grado
+                    Superior en Desarrollo de Aplicaciones Multiplataforma.
+                </p>
+            </div>
+
+            <!-- Código y Enlaces -->
+            <div class="project-section">
+                <h2><i class="fas fa-link"></i> Código y Enlaces</h2>
+                <div class="project-links">
+                    <a href="https://tinoprop.com" target="_blank" rel="noopener">
+                        <i class="fas fa-external-link-alt"></i> Ver en producción
+                    </a>
+                    <a href="https://github.com/Valentindg2506/Tinoprop" target="_blank" rel="noopener">
+                        <i class="fab fa-github"></i> Ver código en GitHub
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <button id="scrollTop" class="scroll-top" aria-label="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

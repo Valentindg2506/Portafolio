@@ -1,66 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Agente IA - Generador autónomo de código con memoria de errores">
+    <meta name="description" content="Agente IA autónomo en Python: genera código con Ollama, lo valida por capas y aprende de sus errores">
     <title>Agente IA Autónomo - Valentín De Gennaro</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/proyecto.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script>
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        if (savedTheme === 'dark') document.documentElement.classList.add('dark');
-    </script>
-    <style>
-        .project-detail { min-height: 100vh; padding: 80px 20px 40px; }
-        .project-hero { max-width: 1000px; margin: 0 auto 50px; text-align: center; }
-        .project-hero h1 { font-size: 3em; margin-bottom: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .project-content { max-width: 900px; margin: 0 auto; }
-        .project-section { margin-bottom: 40px; padding: 30px; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
-        .project-section h2 { font-size: 1.8em; margin-bottom: 20px; color: #3b82f6; }
-        .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; }
-        .tech-badge { padding: 10px 15px; background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(99,102,241,0.2)); border: 1px solid rgba(59,130,246,0.5); border-radius: 8px; text-align: center; font-weight: 500; }
-        .features-list { list-style: none; padding: 0; }
-        .features-list li { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .features-list li:last-child { border-bottom: none; }
-        .features-list li:before { content: "✓ "; color: #10b981; font-weight: bold; margin-right: 10px; }
-        .back-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: rgba(59,130,246,0.2); border: 1px solid rgba(59,130,246,0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; margin-bottom: 30px; transition: all 0.3s ease; }
-        .back-btn:hover { background: rgba(59,130,246,0.3); transform: translateX(-5px); }
-        .project-links { display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap; }
-        .project-links a { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 6px; text-decoration: none; transition: all 0.3s ease; }
-        .project-links a:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(102,126,234,0.3); }
-        .flow-box { background: rgba(0,0,0,0.3); border-radius: 8px; padding: 20px; font-family: 'Fira Code', monospace; font-size: 0.9em; border: 1px solid rgba(255,255,255,0.1); margin-top: 15px; line-height: 1.8; }
-        .version-list { list-style: none; padding: 0; }
-        .version-list li { padding: 10px 15px; margin-bottom: 8px; background: rgba(255,255,255,0.03); border-left: 3px solid #3b82f6; border-radius: 0 6px 6px 0; }
-        .version-list li strong { color: #3b82f6; }
-    
-        .modules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin-top: 15px; }
-        .module-card { padding: 15px 18px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.25); border-radius: 10px; }
-        .module-card strong { display: block; margin-bottom: 4px; color: #a5b4fc; }
-        .module-card p { margin: 0; font-size: 0.9em; opacity: 0.85; }
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; margin: 20px 0; }
-        .stat-card { padding: 18px 12px; background: linear-gradient(135deg, rgba(102,126,234,0.15), rgba(118,75,162,0.15)); border: 1px solid rgba(102,126,234,0.3); border-radius: 10px; text-align: center; }
-        .stat-card .stat-num { display: block; font-size: 2em; font-weight: 800; color: #818cf8; line-height: 1; }
-        .stat-card .stat-label { display: block; font-size: 0.8em; opacity: 0.75; margin-top: 6px; }
-        .integration-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
-        .integration-card { padding: 15px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.25); border-radius: 10px; }
-        .integration-card strong { display: block; margin-bottom: 4px; color: #34d399; }
-        .integration-card p { margin: 0; font-size: 0.88em; opacity: 0.85; }
-        .roles-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-        .roles-table th, .roles-table td { padding: 10px 14px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.08); }
-        .roles-table th { color: #3b82f6; font-weight: 600; border-bottom: 1px solid rgba(59,130,246,0.3); }
-        .roles-table tr:last-child td { border-bottom: none; }
-        .role-level { display: inline-block; padding: 2px 8px; background: rgba(99,102,241,0.2); border-radius: 12px; font-size: 13px; font-weight: bold; color: #818cf8; }
-        .workflow-steps { counter-reset: step-counter; list-style: none; padding: 0; }
-        .workflow-steps li { counter-increment: step-counter; padding: 12px 0 12px 50px; border-bottom: 1px solid rgba(255,255,255,0.08); position: relative; }
-        .workflow-steps li:before { content: counter(step-counter); position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 32px; height: 32px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.85em; color: white; }
-        .workflow-steps li:last-child { border-bottom: none; }
-</style>
 </head>
+
 <body>
     <nav class="navbar" id="navbar">
         <div class="container">
-            <div class="nav-brand"><a href="../index.html#home">&lt;VDG /&gt;</a></div>
+            <div class="nav-brand">
+                <a href="../index.html#home">&lt;VDG /&gt;</a>
+            </div>
             <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
                 <i class="fas fa-moon"></i>
             </button>
@@ -73,19 +29,23 @@
         </a>
 
         <div class="project-hero">
-            <h1>Agente IA Autónomo</h1>
-            <p style="font-size: 1.2em; color: #a0aec0;">Generador de código con LLM local, validación multicapa y memoria de errores</p>
+            <h1>🧠 Agente IA Autónomo</h1>
+            <p class="project-tagline">Un agente que genera código Python con IA local, lo valida en tres capas y reinyecta sus errores para corregirse</p>
+            <div class="project-badges">
+                <span class="status-badge is-academic"><i class="fas fa-graduation-cap"></i> Proyecto académico</span>
+                <span class="status-badge"><i class="fas fa-robot"></i> Ollama local</span>
+                <span class="status-badge"><i class="fas fa-shield-halved"></i> Validación con AST</span>
+            </div>
         </div>
 
         <div class="project-content">
-
-            <!-- Cifras Clave -->
+            <!-- Escala del Proyecto -->
             <div class="project-section">
                 <h2><i class="fas fa-chart-line"></i> Escala del Proyecto</h2>
                 <div class="stats-grid">
-                    <div class="stat-card"><span class="stat-num">6</span><span class="stat-label">Módulos</span></div>
-                    <div class="stat-card"><span class="stat-num">5</span><span class="stat-label">Tecnologías</span></div>
-                    <div class="stat-card"><span class="stat-num">v1.0</span><span class="stat-label">Versión</span></div>
+                    <div class="stat-card"><span class="stat-num">9</span><span class="stat-label">Iteraciones</span></div>
+                    <div class="stat-card"><span class="stat-num">3</span><span class="stat-label">Capas de validación</span></div>
+                    <div class="stat-card"><span class="stat-num">7B</span><span class="stat-label">Modelo local</span></div>
                 </div>
             </div>
 
@@ -93,94 +53,174 @@
             <div class="project-section">
                 <h2><i class="fas fa-info-circle"></i> Descripción General</h2>
                 <p>
-                    <strong>Agente IA Autónomo</strong> generador de código con llm local, validación multicapa y memoria de errores.
-                    Este proyecto ha sido desarrollado siguiendo estrictos estándares de calidad, 
-                    con un enfoque claro en la escalabilidad y la experiencia de usuario.
+                    Práctica de la asignatura de Inteligencia Artificial y, con diferencia, el ejercicio
+                    académico más ambicioso del portafolio. La pregunta de partida es: ¿puede un
+                    programa pedirle código a un modelo de lenguaje, comprobar si sirve y arreglarlo
+                    solo cuando no?
                 </p>
                 <p>
-                    A través de su arquitectura modular, el sistema permite una gestión integral de todas las
-                    operaciones necesarias, garantizando un rendimiento óptimo y un mantenimiento simplificado.
+                    El agente pide a <strong>Ollama</strong> — modelo <code>qwen2.5-coder:7b</code>
+                    corriendo en local — que genere un programa Python, y antes de darlo por bueno lo
+                    somete a <strong>tres capas de validación</strong>: sintaxis mediante el módulo
+                    <code>ast</code>, seguridad básica contra una lista de operaciones prohibidas, y
+                    funcionamiento real ejecutándolo con <code>subprocess</code>.
+                </p>
+                <p>
+                    El paso que lo convierte en un agente y no en un script es el <strong>bucle de
+                    realimentación</strong>: si la validación falla, el error se analiza, se registra en
+                    una memoria y se <strong>reinyecta en el siguiente prompt</strong>. El modelo recibe
+                    su propio fallo como contexto y vuelve a intentarlo.
                 </p>
             </div>
 
-            <!-- Tecnologías -->
+            <!-- Tecnologías Utilizadas -->
             <div class="project-section">
                 <h2><i class="fas fa-tools"></i> Tecnologías Utilizadas</h2>
                 <div class="tech-grid">
-                    <div class="tech-badge"><i class="fab fa-python"></i><br>Python 3</div>
-                    <div class="tech-badge"><i class="fas fa-brain"></i><br>Ollama LLM</div>
-                    <div class="tech-badge"><i class="fas fa-code"></i><br>AST Module</div>
+                    <div class="tech-badge"><i class="fab fa-python"></i><br>Python</div>
+                    <div class="tech-badge"><i class="fas fa-robot"></i><br>Ollama</div>
+                    <div class="tech-badge"><i class="fas fa-microchip"></i><br>qwen2.5-coder:7b</div>
+                    <div class="tech-badge"><i class="fas fa-code-branch"></i><br>módulo ast</div>
                     <div class="tech-badge"><i class="fas fa-terminal"></i><br>subprocess</div>
-                    <div class="tech-badge"><i class="fas fa-exchange-alt"></i><br>REST API</div>
+                    <div class="tech-badge"><i class="fas fa-network-wired"></i><br>requests</div>
+                    <div class="tech-badge"><i class="fas fa-clock"></i><br>cron</div>
                 </div>
             </div>
 
-            <!-- Módulos -->
+            <!-- Las Tres Capas de Validación -->
             <div class="project-section">
-                <h2><i class="fas fa-th-large"></i> Arquitectura y Módulos</h2>
-                <div class="modules-grid">
-                    <div class="module-card">
-                        <strong>⚡ Inicialización:</strong>
-                        <p>Configuración del entorno y carga de parámetros iniciales.</p>
-                    </div>
-                    <div class="module-card">
-                        <strong>⚡ Procesamiento:</strong>
-                        <p>Ejecución de la lógica de negocio principal y validación de datos.</p>
-                    </div>
-                    <div class="module-card">
-                        <strong>⚡ Persistencia:</strong>
-                        <p>Almacenamiento seguro de la información generada.</p>
-                    </div>
-                    <div class="module-card">
-                        <strong>⚡ Visualización:</strong>
-                        <p>Renderizado de la interfaz y entrega de resultados al usuario final.</p>
-                    </div>
-                </div>
+                <h2><i class="fas fa-layer-group"></i> Las Tres Capas de Validación</h2>
+                <ul class="features-list">
+                    <li><strong><code>validar_sintaxis()</code></strong> — parsea el código generado con
+                    el módulo <code>ast</code> de Python. Si no compila, no se ejecuta: el error se
+                    detecta sin riesgo.</li>
+                    <li><strong><code>validar_seguridad_basica()</code></strong> — busca operaciones
+                    prohibidas o peligrosas antes de permitir la ejecución. El modelo no debería generar
+                    nada destructivo, pero confiar en eso sería el error.</li>
+                    <li><strong><code>validar_funcionamiento()</code></strong> — ejecuta el programa con
+                    <code>subprocess</code> y comprueba que hace lo que se pedía. Es la única capa que
+                    verifica la intención, no la forma.</li>
+                    <li><strong><code>validar_codigo()</code></strong> — orquesta las tres en orden, de
+                    la más barata y segura a la más costosa y arriesgada.</li>
+                    <li><strong><code>registrar_error()</code></strong> y
+                    <strong><code>analizar_error_para_memoria()</code></strong> — convierten el fallo en
+                    contexto reutilizable.</li>
+                    <li><strong><code>construir_prompt()</code></strong> — inyecta la memoria de errores
+                    en la siguiente petición al modelo.</li>
+                </ul>
             </div>
 
-            <!-- Flujo Completo -->
+            <!-- Progresión del Ejercicio -->
             <div class="project-section">
-                <h2><i class="fas fa-route"></i> Flujo Completo de Funcionamiento</h2>
+                <h2><i class="fas fa-code-branch"></i> Progresión del Ejercicio</h2>
+                <p>
+                    El proyecto está estructurado como nueve pasos, cada uno un fichero independiente.
+                    Se ve con claridad cómo un script mínimo se convierte en un agente con memoria.
+                </p>
+                <ul class="version-timeline">
+                    <li><span class="v-tag">001</span><strong>Primer contacto.</strong> Documentación:
+                    qué es un agente y qué se pretende construir.</li>
+                    <li><span class="v-tag">002</span><strong>Pequeño agente.</strong> Petición mínima a
+                    Ollama pidiendo un programa que sume 4+3, guardado en un fichero. Sin ninguna
+                    comprobación.</li>
+                    <li><span class="v-tag">003</span><strong>Validador.</strong> El salto importante:
+                    se añaden las tres capas de validación — sintaxis con <code>ast</code>, seguridad y
+                    ejecución con <code>subprocess</code>.</li>
+                    <li><span class="v-tag">004</span><strong>Reto más grande.</strong> Se sube la
+                    dificultad de lo que se le pide generar, para ver dónde falla el modelo.</li>
+                    <li><span class="v-tag">005</span><strong>Crear memoria.</strong> Aparecen
+                    <code>registrar_error()</code>, <code>analizar_error_para_memoria()</code> y
+                    <code>construir_prompt()</code>: el agente empieza a aprender de sus fallos.</li>
+                    <li><span class="v-tag">006 y 008</span><strong>Cron.</strong> Documentación sobre
+                    ejecución programada, para que el agente trabaje sin intervención.</li>
+                    <li><span class="v-tag">007</span><strong>Agente tonto.</strong> Versión
+                    deliberadamente simple como punto de comparación.</li>
+                    <li><span class="v-tag">009</span><strong>Agente un poco más listo.</strong> Cambia
+                    de tarea: recorre el sistema de ficheros con <code>os.walk()</code>, filtra por
+                    extensión, elige un fichero al azar, lee hasta 4000 caracteres y le pide al modelo
+                    un análisis que guarda en un informe.</li>
+                </ul>
+            </div>
+
+            <!-- El Bucle de Realimentación -->
+            <div class="project-section">
+                <h2><i class="fas fa-route"></i> El Bucle de Realimentación</h2>
                 <ol class="workflow-steps">
-                    <li><strong>Inicialización:</strong> Configuración del entorno y carga de parámetros iniciales.</li>
-                    <li><strong>Procesamiento:</strong> Ejecución de la lógica de negocio principal y validación de datos.</li>
-                    <li><strong>Persistencia:</strong> Almacenamiento seguro de la información generada.</li>
-                    <li><strong>Visualización:</strong> Renderizado de la interfaz y entrega de resultados al usuario final.</li>
+                    <li><strong>Petición:</strong> el agente envía el prompt a Ollama en
+                    <code>localhost:11434</code>.</li>
+                    <li><strong>Generación:</strong> el modelo devuelve código Python, sin
+                    explicaciones.</li>
+                    <li><strong>Validación de sintaxis:</strong> se parsea con <code>ast</code>. Si
+                    falla, ni se intenta ejecutar.</li>
+                    <li><strong>Validación de seguridad:</strong> se comprueba que no contenga
+                    operaciones prohibidas.</li>
+                    <li><strong>Ejecución controlada:</strong> se lanza con <code>subprocess</code> y se
+                    observa el resultado.</li>
+                    <li><strong>Registro del error:</strong> si algo ha fallado, el error se analiza y
+                    se guarda en la memoria.</li>
+                    <li><strong>Reintento con contexto:</strong> el siguiente prompt incluye el error
+                    anterior; el modelo tiene ahora información que no tenía.</li>
                 </ol>
+            </div>
+
+            <!-- Qué Aprendí -->
+            <div class="project-section">
+                <h2><i class="fas fa-lightbulb"></i> Qué Aprendí</h2>
+                <ul class="features-list">
+                    <li>Que un modelo de lenguaje genera código plausible, no código correcto: sin una
+                    capa de verificación, la salida no es utilizable.</li>
+                    <li>Que <code>ast.parse()</code> permite validar sintaxis <strong>sin
+                    ejecutar</strong>, lo que es la diferencia entre detectar un error y provocar un
+                    desastre.</li>
+                    <li>Que ejecutar código generado automáticamente es intrínsecamente peligroso, y que
+                    la comprobación de seguridad va antes de la ejecución, no después.</li>
+                    <li>Que reinyectar el error en el prompt es una técnica sencilla y sorprendentemente
+                    eficaz: el modelo corrige fallos que no habría evitado de entrada.</li>
+                    <li>Que el orden de las validaciones importa: primero las baratas y seguras, luego
+                    las costosas y arriesgadas.</li>
+                </ul>
             </div>
 
             <!-- Mi Rol -->
             <div class="project-section">
                 <h2><i class="fas fa-user-tie"></i> Mi Rol</h2>
-                <p><strong>Desarrollador Full Stack — Autor Único</strong></p>
                 <p>
-                    Diseñé y desarrollé el sistema completo de forma independiente: desde el análisis de requisitos, 
-                    diseño de la arquitectura, implementación de backend y frontend, hasta el despliegue final.
+                    <strong>Autor del ejercicio.</strong> Práctica individual de la asignatura de
+                    Inteligencia Artificial.
                 </p>
             </div>
 
-            <!-- Estado -->
+            <!-- Estado del Proyecto -->
             <div class="project-section">
-                <h2><i class="fas fa-info"></i> Estado del Proyecto</h2>
-                <p><strong>Estado:</strong> <span style="color: #10b981; font-weight: bold;"></span></p>
+                <h2><i class="fas fa-flag-checkered"></i> Estado del Proyecto</h2>
+                <p>
+                    <strong>Ejercicio académico completado</strong>, con las nueve iteraciones en el
+                    repositorio de apuntes. Requiere Ollama corriendo en local con el modelo descargado.
+                </p>
             </div>
 
-            <!-- Código -->
+            <!-- Código y Enlaces -->
             <div class="project-section">
-                <h2><i class="fas fa-link"></i> Código Fuente</h2>
+                <h2><i class="fas fa-link"></i> Código y Enlaces</h2>
                 <div class="project-links">
-                    <a href="#" target="_blank">
-                        <i class="fab fa-github"></i> Ver Código en GitHub
+                    <a href="https://github.com/Valentindg2506/Programacion-DAM-25-26" target="_blank" rel="noopener">
+                        <i class="fab fa-github"></i> Ver repositorio de apuntes
                     </a>
                 </div>
+                <p style="margin-top: 16px;">
+                    Ruta dentro del repositorio: <code>Apuntes/012-Inteligencia artificial/011-Agente
+                    IA/</code>
+                </p>
             </div>
+
         </div>
     </div>
 
     <button id="scrollTop" class="scroll-top" aria-label="Volver arriba">
         <i class="fas fa-arrow-up"></i>
     </button>
+
     <script src="../js/main.js"></script>
 </body>
-</html>
 
+</html>

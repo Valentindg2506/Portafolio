@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CodePanel — espacio de trabajo para programadores en PHP y MySQL con API JSON y cálculo de rentabilidad">
+    <title>CodePanel - Valentín De Gennaro</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/proyecto.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="../index.html#home">&lt;VDG /&gt;</a>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="project-detail">
+        <a href="../index.html#projects" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Volver a Proyectos
+        </a>
+
+        <div class="project-hero">
+            <h1>🧰 CodePanel</h1>
+            <p class="project-tagline">Espacio de trabajo para programadores: proyectos, ideas, clientes, tiempo y rentabilidad en una sola interfaz</p>
+            <div class="project-badges">
+                <span class="status-badge"><i class="fas fa-code"></i> API JSON completa</span>
+                <span class="status-badge"><i class="fas fa-ban"></i> Sin build ni Composer</span>
+                <span class="status-badge"><i class="fas fa-stopwatch"></i> Control de tiempo</span>
+            </div>
+        </div>
+
+        <div class="project-content">
+            <!-- Escala del Proyecto -->
+            <div class="project-section">
+                <h2><i class="fas fa-chart-line"></i> Escala del Proyecto</h2>
+                <div class="stats-grid">
+                    <div class="stat-card"><span class="stat-num">17</span><span class="stat-label">Tablas</span></div>
+                    <div class="stat-card"><span class="stat-num">14</span><span class="stat-label">Recursos CRUD</span></div>
+                    <div class="stat-card"><span class="stat-num">44</span><span class="stat-label">Archivos</span></div>
+                    <div class="stat-card"><span class="stat-num">8.1k</span><span class="stat-label">Líneas</span></div>
+                </div>
+            </div>
+
+            <!-- Descripción General -->
+            <div class="project-section">
+                <h2><i class="fas fa-info-circle"></i> Descripción General</h2>
+                <p>
+                    Cuando trabajas en varios proyectos a la vez, la información se dispersa: las ideas
+                    en un bloc, los presupuestos en un Excel, los dominios y servidores en la memoria, y
+                    las horas invertidas en ningún sitio. El resultado es que no sabes qué proyecto te
+                    está dando dinero y cuál te lo está quitando.
+                </p>
+                <p>
+                    CodePanel reúne todo eso: proyectos personales y comerciales, banco de ideas,
+                    bitácora de decisiones técnicas, presupuestos y cobros, entregas y versiones,
+                    inventario de infraestructura con sus renovaciones, clientes y leads, tareas,
+                    recordatorios y control de tiempo con cronómetro.
+                </p>
+                <p>
+                    La pieza que justifica el proyecto es el <strong>cálculo de rentabilidad</strong>:
+                    cruza los ingresos registrados, el tiempo dedicado según el coste por hora
+                    configurado y los costes de infraestructura asociados, y lo hace <strong>separando
+                    por moneda</strong>, porque sumar euros y pesos en el mismo total es una forma
+                    elegante de mentirse.
+                </p>
+            </div>
+
+            <!-- Tecnologías Utilizadas -->
+            <div class="project-section">
+                <h2><i class="fas fa-tools"></i> Tecnologías Utilizadas</h2>
+                <div class="tech-grid">
+                    <div class="tech-badge"><i class="fab fa-php"></i><br>PHP 8.1+</div>
+                    <div class="tech-badge"><i class="fas fa-database"></i><br>MySQL 8</div>
+                    <div class="tech-badge"><i class="fas fa-plug"></i><br>PDO</div>
+                    <div class="tech-badge"><i class="fab fa-js"></i><br>JavaScript</div>
+                    <div class="tech-badge"><i class="fas fa-code"></i><br>API JSON</div>
+                    <div class="tech-badge"><i class="fas fa-shield-halved"></i><br>CSRF</div>
+                    <div class="tech-badge"><i class="fas fa-paperclip"></i><br>Adjuntos validados</div>
+                </div>
+            </div>
+
+            <!-- Módulos del Espacio de Trabajo -->
+            <div class="project-section">
+                <h2><i class="fas fa-th-large"></i> Módulos del Espacio de Trabajo</h2>
+                <div class="modules-grid">
+                    <div class="module-card">
+                        <strong>📊 Dashboard personalizable</strong>
+                        <p>Resumen de actividad y próximos vencimientos, con widgets que el usuario
+                        elige y ordena.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📁 Proyectos</strong>
+                        <p>Personales o comerciales, con estado de avance. Un proyecto personal no
+                        arrastra cliente ni fecha objetivo.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>💡 Banco de ideas</strong>
+                        <p>Registro de futuros productos y experimentos antes de que se olviden.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📔 Bitácora de desarrollo</strong>
+                        <p>Decisiones técnicas y aprendizajes vinculados a cada proyecto.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>💰 Presupuestos y cobros</strong>
+                        <p>Presupuesto emitido, pagos recibidos y saldo pendiente.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🚀 Entregas y versiones</strong>
+                        <p>Publicaciones y releases por proyecto.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🖧 Recursos e infraestructura</strong>
+                        <p>Inventario de dominios, servidores y servicios con su coste y fecha de
+                        renovación.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🤝 Clientes y leads</strong>
+                        <p>Directorio de clientes actuales y oportunidades comerciales.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>✅ Tareas</strong>
+                        <p>Trabajo diario vinculado a proyectos.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🔔 Recordatorios</strong>
+                        <p>Centro de avisos con prioridad, estado, fecha y proyecto relacionado.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>⏱️ Control de tiempo</strong>
+                        <p>Registro manual o con cronómetro, asociado a proyecto y tarea. Un solo
+                        cronómetro activo por usuario.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📈 Rentabilidad</strong>
+                        <p>Ingresos menos tiempo y coste de infraestructura, por proyecto y separado por
+                        moneda.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📅 Calendario unificado</strong>
+                        <p>Tareas, recordatorios, entregas, renovaciones y vencimientos en una sola
+                        vista.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🔄 Revisión semanal</strong>
+                        <p>Logros, bloqueos, foco de la semana siguiente y valoración.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📎 Archivos adjuntos</strong>
+                        <p>Documentación con descarga autenticada, cuota por usuario y validación del
+                        tipo real de fichero.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🏷️ Etiquetas globales</strong>
+                        <p>Etiquetas reutilizables para clasificar cualquier módulo.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>⚙️ Preferencias</strong>
+                        <p>Moneda, formato de fecha, zona horaria, tema, inicio de semana, coste por
+                        hora y avisos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Arquitectura -->
+            <div class="project-section">
+                <h2><i class="fas fa-sitemap"></i> Arquitectura</h2>
+                <p>
+                    La interfaz es HTML y JavaScript que consume una <strong>API JSON propia</strong>
+                    bajo <code>/api/index.php</code>. Catorce recursos siguen el mismo contrato REST, y
+                    las rutas especializadas cubren lo que no encaja en un CRUD: cronómetro, calendario
+                    combinado, rentabilidad y adjuntos.
+                </p>
+                <p>
+                    No hay proceso de compilación, ni Composer, ni npm. Es una decisión de diseño: la
+                    aplicación tiene que poder subirse por FTP a un hosting compartido y funcionar.
+                </p>
+                <pre class="code-tree"><span class="t-dir">CodePanel/</span>
+├── <span class="t-file">index.php</span>            <span class="t-note"># interfaz</span>
+├── <span class="t-file">.env.php</span>             <span class="t-note"># config; empieza por &lt;?php exit; ?&gt;</span>
+├── <span class="t-file">.htaccess</span>            <span class="t-note"># bloquea app/, database/ y storage/</span>
+├── <span class="t-dir">api/</span>                  <span class="t-note"># index.php + wrappers por recurso</span>
+├── <span class="t-dir">app/</span>                  <span class="t-note"># lógica de negocio (no accesible por web)</span>
+├── <span class="t-dir">database/</span>
+│   ├── <span class="t-file">schema.sql</span>       <span class="t-note"># instalador inicial</span>
+│   └── <span class="t-dir">migrations/</span>       <span class="t-note"># 3 migraciones no destructivas</span>
+├── <span class="t-dir">storage/uploads/</span>      <span class="t-note"># adjuntos, nunca públicos</span>
+├── <span class="t-dir">assets/</span>
+├── <span class="t-dir">scripts/</span>              <span class="t-note"># verify.sh</span>
+└── <span class="t-dir">tests/</span>                <span class="t-note"># smoke.sh</span></pre>
+            </div>
+
+            <!-- Base de Datos -->
+            <div class="project-section">
+                <h2><i class="fas fa-database"></i> Base de Datos</h2>
+                <p>
+                    <strong>17 tablas</strong> en <code>schema.sql</code>. El instalador es
+                    deliberadamente destructivo — borra antes de crear — y para actualizar una instancia
+                    con datos existen tres migraciones no destructivas que deben aplicarse en orden.
+                </p>
+                <div class="table-scroll">
+                    <table class="modules-table">
+                        <thead>
+                            <tr><th>Tabla</th><th>Contenido</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>users</strong></td><td>Cuentas con sesión por cookie</td></tr>
+                            <tr><td><strong>projects</strong></td><td>Proyectos con <code>project_type</code> personal o comercial</td></tr>
+                            <tr><td><strong>ideas</strong></td><td>Banco de ideas</td></tr>
+                            <tr><td><strong>devlogs</strong></td><td>Bitácora de desarrollo por proyecto</td></tr>
+                            <tr><td><strong>clients</strong></td><td>Directorio de clientes</td></tr>
+                            <tr><td><strong>leads</strong></td><td>Oportunidades comerciales</td></tr>
+                            <tr><td><strong>tasks</strong></td><td>Tareas del día a día</td></tr>
+                            <tr><td><strong>budgets</strong></td><td>Presupuestos emitidos</td></tr>
+                            <tr><td><strong>payments</strong></td><td>Cobros y saldo pendiente</td></tr>
+                            <tr><td><strong>releases</strong></td><td>Entregas y versiones publicadas</td></tr>
+                            <tr><td><strong>resources</strong></td><td>Inventario de infraestructura con coste y renovación</td></tr>
+                            <tr><td><strong>reminders</strong></td><td>Recordatorios con prioridad, estado y fecha</td></tr>
+                            <tr><td><strong>time_entries</strong></td><td>Registros de tiempo, manuales o por cronómetro</td></tr>
+                            <tr><td><strong>weekly_reviews</strong></td><td>Revisiones semanales</td></tr>
+                            <tr><td><strong>tags</strong></td><td>Etiquetas globales reutilizables</td></tr>
+                            <tr><td><strong>attachments</strong></td><td>Adjuntos con su entidad asociada y tipo verificado</td></tr>
+                            <tr><td><strong>settings</strong></td><td>Preferencias y widgets del dashboard por usuario</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Rutas Especializadas de la API -->
+            <div class="project-section">
+                <h2><i class="fas fa-route"></i> Rutas Especializadas de la API</h2>
+                <ul class="features-list">
+                    <li><code>POST /time_entries/timer/start</code> — inicia un cronómetro; solo uno
+                    activo por usuario.</li>
+                    <li><code>POST /time_entries/{id}/stop</code> — lo detiene y calcula la
+                    duración.</li>
+                    <li><code>GET /calendar?from=&amp;to=</code> — agenda combinada para un intervalo de
+                    hasta 366 días.</li>
+                    <li><code>GET /profitability</code> — rentabilidad por proyecto, con importes
+                    agrupados por moneda.</li>
+                    <li><code>GET/PATCH /settings</code> — preferencias y widgets del dashboard.</li>
+                    <li><code>POST /attachments</code> — subida por <code>multipart/form-data</code> con
+                    entidad asociada.</li>
+                    <li><code>GET /attachments/{id}/download</code> — descarga tras validar sesión y
+                    propiedad del fichero.</li>
+                    <li><code>GET /health</code> — estado de PHP, MySQL y modo demo.</li>
+                    <li><code>GET /auth/csrf</code> — token requerido por toda operación que modifique
+                    estado.</li>
+                </ul>
+            </div>
+
+            <!-- Seguridad Implementada -->
+            <div class="project-section">
+                <h2><i class="fas fa-lock"></i> Seguridad Implementada</h2>
+                <ul class="features-list">
+                    <li><code>.env.php</code> empieza por <code>&lt;?php exit; ?&gt;</code>: aunque el
+                    servidor lo sirva directamente, no revela su contenido.</li>
+                    <li>Reglas <code>.htaccess</code> que bloquean <code>.env</code>, <code>app/</code>,
+                    <code>database/</code> y el almacenamiento privado.</li>
+                    <li><code>storage/uploads/</code> con doble defensa: denegación por
+                    <code>.htaccess</code> y un <code>index.php</code> que responde 404 si el servidor
+                    la ignora.</li>
+                    <li>Adjuntos con <strong>verificación del tipo real</strong> vía
+                    <code>fileinfo</code>: se rechazan HTML, SVG, PHP y cualquier ejecutable.</li>
+                    <li>Nombres internos aleatorios para los ficheros subidos y entrega solo por ruta
+                    autenticada.</li>
+                    <li><strong>Cuota</strong> de 10 MiB por archivo y 100 MiB por usuario como máximos
+                    internos.</li>
+                    <li>Token <strong>CSRF</strong> obligatorio en toda operación con estado.</li>
+                    <li>Sesiones por cookie con <code>SESSION_SECURE</code> para exigir HTTPS en
+                    producción.</li>
+                    <li><strong>Modo demo desactivable</strong>: permite explorar la interfaz sin MySQL,
+                    y debe apagarse antes de publicar.</li>
+                </ul>
+            </div>
+
+            <!-- Retos Técnicos y Decisiones de Diseño -->
+            <div class="project-section">
+                <h2><i class="fas fa-lightbulb"></i> Retos Técnicos y Decisiones de Diseño</h2>
+                <h3>Rentabilidad multimoneda sin inventar tipos de cambio</h3>
+                <p>
+                    Un proyecto cobrado en euros con infraestructura pagada en pesos no se puede sumar
+                    sin una tasa de conversión, y cualquier tasa que elija el software estará
+                    desactualizada y mentirá. La decisión fue <strong>no convertir nunca</strong>: la
+                    rentabilidad se devuelve agrupada por moneda. Es menos vistoso que un número único,
+                    pero es el único resultado que no es falso.
+                </p>
+                <h3>Adjuntos en un hosting compartido</h3>
+                <p>
+                    Subir ficheros a un servidor donde no controlas la configuración de Nginx es la vía
+                    más rápida a servir un PHP malicioso. La defensa es en capas: nombre aleatorio,
+                    directorio fuera del alcance web con doble bloqueo, verificación del tipo MIME real
+                    en lugar de la extensión, lista blanca de formatos y entrega exclusivamente por una
+                    ruta que valida sesión y propiedad.
+                </p>
+                <h3>Un instalador destructivo, avisando de que lo es</h3>
+                <p>
+                    <code>schema.sql</code> hace DROP antes de CREATE. Eso es lo correcto para instalar
+                    y catastrófico para actualizar, así que el README lo advierte de forma explícita y
+                    las actualizaciones van por migraciones numeradas separadas. Preferí una herramienta
+                    honesta sobre su comportamiento antes que un instalador que adivine el contexto.
+                </p>
+                <h3>Verificación automatizada del despliegue</h3>
+                <p>
+                    <code>scripts/verify.sh</code> comprueba versión y extensiones de PHP, hace lint de
+                    todos los ficheros y detecta opciones de demo inseguras en producción.
+                    <code>tests/smoke.sh</code> valida por HTTP la portada, el health check y las vistas
+                    privadas <strong>sin crear ni modificar datos</strong>, para poder ejecutarlo contra
+                    el servidor real.
+                </p>
+            </div>
+
+            <!-- Mi Rol -->
+            <div class="project-section">
+                <h2><i class="fas fa-user-tie"></i> Mi Rol</h2>
+                <p>
+                    <strong>Desarrollador full stack — autor único.</strong>
+                </p>
+                <p>
+                    Modelo de datos, API JSON completa, interfaz, sistema de adjuntos, cálculo de
+                    rentabilidad, scripts de verificación y la documentación de despliegue en hosting
+                    compartido.
+                </p>
+            </div>
+
+            <!-- Estado del Proyecto -->
+            <div class="project-section">
+                <h2><i class="fas fa-flag-checkered"></i> Estado del Proyecto</h2>
+                <p>
+                    Aplicación funcional con esquema instalable, tres migraciones para instancias
+                    existentes y scripts de verificación. Requiere PHP 8.1+ y MySQL 8; desarrollada
+                    sobre PHP 8.5 y MySQL 8.4.
+                </p>
+            </div>
+
+            <!-- Código y Enlaces -->
+            <div class="project-section">
+                <h2><i class="fas fa-link"></i> Código y Enlaces</h2>
+                <div class="project-links">
+                    <span class="link-muted">
+                        <i class="fas fa-lock"></i> Código privado
+                    </span>
+                </div>
+                <p style="margin-top: 16px;">
+                    Repositorio no publicado. Puedo mostrar el código y la API en una entrevista.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <button id="scrollTop" class="scroll-top" aria-label="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

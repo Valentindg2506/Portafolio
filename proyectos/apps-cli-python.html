@@ -1,66 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Apps CLI Python - Colección de aplicaciones de consola con OOP y persistencia">
+    <meta name="description" content="Apps CLI Python — 13 aplicaciones de consola con programación orientada a objetos y persistencia">
     <title>Apps CLI Python - Valentín De Gennaro</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/proyecto.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script>
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        if (savedTheme === 'dark') document.documentElement.classList.add('dark');
-    </script>
-    <style>
-        .project-detail { min-height: 100vh; padding: 80px 20px 40px; }
-        .project-hero { max-width: 1000px; margin: 0 auto 50px; text-align: center; }
-        .project-hero h1 { font-size: 3em; margin-bottom: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .project-content { max-width: 900px; margin: 0 auto; }
-        .project-section { margin-bottom: 40px; padding: 30px; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
-        .project-section h2 { font-size: 1.8em; margin-bottom: 20px; color: #3b82f6; }
-        .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; }
-        .tech-badge { padding: 10px 15px; background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(99,102,241,0.2)); border: 1px solid rgba(59,130,246,0.5); border-radius: 8px; text-align: center; font-weight: 500; }
-        .features-list { list-style: none; padding: 0; }
-        .features-list li { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .features-list li:last-child { border-bottom: none; }
-        .features-list li:before { content: "✓ "; color: #10b981; font-weight: bold; margin-right: 10px; }
-        .back-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: rgba(59,130,246,0.2); border: 1px solid rgba(59,130,246,0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; margin-bottom: 30px; transition: all 0.3s ease; }
-        .back-btn:hover { background: rgba(59,130,246,0.3); transform: translateX(-5px); }
-        .project-links { display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap; }
-        .project-links a { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 6px; text-decoration: none; transition: all 0.3s ease; }
-        .project-links a:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(102,126,234,0.3); }
-        .apps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 15px; }
-        .app-card { padding: 15px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; }
-        .app-card h4 { color: #3b82f6; margin: 0 0 8px; font-size: 0.95em; }
-        .app-card p { margin: 0; font-size: 0.85em; color: #a0aec0; }
-    
-        .modules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin-top: 15px; }
-        .module-card { padding: 15px 18px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.25); border-radius: 10px; }
-        .module-card strong { display: block; margin-bottom: 4px; color: #a5b4fc; }
-        .module-card p { margin: 0; font-size: 0.9em; opacity: 0.85; }
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; margin: 20px 0; }
-        .stat-card { padding: 18px 12px; background: linear-gradient(135deg, rgba(102,126,234,0.15), rgba(118,75,162,0.15)); border: 1px solid rgba(102,126,234,0.3); border-radius: 10px; text-align: center; }
-        .stat-card .stat-num { display: block; font-size: 2em; font-weight: 800; color: #818cf8; line-height: 1; }
-        .stat-card .stat-label { display: block; font-size: 0.8em; opacity: 0.75; margin-top: 6px; }
-        .integration-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
-        .integration-card { padding: 15px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.25); border-radius: 10px; }
-        .integration-card strong { display: block; margin-bottom: 4px; color: #34d399; }
-        .integration-card p { margin: 0; font-size: 0.88em; opacity: 0.85; }
-        .roles-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-        .roles-table th, .roles-table td { padding: 10px 14px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.08); }
-        .roles-table th { color: #3b82f6; font-weight: 600; border-bottom: 1px solid rgba(59,130,246,0.3); }
-        .roles-table tr:last-child td { border-bottom: none; }
-        .role-level { display: inline-block; padding: 2px 8px; background: rgba(99,102,241,0.2); border-radius: 12px; font-size: 13px; font-weight: bold; color: #818cf8; }
-        .workflow-steps { counter-reset: step-counter; list-style: none; padding: 0; }
-        .workflow-steps li { counter-increment: step-counter; padding: 12px 0 12px 50px; border-bottom: 1px solid rgba(255,255,255,0.08); position: relative; }
-        .workflow-steps li:before { content: counter(step-counter); position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 32px; height: 32px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.85em; color: white; }
-        .workflow-steps li:last-child { border-bottom: none; }
-</style>
 </head>
+
 <body>
     <nav class="navbar" id="navbar">
         <div class="container">
-            <div class="nav-brand"><a href="../index.html#home">&lt;VDG /&gt;</a></div>
+            <div class="nav-brand">
+                <a href="../index.html#home">&lt;VDG /&gt;</a>
+            </div>
             <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
                 <i class="fas fa-moon"></i>
             </button>
@@ -73,19 +29,23 @@
         </a>
 
         <div class="project-hero">
-            <h1>Apps CLI Python</h1>
-            <p style="font-size: 1.2em; color: #a0aec0;">13 aplicaciones de consola — OOP, persistencia JSON/Pickle y lógica de negocio</p>
+            <h1>🐍 Apps CLI Python</h1>
+            <p class="project-tagline">Trece aplicaciones de consola que practican POO y persistencia sobre casos de negocio reales</p>
+            <div class="project-badges">
+                <span class="status-badge is-academic"><i class="fas fa-graduation-cap"></i> Proyecto académico</span>
+                <span class="status-badge"><i class="fab fa-python"></i> 13 aplicaciones</span>
+                <span class="status-badge"><i class="fas fa-cubes"></i> POO</span>
+            </div>
         </div>
 
         <div class="project-content">
-
-            <!-- Cifras Clave -->
+            <!-- Escala del Proyecto -->
             <div class="project-section">
                 <h2><i class="fas fa-chart-line"></i> Escala del Proyecto</h2>
                 <div class="stats-grid">
-                    <div class="stat-card"><span class="stat-num">6</span><span class="stat-label">Módulos</span></div>
-                    <div class="stat-card"><span class="stat-num">5</span><span class="stat-label">Tecnologías</span></div>
-                    <div class="stat-card"><span class="stat-num">v1.0</span><span class="stat-label">Versión</span></div>
+                    <div class="stat-card"><span class="stat-num">13</span><span class="stat-label">Aplicaciones</span></div>
+                    <div class="stat-card"><span class="stat-num">521</span><span class="stat-label">Líneas</span></div>
+                    <div class="stat-card"><span class="stat-num">1</span><span class="stat-label">Caso real cada una</span></div>
                 </div>
             </div>
 
@@ -93,94 +53,152 @@
             <div class="project-section">
                 <h2><i class="fas fa-info-circle"></i> Descripción General</h2>
                 <p>
-                    <strong>Apps CLI Python</strong> 13 aplicaciones de consola — oop, persistencia json/pickle y lógica de negocio.
-                    Este proyecto ha sido desarrollado siguiendo estrictos estándares de calidad, 
-                    con un enfoque claro en la escalabilidad y la experiencia de usuario.
+                    Colección de trece aplicaciones de consola en Python, cada una centrada en un caso
+                    de negocio distinto. Es la carpeta <code>APP/</code> del repositorio de la
+                    asignatura de Programación.
                 </p>
                 <p>
-                    A través de su arquitectura modular, el sistema permite una gestión integral de todas las
-                    operaciones necesarias, garantizando un rendimiento óptimo y un mantenimiento simplificado.
+                    El valor del conjunto no está en ninguna aplicación concreta —son programas cortos—
+                    sino en la <strong>variedad de dominios</strong>: banco, facturación con IVA,
+                    generación de tickets, gestión de clientes y productos, agenda personal, agenda
+                    deportiva, lista de la compra y calculadora de impuestos.
+                </p>
+                <p>
+                    Cada una practica algo distinto: encapsulación y métodos en las de cuenta bancaria y
+                    banco, cálculo y formato de salida en las de facturación y tickets, y estructuras de
+                    datos y persistencia en las de agenda y listados.
                 </p>
             </div>
 
-            <!-- Tecnologías -->
+            <!-- Tecnologías Utilizadas -->
             <div class="project-section">
                 <h2><i class="fas fa-tools"></i> Tecnologías Utilizadas</h2>
                 <div class="tech-grid">
-                    <div class="tech-badge"><i class="fab fa-python"></i><br>Python 3</div>
-                    <div class="tech-badge"><i class="fas fa-boxes"></i><br>OOP</div>
-                    <div class="tech-badge"><i class="fas fa-file-code"></i><br>JSON</div>
-                    <div class="tech-badge"><i class="fas fa-file-archive"></i><br>Pickle</div>
+                    <div class="tech-badge"><i class="fab fa-python"></i><br>Python</div>
+                    <div class="tech-badge"><i class="fas fa-cubes"></i><br>POO</div>
+                    <div class="tech-badge"><i class="fas fa-code"></i><br>JSON</div>
+                    <div class="tech-badge"><i class="fas fa-box"></i><br>Pickle</div>
                     <div class="tech-badge"><i class="fas fa-terminal"></i><br>CLI</div>
                 </div>
             </div>
 
-            <!-- Módulos -->
+            <!-- Las Trece Aplicaciones -->
             <div class="project-section">
-                <h2><i class="fas fa-th-large"></i> Arquitectura y Módulos</h2>
+                <h2><i class="fas fa-th-large"></i> Las Trece Aplicaciones</h2>
                 <div class="modules-grid">
                     <div class="module-card">
-                        <strong>⚡ Inicialización:</strong>
-                        <p>Configuración del entorno y carga de parámetros iniciales.</p>
+                        <strong>001 · Calculador de cuadras</strong>
+                        <p>Cálculo sobre medidas y superficies.</p>
                     </div>
                     <div class="module-card">
-                        <strong>⚡ Procesamiento:</strong>
-                        <p>Ejecución de la lógica de negocio principal y validación de datos.</p>
+                        <strong>002 · Registro de personas</strong>
+                        <p>Alta y listado de personas con sus datos.</p>
                     </div>
                     <div class="module-card">
-                        <strong>⚡ Persistencia:</strong>
-                        <p>Almacenamiento seguro de la información generada.</p>
+                        <strong>003 · Gestión de clientes</strong>
+                        <p>CRUD de clientes en consola.</p>
                     </div>
                     <div class="module-card">
-                        <strong>⚡ Visualización:</strong>
-                        <p>Renderizado de la interfaz y entrega de resultados al usuario final.</p>
+                        <strong>004 · Productos</strong>
+                        <p>Catálogo de productos con sus atributos.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>005 · Listado de clientes</strong>
+                        <p>Recorrido y presentación de la cartera.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>006 · Generador de tickets</strong>
+                        <p>Emisión de tickets con formato de salida.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>007 · Generador de facturas con IVA</strong>
+                        <p>Cálculo de base, impuesto y total.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>008 · Agenda</strong>
+                        <p>Contactos con sus operaciones básicas.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>009 · Cuenta bancaria</strong>
+                        <p>La clase clásica de encapsulación: saldo privado, ingresos y retiradas
+                        controladas.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>010 · Calculadora de impuestos</strong>
+                        <p>Cálculo por tramos.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>011 · Banco</strong>
+                        <p>Gestión de varias cuentas: composición sobre la clase anterior.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>012 · Lista de la compra</strong>
+                        <p>Colección de artículos con sus operaciones.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>013 · Agenda deportiva</strong>
+                        <p>Gestión de eventos y participantes.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Flujo Completo -->
+            <!-- Qué Aprendí -->
             <div class="project-section">
-                <h2><i class="fas fa-route"></i> Flujo Completo de Funcionamiento</h2>
-                <ol class="workflow-steps">
-                    <li><strong>Inicialización:</strong> Configuración del entorno y carga de parámetros iniciales.</li>
-                    <li><strong>Procesamiento:</strong> Ejecución de la lógica de negocio principal y validación de datos.</li>
-                    <li><strong>Persistencia:</strong> Almacenamiento seguro de la información generada.</li>
-                    <li><strong>Visualización:</strong> Renderizado de la interfaz y entrega de resultados al usuario final.</li>
-                </ol>
+                <h2><i class="fas fa-lightbulb"></i> Qué Aprendí</h2>
+                <ul class="features-list">
+                    <li>Que la clase de cuenta bancaria es el ejemplo canónico de encapsulación por un
+                    motivo: el saldo no debe poder modificarse desde fuera, solo mediante ingresar y
+                    retirar, que son los métodos que validan.</li>
+                    <li>Que la aplicación de banco practica <strong>composición</strong>: un banco
+                    contiene cuentas, y eso es distinto de heredar de ellas.</li>
+                    <li>Que JSON sirve para persistir datos legibles e interoperables, y pickle para
+                    serializar objetos Python completos: son herramientas para problemas distintos.</li>
+                    <li>Que la lógica de negocio es donde están los errores de verdad. El IVA por tramos
+                    y el cálculo de impuestos fallan por casos límite, no por sintaxis.</li>
+                    <li>Que un programa de consola obliga a pensar la interacción: qué se pregunta, en
+                    qué orden y qué pasa cuando el usuario escribe algo que no toca.</li>
+                </ul>
             </div>
 
             <!-- Mi Rol -->
             <div class="project-section">
                 <h2><i class="fas fa-user-tie"></i> Mi Rol</h2>
-                <p><strong>Desarrollador Full Stack — Autor Único</strong></p>
                 <p>
-                    Diseñé y desarrollé el sistema completo de forma independiente: desde el análisis de requisitos, 
-                    diseño de la arquitectura, implementación de backend y frontend, hasta el despliegue final.
+                    <strong>Autor de los ejercicios.</strong> Prácticas individuales de la asignatura de
+                    Programación.
                 </p>
             </div>
 
-            <!-- Estado -->
+            <!-- Estado del Proyecto -->
             <div class="project-section">
-                <h2><i class="fas fa-info"></i> Estado del Proyecto</h2>
-                <p><strong>Estado:</strong> <span style="color: #10b981; font-weight: bold;"></span></p>
+                <h2><i class="fas fa-flag-checkered"></i> Estado del Proyecto</h2>
+                <p>
+                    <strong>Ejercicios académicos completados</strong>: las trece aplicaciones están en
+                    el repositorio de apuntes.
+                </p>
             </div>
 
-            <!-- Código -->
+            <!-- Código y Enlaces -->
             <div class="project-section">
-                <h2><i class="fas fa-link"></i> Código Fuente</h2>
+                <h2><i class="fas fa-link"></i> Código y Enlaces</h2>
                 <div class="project-links">
-                    <a href="#" target="_blank">
-                        <i class="fab fa-github"></i> Ver Código en GitHub
+                    <a href="https://github.com/Valentindg2506/Programacion-DAM-25-26" target="_blank" rel="noopener">
+                        <i class="fab fa-github"></i> Ver repositorio de apuntes
                     </a>
                 </div>
+                <p style="margin-top: 16px;">
+                    Ruta dentro del repositorio: <code>APP/</code>
+                </p>
             </div>
+
         </div>
     </div>
 
     <button id="scrollTop" class="scroll-top" aria-label="Volver arriba">
         <i class="fas fa-arrow-up"></i>
     </button>
+
     <script src="../js/main.js"></script>
 </body>
-</html>
 
+</html>

@@ -1,46 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="LocalCoder - IDE ligero con IA 100% local usando Ollama">
+    <meta name="description" content="LocalCoder — IDE de escritorio con IA local en Tauri 2, React y Rust, con editor Monaco y Ollama">
     <title>LocalCoder - Valentín De Gennaro</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/proyecto.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script>
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        if (savedTheme === 'dark') {
-            document.documentElement.classList.add('dark');
-        }
-    </script>
-    <style>
-        .project-detail { min-height: 100vh; padding: 80px 20px 40px; }
-        .project-hero { max-width: 1000px; margin: 0 auto 50px; text-align: center; }
-        .project-hero h1 { font-size: 3em; margin-bottom: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .project-content { max-width: 900px; margin: 0 auto; }
-        .project-section { margin-bottom: 40px; padding: 30px; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
-        .project-section h2 { font-size: 1.8em; margin-bottom: 20px; color: #3b82f6; }
-        .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-bottom: 20px; }
-        .tech-badge { padding: 10px 15px; background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(99, 102, 241, 0.2)); border: 1px solid rgba(59, 130, 246, 0.5); border-radius: 8px; text-align: center; font-weight: 500; }
-        .features-list { list-style: none; padding: 0; }
-        .features-list li { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .features-list li:last-child { border-bottom: none; }
-        .features-list li:before { content: "✓ "; color: #10b981; font-weight: bold; margin-right: 10px; }
-        .back-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; margin-bottom: 30px; transition: all 0.3s ease; }
-        .back-btn:hover { background: rgba(59, 130, 246, 0.3); transform: translateX(-5px); }
-        .project-links { display: flex; gap: 15px; margin-top: 20px; }
-        .project-links a { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 6px; text-decoration: none; transition: all 0.3s ease; }
-        .project-links a:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3); }
-        .modules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin-top: 15px; }
-        .module-card { padding: 15px 18px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.25); border-radius: 10px; }
-        .module-card strong { display: block; margin-bottom: 4px; color: #a5b4fc; }
-        .module-card p { margin: 0; font-size: 0.9em; opacity: 0.85; }
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; margin: 20px 0; }
-        .stat-card { padding: 18px 12px; background: linear-gradient(135deg, rgba(102,126,234,0.15), rgba(118,75,162,0.15)); border: 1px solid rgba(102,126,234,0.3); border-radius: 10px; text-align: center; }
-        .stat-card .stat-num { display: block; font-size: 2em; font-weight: 800; color: #818cf8; line-height: 1; }
-        .stat-card .stat-label { display: block; font-size: 0.8em; opacity: 0.75; margin-top: 6px; }
-    </style>
 </head>
+
 <body>
     <nav class="navbar" id="navbar">
         <div class="container">
@@ -59,19 +29,24 @@
         </a>
 
         <div class="project-hero">
-            <h1>LocalCoder</h1>
-            <p style="font-size: 1.2em; color: #a0aec0;">IDE ligero con IA 100% local usando Ollama y Tauri</p>
+            <h1>🖥️ LocalCoder</h1>
+            <p class="project-tagline">IDE de escritorio con asistente de IA 100% local: editor Monaco, chat en streaming y cero telemetría</p>
+            <div class="project-badges">
+                <span class="status-badge"><i class="fab fa-rust"></i> Backend en Rust</span>
+                <span class="status-badge"><i class="fas fa-wifi"></i> 100% offline</span>
+                <span class="status-badge"><i class="fas fa-microchip"></i> Scanner de hardware</span>
+            </div>
         </div>
 
         <div class="project-content">
-
-            <!-- Cifras Clave -->
+            <!-- Escala del Proyecto -->
             <div class="project-section">
                 <h2><i class="fas fa-chart-line"></i> Escala del Proyecto</h2>
                 <div class="stats-grid">
-                    <div class="stat-card"><span class="stat-num">7</span><span class="stat-label">Funcionalidades</span></div>
-                    <div class="stat-card"><span class="stat-num">100%</span><span class="stat-label">Offline</span></div>
-                    <div class="stat-card"><span class="stat-num">Tauri</span><span class="stat-label">Framework</span></div>
+                    <div class="stat-card"><span class="stat-num">12</span><span class="stat-label">Componentes</span></div>
+                    <div class="stat-card"><span class="stat-num">5</span><span class="stat-label">Módulos Rust</span></div>
+                    <div class="stat-card"><span class="stat-num">0</span><span class="stat-label">Telemetría</span></div>
+                    <div class="stat-card"><span class="stat-num">0</span><span class="stat-label">Nube</span></div>
                 </div>
             </div>
 
@@ -79,93 +54,250 @@
             <div class="project-section">
                 <h2><i class="fas fa-info-circle"></i> Descripción General</h2>
                 <p>
-                    <strong>LocalCoder</strong> es un IDE (entorno de desarrollo integrado) ligero con asistente de IA
-                    100% local usando Ollama. Sin nube, sin límites, sin telemetría. Toda la inteligencia artificial
-                    se ejecuta localmente en la máquina del usuario.
+                    Los asistentes de código en la nube tienen dos problemas que no se resuelven pagando
+                    más: tu código sale de tu máquina, y sin conexión no funcionan. LocalCoder es un IDE
+                    de escritorio que da la vuelta a eso: el modelo de lenguaje corre en tu propio
+                    ordenador mediante <strong>Ollama</strong>, y la aplicación no envía nada a ningún
+                    sitio.
                 </p>
                 <p>
-                    Construido con Tauri (Rust + Web Technologies), utiliza el editor Monaco (el mismo motor de VS Code)
-                    como base del editor de código, combinado con un chat de IA con streaming en tiempo real y
-                    memoria por sesión almacenada en SQLite local.
+                    Incluye el <strong>editor Monaco</strong> — el mismo motor de edición de VS Code —
+                    con pestañas, barra de estado y explorador de ficheros sin límite de profundidad,
+                    además de un panel de búsqueda y un chat con la IA que responde en
+                    <strong>streaming</strong>, token a token, en lugar de esperar la respuesta
+                    completa. La memoria de cada sesión se guarda en SQLite dentro de
+                    <code>~/.localcoder/</code>.
+                </p>
+                <p>
+                    La función de la que estoy más satisfecho es el <strong>scanner de
+                    hardware</strong>: detecta la CPU y la memoria disponible y recomienda qué modelo de
+                    Ollama puede mover ese equipo. Es la diferencia entre que el usuario descargue un
+                    modelo de 7B que le funciona y que descargue uno de 70B, agote la RAM y concluya que
+                    la IA local no sirve.
                 </p>
             </div>
 
-            <!-- Tecnologías -->
+            <!-- Tecnologías Utilizadas -->
             <div class="project-section">
                 <h2><i class="fas fa-tools"></i> Tecnologías Utilizadas</h2>
                 <div class="tech-grid">
-                    <div class="tech-badge"><i class="fas fa-cog"></i><br>Rust / Tauri</div>
-                    <div class="tech-badge"><i class="fab fa-js"></i><br>TypeScript</div>
-                    <div class="tech-badge"><i class="fas fa-code"></i><br>Monaco Editor</div>
-                    <div class="tech-badge"><i class="fas fa-robot"></i><br>Ollama</div>
-                    <div class="tech-badge"><i class="fas fa-database"></i><br>SQLite</div>
+                    <div class="tech-badge"><i class="fab fa-rust"></i><br>Rust</div>
+                    <div class="tech-badge"><i class="fas fa-window-maximize"></i><br>Tauri 2</div>
+                    <div class="tech-badge"><i class="fab fa-react"></i><br>React 18</div>
+                    <div class="tech-badge"><i class="fas fa-code"></i><br>TypeScript</div>
+                    <div class="tech-badge"><i class="fas fa-file-code"></i><br>Monaco Editor</div>
+                    <div class="tech-badge"><i class="fas fa-boxes-stacked"></i><br>Zustand</div>
                     <div class="tech-badge"><i class="fab fa-css3-alt"></i><br>TailwindCSS</div>
+                    <div class="tech-badge"><i class="fas fa-database"></i><br>SQLite (rusqlite)</div>
+                    <div class="tech-badge"><i class="fas fa-robot"></i><br>Ollama</div>
+                    <div class="tech-badge"><i class="fas fa-bolt"></i><br>Vite</div>
                 </div>
             </div>
 
-            <!-- Módulos -->
+            <!-- Componentes de la Interfaz -->
             <div class="project-section">
-                <h2><i class="fas fa-th-large"></i> Funcionalidades</h2>
+                <h2><i class="fas fa-th-large"></i> Componentes de la Interfaz</h2>
                 <div class="modules-grid">
                     <div class="module-card">
-                        <strong>⚡ Editor Monaco</strong>
-                        <p>El mismo motor de VS Code con syntax highlighting, autocompletado e IntelliSense.</p>
+                        <strong>📝 EditorPanel</strong>
+                        <p>El editor Monaco integrado: el mismo motor que usa VS Code, con resaltado y
+                        autocompletado.</p>
                     </div>
                     <div class="module-card">
-                        <strong>⚡ Chat IA Streaming</strong>
-                        <p>Conversación con modelos de IA locales con respuestas en streaming en tiempo real.</p>
+                        <strong>🗂️ TabBar</strong>
+                        <p>Pestañas de los ficheros abiertos.</p>
                     </div>
                     <div class="module-card">
-                        <strong>⚡ Memoria por Sesión</strong>
-                        <p>Historial de conversaciones almacenado en SQLite local (~/.localcoder/).</p>
+                        <strong>📊 StatusBar</strong>
+                        <p>Barra de estado del editor.</p>
                     </div>
                     <div class="module-card">
-                        <strong>⚡ Explorador de Archivos</strong>
-                        <p>Navegación de directorios sin límite de profundidad con vista en árbol.</p>
+                        <strong>🌲 FileTree</strong>
+                        <p>Explorador de ficheros sin límite de profundidad, apoyado en
+                        <code>walkdir</code>.</p>
                     </div>
                     <div class="module-card">
-                        <strong>⚡ Análisis de Proyectos</strong>
-                        <p>Escaneo completo de proyectos línea por línea para contexto de IA.</p>
+                        <strong>💬 ChatPanel</strong>
+                        <p>Chat con la IA local, con respuesta en streaming y renderizado de
+                        Markdown.</p>
                     </div>
                     <div class="module-card">
-                        <strong>⚡ Scanner de Hardware</strong>
-                        <p>Detección de hardware del sistema y recomendación automática de modelos Ollama óptimos.</p>
+                        <strong>🔍 SearchPanel</strong>
+                        <p>Búsqueda dentro del proyecto abierto.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>⚙️ SettingsPanel</strong>
+                        <p>Configuración de la aplicación y selección de modelo.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📚 Sidebar y Topbar</strong>
+                        <p>Navegación lateral y barra superior.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>👋 WelcomeScreen</strong>
+                        <p>Pantalla inicial con acceso a proyectos recientes.</p>
                     </div>
                 </div>
+            </div>
+
+            <!-- Arquitectura -->
+            <div class="project-section">
+                <h2><i class="fas fa-sitemap"></i> Arquitectura</h2>
+                <p>
+                    Aplicación de escritorio con <strong>Tauri 2</strong>: la interfaz es web — React 18
+                    con TypeScript y Tailwind, empaquetada por Vite — y el backend es un binario nativo
+                    en <strong>Rust</strong>. Tauri actúa de puente entre ambos, lo que da un ejecutable
+                    de pocos megabytes en lugar de los cientos que ocupa una aplicación Electron.
+                </p>
+                <p>
+                    El backend Rust está dividido en cinco módulos con una responsabilidad clara cada
+                    uno, y es donde vive todo lo que necesita acceso real al sistema: disco, hardware,
+                    base de datos y red.
+                </p>
+                <pre class="code-tree"><span class="t-dir">LocalCoder/</span>
+├── <span class="t-dir">src/</span>                     <span class="t-note"># frontend React + TypeScript</span>
+│   ├── <span class="t-file">App.tsx</span> · <span class="t-file">main.tsx</span>
+│   ├── <span class="t-dir">components/</span>          <span class="t-note"># Editor, Chat, Explorer, Search, Settings</span>
+│   ├── <span class="t-dir">store/</span>               <span class="t-note"># estado global con Zustand</span>
+│   └── <span class="t-dir">types/</span>
+└── <span class="t-dir">src-tauri/</span>               <span class="t-note"># backend nativo en Rust</span>
+    ├── <span class="t-file">main.rs</span>             <span class="t-note"># comandos expuestos al frontend</span>
+    ├── <span class="t-file">ollama.rs</span>           <span class="t-note"># cliente con respuesta en streaming</span>
+    ├── <span class="t-file">hardware.rs</span>         <span class="t-note"># detección de CPU/RAM (sysinfo)</span>
+    ├── <span class="t-file">scanner.rs</span>          <span class="t-note"># recorrido del proyecto (walkdir)</span>
+    ├── <span class="t-file">db.rs</span>               <span class="t-note"># memoria por sesión en SQLite</span>
+    └── <span class="t-file">tauri.conf.json</span></pre>
+            </div>
+
+            <!-- Integraciones Externas -->
+            <div class="project-section">
+                <h2><i class="fas fa-plug"></i> Integraciones Externas</h2>
+                <div class="integration-grid">
+                    <div class="integration-card">
+                        <strong>Ollama</strong>
+                        <p>Servidor de modelos en <code>localhost:11434</code>. La comunicación usa
+                        <code>reqwest</code> con la funcionalidad de <em>stream</em> activada, de modo
+                        que la respuesta se muestra mientras se genera.</p>
+                    </div>
+                    <div class="integration-card">
+                        <strong>Monaco Editor</strong>
+                        <p>Integrado vía <code>@monaco-editor/react</code>: el mismo editor de VS Code,
+                        con su resaltado y su experiencia de escritura.</p>
+                    </div>
+                    <div class="integration-card">
+                        <strong>SQLite mediante rusqlite</strong>
+                        <p>Compilado con la funcionalidad <em>bundled</em>, de modo que no requiere que
+                        el usuario tenga SQLite instalado. Guarda la memoria de cada sesión de chat.</p>
+                    </div>
+                    <div class="integration-card">
+                        <strong>sysinfo</strong>
+                        <p>Lectura de las características reales del equipo para el recomendador de
+                        modelos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flujo de Trabajo -->
+            <div class="project-section">
+                <h2><i class="fas fa-route"></i> Flujo de Trabajo</h2>
+                <ol class="workflow-steps">
+                    <li><strong>Arranque:</strong> la pantalla de bienvenida ofrece abrir un proyecto o
+                    continuar con uno reciente.</li>
+                    <li><strong>Detección de hardware:</strong> <code>hardware.rs</code> lee CPU y
+                    memoria y propone los modelos de Ollama viables en ese equipo.</li>
+                    <li><strong>Apertura del proyecto:</strong> <code>scanner.rs</code> recorre el árbol
+                    de directorios completo con <code>walkdir</code>.</li>
+                    <li><strong>Edición:</strong> los ficheros se abren en pestañas sobre el editor
+                    Monaco.</li>
+                    <li><strong>Consulta a la IA:</strong> el chat envía el contexto a Ollama y
+                    <code>ollama.rs</code> devuelve la respuesta en streaming.</li>
+                    <li><strong>Memoria de sesión:</strong> <code>db.rs</code> guarda la conversación en
+                    SQLite dentro de <code>~/.localcoder/</code>.</li>
+                    <li><strong>Análisis del proyecto:</strong> la aplicación puede recorrer el proyecto
+                    completo línea por línea para dar contexto al modelo.</li>
+                </ol>
+            </div>
+
+            <!-- Retos Técnicos y Decisiones de Diseño -->
+            <div class="project-section">
+                <h2><i class="fas fa-lightbulb"></i> Retos Técnicos y Decisiones de Diseño</h2>
+                <h3>Tauri en lugar de Electron</h3>
+                <p>
+                    Electron empaqueta un Chromium completo: cientos de megabytes y un consumo de
+                    memoria notable para un editor. Tauri usa el motor web que ya tiene el sistema
+                    operativo y compila el backend a un binario nativo. El coste es que hay que escribir
+                    ese backend en Rust y lidiar con las dependencias de sistema de cada distribución —
+                    el README documenta las de Ubuntu.
+                </p>
+                <h3>Streaming, porque la espera se nota</h3>
+                <p>
+                    Un modelo local en una máquina normal tarda varios segundos en generar una respuesta
+                    larga. Con una petición convencional el usuario mira una pantalla quieta y asume que
+                    se ha colgado. Activar <em>stream</em> en <code>reqwest</code> y empujar los tokens
+                    al frontend a medida que llegan no acelera nada, pero cambia por completo la
+                    percepción de velocidad.
+                </p>
+                <h3>Recomendar el modelo en lugar de dejar elegir a ciegas</h3>
+                <p>
+                    El principal motivo por el que alguien abandona la IA local es descargar un modelo
+                    demasiado grande para su equipo, ver que va a un token por segundo y concluir que no
+                    funciona. Leer la CPU y la RAM con <code>sysinfo</code> y recomendar en consecuencia
+                    convierte la primera experiencia en algo que funciona.
+                </p>
+                <h3>Sin telemetría como decisión de diseño</h3>
+                <p>
+                    La aplicación no envía datos de uso, no reporta errores a ningún servidor y no
+                    requiere cuenta. Eso implica renunciar a saber cómo se usa, lo cual es incómodo para
+                    el desarrollador; pero es la única forma coherente de sostener la promesa de que el
+                    código del usuario no sale de su máquina.
+                </p>
             </div>
 
             <!-- Mi Rol -->
             <div class="project-section">
                 <h2><i class="fas fa-user-tie"></i> Mi Rol</h2>
-                <p><strong>Desarrollador Full Stack — Autor Único</strong></p>
                 <p>
-                    Diseñé y desarrollé la aplicación de escritorio completa con Tauri: backend en Rust,
-                    frontend con TypeScript y Monaco Editor, integración con la API de Ollama,
-                    persistencia en SQLite y sistema de análisis de proyectos.
+                    <strong>Desarrollador full stack — autor único.</strong>
+                </p>
+                <p>
+                    Frontend React con integración de Monaco, los cinco módulos del backend Rust, el
+                    cliente de Ollama con streaming, el recomendador de modelos por hardware y la
+                    persistencia en SQLite.
                 </p>
             </div>
 
-            <!-- Estado -->
+            <!-- Estado del Proyecto -->
             <div class="project-section">
-                <h2><i class="fas fa-info"></i> Estado del Proyecto</h2>
-                <p><strong>Estado:</strong> <span style="color: #f59e0b; font-weight: bold;">🚧 En desarrollo</span></p>
+                <h2><i class="fas fa-flag-checkered"></i> Estado del Proyecto</h2>
+                <p>
+                    Aplicación funcional que compila y se ejecuta con <code>npm run tauri dev</code>,
+                    con empaquetado de producción vía <code>npm run tauri build</code>. Requiere Rust,
+                    Node 18+ y Ollama corriendo en local.
+                </p>
             </div>
 
-            <!-- Código -->
+            <!-- Código y Enlaces -->
             <div class="project-section">
-                <h2><i class="fas fa-link"></i> Código Fuente</h2>
+                <h2><i class="fas fa-link"></i> Código y Enlaces</h2>
                 <div class="project-links">
-                    <a href="https://github.com/Valentindg2506/LocalCoder" target="_blank">
-                        <i class="fab fa-github"></i> Ver Código en GitHub
+                    <a href="https://github.com/Valentindg2506/LocalCoder" target="_blank" rel="noopener">
+                        <i class="fab fa-github"></i> Ver código en GitHub
                     </a>
                 </div>
+                <p style="margin-top: 16px;">
+                    El README documenta las dependencias de sistema necesarias en Ubuntu y los modelos
+                    de Ollama recomendados para empezar.
+                </p>
             </div>
+
         </div>
     </div>
 
     <button id="scrollTop" class="scroll-top" aria-label="Volver arriba">
         <i class="fas fa-arrow-up"></i>
     </button>
+
     <script src="../js/main.js"></script>
 </body>
+
 </html>

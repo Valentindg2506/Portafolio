@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="InmoCRM — CRM inmobiliario en PHP con 2FA TOTP propio, motor de matching y auditoría">
+    <title>InmoCRM - Valentín De Gennaro</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/proyecto.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="../index.html#home">&lt;VDG /&gt;</a>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="project-detail">
+        <a href="../index.html#projects" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Volver a Proyectos
+        </a>
+
+        <div class="project-hero">
+            <h1>🏢 InmoCRM</h1>
+            <p class="project-tagline">CRM inmobiliario con segundo factor de autenticación implementado desde cero y motor de matching demanda-cartera</p>
+            <div class="project-badges">
+                <span class="status-badge"><i class="fas fa-shield-halved"></i> 2FA TOTP propio</span>
+                <span class="status-badge"><i class="fas fa-magnifying-glass-chart"></i> Motor de matching</span>
+                <span class="status-badge"><i class="fas fa-vial"></i> Con tests</span>
+            </div>
+        </div>
+
+        <div class="project-content">
+            <!-- Escala del Proyecto -->
+            <div class="project-section">
+                <h2><i class="fas fa-chart-line"></i> Escala del Proyecto</h2>
+                <div class="stats-grid">
+                    <div class="stat-card"><span class="stat-num">14</span><span class="stat-label">Módulos</span></div>
+                    <div class="stat-card"><span class="stat-num">23</span><span class="stat-label">Tablas</span></div>
+                    <div class="stat-card"><span class="stat-num">74</span><span class="stat-label">Archivos</span></div>
+                    <div class="stat-card"><span class="stat-num">15.3k</span><span class="stat-label">Líneas</span></div>
+                </div>
+            </div>
+
+            <!-- Descripción General -->
+            <div class="project-section">
+                <h2><i class="fas fa-info-circle"></i> Descripción General</h2>
+                <p>
+                    InmoCRM es un CRM inmobiliario más contenido que TinoProp, pero con dos piezas que
+                    aquél no tiene: <strong>segundo factor de autenticación TOTP</strong> implementado a
+                    mano y un <strong>módulo de auditoría</strong> que deja constancia de quién tocó
+                    qué.
+                </p>
+                <p>
+                    El foco está en el ciclo comercial: prospectos de captación, clientes, cartera de
+                    propiedades, visitas, tareas, calendario, documentos y facturación. El módulo de
+                    seguimiento añade plantillas de mensaje reutilizables y una agenda de contactos
+                    programados para que ningún propietario se quede sin llamada.
+                </p>
+                <p>
+                    El aporte técnico que más me interesa de este proyecto es el TOTP: implementar el
+                    algoritmo del segundo factor sin librería obliga a entender HMAC, la ventana de
+                    tiempo y la codificación base32 que hay detrás de cualquier app de autenticación.
+                </p>
+            </div>
+
+            <!-- Tecnologías Utilizadas -->
+            <div class="project-section">
+                <h2><i class="fas fa-tools"></i> Tecnologías Utilizadas</h2>
+                <div class="tech-grid">
+                    <div class="tech-badge"><i class="fab fa-php"></i><br>PHP</div>
+                    <div class="tech-badge"><i class="fas fa-database"></i><br>MySQL</div>
+                    <div class="tech-badge"><i class="fas fa-plug"></i><br>PDO</div>
+                    <div class="tech-badge"><i class="fas fa-key"></i><br>TOTP / HMAC</div>
+                    <div class="tech-badge"><i class="fab fa-js"></i><br>JavaScript</div>
+                    <div class="tech-badge"><i class="fab fa-css3-alt"></i><br>CSS3</div>
+                    <div class="tech-badge"><i class="fas fa-file-invoice"></i><br>Facturación</div>
+                </div>
+            </div>
+
+            <!-- Los 14 Módulos -->
+            <div class="project-section">
+                <h2><i class="fas fa-th-large"></i> Los 14 Módulos</h2>
+                <div class="modules-grid">
+                    <div class="module-card">
+                        <strong>🎯 Prospectos</strong>
+                        <p>Captación con historial de contactos y registro de cambios de precio de la
+                        propiedad.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>👥 Clientes</strong>
+                        <p>Compradores, vendedores e inversores con sus preferencias de búsqueda.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🏠 Propiedades</strong>
+                        <p>Cartera con fotos y estado de disponibilidad.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🔗 Seguimiento</strong>
+                        <p>Estado, mensajes, envíos y agenda de contactos programados con
+                        plantillas.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🚶 Visitas</strong>
+                        <p>Programación y resultado de cada visita.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>✅ Tareas</strong>
+                        <p>Trabajo pendiente con prioridad y asignación.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📅 Calendario</strong>
+                        <p>Eventos, visitas y vencimientos en una vista mensual.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📄 Documentos</strong>
+                        <p>Documentación por entidad y plantillas de contrato.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🧾 Facturación</strong>
+                        <p>Emisión de facturas, conversión desde presupuesto e impresión.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📊 Informes</strong>
+                        <p>Estadísticas de cartera, clientes y actividad comercial.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🔔 Notificaciones</strong>
+                        <p>Avisos internos por vencimiento y actividad.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📜 Auditoría</strong>
+                        <p>Log de actividad con usuario, acción y fecha.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>👤 Usuarios</strong>
+                        <p>Cuentas, permisos por usuario y perfil con activación del 2FA.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>⚙️ Ajustes</strong>
+                        <p>Preferencias por usuario y configuración de facturación.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Arquitectura -->
+            <div class="project-section">
+                <h2><i class="fas fa-sitemap"></i> Arquitectura</h2>
+                <p>
+                    Patrón de módulo autocontenido: cada carpeta de <code>modules/</code> agrupa su
+                    listado, formulario y vista de detalle, y se apoya en un núcleo compartido de
+                    <code>includes/</code>. Los ficheros clave del núcleo son <code>totp.php</code> (el
+                    segundo factor), <code>matching.php</code> (el cruce demanda-cartera) y
+                    <code>seguimiento.php</code>.
+                </p>
+                <pre class="code-tree"><span class="t-dir">InmoCRM/</span>
+├── <span class="t-file">index.php</span>            <span class="t-note"># redirige a app/login.php</span>
+└── <span class="t-dir">app/</span>
+    ├── <span class="t-file">login.php</span>        <span class="t-note"># credenciales + verificación TOTP</span>
+    ├── <span class="t-file">install.php</span>      <span class="t-note"># instalador del esquema</span>
+    ├── <span class="t-dir">includes/</span>         <span class="t-note"># auth, totp, matching, seguimiento, helpers</span>
+    ├── <span class="t-dir">modules/</span>          <span class="t-note"># los 14 módulos funcionales</span>
+    ├── <span class="t-dir">api/</span>              <span class="t-note"># endpoints AJAX por recurso</span>
+    ├── <span class="t-dir">database/</span>         <span class="t-note"># install.sql + migraciones puntuales</span>
+    ├── <span class="t-dir">tests/</span>            <span class="t-note"># run.php: runner de pruebas propio</span>
+    ├── <span class="t-dir">assets/</span>           <span class="t-note"># css, js, img, uploads</span>
+    └── <span class="t-dir">logs/</span></pre>
+            </div>
+
+            <!-- Base de Datos -->
+            <div class="project-section">
+                <h2><i class="fas fa-database"></i> Base de Datos</h2>
+                <p>
+                    <strong>23 tablas</strong> en <code>install.sql</code>, más migraciones puntuales
+                    para los cambios aplicados sobre instalaciones ya en uso (activación del 2FA, fotos
+                    de propiedad, edad del inquilino, datos extra de demanda).
+                </p>
+                <div class="table-scroll">
+                    <table class="modules-table">
+                        <thead>
+                            <tr><th>Tabla</th><th>Contenido</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>usuarios</strong></td><td>Cuentas con su secreto TOTP cuando activan el 2FA</td></tr>
+                            <tr><td><strong>permisos_usuario</strong></td><td>Permisos concedidos por usuario</td></tr>
+                            <tr><td><strong>ajustes_usuario</strong></td><td>Preferencias individuales de interfaz</td></tr>
+                            <tr><td><strong>actividad_log</strong></td><td>Registro de auditoría: usuario, acción y fecha</td></tr>
+                            <tr><td><strong>prospectos</strong></td><td>Captación con su etapa comercial</td></tr>
+                            <tr><td><strong>historial_prospectos</strong></td><td>Contactos realizados por tipo y fecha</td></tr>
+                            <tr><td><strong>historial_propiedad_prospecto</strong></td><td>Cambios de precio y de datos de la propiedad</td></tr>
+                            <tr><td><strong>clientes</strong></td><td>Compradores, vendedores e inversores</td></tr>
+                            <tr><td><strong>propiedades</strong></td><td>Cartera de inmuebles</td></tr>
+                            <tr><td><strong>propiedad_fotos</strong></td><td>Galería por propiedad</td></tr>
+                            <tr><td><strong>visitas</strong></td><td>Visitas programadas y su resultado</td></tr>
+                            <tr><td><strong>tareas</strong></td><td>Trabajo pendiente con prioridad</td></tr>
+                            <tr><td><strong>calendario_eventos</strong></td><td>Eventos del calendario</td></tr>
+                            <tr><td><strong>documentos</strong></td><td>Documentación adjunta</td></tr>
+                            <tr><td><strong>plantillas_contrato</strong></td><td>Plantillas de contrato con variables</td></tr>
+                            <tr><td><strong>facturacion</strong></td><td>Facturas emitidas</td></tr>
+                            <tr><td><strong>configuracion_facturacion</strong></td><td>Datos fiscales y series de facturación</td></tr>
+                            <tr><td><strong>seguimiento_estado</strong></td><td>Estado de seguimiento por contacto</td></tr>
+                            <tr><td><strong>seguimiento_mensajes</strong></td><td>Mensajes enviados</td></tr>
+                            <tr><td><strong>seguimiento_envios</strong></td><td>Registro de envíos realizados</td></tr>
+                            <tr><td><strong>seguimiento_agenda</strong></td><td>Contactos programados</td></tr>
+                            <tr><td><strong>seguimiento_meta</strong></td><td>Metadatos de la campaña de seguimiento</td></tr>
+                            <tr><td><strong>notificaciones</strong></td><td>Avisos internos</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Seguridad Implementada -->
+            <div class="project-section">
+                <h2><i class="fas fa-lock"></i> Seguridad Implementada</h2>
+                <ul class="features-list">
+                    <li><strong>Segundo factor TOTP implementado desde cero</strong> en
+                    <code>includes/totp.php</code>: sin librerías externas.</li>
+                    <li>Activación del 2FA desde el perfil del usuario, opcional y por cuenta.</li>
+                    <li>Contraseñas con <code>password_hash()</code> y bcrypt.</li>
+                    <li><strong>Auditoría completa</strong> en <code>actividad_log</code>: cada acción
+                    queda registrada con su autor.</li>
+                    <li><strong>Permisos granulares por usuario</strong>, no solo por rol.</li>
+                    <li>Consultas con prepared statements PDO.</li>
+                    <li>Instalador con clave y separado de la aplicación.</li>
+                    <li>Configuración en <code>.env</code>, fuera del control de versiones, con
+                    <code>APP_SECRET</code> propio.</li>
+                </ul>
+            </div>
+
+            <!-- Retos Técnicos y Decisiones de Diseño -->
+            <div class="project-section">
+                <h2><i class="fas fa-lightbulb"></i> Retos Técnicos y Decisiones de Diseño</h2>
+                <h3>Implementar TOTP sin librería</h3>
+                <p>
+                    Es el reto que da carácter al proyecto. El código de seis dígitos que muestra Google
+                    Authenticator es un HMAC-SHA1 del contador de tiempo troceado en ventanas de 30
+                    segundos, truncado dinámicamente y con el secreto codificado en base32. Escribirlo a
+                    mano obliga a implementar la codificación base32, la generación del secreto, el HMAC
+                    y la tolerancia a desfase de reloj entre servidor y móvil.
+                </p>
+                <h3>Matching sin motor de reglas</h3>
+                <p>
+                    El cruce demanda-cartera vive en <code>includes/matching.php</code> y se resuelve
+                    con SQL puntuado: presupuesto, zona, tipo de operación y requisitos generan una
+                    consulta que devuelve los inmuebles ordenados por afinidad. Es menos flexible que un
+                    motor de reglas, pero cabe en una consulta y es trivial de depurar.
+                </p>
+                <h3>Auditoría sin duplicar código</h3>
+                <p>
+                    Registrar cada acción en 14 módulos invita a repetir la misma llamada 200 veces. La
+                    escritura del log se centralizó en el núcleo, junto a la capa de acceso a datos, de
+                    modo que un módulo nuevo queda auditado sin que haya que acordarse de nada.
+                </p>
+            </div>
+
+            <!-- Mi Rol -->
+            <div class="project-section">
+                <h2><i class="fas fa-user-tie"></i> Mi Rol</h2>
+                <p>
+                    <strong>Desarrollador full stack — autor único.</strong>
+                </p>
+                <p>
+                    Modelo de datos, los 14 módulos, el segundo factor TOTP, el motor de matching, el
+                    módulo de auditoría, el instalador y el runner de pruebas.
+                </p>
+            </div>
+
+            <!-- Estado del Proyecto -->
+            <div class="project-section">
+                <h2><i class="fas fa-flag-checkered"></i> Estado del Proyecto</h2>
+                <p>
+                    Aplicación funcional con esquema instalable y migraciones para actualizar instancias
+                    existentes. Incluye un runner de pruebas propio en <code>app/tests/run.php</code>.
+                </p>
+            </div>
+
+            <!-- Código y Enlaces -->
+            <div class="project-section">
+                <h2><i class="fas fa-link"></i> Código y Enlaces</h2>
+                <div class="project-links">
+                    <span class="link-muted">
+                        <i class="fas fa-lock"></i> Código privado
+                    </span>
+                </div>
+                <p style="margin-top: 16px;">
+                    Repositorio no publicado. El proyecto contiene configuración de despliegue; puedo
+                    enseñar el código, y en particular la implementación del TOTP, en una entrevista.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <button id="scrollTop" class="scroll-top" aria-label="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

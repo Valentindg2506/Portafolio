@@ -1,61 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tienda Online - E-commerce completo con PHP y MySQL">
+    <meta name="description" content="Tienda Online — e-commerce en PHP y MySQL desarrollado en 7 versiones con diagramas E-R y de flujo">
     <title>Tienda Online - Valentín De Gennaro</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/proyecto.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script>
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        if (savedTheme === 'dark') document.documentElement.classList.add('dark');
-    </script>
-    <style>
-        .project-detail { min-height: 100vh; padding: 80px 20px 40px; }
-        .project-hero { max-width: 1000px; margin: 0 auto 50px; text-align: center; }
-        .project-hero h1 { font-size: 3em; margin-bottom: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .project-content { max-width: 900px; margin: 0 auto; }
-        .project-section { margin-bottom: 40px; padding: 30px; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
-        .project-section h2 { font-size: 1.8em; margin-bottom: 20px; color: #3b82f6; }
-        .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-bottom: 20px; }
-        .tech-badge { padding: 10px 15px; background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(99,102,241,0.2)); border: 1px solid rgba(59,130,246,0.5); border-radius: 8px; text-align: center; font-weight: 500; }
-        .features-list { list-style: none; padding: 0; }
-        .features-list li { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .features-list li:last-child { border-bottom: none; }
-        .features-list li:before { content: "✓ "; color: #10b981; font-weight: bold; margin-right: 10px; }
-        .back-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: rgba(59,130,246,0.2); border: 1px solid rgba(59,130,246,0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; margin-bottom: 30px; transition: all 0.3s ease; }
-        .back-btn:hover { background: rgba(59,130,246,0.3); transform: translateX(-5px); }
-        .project-links { display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap; }
-        .project-links a { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 6px; text-decoration: none; transition: all 0.3s ease; }
-        .project-links a:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(102,126,234,0.3); }
-        .version-list { list-style: none; padding: 0; }
-        .version-list li { padding: 10px 15px; margin-bottom: 8px; background: rgba(255,255,255,0.03); border-left: 3px solid #3b82f6; border-radius: 0 6px 6px 0; }
-        .version-list li strong { color: #3b82f6; }
-    
-        .modules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin-top: 15px; }
-        .module-card { padding: 15px 18px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.25); border-radius: 10px; }
-        .module-card strong { display: block; margin-bottom: 4px; color: #a5b4fc; }
-        .module-card p { margin: 0; font-size: 0.9em; opacity: 0.85; }
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; margin: 20px 0; }
-        .stat-card { padding: 18px 12px; background: linear-gradient(135deg, rgba(102,126,234,0.15), rgba(118,75,162,0.15)); border: 1px solid rgba(102,126,234,0.3); border-radius: 10px; text-align: center; }
-        .stat-card .stat-num { display: block; font-size: 2em; font-weight: 800; color: #818cf8; line-height: 1; }
-        .stat-card .stat-label { display: block; font-size: 0.8em; opacity: 0.75; margin-top: 6px; }
-        .integration-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
-        .integration-card { padding: 15px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.25); border-radius: 10px; }
-        .integration-card strong { display: block; margin-bottom: 4px; color: #34d399; }
-        .integration-card p { margin: 0; font-size: 0.88em; opacity: 0.85; }
-        .roles-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-        .roles-table th, .roles-table td { padding: 10px 14px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.08); }
-        .roles-table th { color: #3b82f6; font-weight: 600; border-bottom: 1px solid rgba(59,130,246,0.3); }
-        .roles-table tr:last-child td { border-bottom: none; }
-        .role-level { display: inline-block; padding: 2px 8px; background: rgba(99,102,241,0.2); border-radius: 12px; font-size: 13px; font-weight: bold; color: #818cf8; }
-        .workflow-steps { counter-reset: step-counter; list-style: none; padding: 0; }
-        .workflow-steps li { counter-increment: step-counter; padding: 12px 0 12px 50px; border-bottom: 1px solid rgba(255,255,255,0.08); position: relative; }
-        .workflow-steps li:before { content: counter(step-counter); position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 32px; height: 32px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.85em; color: white; }
-        .workflow-steps li:last-child { border-bottom: none; }
-</style>
 </head>
+
 <body>
     <nav class="navbar" id="navbar">
         <div class="container">
@@ -74,19 +29,23 @@
         </a>
 
         <div class="project-hero">
-            <h1>Tienda Online</h1>
-            <p style="font-size: 1.2em; color: #a0aec0;">E-commerce completo con PHP y MySQL — desarrollado en 7 versiones</p>
+            <h1>🛍️ Tienda Online</h1>
+            <p class="project-tagline">E-commerce en PHP y MySQL construido desde cero en siete versiones, con catálogo, carrito y checkout</p>
+            <div class="project-badges">
+                <span class="status-badge is-academic"><i class="fas fa-graduation-cap"></i> Proyecto académico</span>
+                <span class="status-badge"><i class="fas fa-code-branch"></i> 7 versiones</span>
+                <span class="status-badge"><i class="fas fa-diagram-project"></i> Diagramas E-R</span>
+            </div>
         </div>
 
         <div class="project-content">
-
-            <!-- Cifras Clave -->
+            <!-- Escala del Proyecto -->
             <div class="project-section">
                 <h2><i class="fas fa-chart-line"></i> Escala del Proyecto</h2>
                 <div class="stats-grid">
-                    <div class="stat-card"><span class="stat-num">6</span><span class="stat-label">Módulos</span></div>
-                    <div class="stat-card"><span class="stat-num">5</span><span class="stat-label">Tecnologías</span></div>
-                    <div class="stat-card"><span class="stat-num">v1.0</span><span class="stat-label">Versión</span></div>
+                    <div class="stat-card"><span class="stat-num">7</span><span class="stat-label">Versiones</span></div>
+                    <div class="stat-card"><span class="stat-num">5</span><span class="stat-label">Páginas</span></div>
+                    <div class="stat-card"><span class="stat-num">2</span><span class="stat-label">Tipos de diagrama</span></div>
                 </div>
             </div>
 
@@ -94,94 +53,164 @@
             <div class="project-section">
                 <h2><i class="fas fa-info-circle"></i> Descripción General</h2>
                 <p>
-                    <strong>Tienda Online</strong> e-commerce completo con php y mysql — desarrollado en 7 versiones.
-                    Este proyecto ha sido desarrollado siguiendo estrictos estándares de calidad, 
-                    con un enfoque claro en la escalabilidad y la experiencia de usuario.
+                    Proyecto de la asignatura de programación en el lado del servidor: construir una
+                    tienda online completa en PHP y MySQL <strong>desde cero</strong>, avanzando en
+                    siete versiones documentadas.
                 </p>
                 <p>
-                    A través de su arquitectura modular, el sistema permite una gestión integral de todas las
-                    operaciones necesarias, garantizando un rendimiento óptimo y un mantenimiento simplificado.
+                    El recorrido cubre el flujo completo de una compra: página de inicio, catálogo leído
+                    de base de datos, ficha de producto con selector de unidades, carrito y finalización
+                    del pedido con inserción en MySQL. La última versión añade el trabajo estético sobre
+                    lo ya funcional.
+                </p>
+                <p>
+                    Lo que hace este ejercicio más valioso que el código en sí es la documentación que
+                    lo acompaña: el repositorio incluye el <strong>diagrama entidad-relación</strong> y
+                    el <strong>diagrama de flujo</strong> en SVG y JSON, más los scripts SQL de
+                    creación, alteraciones y datos de muestra.
                 </p>
             </div>
 
-            <!-- Tecnologías -->
+            <!-- Tecnologías Utilizadas -->
             <div class="project-section">
                 <h2><i class="fas fa-tools"></i> Tecnologías Utilizadas</h2>
                 <div class="tech-grid">
-                    <div class="tech-badge"><i class="fab fa-php"></i><br>PHP 8</div>
-                    <div class="tech-badge"><i class="fas fa-database"></i><br>MySQL</div>
-                    <div class="tech-badge"><i class="fab fa-html5"></i><br>HTML5</div>
+                    <div class="tech-badge"><i class="fab fa-php"></i><br>PHP</div>
+                    <div class="tech-badge"><i class="fas fa-database"></i><br>MySQL / mysqli</div>
                     <div class="tech-badge"><i class="fab fa-css3-alt"></i><br>CSS3</div>
-                    <div class="tech-badge"><i class="fas fa-server"></i><br>MySQLi</div>
+                    <div class="tech-badge"><i class="fas fa-diagram-project"></i><br>Diagramas E-R</div>
+                    <div class="tech-badge"><i class="fas fa-file-code"></i><br>SQL</div>
                 </div>
             </div>
 
-            <!-- Módulos -->
+            <!-- Arquitectura -->
             <div class="project-section">
-                <h2><i class="fas fa-th-large"></i> Arquitectura y Módulos</h2>
-                <div class="modules-grid">
-                    <div class="module-card">
-                        <strong>⚡ Inicialización:</strong>
-                        <p>Configuración del entorno y carga de parámetros iniciales.</p>
-                    </div>
-                    <div class="module-card">
-                        <strong>⚡ Procesamiento:</strong>
-                        <p>Ejecución de la lógica de negocio principal y validación de datos.</p>
-                    </div>
-                    <div class="module-card">
-                        <strong>⚡ Persistencia:</strong>
-                        <p>Almacenamiento seguro de la información generada.</p>
-                    </div>
-                    <div class="module-card">
-                        <strong>⚡ Visualización:</strong>
-                        <p>Renderizado de la interfaz y entrega de resultados al usuario final.</p>
-                    </div>
-                </div>
+                <h2><i class="fas fa-sitemap"></i> Arquitectura</h2>
+                <p>
+                    Estructura PHP clásica con inclusión de cabecera y pie compartidos, y una página por
+                    paso del proceso de compra. El estado del pedido se propaga entre páginas mediante
+                    formularios POST con campos ocultos.
+                </p>
+                <pre class="code-tree"><span class="t-dir">V0.7-Ajustes esteticos/</span>
+├── <span class="t-file">Creamos BD.sql</span>              <span class="t-note"># creación del esquema</span>
+├── <span class="t-file">datosdemuestra.sql</span>          <span class="t-note"># datos de prueba</span>
+├── <span class="t-file">alter descripciones largas.sql</span> · <span class="t-file">alterar ids.sql</span>
+├── <span class="t-file">diagrama entidad relacion.svg</span> <span class="t-note"># + .json y .sql</span>
+├── <span class="t-file">diagrama de flujo.svg</span>       <span class="t-note"># + .json y .html</span>
+└── <span class="t-dir">front/</span>
+    ├── <span class="t-file">index.php</span>               <span class="t-note"># hero y razones de compra</span>
+    ├── <span class="t-file">catalogo.php</span>            <span class="t-note"># productos desde la BD</span>
+    ├── <span class="t-file">producto.php</span>            <span class="t-note"># ficha y selector de unidades</span>
+    ├── <span class="t-file">carrito.php</span>             <span class="t-note"># datos del cliente</span>
+    ├── <span class="t-file">finalizacion.php</span>        <span class="t-note"># resumen e inserción del pedido</span>
+    └── <span class="t-dir">inc/</span>                     <span class="t-note"># cabecera y pie compartidos</span></pre>
             </div>
 
-            <!-- Flujo Completo -->
+            <!-- Flujo de Compra -->
             <div class="project-section">
-                <h2><i class="fas fa-route"></i> Flujo Completo de Funcionamiento</h2>
+                <h2><i class="fas fa-route"></i> Flujo de Compra</h2>
                 <ol class="workflow-steps">
-                    <li><strong>Inicialización:</strong> Configuración del entorno y carga de parámetros iniciales.</li>
-                    <li><strong>Procesamiento:</strong> Ejecución de la lógica de negocio principal y validación de datos.</li>
-                    <li><strong>Persistencia:</strong> Almacenamiento seguro de la información generada.</li>
-                    <li><strong>Visualización:</strong> Renderizado de la interfaz y entrega de resultados al usuario final.</li>
+                    <li><strong>Inicio:</strong> página de aterrizaje con la propuesta de valor y el
+                    acceso al catálogo.</li>
+                    <li><strong>Catálogo:</strong> <code>catalogo.php</code> consulta la tabla de
+                    productos y genera una tarjeta por cada uno.</li>
+                    <li><strong>Ficha de producto:</strong> <code>producto.php</code> muestra el detalle
+                    y permite elegir entre 1 y 10 unidades.</li>
+                    <li><strong>Carrito:</strong> <code>carrito.php</code> recibe producto y unidades y
+                    pide los datos del cliente.</li>
+                    <li><strong>Finalización:</strong> <code>finalizacion.php</code> recupera el
+                    producto de la base de datos, calcula el total y registra el pedido.</li>
                 </ol>
+            </div>
+
+            <!-- Progresión del Ejercicio -->
+            <div class="project-section">
+                <h2><i class="fas fa-code-branch"></i> Progresión del Ejercicio</h2>
+                <p>
+                    Cada versión es una carpeta completa, lo que permite ver el estado del proyecto en
+                    cada etapa en lugar de solo el resultado final.
+                </p>
+                <ul class="version-timeline">
+                    <li><span class="v-tag">V0.1</span><strong>Inicio.</strong> Estructura base del
+                    proyecto.</li>
+                    <li><span class="v-tag">V0.2</span><strong>Contenido.</strong> Maquetación de las
+                    páginas con datos estáticos.</li>
+                    <li><span class="v-tag">V0.3</span><strong>BBDD.</strong> Diseño del esquema y
+                    conexión: el catálogo pasa a leerse de MySQL.</li>
+                    <li><span class="v-tag">V0.4</span><strong>Pasamos artículo.</strong> Propagación
+                    del producto seleccionado entre páginas.</li>
+                    <li><span class="v-tag">V0.5</span><strong>Vamos al carrito.</strong> Recogida de
+                    unidades y datos del cliente.</li>
+                    <li><span class="v-tag">V0.6</span><strong>Vamos a finalizar.</strong> Cierre del
+                    pedido con inserción en base de datos.</li>
+                    <li><span class="v-tag">V0.7</span><strong>Ajustes estéticos.</strong> Trabajo
+                    visual sobre la funcionalidad ya terminada.</li>
+                </ul>
+            </div>
+
+            <!-- Qué Aprendí -->
+            <div class="project-section">
+                <h2><i class="fas fa-lightbulb"></i> Qué Aprendí</h2>
+                <ul class="features-list">
+                    <li>Que sin base de datos no hay catálogo: la V0.3 es la versión donde el proyecto
+                    deja de ser una maqueta.</li>
+                    <li>Que mantener el estado entre páginas en PHP obliga a decidir cómo propagarlo —
+                    formularios con campos ocultos, sesión o URL — y que cada opción tiene sus
+                    consecuencias.</li>
+                    <li>Que dibujar el diagrama entidad-relación antes de escribir el SQL evita rehacer
+                    las tablas a mitad del proyecto.</li>
+                    <li>Que dejar la estética para el final fue la decisión correcta: en la V0.7 el
+                    proyecto ya funcionaba.</li>
+                    <li><strong>Y lo más importante</strong>: este código construye las consultas
+                    concatenando variables de <code>$_GET</code> y <code>$_POST</code>, que es una
+                    vulnerabilidad de inyección SQL de libro, y guarda las credenciales dentro de cada
+                    fichero. Es lo que se enseñaba en ese punto del curso. En todos los proyectos
+                    posteriores del portafolio uso <strong>PDO con sentencias preparadas</strong> y la
+                    configuración fuera del código; contrastar este ejercicio con TinoProp CRM o
+                    RoomManager es la mejor forma de ver esa diferencia.</li>
+                </ul>
             </div>
 
             <!-- Mi Rol -->
             <div class="project-section">
                 <h2><i class="fas fa-user-tie"></i> Mi Rol</h2>
-                <p><strong>Desarrollador Full Stack — Autor Único</strong></p>
                 <p>
-                    Diseñé y desarrollé el sistema completo de forma independiente: desde el análisis de requisitos, 
-                    diseño de la arquitectura, implementación de backend y frontend, hasta el despliegue final.
+                    <strong>Autor del ejercicio.</strong> Práctica individual de la asignatura de
+                    programación en el lado del servidor.
                 </p>
             </div>
 
-            <!-- Estado -->
+            <!-- Estado del Proyecto -->
             <div class="project-section">
-                <h2><i class="fas fa-info"></i> Estado del Proyecto</h2>
-                <p><strong>Estado:</strong> <span style="color: #10b981; font-weight: bold;"></span></p>
+                <h2><i class="fas fa-flag-checkered"></i> Estado del Proyecto</h2>
+                <p>
+                    <strong>Ejercicio académico completado</strong>, con las siete versiones y los
+                    diagramas en el repositorio de apuntes.
+                </p>
             </div>
 
-            <!-- Código -->
+            <!-- Código y Enlaces -->
             <div class="project-section">
-                <h2><i class="fas fa-link"></i> Código Fuente</h2>
+                <h2><i class="fas fa-link"></i> Código y Enlaces</h2>
                 <div class="project-links">
-                    <a href="#" target="_blank">
-                        <i class="fab fa-github"></i> Ver Código en GitHub
+                    <a href="https://github.com/Valentindg2506/Programacion-DAM-25-26" target="_blank" rel="noopener">
+                        <i class="fab fa-github"></i> Ver repositorio de apuntes
                     </a>
                 </div>
+                <p style="margin-top: 16px;">
+                    Ruta dentro del repositorio: <code>Apuntes/010-Programción en el lado del
+                    servidor/010-Tienda online/</code>
+                </p>
             </div>
+
         </div>
     </div>
 
     <button id="scrollTop" class="scroll-top" aria-label="Volver arriba">
         <i class="fas fa-arrow-up"></i>
     </button>
+
     <script src="../js/main.js"></script>
 </body>
-</html>
 
+</html>

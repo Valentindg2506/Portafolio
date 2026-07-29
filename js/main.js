@@ -103,17 +103,19 @@ function animateNumbers() {
     
     stats.forEach(stat => {
         const target = parseInt(stat.getAttribute('data-target'));
+        // Sin data-target válido se deja el texto del HTML, que ya trae la cifra real
+        if (isNaN(target)) return;
         const duration = 2000; // 2 segundos
         const increment = target / (duration / 16); // 60 FPS
         let current = 0;
-        
+
         const updateNumber = () => {
             current += increment;
             if (current < target) {
                 stat.textContent = Math.floor(current);
                 requestAnimationFrame(updateNumber);
             } else {
-                stat.textContent = target + '+';
+                stat.textContent = target;
             }
         };
         

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Juntadas Party — plataforma de juegos multijugador en tiempo real con PHP 8.3, Ratchet y WebSockets">
+    <title>Juntadas Party - Valentín De Gennaro</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/proyecto.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="../index.html#home">&lt;VDG /&gt;</a>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="project-detail">
+        <a href="../index.html#projects" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Volver a Proyectos
+        </a>
+
+        <div class="project-hero">
+            <h1>🎉 Juntadas Party</h1>
+            <p class="project-tagline">Juegos de mesa multijugador para 4-20 personas, en tiempo real y sin registro</p>
+            <div class="project-badges">
+                <span class="status-badge"><i class="fas fa-bolt"></i> WebSockets</span>
+                <span class="status-badge"><i class="fab fa-docker"></i> Docker Compose</span>
+                <span class="status-badge"><i class="fas fa-mobile-screen"></i> Mobile-first</span>
+            </div>
+        </div>
+
+        <div class="project-content">
+            <!-- Escala del Proyecto -->
+            <div class="project-section">
+                <h2><i class="fas fa-chart-line"></i> Escala del Proyecto</h2>
+                <div class="stats-grid">
+                    <div class="stat-card"><span class="stat-num">4-20</span><span class="stat-label">Jugadores</span></div>
+                    <div class="stat-card"><span class="stat-num">47</span><span class="stat-label">Archivos</span></div>
+                    <div class="stat-card"><span class="stat-num">9.2k</span><span class="stat-label">Líneas</span></div>
+                    <div class="stat-card"><span class="stat-num">0</span><span class="stat-label">Registros</span></div>
+                </div>
+            </div>
+
+            <!-- Descripción General -->
+            <div class="project-section">
+                <h2><i class="fas fa-info-circle"></i> Descripción General</h2>
+                <p>
+                    Una reunión con diez personas y un solo móvil por persona: la idea es que cada uno
+                    abra una sala en su teléfono y todos jueguen a lo mismo a la vez, sin instalar nada
+                    y <strong>sin crear cuenta</strong>. Entras con un código de sala y ya estás dentro.
+                </p>
+                <p>
+                    El reto técnico real no son los juegos, es la <strong>sincronización</strong>. Diez
+                    navegadores tienen que ver el mismo estado de partida al mismo tiempo, y HTTP no
+                    sirve para eso. La solución es un servidor <strong>WebSocket</strong> con Ratchet y
+                    ReactPHP que mantiene la partida en memoria y empuja cada cambio a todos los
+                    participantes.
+                </p>
+                <p>
+                    El juego más ambicioso es el <strong>Truco argentino</strong>: baraja española de 40
+                    cartas, equipos, y dos sistemas de apuestas paralelos — Truco / Retruco / Vale
+                    Cuatro y Envido / Real Envido / Falta Envido — con jerarquías de carta que no siguen
+                    ningún orden numérico intuitivo. Implementar sus reglas correctamente fue la mitad
+                    del proyecto.
+                </p>
+            </div>
+
+            <!-- Tecnologías Utilizadas -->
+            <div class="project-section">
+                <h2><i class="fas fa-tools"></i> Tecnologías Utilizadas</h2>
+                <div class="tech-grid">
+                    <div class="tech-badge"><i class="fab fa-php"></i><br>PHP 8.3</div>
+                    <div class="tech-badge"><i class="fas fa-bolt"></i><br>Ratchet</div>
+                    <div class="tech-badge"><i class="fas fa-atom"></i><br>ReactPHP</div>
+                    <div class="tech-badge"><i class="fas fa-database"></i><br>MySQL 8</div>
+                    <div class="tech-badge"><i class="fas fa-bolt-lightning"></i><br>Redis</div>
+                    <div class="tech-badge"><i class="fab fa-css3-alt"></i><br>TailwindCSS</div>
+                    <div class="tech-badge"><i class="fab fa-docker"></i><br>Docker Compose</div>
+                    <div class="tech-badge"><i class="fas fa-vial"></i><br>PHPUnit</div>
+                </div>
+            </div>
+
+            <!-- Los Juegos Implementados -->
+            <div class="project-section">
+                <h2><i class="fas fa-th-large"></i> Los Juegos Implementados</h2>
+                <div class="modules-grid">
+                    <div class="module-card">
+                        <strong>🎴 Color Match</strong>
+                        <p>Juego de cartas estilo UNO para 2-10 jugadores: se juega por color o valor,
+                        los comodines cambian el color en curso y el Roba 4 puede ser desafiado. Gana
+                        quien se queda sin cartas.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🃏 Truco Argentino</strong>
+                        <p>Para 2, 4 o 6 jugadores en equipos, con baraja española de 40 cartas. Dos
+                        sistemas de apuesta simultáneos: Truco → Retruco → Vale Cuatro (1 a 4 puntos) y
+                        Envido → Real Envido → Falta Envido (hasta 15 puntos).</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🕵️ El Impostor</strong>
+                        <p>Todos reciben una palabra menos uno; hay que descubrir quién no la tiene
+                        mediante pistas y votación.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>😈 Verdad o Reto</strong>
+                        <p>El clásico, con selección aleatoria de participante y de tipo de prenda.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Arquitectura -->
+            <div class="project-section">
+                <h2><i class="fas fa-sitemap"></i> Arquitectura</h2>
+                <p>
+                    Dos procesos separados que comparten base de datos: la aplicación web sirve las
+                    páginas por HTTP con un <strong>micro-router PHP propio</strong>, y el servidor
+                    WebSocket de <code>ws/</code> mantiene las conexiones abiertas y el estado de las
+                    partidas. Todo el entorno — PHP, MySQL, Redis, Nginx y phpMyAdmin — se levanta con
+                    un solo <code>docker compose up</code>.
+                </p>
+                <pre class="code-tree"><span class="t-dir">JuntadasParty/</span>
+├── <span class="t-file">docker-compose.yml</span>   <span class="t-note"># php, mysql, redis, nginx, phpmyadmin</span>
+├── <span class="t-file">Makefile</span>             <span class="t-note"># atajos de desarrollo</span>
+├── <span class="t-file">build-deploy.sh</span>
+├── <span class="t-file">composer.json</span>        <span class="t-note"># ratchet / reactphp</span>
+├── <span class="t-file">phpunit.xml</span>
+├── <span class="t-dir">public/</span>               <span class="t-note"># document root</span>
+├── <span class="t-dir">app/</span>                  <span class="t-note"># micro-router y lógica de los juegos</span>
+├── <span class="t-dir">ws/</span>                   <span class="t-note"># servidor WebSocket (puerto 8081)</span>
+├── <span class="t-dir">db/</span>                   <span class="t-note"># migrate.php y seed.php</span>
+└── <span class="t-dir">tests/</span></pre>
+            </div>
+
+            <!-- Integraciones Externas -->
+            <div class="project-section">
+                <h2><i class="fas fa-plug"></i> Integraciones Externas</h2>
+                <div class="integration-grid">
+                    <div class="integration-card">
+                        <strong>Ratchet + ReactPHP</strong>
+                        <p>Servidor WebSocket en PHP que mantiene las conexiones abiertas y difunde el
+                        estado de la partida a todos los jugadores de la sala.</p>
+                    </div>
+                    <div class="integration-card">
+                        <strong>Redis</strong>
+                        <p>Capa de caché opcional para el estado volátil de las partidas en curso.</p>
+                    </div>
+                    <div class="integration-card">
+                        <strong>Docker Compose</strong>
+                        <p>Entorno completo reproducible: PHP, MySQL 8, Redis, Nginx y phpMyAdmin con un
+                        solo comando.</p>
+                    </div>
+                    <div class="integration-card">
+                        <strong>PHPUnit</strong>
+                        <p>Pruebas automatizadas sobre la lógica de los juegos, donde las reglas son
+                        fáciles de romper al tocar algo.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flujo de una Partida -->
+            <div class="project-section">
+                <h2><i class="fas fa-route"></i> Flujo de una Partida</h2>
+                <ol class="workflow-steps">
+                    <li><strong>Crear sala:</strong> un jugador abre la web y crea una sala; el sistema
+                    genera su código de acceso.</li>
+                    <li><strong>Unirse:</strong> el resto entra con el código desde su móvil, eligiendo
+                    solo un nombre. Sin registro ni email.</li>
+                    <li><strong>Conexión persistente:</strong> cada navegador abre un WebSocket contra
+                    el servidor de <code>ws/</code>.</li>
+                    <li><strong>Elegir juego:</strong> el anfitrión escoge el juego y el servidor
+                    reparte el estado inicial a todos.</li>
+                    <li><strong>Turnos sincronizados:</strong> cada jugada viaja al servidor, que valida
+                    las reglas y difunde el nuevo estado a la sala completa.</li>
+                    <li><strong>Resolución:</strong> el servidor determina el final según las reglas del
+                    juego y anuncia el resultado.</li>
+                </ol>
+            </div>
+
+            <!-- Retos Técnicos y Decisiones de Diseño -->
+            <div class="project-section">
+                <h2><i class="fas fa-lightbulb"></i> Retos Técnicos y Decisiones de Diseño</h2>
+                <h3>WebSockets en PHP, que no está pensado para eso</h3>
+                <p>
+                    PHP muere al final de cada petición: no hay estado entre llamadas, que es justo lo
+                    que necesita una partida. Ratchet sobre ReactPHP le da a PHP un bucle de eventos y
+                    procesos de larga duración. Eso obliga a un cambio de mentalidad: en ese proceso no
+                    puedes confiar en variables globales ni dejar recursos abiertos, porque no se
+                    limpian solos como en una petición normal.
+                </p>
+                <h3>Las reglas del Truco son el verdadero problema</h3>
+                <p>
+                    El Truco tiene dos apuestas corriendo en paralelo con puntuaciones distintas, un
+                    orden de cartas que no es numérico, equipos, y cantos que se pueden subir o
+                    rechazar. Es el tipo de lógica donde cualquier cambio rompe un caso límite, y por
+                    eso es el módulo que más cobertura de PHPUnit tiene: las reglas se verifican con
+                    pruebas, no jugando.
+                </p>
+                <h3>Sin registro, pero con identidad durante la partida</h3>
+                <p>
+                    Pedir cuenta mata el juego: nadie se registra en una reunión. Pero el servidor
+                    necesita saber quién es quién si alguien recarga o se le va el wifi. La sala
+                    mantiene la identidad del jugador asociada a su conexión, de forma que reconectar te
+                    devuelve a tu sitio en la partida sin haber dado nunca un email.
+                </p>
+            </div>
+
+            <!-- Mi Rol -->
+            <div class="project-section">
+                <h2><i class="fas fa-user-tie"></i> Mi Rol</h2>
+                <p>
+                    <strong>Desarrollador full stack — autor único.</strong>
+                </p>
+                <p>
+                    Micro-router, servidor WebSocket, lógica y reglas de los cuatro juegos, frontend
+                    mobile-first, migraciones, seeds, pruebas con PHPUnit y el entorno Docker.
+                </p>
+            </div>
+
+            <!-- Estado del Proyecto -->
+            <div class="project-section">
+                <h2><i class="fas fa-flag-checkered"></i> Estado del Proyecto</h2>
+                <p>
+                    Proyecto funcional en local mediante Docker Compose, con migraciones y datos de
+                    prueba. Los cuatro juegos están implementados y jugables; el Truco cuenta con
+                    pruebas automatizadas sobre sus reglas.
+                </p>
+            </div>
+
+            <!-- Código y Enlaces -->
+            <div class="project-section">
+                <h2><i class="fas fa-link"></i> Código y Enlaces</h2>
+                <div class="project-links">
+                    <a href="https://github.com/Valentindg2506/Proyectos-Personales" target="_blank" rel="noopener">
+                        <i class="fab fa-github"></i> Ver código en GitHub
+                    </a>
+                </div>
+                <p style="margin-top: 16px;">
+                    El código está en el repositorio <code>Proyectos-Personales</code>, dentro de la
+                    carpeta <code>JuntadasParty/</code>.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <button id="scrollTop" class="scroll-top" aria-label="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

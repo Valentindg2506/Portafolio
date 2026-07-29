@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MBA RSVP — gestor de confirmaciones de asistencia a eventos en PHP con reparto de lista de compra">
+    <title>MBA — RSVP Evento - Valentín De Gennaro</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/proyecto.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="../index.html#home">&lt;VDG /&gt;</a>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="project-detail">
+        <a href="../index.html#projects" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Volver a Proyectos
+        </a>
+
+        <div class="project-hero">
+            <h1>🎊 MBA — RSVP Evento</h1>
+            <p class="project-tagline">Gestor de confirmaciones para eventos: enlace con token, reparto de la compra y control de pagos</p>
+            <div class="project-badges">
+                <span class="status-badge is-live"><i class="fas fa-circle-check"></i> En producción</span>
+                <span class="status-badge"><i class="fab fa-whatsapp"></i> Recordatorio WhatsApp</span>
+                <span class="status-badge"><i class="fas fa-link"></i> Enlace con token</span>
+            </div>
+        </div>
+
+        <div class="project-content">
+            <!-- Escala del Proyecto -->
+            <div class="project-section">
+                <h2><i class="fas fa-chart-line"></i> Escala del Proyecto</h2>
+                <div class="stats-grid">
+                    <div class="stat-card"><span class="stat-num">2</span><span class="stat-label">Roles</span></div>
+                    <div class="stat-card"><span class="stat-num">11</span><span class="stat-label">Archivos</span></div>
+                    <div class="stat-card"><span class="stat-num">1.6k</span><span class="stat-label">Líneas</span></div>
+                </div>
+            </div>
+
+            <!-- Descripción General -->
+            <div class="project-section">
+                <h2><i class="fas fa-info-circle"></i> Descripción General</h2>
+                <p>
+                    Organizar un evento con treinta invitados tiene tres problemas que siempre se
+                    resuelven mal: saber cuántos vienen de verdad, decidir quién trae qué, y cobrar. Los
+                    tres acaban en un grupo de mensajería donde nadie confirma.
+                </p>
+                <p>
+                    MBA lo resuelve con una aplicación mínima y directa. El organizador crea el evento y
+                    obtiene un <strong>enlace público con token</strong> que puede repartir; cada
+                    invitado entra, confirma si va o no, y opcionalmente indica qué producto lleva. Todo
+                    queda en base de datos.
+                </p>
+                <p>
+                    A partir de ahí el panel resuelve lo demás: la <strong>lista de compra</strong> se
+                    reparte automáticamente entre los asistentes confirmados, hay <strong>control de
+                    pagos</strong> con lo cobrado y lo pendiente, y un botón que abre WhatsApp con el
+                    mensaje de recordatorio ya escrito. Dos roles: <code>admin</code> edita y
+                    <code>coorganizador</code> solo consulta.
+                </p>
+            </div>
+
+            <!-- Tecnologías Utilizadas -->
+            <div class="project-section">
+                <h2><i class="fas fa-tools"></i> Tecnologías Utilizadas</h2>
+                <div class="tech-grid">
+                    <div class="tech-badge"><i class="fab fa-php"></i><br>PHP</div>
+                    <div class="tech-badge"><i class="fas fa-database"></i><br>MySQL</div>
+                    <div class="tech-badge"><i class="fab fa-whatsapp"></i><br>WhatsApp</div>
+                    <div class="tech-badge"><i class="fab fa-css3-alt"></i><br>CSS3</div>
+                    <div class="tech-badge"><i class="fas fa-mobile-screen"></i><br>Vista móvil</div>
+                    <div class="tech-badge"><i class="fas fa-key"></i><br>Tokens</div>
+                </div>
+            </div>
+
+            <!-- Estructura del Proyecto -->
+            <div class="project-section">
+                <h2><i class="fas fa-th-large"></i> Estructura del Proyecto</h2>
+                <div class="modules-grid">
+                    <div class="module-card">
+                        <strong>🔐 Login del panel</strong>
+                        <p><code>admin/login.php</code> — acceso al área de administración.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📋 Dashboard</strong>
+                        <p><code>admin/dashboard.php</code> — creación y listado de eventos, con botón
+                        para copiar el enlace público.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>✅ Respuestas</strong>
+                        <p><code>admin/event_responses.php</code> — vistas separadas de quién viene y
+                        quién no, con el control de pagos.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🌐 Formulario público</strong>
+                        <p><code>index.php?token=…</code> — confirmación de asistencia sin necesidad de
+                        cuenta.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🛒 Lista de compra</strong>
+                        <p><code>shopping_list.php</code> — reparto automático entre los asistentes
+                        confirmados.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🧩 Núcleo</strong>
+                        <p><code>includes/</code> con <code>auth.php</code>, <code>config.php</code>,
+                        <code>db.php</code> y <code>functions.php</code>.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🎨 Tema</strong>
+                        <p><code>assets/js/theme.js</code> para el cambio de tema de la interfaz.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Arquitectura -->
+            <div class="project-section">
+                <h2><i class="fas fa-sitemap"></i> Arquitectura</h2>
+                <p>
+                    Estructura PHP clásica y deliberadamente pequeña: una parte pública sin
+                    autenticación — el formulario al que se llega por token — y un panel privado con dos
+                    roles. El núcleo compartido vive en <code>includes/</code> y el esquema en
+                    <code>sql/</code>.
+                </p>
+                <pre class="code-tree"><span class="t-dir">mba/</span>
+├── <span class="t-file">index.php</span>              <span class="t-note"># formulario público (?token=…)</span>
+├── <span class="t-file">shopping_list.php</span>      <span class="t-note"># reparto de la compra</span>
+├── <span class="t-dir">admin/</span>
+│   ├── <span class="t-file">login.php</span> · <span class="t-file">logout.php</span>
+│   ├── <span class="t-file">dashboard.php</span>      <span class="t-note"># eventos y enlace público</span>
+│   └── <span class="t-file">event_responses.php</span> <span class="t-note"># asistentes y pagos</span>
+├── <span class="t-dir">includes/</span>               <span class="t-note"># auth, config, db, functions</span>
+├── <span class="t-dir">assets/</span>                 <span class="t-note"># app.css, theme.js</span>
+└── <span class="t-dir">sql/schema.sql</span></pre>
+            </div>
+
+            <!-- Del Evento al Cobro -->
+            <div class="project-section">
+                <h2><i class="fas fa-route"></i> Del Evento al Cobro</h2>
+                <ol class="workflow-steps">
+                    <li><strong>Crear el evento:</strong> el organizador da nombre, fecha y descripción
+                    desde el panel.</li>
+                    <li><strong>Obtener el enlace:</strong> el sistema genera un enlace público con
+                    token y un botón para copiarlo.</li>
+                    <li><strong>Repartir:</strong> el enlace se envía por el canal que sea; el invitado
+                    no necesita cuenta.</li>
+                    <li><strong>Confirmar:</strong> cada persona indica si va o no, y opcionalmente qué
+                    producto lleva.</li>
+                    <li><strong>Ver el reparto:</strong> el panel separa a los que vienen de los que no,
+                    en dos vistas distintas.</li>
+                    <li><strong>Repartir la compra:</strong> la lista de la compra se divide
+                    automáticamente entre los confirmados.</li>
+                    <li><strong>Controlar los pagos:</strong> se marca quién ha pagado y queda visible
+                    lo pendiente por cobrar.</li>
+                    <li><strong>Recordar:</strong> un botón abre WhatsApp con el mensaje prearmado para
+                    los que faltan.</li>
+                </ol>
+            </div>
+
+            <!-- Seguridad Implementada -->
+            <div class="project-section">
+                <h2><i class="fas fa-lock"></i> Seguridad Implementada</h2>
+                <ul class="features-list">
+                    <li>El acceso público es por <strong>token único por evento</strong>: sin el enlace
+                    correcto no se llega al formulario.</li>
+                    <li>Panel de administración protegido por login en
+                    <code>includes/auth.php</code>.</li>
+                    <li><strong>Dos roles</strong>: <code>admin</code> con permiso de edición y
+                    <code>coorganizador</code> en solo lectura.</li>
+                    <li>Credenciales y configuración centralizadas en
+                    <code>includes/config.php</code>.</li>
+                    <li>Las credenciales iniciales documentadas en el README deben cambiarse antes de
+                    usarlo en producción.</li>
+                </ul>
+            </div>
+
+            <!-- Retos Técnicos y Decisiones de Diseño -->
+            <div class="project-section">
+                <h2><i class="fas fa-lightbulb"></i> Retos Técnicos y Decisiones de Diseño</h2>
+                <h3>El token elimina la barrera de entrada</h3>
+                <p>
+                    Pedir registro a treinta invitados para que digan si vienen a una cena garantiza que
+                    no responda ni la mitad. El enlace con token da acceso directo al formulario: un
+                    clic y confirmado. Es la decisión que hace que la herramienta se use.
+                </p>
+                <h3>Reparto automático sobre los confirmados</h3>
+                <p>
+                    Dividir la compra entre los invitados es fácil; dividirla entre los que <strong>han
+                    confirmado</strong> es lo útil, porque el número cambia cada día hasta la víspera.
+                    <code>shopping_list.php</code> recalcula sobre las confirmaciones actuales.
+                </p>
+                <h3>Un rol de solo lectura resuelve un problema real</h3>
+                <p>
+                    En un evento suele haber más de un organizador, pero no todos deben poder borrar
+                    cosas. El rol <code>coorganizador</code> permite que otra persona consulte quién
+                    viene y quién ha pagado sin riesgo de que modifique nada por error.
+                </p>
+            </div>
+
+            <!-- Mi Rol -->
+            <div class="project-section">
+                <h2><i class="fas fa-user-tie"></i> Mi Rol</h2>
+                <p>
+                    <strong>Desarrollador full stack — autor único.</strong>
+                </p>
+                <p>
+                    Modelo de datos, formulario público con token, panel con dos roles, reparto de la
+                    lista de compra, control de pagos y despliegue.
+                </p>
+            </div>
+
+            <!-- Estado del Proyecto -->
+            <div class="project-section">
+                <h2><i class="fas fa-flag-checkered"></i> Estado del Proyecto</h2>
+                <p>
+                    <strong>En producción</strong> en <code>mba.valentindg.com</code>, usado para
+                    gestionar eventos reales.
+                </p>
+            </div>
+
+            <!-- Código y Enlaces -->
+            <div class="project-section">
+                <h2><i class="fas fa-link"></i> Código y Enlaces</h2>
+                <div class="project-links">
+                    <a href="https://mba.valentindg.com" target="_blank" rel="noopener">
+                        <i class="fas fa-external-link-alt"></i> Ver en producción
+                    </a>
+                    <a href="https://github.com/Valentindg2506/Proyectos-Personales" target="_blank" rel="noopener">
+                        <i class="fab fa-github"></i> Ver código en GitHub
+                    </a>
+                </div>
+                <p style="margin-top: 16px;">
+                    El código está en el repositorio <code>Proyectos-Personales</code>, dentro de la
+                    carpeta <code>mba/</code>.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <button id="scrollTop" class="scroll-top" aria-label="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

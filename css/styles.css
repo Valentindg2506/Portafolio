@@ -336,8 +336,8 @@ button {
 }
 
 .shape-2 {
-    bottom: 15%;
-    left: 5%;
+    bottom: 10%;
+    right: 6%;
     animation-delay: 3s;
 }
 
@@ -346,13 +346,20 @@ button {
 }
 
 .shape-3 {
-    top: 40%;
-    left: 8%;
+    top: 12%;
+    left: 2%;
     animation-delay: 6s;
 }
 
 .shape-3::before {
     content: '[]';
+}
+
+/* Por debajo de 1200px no hay margen libre: las formas se solaparían con el texto */
+@media (max-width: 1200px) {
+    .hero-shapes {
+        display: none;
+    }
 }
 
 @keyframes float {
@@ -491,6 +498,14 @@ button {
     font-size: 0.875rem;
     line-height: 1.6;
     overflow-x: auto;
+    /* El código siempre a la izquierda, aunque el hero se centre en móvil */
+    text-align: left;
+}
+
+/* Sin esto el <pre> ensancha la columna del grid y desborda la página */
+.hero-image,
+.code-window {
+    min-width: 0;
 }
 
 .code-keyword { color: #c678dd; }
@@ -498,6 +513,19 @@ button {
 .code-type { color: #e06c75; }
 .code-string { color: #98c379; }
 .code-method { color: #61afef; }
+.code-comment { color: #8b93a1; font-style: italic; }
+
+.code-caption {
+    margin: 0;
+    padding: 0 var(--spacing-md) var(--spacing-md);
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: var(--spacing-sm);
+}
 
 .scroll-indicator {
     position: absolute;
@@ -573,40 +601,29 @@ button {
 ==================================== */
 .about-content {
     display: grid;
-    grid-template-columns: 400px 1fr;
+    grid-template-columns: 360px 1fr;
     gap: var(--spacing-2xl);
     align-items: start;
 }
 
-.about-image-wrapper {
-    position: relative;
-    border-radius: var(--radius-xl);
-    overflow: hidden;
-    box-shadow: var(--shadow-xl);
-}
-
-.about-image-wrapper img {
-    width: 100%;
-    display: block;
-}
-
-.about-image-overlay {
-    position: absolute;
-    inset: 0;
-    background: var(--gradient-primary);
-    opacity: 0;
-    transition: opacity var(--transition-base);
-}
-
-.about-image-wrapper:hover .about-image-overlay {
-    opacity: 0.2;
-}
-
 .about-stats {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-md);
+}
+
+.about-figures-note {
+    display: flex;
+    gap: 0.5rem;
     margin-top: var(--spacing-md);
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--text-tertiary);
+}
+
+.about-figures-note i {
+    flex-shrink: 0;
+    margin-top: 0.15rem;
 }
 
 .stat-item {
@@ -617,7 +634,8 @@ button {
     border: 2px solid var(--border-color);
 }
 
-.stat-number {
+.stat-number,
+.stat-figure {
     display: block;
     font-size: 2rem;
     font-weight: 800;
@@ -701,8 +719,10 @@ button {
 
 .skills-list {
     display: flex;
-    flex-direction: column;
-    gap: var(--spacing-md);
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 0.625rem;
 }
 
 .skill-header {
@@ -782,6 +802,8 @@ button {
 }
 
 .project-card {
+    display: flex;
+    flex-direction: column;
     background-color: var(--bg-primary);
     border-radius: var(--radius-xl);
     overflow: hidden;
@@ -815,6 +837,7 @@ button {
     position: relative;
     overflow: hidden;
     height: 250px;
+    flex-shrink: 0;
 }
 
 .project-image img {
@@ -865,6 +888,34 @@ button {
 
 .project-content {
     padding: var(--spacing-md);
+}
+
+/* Solo en la tarjeta de la grid: permite empujar el enlace al pie */
+.project-card .project-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* Empuja el enlace al pie de la tarjeta para que todas las filas queden alineadas */
+.project-detail-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    align-self: flex-start;
+    margin-top: auto;
+    padding: 0.5rem 1rem;
+    background: rgba(59, 130, 246, 0.12);
+    border: 1px solid rgba(59, 130, 246, 0.5);
+    color: #3b82f6;
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+    transition: all var(--transition-base);
+}
+
+.project-detail-link:hover {
+    background: rgba(59, 130, 246, 0.24);
+    color: #3b82f6;
 }
 
 .project-tags {

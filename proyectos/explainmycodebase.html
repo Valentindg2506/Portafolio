@@ -1,106 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ExplainMyCodebase - Analizador y explicador automático de repositorios">
+    <meta name="description" content="ExplainMyCodebase — analiza un proyecto y genera con IA local una explicación de su estructura">
     <title>ExplainMyCodebase - Valentín De Gennaro</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/proyecto.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script>
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        if (savedTheme === 'dark') {
-            document.documentElement.classList.add('dark');
-        }
-    </script>
-    <style>
-        .project-detail { min-height: 100vh; padding: 80px 20px 40px; }
-        .project-hero { max-width: 1000px; margin: 0 auto 50px; text-align: center; }
-        .project-hero h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .project-content { max-width: 900px; margin: 0 auto; }
-        .project-section {
-            margin-bottom: 40px;
-            padding: 30px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        .project-section h2 { font-size: 1.8em; margin-bottom: 20px; color: #3b82f6; }
-        .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; }
-        .tech-badge {
-            padding: 10px 15px;
-            background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(99,102,241,0.2));
-            border: 1px solid rgba(59,130,246,0.5);
-            border-radius: 8px;
-            text-align: center;
-            font-weight: 500;
-        }
-        .features-list { list-style: none; padding: 0; }
-        .features-list li { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .features-list li:last-child { border-bottom: none; }
-        .features-list li:before { content: "✓ "; color: #10b981; font-weight: bold; margin-right: 10px; }
-        .back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
-            background: rgba(59,130,246,0.2);
-            border: 1px solid rgba(59,130,246,0.5);
-            color: #3b82f6;
-            border-radius: 6px;
-            text-decoration: none;
-            margin-bottom: 30px;
-            transition: all 0.3s ease;
-        }
-        .back-btn:hover { background: rgba(59,130,246,0.3); transform: translateX(-5px); }
-        .project-links { display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap; }
-        .project-links a {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: 6px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        .project-links a:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(102,126,234,0.3); }
-    
-        .modules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin-top: 15px; }
-        .module-card { padding: 15px 18px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.25); border-radius: 10px; }
-        .module-card strong { display: block; margin-bottom: 4px; color: #a5b4fc; }
-        .module-card p { margin: 0; font-size: 0.9em; opacity: 0.85; }
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; margin: 20px 0; }
-        .stat-card { padding: 18px 12px; background: linear-gradient(135deg, rgba(102,126,234,0.15), rgba(118,75,162,0.15)); border: 1px solid rgba(102,126,234,0.3); border-radius: 10px; text-align: center; }
-        .stat-card .stat-num { display: block; font-size: 2em; font-weight: 800; color: #818cf8; line-height: 1; }
-        .stat-card .stat-label { display: block; font-size: 0.8em; opacity: 0.75; margin-top: 6px; }
-        .integration-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
-        .integration-card { padding: 15px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.25); border-radius: 10px; }
-        .integration-card strong { display: block; margin-bottom: 4px; color: #34d399; }
-        .integration-card p { margin: 0; font-size: 0.88em; opacity: 0.85; }
-        .roles-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-        .roles-table th, .roles-table td { padding: 10px 14px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.08); }
-        .roles-table th { color: #3b82f6; font-weight: 600; border-bottom: 1px solid rgba(59,130,246,0.3); }
-        .roles-table tr:last-child td { border-bottom: none; }
-        .role-level { display: inline-block; padding: 2px 8px; background: rgba(99,102,241,0.2); border-radius: 12px; font-size: 13px; font-weight: bold; color: #818cf8; }
-        .workflow-steps { counter-reset: step-counter; list-style: none; padding: 0; }
-        .workflow-steps li { counter-increment: step-counter; padding: 12px 0 12px 50px; border-bottom: 1px solid rgba(255,255,255,0.08); position: relative; }
-        .workflow-steps li:before { content: counter(step-counter); position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 32px; height: 32px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.85em; color: white; }
-        .workflow-steps li:last-child { border-bottom: none; }
-</style>
 </head>
+
 <body>
     <nav class="navbar" id="navbar">
         <div class="container">
-            <div class="nav-brand"><a href="../index.html#home">&lt;VDG /&gt;</a></div>
+            <div class="nav-brand">
+                <a href="../index.html#home">&lt;VDG /&gt;</a>
+            </div>
             <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
                 <i class="fas fa-moon"></i>
             </button>
@@ -113,19 +29,23 @@
         </a>
 
         <div class="project-hero">
-            <h1>ExplainMyCodebase</h1>
-            <p style="font-size: 1.2em; color: #a0aec0;">Herramienta para entender rápidamente la arquitectura de un repositorio</p>
+            <h1>🔍 ExplainMyCodebase</h1>
+            <p class="project-tagline">Sube un proyecto y recibe una explicación generada con IA local de su estructura y sus módulos</p>
+            <div class="project-badges">
+                <span class="status-badge"><i class="fas fa-robot"></i> IA local con Ollama</span>
+                <span class="status-badge"><i class="fas fa-n"></i> Next.js 14</span>
+                <span class="status-badge"><i class="fas fa-file-zipper"></i> Análisis desde ZIP</span>
+            </div>
         </div>
 
         <div class="project-content">
-
-            <!-- Cifras Clave -->
+            <!-- Escala del Proyecto -->
             <div class="project-section">
                 <h2><i class="fas fa-chart-line"></i> Escala del Proyecto</h2>
                 <div class="stats-grid">
-                    <div class="stat-card"><span class="stat-num">6</span><span class="stat-label">Módulos</span></div>
-                    <div class="stat-card"><span class="stat-num">4</span><span class="stat-label">Tecnologías</span></div>
-                    <div class="stat-card"><span class="stat-num">v1.0</span><span class="stat-label">Versión</span></div>
+                    <div class="stat-card"><span class="stat-num">2</span><span class="stat-label">Servicios</span></div>
+                    <div class="stat-card"><span class="stat-num">4</span><span class="stat-label">Componentes</span></div>
+                    <div class="stat-card"><span class="stat-num">1.7k</span><span class="stat-label">Líneas</span></div>
                 </div>
             </div>
 
@@ -133,86 +53,211 @@
             <div class="project-section">
                 <h2><i class="fas fa-info-circle"></i> Descripción General</h2>
                 <p>
-                    <strong>ExplainMyCodebase</strong> herramienta para entender rápidamente la arquitectura de un repositorio.
-                    Este proyecto ha sido desarrollado siguiendo estrictos estándares de calidad, 
-                    con un enfoque claro en la escalabilidad y la experiencia de usuario.
+                    Entrar en un proyecto que no conoces es el trabajo más lento de un desarrollador:
+                    averiguar qué hace cada carpeta, dónde está la lógica de negocio y por dónde empezar
+                    a leer. Si el proyecto no tiene documentación —y casi nunca la tiene— pueden irse
+                    días.
                 </p>
                 <p>
-                    A través de su arquitectura modular, el sistema permite una gestión integral de todas las
-                    operaciones necesarias, garantizando un rendimiento óptimo y un mantenimiento simplificado.
+                    ExplainMyCodebase automatiza ese primer paso. Subes el proyecto comprimido, la
+                    herramienta lo descomprime, recorre su estructura, parsea los ficheros y genera con
+                    <strong>IA local</strong> una explicación de qué es cada módulo y cómo se
+                    relacionan. El resultado es un árbol de carpetas navegable junto al análisis.
+                </p>
+                <p>
+                    Está construido con <strong>Next.js 14</strong> usando App Router en el frontend y
+                    un backend <strong>Express</strong> que se encarga de la subida, la descompresión y
+                    el parseo antes de hablar con Ollama. El modelo corre en local: el código que subes
+                    no viaja a ningún proveedor externo, que es un requisito bastante razonable cuando
+                    se trata del código de tu empresa.
                 </p>
             </div>
 
-            <!-- Tecnologías -->
+            <!-- Tecnologías Utilizadas -->
             <div class="project-section">
                 <h2><i class="fas fa-tools"></i> Tecnologías Utilizadas</h2>
                 <div class="tech-grid">
-                    <div class="tech-badge"><i class="fab fa-python"></i><br>Python</div>
-                    <div class="tech-badge"><i class="fas fa-robot"></i><br>IA</div>
-                    <div class="tech-badge"><i class="fas fa-terminal"></i><br>CLI</div>
-                    <div class="tech-badge"><i class="fas fa-folder-open"></i><br>File Parsing</div>
+                    <div class="tech-badge"><i class="fas fa-n"></i><br>Next.js 14</div>
+                    <div class="tech-badge"><i class="fab fa-react"></i><br>React 18</div>
+                    <div class="tech-badge"><i class="fas fa-code"></i><br>TypeScript</div>
+                    <div class="tech-badge"><i class="fab fa-css3-alt"></i><br>TailwindCSS</div>
+                    <div class="tech-badge"><i class="fab fa-node-js"></i><br>Node.js</div>
+                    <div class="tech-badge"><i class="fas fa-server"></i><br>Express</div>
+                    <div class="tech-badge"><i class="fas fa-file-zipper"></i><br>adm-zip</div>
+                    <div class="tech-badge"><i class="fas fa-upload"></i><br>Multer</div>
+                    <div class="tech-badge"><i class="fas fa-robot"></i><br>Ollama</div>
                 </div>
             </div>
 
-            <!-- Módulos -->
+            <!-- Componentes y Servicios -->
             <div class="project-section">
-                <h2><i class="fas fa-th-large"></i> Arquitectura y Módulos</h2>
+                <h2><i class="fas fa-th-large"></i> Componentes y Servicios</h2>
                 <div class="modules-grid">
                     <div class="module-card">
-                        <strong>⚡ Inicialización:</strong>
-                        <p>Configuración del entorno y carga de parámetros iniciales.</p>
+                        <strong>📤 UploadForm</strong>
+                        <p>Formulario de subida del proyecto comprimido, gestionado en el backend con
+                        Multer.</p>
                     </div>
                     <div class="module-card">
-                        <strong>⚡ Procesamiento:</strong>
-                        <p>Ejecución de la lógica de negocio principal y validación de datos.</p>
+                        <strong>🌲 FolderTree</strong>
+                        <p>Árbol de carpetas navegable del proyecto analizado.</p>
                     </div>
                     <div class="module-card">
-                        <strong>⚡ Persistencia:</strong>
-                        <p>Almacenamiento seguro de la información generada.</p>
+                        <strong>📄 AnalysisResult</strong>
+                        <p>Presentación del análisis generado por el modelo.</p>
                     </div>
                     <div class="module-card">
-                        <strong>⚡ Visualización:</strong>
-                        <p>Renderizado de la interfaz y entrega de resultados al usuario final.</p>
+                        <strong>🟢 OllamaStatusBadge</strong>
+                        <p>Indicador del estado del servicio de Ollama: si no está levantado, el usuario
+                        lo sabe antes de subir nada.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🧠 ollamaService</strong>
+                        <p><code>services/ollamaService.js</code> — comunicación con el modelo local y
+                        construcción de los prompts.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📖 fileParser</strong>
+                        <p><code>utils/fileParser.js</code> — descompresión con <code>adm-zip</code> y
+                        lectura de los ficheros del proyecto.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Flujo Completo -->
+            <!-- Arquitectura -->
             <div class="project-section">
-                <h2><i class="fas fa-route"></i> Flujo Completo de Funcionamiento</h2>
+                <h2><i class="fas fa-sitemap"></i> Arquitectura</h2>
+                <p>
+                    Dos aplicaciones separadas. El <strong>frontend</strong> es Next.js 14 con App
+                    Router: <code>app/page.tsx</code> para la subida y <code>app/result/page.tsx</code>
+                    para el resultado. El <strong>backend</strong> es un Express mínimo cuyo trabajo es
+                    recibir el fichero, descomprimirlo, parsearlo y orquestar las llamadas a Ollama.
+                </p>
+                <p>
+                    La separación tiene una razón práctica: descomprimir y recorrer un proyecto grande
+                    es trabajo intensivo de disco que no encaja en una función serverless de Next.
+                </p>
+                <pre class="code-tree"><span class="t-dir">ExplainMyCodebase/</span>
+├── <span class="t-dir">backend/</span>
+│   ├── <span class="t-file">index.js</span>            <span class="t-note"># servidor Express</span>
+│   ├── <span class="t-dir">services/</span>            <span class="t-note"># ollamaService.js</span>
+│   ├── <span class="t-dir">utils/</span>               <span class="t-note"># fileParser.js</span>
+│   ├── <span class="t-dir">uploads/</span>             <span class="t-note"># proyectos recibidos</span>
+│   └── <span class="t-file">.env.example</span>
+└── <span class="t-dir">frontend/</span>
+    ├── <span class="t-file">app/page.tsx</span>        <span class="t-note"># formulario de subida</span>
+    ├── <span class="t-file">app/result/page.tsx</span> <span class="t-note"># resultado del análisis</span>
+    ├── <span class="t-file">app/OllamaStatusBadge.tsx</span>
+    └── <span class="t-dir">components/</span>          <span class="t-note"># FolderTree, AnalysisResult, UploadForm</span></pre>
+            </div>
+
+            <!-- Integraciones Externas -->
+            <div class="project-section">
+                <h2><i class="fas fa-plug"></i> Integraciones Externas</h2>
+                <div class="integration-grid">
+                    <div class="integration-card">
+                        <strong>Ollama</strong>
+                        <p>Modelo de lenguaje ejecutado en local que genera las explicaciones. El
+                        indicador de estado avisa si el servicio no está disponible.</p>
+                    </div>
+                    <div class="integration-card">
+                        <strong>adm-zip</strong>
+                        <p>Descompresión del proyecto subido para poder recorrer su estructura real.</p>
+                    </div>
+                    <div class="integration-card">
+                        <strong>Multer</strong>
+                        <p>Gestión de la subida del fichero en el backend Express.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flujo de Análisis -->
+            <div class="project-section">
+                <h2><i class="fas fa-route"></i> Flujo de Análisis</h2>
                 <ol class="workflow-steps">
-                    <li><strong>Inicialización:</strong> Configuración del entorno y carga de parámetros iniciales.</li>
-                    <li><strong>Procesamiento:</strong> Ejecución de la lógica de negocio principal y validación de datos.</li>
-                    <li><strong>Persistencia:</strong> Almacenamiento seguro de la información generada.</li>
-                    <li><strong>Visualización:</strong> Renderizado de la interfaz y entrega de resultados al usuario final.</li>
+                    <li><strong>Comprobación previa:</strong> el indicador de estado verifica que Ollama
+                    esté levantado antes de permitir la subida.</li>
+                    <li><strong>Subida:</strong> el usuario envía el proyecto comprimido; Multer lo
+                    recibe en el backend.</li>
+                    <li><strong>Descompresión:</strong> <code>adm-zip</code> extrae el contenido en el
+                    directorio de trabajo.</li>
+                    <li><strong>Recorrido y parseo:</strong> <code>fileParser</code> construye el árbol
+                    de carpetas y lee los ficheros relevantes.</li>
+                    <li><strong>Generación:</strong> <code>ollamaService</code> construye los prompts y
+                    pide al modelo la explicación de cada módulo.</li>
+                    <li><strong>Presentación:</strong> el frontend muestra el árbol navegable junto al
+                    análisis generado.</li>
                 </ol>
+            </div>
+
+            <!-- Retos Técnicos y Decisiones de Diseño -->
+            <div class="project-section">
+                <h2><i class="fas fa-lightbulb"></i> Retos Técnicos y Decisiones de Diseño</h2>
+                <h3>El contexto de un modelo es finito</h3>
+                <p>
+                    No se puede meter un proyecto entero en un prompt: cualquier repositorio real excede
+                    la ventana de contexto. El trabajo interesante está en <code>fileParser</code>, que
+                    decide qué leer y qué ignorar, y en trocear el análisis por módulos en lugar de
+                    intentar explicarlo todo de una vez.
+                </p>
+                <h3>IA local porque es código ajeno</h3>
+                <p>
+                    La herramienta se usa sobre proyectos que no son tuyos, muchas veces de una empresa.
+                    Enviarlos a una API en la nube es exactamente lo que un acuerdo de confidencialidad
+                    prohíbe. Ollama en local convierte la herramienta en algo que se puede usar de
+                    verdad en un entorno profesional.
+                </p>
+                <h3>Avisar del estado antes de que falle</h3>
+                <p>
+                    Si Ollama no está corriendo, el usuario sube un proyecto, espera y recibe un error.
+                    El <code>OllamaStatusBadge</code> existe para invertir ese orden: se comprueba
+                    primero y se avisa antes. Es un componente pequeño que evita el fallo más común de
+                    la herramienta.
+                </p>
+                <h3>Frontend y backend separados por una razón</h3>
+                <p>
+                    Next.js podría haber hecho ambas cosas, pero descomprimir un ZIP grande y recorrerlo
+                    es un proceso largo con acceso intensivo a disco, que encaja mal con el modelo de
+                    ejecución de sus rutas de API. Un Express dedicado lo resuelve sin pelearse con el
+                    framework.
+                </p>
             </div>
 
             <!-- Mi Rol -->
             <div class="project-section">
                 <h2><i class="fas fa-user-tie"></i> Mi Rol</h2>
-                <p><strong>Desarrollador Full Stack — Autor Único</strong></p>
                 <p>
-                    Diseñé y desarrollé el sistema completo de forma independiente: desde el análisis de requisitos, 
-                    diseño de la arquitectura, implementación de backend y frontend, hasta el despliegue final.
+                    <strong>Desarrollador full stack — autor único.</strong>
+                </p>
+                <p>
+                    Frontend Next.js con App Router, backend Express, servicio de comunicación con
+                    Ollama, parser de proyectos y componentes de visualización del análisis.
                 </p>
             </div>
 
-            <!-- Estado -->
+            <!-- Estado del Proyecto -->
             <div class="project-section">
-                <h2><i class="fas fa-info"></i> Estado del Proyecto</h2>
-                <p><strong>Estado:</strong> <span style="color: #10b981; font-weight: bold;"></span></p>
+                <h2><i class="fas fa-flag-checkered"></i> Estado del Proyecto</h2>
+                <p>
+                    Proyecto funcional con frontend y backend operativos. Requiere Ollama corriendo en
+                    local. La calidad del análisis depende directamente del modelo que se use.
+                </p>
             </div>
 
-            <!-- Código -->
+            <!-- Código y Enlaces -->
             <div class="project-section">
-                <h2><i class="fas fa-link"></i> Código Fuente</h2>
+                <h2><i class="fas fa-link"></i> Código y Enlaces</h2>
                 <div class="project-links">
-                    <a href="#" target="_blank">
-                        <i class="fab fa-github"></i> Ver Código en GitHub
+                    <a href="https://github.com/Valentindg2506/Proyectos-Personales" target="_blank" rel="noopener">
+                        <i class="fab fa-github"></i> Ver código en GitHub
                     </a>
                 </div>
+                <p style="margin-top: 16px;">
+                    El código está en el repositorio <code>Proyectos-Personales</code>, dentro de la
+                    carpeta <code>ExplainMyCodebase/</code>.
+                </p>
             </div>
+
         </div>
     </div>
 
@@ -222,4 +267,5 @@
 
     <script src="../js/main.js"></script>
 </body>
+
 </html>

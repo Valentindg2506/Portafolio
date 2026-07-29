@@ -21,4 +21,4 @@ Disallow: /*.backup$
 Disallow: /*~$
 
 # Sitemap
-Sitemap: http://localhost:8000/sitemap.xml
+Sitemap: https://portafolio.valentindg.com/sitemap.xml

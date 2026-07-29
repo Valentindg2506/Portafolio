@@ -1,60 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Bot IA Jocarsa - Asistente automatizado local con Ollama y Python">
-    <title>Bot IA Jocarsa - Valentín De Gennaro</title>
+    <meta name="description" content="Bot-IA — asistente de estudio en Python con Selenium y Ollama que genera borradores para revisión manual">
+    <title>Bot-IA - Valentín De Gennaro</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/proyecto.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script>
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        if (savedTheme === 'dark') {
-            document.documentElement.classList.add('dark');
-        }
-    </script>
-    <style>
-        .project-detail { min-height: 100vh; padding: 80px 20px 40px; }
-        .project-hero { max-width: 1000px; margin: 0 auto 50px; text-align: center; }
-        .project-hero h1 { font-size: 3em; margin-bottom: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .project-content { max-width: 900px; margin: 0 auto; }
-        .project-section { margin-bottom: 40px; padding: 30px; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
-        .project-section h2 { font-size: 1.8em; margin-bottom: 20px; color: #3b82f6; }
-        .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-bottom: 20px; }
-        .tech-badge { padding: 10px 15px; background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(99, 102, 241, 0.2)); border: 1px solid rgba(59, 130, 246, 0.5); border-radius: 8px; text-align: center; font-weight: 500; }
-        .features-list { list-style: none; padding: 0; }
-        .features-list li { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .features-list li:last-child { border-bottom: none; }
-        .features-list li:before { content: "✓ "; color: #10b981; font-weight: bold; margin-right: 10px; }
-        .back-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.5); color: #3b82f6; border-radius: 6px; text-decoration: none; margin-bottom: 30px; transition: all 0.3s ease; }
-        .back-btn:hover { background: rgba(59, 130, 246, 0.3); transform: translateX(-5px); }
-        .project-links { display: flex; gap: 15px; margin-top: 20px; }
-        .project-links a { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 6px; text-decoration: none; transition: all 0.3s ease; }
-        .project-links a:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3); }
-    
-        .modules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin-top: 15px; }
-        .module-card { padding: 15px 18px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.25); border-radius: 10px; }
-        .module-card strong { display: block; margin-bottom: 4px; color: #a5b4fc; }
-        .module-card p { margin: 0; font-size: 0.9em; opacity: 0.85; }
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; margin: 20px 0; }
-        .stat-card { padding: 18px 12px; background: linear-gradient(135deg, rgba(102,126,234,0.15), rgba(118,75,162,0.15)); border: 1px solid rgba(102,126,234,0.3); border-radius: 10px; text-align: center; }
-        .stat-card .stat-num { display: block; font-size: 2em; font-weight: 800; color: #818cf8; line-height: 1; }
-        .stat-card .stat-label { display: block; font-size: 0.8em; opacity: 0.75; margin-top: 6px; }
-        .integration-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
-        .integration-card { padding: 15px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.25); border-radius: 10px; }
-        .integration-card strong { display: block; margin-bottom: 4px; color: #34d399; }
-        .integration-card p { margin: 0; font-size: 0.88em; opacity: 0.85; }
-        .roles-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-        .roles-table th, .roles-table td { padding: 10px 14px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.08); }
-        .roles-table th { color: #3b82f6; font-weight: 600; border-bottom: 1px solid rgba(59,130,246,0.3); }
-        .roles-table tr:last-child td { border-bottom: none; }
-        .role-level { display: inline-block; padding: 2px 8px; background: rgba(99,102,241,0.2); border-radius: 12px; font-size: 13px; font-weight: bold; color: #818cf8; }
-        .workflow-steps { counter-reset: step-counter; list-style: none; padding: 0; }
-        .workflow-steps li { counter-increment: step-counter; padding: 12px 0 12px 50px; border-bottom: 1px solid rgba(255,255,255,0.08); position: relative; }
-        .workflow-steps li:before { content: counter(step-counter); position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 32px; height: 32px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.85em; color: white; }
-        .workflow-steps li:last-child { border-bottom: none; }
-</style>
 </head>
+
 <body>
     <nav class="navbar" id="navbar">
         <div class="container">
@@ -73,19 +29,23 @@
         </a>
 
         <div class="project-hero">
-            <h1>Bot IA Jocarsa</h1>
-            <p style="font-size: 1.2em; color: #a0aec0;">Asistente automatizado local con Ollama y Python</p>
+            <h1>🤖 Bot-IA</h1>
+            <p class="project-tagline">Asistente de estudio: detecta tareas pendientes con Selenium y redacta borradores con IA local para revisar</p>
+            <div class="project-badges">
+                <span class="status-badge"><i class="fas fa-shield-halved"></i> Modo estudio seguro</span>
+                <span class="status-badge"><i class="fas fa-robot"></i> Ollama local</span>
+                <span class="status-badge"><i class="fab fa-python"></i> Selenium</span>
+            </div>
         </div>
 
         <div class="project-content">
-
-            <!-- Cifras Clave -->
+            <!-- Escala del Proyecto -->
             <div class="project-section">
                 <h2><i class="fas fa-chart-line"></i> Escala del Proyecto</h2>
                 <div class="stats-grid">
-                    <div class="stat-card"><span class="stat-num">10</span><span class="stat-label">Módulos</span></div>
-                    <div class="stat-card"><span class="stat-num">4</span><span class="stat-label">Tecnologías</span></div>
-                    <div class="stat-card"><span class="stat-num">v1.0</span><span class="stat-label">Versión</span></div>
+                    <div class="stat-card"><span class="stat-num">4</span><span class="stat-label">Opciones de menú</span></div>
+                    <div class="stat-card"><span class="stat-num">3</span><span class="stat-label">Archivos</span></div>
+                    <div class="stat-card"><span class="stat-num">789</span><span class="stat-label">Líneas</span></div>
                 </div>
             </div>
 
@@ -93,108 +53,237 @@
             <div class="project-section">
                 <h2><i class="fas fa-info-circle"></i> Descripción General</h2>
                 <p>
-                    <strong>Bot IA Jocarsa</strong> asistente automatizado local con ollama y python.
-                    Este proyecto ha sido desarrollado siguiendo estrictos estándares de calidad, 
-                    con un enfoque claro en la escalabilidad y la experiencia de usuario.
+                    Bot-IA automatiza la parte mecánica de estudiar: entra en el portal educativo con
+                    <strong>Selenium</strong>, detecta qué tareas están pendientes, lee el enunciado de
+                    cada una y redacta un <strong>borrador de respuesta</strong> con un modelo de
+                    lenguaje local vía Ollama. El borrador se guarda en Markdown.
                 </p>
                 <p>
-                    A través de su arquitectura modular, el sistema permite una gestión integral de todas las
-                    operaciones necesarias, garantizando un rendimiento óptimo y un mantenimiento simplificado.
+                    La clave del diseño es lo que <strong>no</strong> hace por defecto. La configuración
+                    viene con <code>MODO_ESTUDIO_SEGURO = True</code> y <code>AUTO_ENVIAR =
+                    False</code>: el bot genera el borrador y ahí se detiene. Cada fichero de respuesta
+                    incluye una <strong>lista de comprobación de revisión manual</strong> que hay que
+                    recorrer antes de entregar nada.
+                </p>
+                <p>
+                    Para que el borrador sea utilizable, el bot no escribe en el vacío: se le
+                    proporciona un fichero Markdown de <strong>resúmenes por asignatura</strong> con el
+                    estilo y el contenido que debe seguir. Sin ese contexto la respuesta es genérica;
+                    con él, se parece a los apuntes de la asignatura.
                 </p>
             </div>
 
-            <!-- Tecnologías -->
+            <!-- Tecnologías Utilizadas -->
             <div class="project-section">
                 <h2><i class="fas fa-tools"></i> Tecnologías Utilizadas</h2>
                 <div class="tech-grid">
-                    <div class="tech-badge"><i class="fab fa-python"></i><br>Python</div>
-                    <div class="tech-badge"><i class="fas fa-robot"></i><br>Ollama LLM</div>
-                    <div class="tech-badge"><i class="fas fa-globe"></i><br>Web Scraping</div>
+                    <div class="tech-badge"><i class="fab fa-python"></i><br>Python 3.10+</div>
+                    <div class="tech-badge"><i class="fas fa-robot"></i><br>Selenium</div>
+                    <div class="tech-badge"><i class="fab fa-chrome"></i><br>Google Chrome</div>
+                    <div class="tech-badge"><i class="fas fa-brain"></i><br>Ollama</div>
+                    <div class="tech-badge"><i class="fas fa-microchip"></i><br>qwen2.5-coder:3b</div>
                     <div class="tech-badge"><i class="fab fa-markdown"></i><br>Markdown</div>
+                    <div class="tech-badge"><i class="fas fa-vial"></i><br>Tests</div>
                 </div>
             </div>
 
-            <!-- Módulos -->
+            <!-- Estructura y Menú -->
             <div class="project-section">
-                <h2><i class="fas fa-th-large"></i> Arquitectura y Módulos</h2>
+                <h2><i class="fas fa-th-large"></i> Estructura y Menú</h2>
                 <div class="modules-grid">
                     <div class="module-card">
-                        <strong>⚡ Integración con LLMs locales (Ollama)</strong>
-                        <p>Implementación completa y optimizada de la funcionalidad de integración con llms locales (ollama).</p>
+                        <strong>🖥️ main.py</strong>
+                        <p>Script principal con el menú interactivo de cuatro opciones.</p>
                     </div>
                     <div class="module-card">
-                        <strong>⚡ Automatización de navegación web (Scraping)</strong>
-                        <p>Implementación completa y optimizada de la funcionalidad de automatización de navegación web (scraping).</p>
+                        <strong>⚙️ config.py</strong>
+                        <p>Toda la configuración: acceso, carpetas, modelo de Ollama, banderas de
+                        seguridad y selectores del DOM.</p>
                     </div>
                     <div class="module-card">
-                        <strong>⚡ Generación de respuestas contextualizadas</strong>
-                        <p>Implementación completa y optimizada de la funcionalidad de generación de respuestas contextualizadas.</p>
+                        <strong>📚 resumenes/</strong>
+                        <p>Un fichero Markdown por asignatura con el contexto y el estilo que debe
+                        seguir el bot.</p>
                     </div>
                     <div class="module-card">
-                        <strong>⚡ Modo de revisión humana (Safe-mode)</strong>
-                        <p>Implementación completa y optimizada de la funcionalidad de modo de revisión humana (safe-mode).</p>
+                        <strong>📝 respuestas/</strong>
+                        <p>Los borradores generados, uno por actividad.</p>
                     </div>
                     <div class="module-card">
-                        <strong>⚡ Configuración multi-asignatura</strong>
-                        <p>Implementación completa y optimizada de la funcionalidad de configuración multi-asignatura.</p>
+                        <strong>🧪 tests/</strong>
+                        <p>Pruebas básicas del proyecto.</p>
                     </div>
                     <div class="module-card">
-                        <strong>⚡ Uso avanzado de Selenium/Scraping</strong>
-                        <p>Implementación completa y optimizada de la funcionalidad de uso avanzado de selenium/scraping.</p>
+                        <strong>1️⃣ Automatización completa</strong>
+                        <p>Recorre las tareas pendientes y genera los borradores.</p>
                     </div>
                     <div class="module-card">
-                        <strong>⚡ Privacidad al usar IA local</strong>
-                        <p>Implementación completa y optimizada de la funcionalidad de privacidad al usar ia local.</p>
+                        <strong>2️⃣ Salir</strong>
+                        <p>Cierre del programa.</p>
                     </div>
                     <div class="module-card">
-                        <strong>⚡ Generación procedimental de contenido</strong>
-                        <p>Implementación completa y optimizada de la funcionalidad de generación procedimental de contenido.</p>
+                        <strong>3️⃣ Diagnóstico de Ollama</strong>
+                        <p>Verifica que el servicio y el modelo estén disponibles antes de intentar
+                        generar.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>4️⃣ Contar tareas pendientes</strong>
+                        <p>Muestra cuántas tareas hay por asignatura, sin generar nada.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Flujo Completo -->
+            <!-- Arquitectura -->
             <div class="project-section">
-                <h2><i class="fas fa-route"></i> Flujo Completo de Funcionamiento</h2>
+                <h2><i class="fas fa-sitemap"></i> Arquitectura</h2>
+                <p>
+                    Proyecto pequeño y muy configurable. Toda la fragilidad del scraping está aislada en
+                    <code>config.py</code>, en forma de selectores del DOM y expresiones XPath: si el
+                    portal cambia su estructura, se arregla editando la configuración en lugar de
+                    tocando el código.
+                </p>
+                <pre class="code-tree"><span class="t-dir">Bot-IA/</span>
+└── <span class="t-dir">V0.1-inicio/</span>
+    ├── <span class="t-file">main.py</span>             <span class="t-note"># menú y flujo principal</span>
+    ├── <span class="t-file">config.py</span>           <span class="t-note"># configuración completa</span>
+    ├── <span class="t-file">requirements.txt</span>
+    ├── <span class="t-dir">resumenes/</span>           <span class="t-note"># contexto por asignatura (.md)</span>
+    ├── <span class="t-dir">respuestas/</span>          <span class="t-note"># borradores generados</span>
+    └── <span class="t-dir">tests/</span></pre>
+            </div>
+
+            <!-- Integraciones Externas -->
+            <div class="project-section">
+                <h2><i class="fas fa-plug"></i> Integraciones Externas</h2>
+                <div class="integration-grid">
+                    <div class="integration-card">
+                        <strong>Selenium + Chrome</strong>
+                        <p>Navegación automatizada del portal educativo. Puede ejecutarse en modo
+                        <em>headless</em> o con la ventana visible para depurar.</p>
+                    </div>
+                    <div class="integration-card">
+                        <strong>Ollama</strong>
+                        <p>Generación del borrador con un modelo local — <code>qwen2.5-coder:3b</code>
+                        por defecto — sin enviar los enunciados a ningún servicio externo.</p>
+                    </div>
+                    <div class="integration-card">
+                        <strong>Modo de prueba</strong>
+                        <p><code>OLLAMA_MODO_PRUEBA</code> permite ejecutar todo el flujo sin generación
+                        real, para probar la navegación sin gastar cómputo.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flujo Recomendado -->
+            <div class="project-section">
+                <h2><i class="fas fa-route"></i> Flujo Recomendado</h2>
                 <ol class="workflow-steps">
-                    <li><strong>Inicialización:</strong> Configuración del entorno y carga de parámetros iniciales.</li>
-                    <li><strong>Procesamiento:</strong> Ejecución de la lógica de negocio principal y validación de datos.</li>
-                    <li><strong>Persistencia:</strong> Almacenamiento seguro de la información generada.</li>
-                    <li><strong>Visualización:</strong> Renderizado de la interfaz y entrega de resultados al usuario final.</li>
+                    <li><strong>Diagnóstico:</strong> opción 3 del menú: se comprueba que Ollama esté
+                    activo y el modelo descargado.</li>
+                    <li><strong>Recuento:</strong> opción 4: se ve cuántas tareas pendientes hay por
+                    asignatura, sin generar nada.</li>
+                    <li><strong>Configurar seguridad:</strong> se verifica que
+                    <code>MODO_ESTUDIO_SEGURO</code> esté activo y <code>AUTO_ENVIAR</code>
+                    desactivado.</li>
+                    <li><strong>Generar borradores:</strong> opción 1: el bot navega, detecta las
+                    tareas, lee los enunciados y escribe los ficheros Markdown.</li>
+                    <li><strong>Revisar:</strong> cada borrador se corrige a mano recorriendo su lista
+                    de comprobación.</li>
+                    <li><strong>Decidir:</strong> solo cuando todo está validado se plantea activar el
+                    envío automático.</li>
                 </ol>
+            </div>
+
+            <!-- Formato de Cada Borrador -->
+            <div class="project-section">
+                <h2><i class="fab fa-markdown"></i> Formato de Cada Borrador</h2>
+                <ul class="features-list">
+                    <li>Título de la actividad.</li>
+                    <li>Fecha y asignatura.</li>
+                    <li>Bloque <code>## Enunciado</code> con el texto original de la tarea.</li>
+                    <li>Bloque <code>## Respuesta</code> con el borrador generado.</li>
+                    <li><strong>Lista de comprobación de revisión manual</strong> que hay que recorrer
+                    antes de entregar.</li>
+                </ul>
+            </div>
+
+            <!-- Retos Técnicos y Decisiones de Diseño -->
+            <div class="project-section">
+                <h2><i class="fas fa-lightbulb"></i> Retos Técnicos y Decisiones de Diseño</h2>
+                <h3>Diseñar la herramienta para que no se use mal</h3>
+                <p>
+                    Un bot que entrega tareas automáticamente es un problema académico, no un proyecto.
+                    Las banderas por defecto — <code>MODO_ESTUDIO_SEGURO = True</code> y
+                    <code>AUTO_ENVIAR = False</code> — y la lista de comprobación en cada borrador están
+                    ahí para que el camino fácil sea el correcto. El README lo dice de forma explícita:
+                    la responsabilidad del contenido es de quien entrega.
+                </p>
+                <h3>El contexto es lo que hace útil la generación</h3>
+                <p>
+                    Sin los resúmenes por asignatura, el modelo produce texto genérico que no sirve.
+                    Alimentarle un Markdown con el estilo y el contenido de la materia es lo que
+                    convierte la salida en un punto de partida real. La calidad del borrador depende más
+                    del contexto que del tamaño del modelo.
+                </p>
+                <h3>Aislar la parte que se va a romper</h3>
+                <p>
+                    Cualquier automatización sobre una web ajena se rompe cuando esa web cambia. Todos
+                    los selectores CSS y XPath están en <code>config.py</code>, con su sección de
+                    solución de problemas en el README: qué ajustar si no detecta tareas, si no
+                    encuentra el enunciado o si no consigue pegar la respuesta.
+                </p>
+                <h3>Un modo de prueba para no gastar cómputo</h3>
+                <p>
+                    Depurar la navegación con Selenium requiere muchas ejecuciones, y generar con un
+                    modelo local en cada una es lento. <code>OLLAMA_MODO_PRUEBA</code> desacopla ambas
+                    cosas: se prueba el scraping sin invocar el modelo.
+                </p>
             </div>
 
             <!-- Mi Rol -->
             <div class="project-section">
                 <h2><i class="fas fa-user-tie"></i> Mi Rol</h2>
-                <p><strong>Desarrollador Full Stack — Autor Único</strong></p>
                 <p>
-                    Diseñé y desarrollé el sistema completo de forma independiente: desde el análisis de requisitos, 
-                    diseño de la arquitectura, implementación de backend y frontend, hasta el despliegue final.
+                    <strong>Desarrollador — autor único.</strong>
+                </p>
+                <p>
+                    Automatización con Selenium, integración con Ollama, sistema de contexto por
+                    asignatura, generación del Markdown con su lista de comprobación y el diseño de las
+                    salvaguardas por defecto.
                 </p>
             </div>
 
-            <!-- Estado -->
+            <!-- Estado del Proyecto -->
             <div class="project-section">
-                <h2><i class="fas fa-info"></i> Estado del Proyecto</h2>
-                <p><strong>Estado:</strong> <span style="color: #10b981; font-weight: bold;"></span></p>
+                <h2><i class="fas fa-flag-checkered"></i> Estado del Proyecto</h2>
+                <p>
+                    Versión <code>V0.1-inicio</code> funcional. Requiere Python 3.10+, Chrome y Ollama
+                    corriendo en local. Orientado a apoyo del estudio con revisión manual obligatoria.
+                </p>
             </div>
 
-            <!-- Código -->
+            <!-- Código y Enlaces -->
             <div class="project-section">
-                <h2><i class="fas fa-link"></i> Código Fuente</h2>
+                <h2><i class="fas fa-link"></i> Código y Enlaces</h2>
                 <div class="project-links">
-                    <a href="https://github.com/Valentindg2506/Bot-IA" target="_blank">
-                        <i class="fab fa-github"></i> Ver Código en GitHub
+                    <a href="https://github.com/Valentindg2506/Bot-IA" target="_blank" rel="noopener">
+                        <i class="fab fa-github"></i> Ver código en GitHub
                     </a>
                 </div>
+                <p style="margin-top: 16px;">
+                    El repositorio no incluye datos de acceso: el DNI y la URL del portal se configuran
+                    en <code>config.py</code>.
+                </p>
             </div>
+
         </div>
     </div>
 
     <button id="scrollTop" class="scroll-top" aria-label="Volver arriba">
         <i class="fas fa-arrow-up"></i>
     </button>
+
     <script src="../js/main.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MP Solutions Group — landing corporativa de un call center con configuración centralizada y JSON-LD">
+    <title>MP Solutions Group - Valentín De Gennaro</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/proyecto.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="../index.html#home">&lt;VDG /&gt;</a>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="project-detail">
+        <a href="../index.html#projects" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Volver a Proyectos
+        </a>
+
+        <div class="project-hero">
+            <h1>☎️ MP Solutions Group</h1>
+            <p class="project-tagline">Landing corporativa de un call center: todos los datos de empresa en un único fichero de configuración</p>
+            <div class="project-badges">
+                <span class="status-badge is-live"><i class="fas fa-circle-check"></i> En producción</span>
+                <span class="status-badge"><i class="fas fa-gear"></i> Config centralizada</span>
+                <span class="status-badge"><i class="fab fa-google"></i> JSON-LD</span>
+                <span class="status-badge"><i class="fas fa-mobile-screen"></i> PWA</span>
+            </div>
+        </div>
+
+        <div class="project-content">
+            <!-- Escala del Proyecto -->
+            <div class="project-section">
+                <h2><i class="fas fa-chart-line"></i> Escala del Proyecto</h2>
+                <div class="stats-grid">
+                    <div class="stat-card"><span class="stat-num">6</span><span class="stat-label">Páginas</span></div>
+                    <div class="stat-card"><span class="stat-num">1</span><span class="stat-label">Fichero de config</span></div>
+                    <div class="stat-card"><span class="stat-num">9</span><span class="stat-label">Archivos</span></div>
+                    <div class="stat-card"><span class="stat-num">2.2k</span><span class="stat-label">Líneas</span></div>
+                </div>
+            </div>
+
+            <!-- Descripción General -->
+            <div class="project-section">
+                <h2><i class="fas fa-info-circle"></i> Descripción General</h2>
+                <p>
+                    MP Solutions Group es un call center profesional argentino. La web es su
+                    presentación pública: servicios, proceso de trabajo, resultados, oficina y contacto,
+                    más una página propia de empleo y las tres páginas legales obligatorias.
+                </p>
+                <p>
+                    El problema real de una web corporativa no es construirla, es
+                    <strong>mantenerla</strong>. Cambiar un teléfono implica normalmente tocarlo en la
+                    cabecera, en contacto, en el pie, en las tres páginas legales y en los datos
+                    estructurados. Seis sitios, y siempre se olvida uno.
+                </p>
+                <p>
+                    La solución aquí es <code>config.js</code>: <strong>todos</strong> los datos de la
+                    empresa — razón social, CUIT, teléfono, WhatsApp, emails, dirección, jurisdicción,
+                    redes y las cifras de resultados — viven en un único fichero y se propagan solos a
+                    todas las páginas mediante atributos <code>data-mp-*</code>. Incluso el JSON-LD de
+                    Google se genera desde ahí.
+                </p>
+            </div>
+
+            <!-- Tecnologías Utilizadas -->
+            <div class="project-section">
+                <h2><i class="fas fa-tools"></i> Tecnologías Utilizadas</h2>
+                <div class="tech-grid">
+                    <div class="tech-badge"><i class="fab fa-html5"></i><br>HTML5</div>
+                    <div class="tech-badge"><i class="fab fa-css3-alt"></i><br>CSS3</div>
+                    <div class="tech-badge"><i class="fab fa-js"></i><br>JavaScript vanilla</div>
+                    <div class="tech-badge"><i class="fab fa-google"></i><br>JSON-LD Schema.org</div>
+                    <div class="tech-badge"><i class="fas fa-mobile-screen"></i><br>PWA</div>
+                    <div class="tech-badge"><i class="fas fa-magnifying-glass"></i><br>SEO / Open Graph</div>
+                    <div class="tech-badge"><i class="fab fa-linux"></i><br>.htaccess</div>
+                </div>
+            </div>
+
+            <!-- Páginas y Componentes -->
+            <div class="project-section">
+                <h2><i class="fas fa-th-large"></i> Páginas y Componentes</h2>
+                <div class="modules-grid">
+                    <div class="module-card">
+                        <strong>🏠 Landing principal</strong>
+                        <p><code>index.html</code> con hero, servicios, proceso, resultados, carrusel de
+                        oficina y contacto.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>💼 Empleo</strong>
+                        <p><code>empleo.html</code> — página propia de "Trabajá con nosotros" con los
+                        perfiles buscados y envío de CV por WhatsApp o email con el mensaje ya
+                        preparado.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>⚖️ Páginas legales</strong>
+                        <p>Privacidad conforme a la Ley 25.326 de Argentina, política de cookies y
+                        términos y condiciones.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🚫 Página 404</strong>
+                        <p>Error personalizado, definido también en el <code>.htaccess</code>.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>⭐ config.js</strong>
+                        <p>El fichero central: nombre, razón social, CUIT, contacto, dirección,
+                        jurisdicción, redes y cifras de resultados.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🍪 Banner de cookies</strong>
+                        <p>Consentimiento de aceptar o rechazar, guardado en <code>localStorage</code> y
+                        reabrible desde el pie.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>🎞️ Carrusel</strong>
+                        <p>Galería de imágenes de la oficina.</p>
+                    </div>
+                    <div class="module-card">
+                        <strong>📊 Contadores</strong>
+                        <p>Cifras de resultados animadas al aparecer en pantalla.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Arquitectura -->
+            <div class="project-section">
+                <h2><i class="fas fa-sitemap"></i> Arquitectura</h2>
+                <p>
+                    Sitio estático sin framework ni proceso de compilación, servido como ficheros. El
+                    patrón central es la <strong>inyección de datos por atributos</strong>: los
+                    elementos del HTML llevan <code>data-mp-text</code>, <code>data-mp-link</code> o
+                    <code>data-mp-social</code>, y <code>config.js</code> los rellena al cargar. Cambiar
+                    un dato de empresa no requiere tocar ni una línea de HTML.
+                </p>
+                <pre class="code-tree"><span class="t-dir">MP/WEB/</span>
+├── <span class="t-file">index.html</span>             <span class="t-note"># landing completa</span>
+├── <span class="t-file">empleo.html</span>            <span class="t-note"># trabajá con nosotros</span>
+├── <span class="t-file">config.js</span>              <span class="t-note">#  DATOS DE LA EMPRESA</span>
+├── <span class="t-file">app.js</span>                 <span class="t-note"># menú, scroll-reveal, cookies, carrusel</span>
+├── <span class="t-file">style.css</span>
+├── <span class="t-file">privacidad.html</span> · <span class="t-file">cookies.html</span> · <span class="t-file">terminos.html</span>
+├── <span class="t-file">404.html</span>
+├── <span class="t-file">robots.txt</span> · <span class="t-file">sitemap.xml</span> · <span class="t-file">site.webmanifest</span>
+├── <span class="t-file">.htaccess</span>              <span class="t-note"># HTTPS, gzip, caché, seguridad, 404</span>
+└── <span class="t-dir">assets/</span>                 <span class="t-note"># logo, favicon, iconos PWA, og-image</span></pre>
+            </div>
+
+            <!-- SEO y Despliegue Configurados -->
+            <div class="project-section">
+                <h2><i class="fas fa-magnifying-glass-chart"></i> SEO y Despliegue Configurados</h2>
+                <ul class="features-list">
+                    <li>Metadatos completos: <code>title</code>, <code>description</code>,
+                    <code>keywords</code>, <code>author</code>, <code>robots</code> y
+                    <code>canonical</code>.</li>
+                    <li><strong>Open Graph</strong> y <strong>Twitter Card</strong> con imagen de
+                    1200×630 generada desde el logo.</li>
+                    <li><strong>Datos estructurados JSON-LD</strong> de tipo <code>LocalBusiness</code>,
+                    generados desde <code>config.js</code>.</li>
+                    <li><code>robots.txt</code> y <code>sitemap.xml</code> incluidos.</li>
+                    <li>Favicon, iconos PWA, <code>apple-touch-icon</code> y
+                    <code>site.webmanifest</code>: instalable como aplicación.</li>
+                    <li><code>.htaccess</code> que fuerza HTTPS, redirige <code>www</code> a sin
+                    <code>www</code>, y activa gzip, caché y cabeceras de seguridad.</li>
+                    <li>HSTS preparado pero comentado, para activarlo solo cuando HTTPS esté
+                    verificado.</li>
+                    <li><strong>Google Analytics desactivado por defecto</strong>: solo se carga si el
+                    visitante acepta las cookies.</li>
+                </ul>
+            </div>
+
+            <!-- Retos Técnicos y Decisiones de Diseño -->
+            <div class="project-section">
+                <h2><i class="fas fa-lightbulb"></i> Retos Técnicos y Decisiones de Diseño</h2>
+                <h3>Un config.js porque un .env no es posible</h3>
+                <p>
+                    En una aplicación con backend, los datos de empresa irían en un <code>.env</code>.
+                    Aquí el sitio es estático y el navegador no puede leer un <code>.env</code>.
+                    <code>config.js</code> cumple la misma función: un único punto de verdad. La
+                    diferencia es que es público, así que solo contiene datos que ya son públicos —
+                    nunca secretos.
+                </p>
+                <h3>Analítica que respeta el consentimiento de verdad</h3>
+                <p>
+                    Lo habitual es cargar Google Analytics siempre y mostrar el banner de cookies como
+                    decoración. Aquí el script de analítica <strong>solo se carga si el visitante
+                    acepta</strong>, y su ID está vacío por defecto. Es más trabajo y menos datos, pero
+                    es lo que el banner dice que hace.
+                </p>
+                <h3>Paleta extraída del logo real</h3>
+                <p>
+                    Los colores del sitio son los exactos del logo corporativo: azul royal #1F419B, navy
+                    #16305F, cyan #4E9BD1, plateado #C7CCD2 y perla #E5E4E1. La cabecera y las tarjetas
+                    usan fondo perla para que el logo se integre en lugar de flotar sobre un recuadro
+                    blanco.
+                </p>
+                <h3>Documentar honestamente qué falta</h3>
+                <p>
+                    El README indica de forma explícita que el logo actual es una reconstrucción
+                    vectorial, porque el original tiene el fondo incrustado y no se puede recortar
+                    limpio, y que hay que sustituirlo por el vector del diseñador. Dejar constancia de
+                    lo que es provisional evita que se quede así para siempre.
+                </p>
+            </div>
+
+            <!-- Mi Rol -->
+            <div class="project-section">
+                <h2><i class="fas fa-user-tie"></i> Mi Rol</h2>
+                <p>
+                    <strong>Diseño y desarrollo completos — autor único.</strong>
+                </p>
+                <p>
+                    Estructura del sitio, sistema de configuración centralizada, páginas legales
+                    adaptadas a la normativa argentina, SEO con datos estructurados, configuración PWA,
+                    <code>.htaccess</code> de producción y generación de la iconografía.
+                </p>
+            </div>
+
+            <!-- Estado del Proyecto -->
+            <div class="project-section">
+                <h2><i class="fas fa-flag-checkered"></i> Estado del Proyecto</h2>
+                <p>
+                    <strong>En producción</strong> en <code>mpsolutions.com.ar</code>. Las páginas
+                    legales son plantillas orientativas y el propio README recomienda revisarlas con un
+                    profesional.
+                </p>
+            </div>
+
+            <!-- Código y Enlaces -->
+            <div class="project-section">
+                <h2><i class="fas fa-link"></i> Código y Enlaces</h2>
+                <div class="project-links">
+                    <a href="https://mpsolutions.com.ar/" target="_blank" rel="noopener">
+                        <i class="fas fa-external-link-alt"></i> Ver en producción
+                    </a>
+                    <span class="link-muted">
+                        <i class="fas fa-lock"></i> Código privado
+                    </span>
+                </div>
+                <p style="margin-top: 16px;">
+                    El repositorio no es público al ser un trabajo para cliente.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <button id="scrollTop" class="scroll-top" aria-label="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
